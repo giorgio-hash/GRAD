@@ -1,0 +1,8 @@
+DEGREE: "laurea triennale in ingegneria informatica"
+YEARS: [
+	YEAR1 {
+		EXAMS: [
+			EXAM "Matematica" CFU 6 DATE 2025-1-30;
+		]
+	}
+]
