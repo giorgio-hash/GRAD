@@ -215,3 +215,5 @@ fabric.properties
 
 
 .project
+.classpath
+.idea
