@@ -1,13 +1,14 @@
 package myPackage;
 
 import java.io.FileReader;
-
 import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 
 //import myCompilerPackage.SemanticHandler;
 import myCompilerPackage.GRADLexer;
 import myCompilerPackage.GRADParser;
+import myCompilerPackage.util.Degree;
+import myCompilerPackage.util.Milestone;
 
 /* 
  * Questa � una classe di esempio
@@ -40,6 +41,9 @@ public class ParserLauncher {
 	    // 4. si lancia il parser dallo start simbol (prima produzione specificata)
 	    parser.degreeRule();
 	    System.out.println("Tutto ok");
+	    System.out.println("Degree:");
+	    System.out.println(Degree.getDegree());
+	    	System.out.println("Tutto ok");
   	} catch (Exception e) {
 			System.out.println ("Parsing con ANTLR abortito\n\n");
 			e.printStackTrace();

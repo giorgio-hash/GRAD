@@ -1,0 +1,12 @@
+dependency_rules:
+    a2aftera1gal:
+        exam: "analisi 2"
+        strict_dependencies:
+            exam: "analisi 1"
+            exam: "geometria ed algebra lineare"
+    roboticaaftercontrolli:
+        exam: "Robotica"
+        soft_dependencies:
+            exam: "fisica I"
+            exam: "fisica II"
+        

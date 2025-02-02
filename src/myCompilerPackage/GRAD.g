@@ -7,16 +7,17 @@ options {
 
 @lexer::header{
 	package myCompilerPackage;
-	//import myCompilerPackage.util.*;
+	import myCompilerPackage.util.*;
 }
 
 @parser::header{
 	package myCompilerPackage;
-	//import myCompilerPackage.util.*;
+	import myCompilerPackage.util.*;
 }
 
 @members {
-	//SemanticHandler h = SemanticHandler.getHandler();
+	SemanticHandler h = SemanticHandler.getHandler();
+	int years=0;
 }
 
 WS  :   ( ' '
@@ -58,8 +59,7 @@ UNICODE_ESC
 
 INT	:	'0'|('1'.. '9')('0'.. '9')*;
 
-
-DATE 	:	INT '-' INT '-' INT; 
+DATE 	:	('0'.. '9')('0'.. '9')('0'.. '9')('0'.. '9') '-' ('0'.. '9')('0'.. '9') '-' ('0'.. '9')('0'.. '9'); 
 
 STATUS	:	'PASSED' | 'NOT_PASSED';
 
@@ -79,14 +79,14 @@ DOTCOMMA
 
 
 degreeRule
-	:	'DEGREE:' STRING 'YEARS:' OPEN_SQB (yearRule)+ CLOSE_SQB;
-	
-yearRule
-	:	'YEAR' INT OPEN_CUB 'EXAMS:' OPEN_SQB examsArgListRule CLOSE_SQB CLOSE_CUB;
-	
-examsArgListRule
-	:	examRule DOTCOMMA (examRule DOTCOMMA)*
+	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'YEARS:' OPEN_SQB ( y=yearRule { h.addYear(y); } )+ CLOSE_SQB
 	;
+	
+yearRule returns [Year y]
+	:	'YEAR' id=INT { y=h.createYear($id); } OPEN_CUB 'EXAMS:' OPEN_SQB ( e=examRule { y.addExam(e); } DOTCOMMA)+ CLOSE_SQB CLOSE_CUB
+	;
+	
 
-examRule
-	:	 'EXAM' STRING 'CFU' INT 'DATE' DATE ('STATUS' STATUS)?;
+examRule returns [Exam e]
+	:	 'EXAM' nome=STRING 'CFU' cfu=INT 'DATE' stringdate=DATE {e=h.createExam($nome,$cfu,$stringdate);} ('STATUS' status=STATUS {h.setExamStatus(e,$status); })? ('MILESTONE' mil=STRING {h.assignExamToMilestone(e,$mil);}  )?
+	;
