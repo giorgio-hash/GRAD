@@ -2,7 +2,8 @@ DEGREE: "laurea triennale in ingegneria informatica"
 YEARS: [
 	YEAR1 {
 		EXAMS: [
-			EXAM "Matematica" CFU 6 DATE 2025-1-30;
+			EXAM "Matematica" CFU 6 DATE 2025-01-30 MILESTONE "a1gal";
+			EXAM "gal" CFU 6 DATE 2025-01-30 MILESTONE "a1gal";
 		]
 	}
 ]
