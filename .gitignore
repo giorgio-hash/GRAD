@@ -218,3 +218,4 @@ fabric.properties
 .classpath
 .idea
 /bin1/
+/target/
