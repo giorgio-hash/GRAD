@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g 2025-02-04 12:30:22
+// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g 2025-02-04 12:33:25
 
 	package myCompilerPackage;
 	import myCompilerPackage.util.*;
@@ -65,7 +65,6 @@ public class GRADParser extends Parser {
 
 
 		SemanticHandler h = SemanticHandler.getHandler();
-		int years=0;
 
 
 	public static class degreeRule_return extends ParserRuleReturnScope {
@@ -73,7 +72,7 @@ public class GRADParser extends Parser {
 
 
 	// $ANTLR start "degreeRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:81:1: degreeRule : 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:80:1: degreeRule : 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB ;
 	public final GRADParser.degreeRule_return degreeRule() throws RecognitionException {
 		GRADParser.degreeRule_return retval = new GRADParser.degreeRule_return();
 		retval.start = input.LT(1);
@@ -83,8 +82,8 @@ public class GRADParser extends Parser {
 		Year y =null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:82:2: ( 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:82:4: 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:81:2: ( 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:81:4: 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB
 			{
 			match(input,22,FOLLOW_22_in_degreeRule523); 
 			deg=(Token)match(input,STRING,FOLLOW_STRING_in_degreeRule527); 
@@ -94,7 +93,7 @@ public class GRADParser extends Parser {
 			h.setDailyStudyHours(st);
 			match(input,28,FOLLOW_28_in_degreeRule539); 
 			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_degreeRule541); 
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:82:118: (y= yearRule )+
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:81:118: (y= yearRule )+
 			int cnt1=0;
 			loop1:
 			while (true) {
@@ -106,7 +105,7 @@ public class GRADParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:82:120: y= yearRule
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:81:120: y= yearRule
 					{
 					pushFollow(FOLLOW_yearRule_in_degreeRule547);
 					y=yearRule();
@@ -144,7 +143,7 @@ public class GRADParser extends Parser {
 
 
 	// $ANTLR start "yearRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:1: yearRule returns [Year y] : 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:84:1: yearRule returns [Year y] : 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB ;
 	public final Year yearRule() throws RecognitionException {
 		Year y = null;
 
@@ -152,15 +151,15 @@ public class GRADParser extends Parser {
 		Exam e =null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:2: ( 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:4: 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:2: ( 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:4: 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
 			{
 			match(input,27,FOLLOW_27_in_yearRule570); 
 			 y=h.createYear(); 
 			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule574); 
 			match(input,24,FOLLOW_24_in_yearRule576); 
 			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule578); 
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:60: (e= examRule DOTCOMMA )+
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:60: (e= examRule DOTCOMMA )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -172,7 +171,7 @@ public class GRADParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:62: e= examRule DOTCOMMA
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:62: e= examRule DOTCOMMA
 					{
 					pushFollow(FOLLOW_examRule_in_yearRule584);
 					e=examRule();
@@ -210,7 +209,7 @@ public class GRADParser extends Parser {
 
 
 	// $ANTLR start "examRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:1: examRule returns [Exam e] : 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )? ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:89:1: examRule returns [Exam e] : 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )? ;
 	public final Exam examRule() throws RecognitionException {
 		Exam e = null;
 
@@ -222,8 +221,8 @@ public class GRADParser extends Parser {
 		Token mil=null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:2: ( 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )? )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:5: 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )?
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:2: ( 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )? )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:5: 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )?
 			{
 			match(input,23,FOLLOW_23_in_examRule612); 
 			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule616); 
@@ -232,7 +231,7 @@ public class GRADParser extends Parser {
 			match(input,21,FOLLOW_21_in_examRule624); 
 			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule628); 
 			e=h.createExam(nome,cfu,stringdate);
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:103: ( 'STATUS' status= STATUS )?
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:103: ( 'STATUS' status= STATUS )?
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==26) ) {
@@ -240,7 +239,7 @@ public class GRADParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:104: 'STATUS' status= STATUS
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:104: 'STATUS' status= STATUS
 					{
 					match(input,26,FOLLOW_26_in_examRule633); 
 					status=(Token)match(input,STATUS,FOLLOW_STATUS_in_examRule637); 
@@ -250,7 +249,7 @@ public class GRADParser extends Parser {
 
 			}
 
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:160: ( 'MILESTONE' mil= STRING )?
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:160: ( 'MILESTONE' mil= STRING )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==25) ) {
@@ -258,7 +257,7 @@ public class GRADParser extends Parser {
 			}
 			switch (alt4) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:161: 'MILESTONE' mil= STRING
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:90:161: 'MILESTONE' mil= STRING
 					{
 					match(input,25,FOLLOW_25_in_examRule644); 
 					mil=(Token)match(input,STRING,FOLLOW_STRING_in_examRule648); 
