@@ -17,7 +17,6 @@ options {
 
 @members {
 	SemanticHandler h = SemanticHandler.getHandler();
-	int years=0;
 }
 
 WS  :   ( ' '
