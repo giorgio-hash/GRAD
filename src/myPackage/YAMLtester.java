@@ -2,8 +2,7 @@
 package myPackage;
 
 import org.yaml.snakeyaml.Yaml;
-
-import myCompilerPackage.util.*;
+import myPackage.YAMLutils.DependencyManager;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

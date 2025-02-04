@@ -1,27 +1,27 @@
 package myCompilerPackage.util;
-
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Milestone {
 
 	private String name;
-	private ArrayList<Exam> exams;
+	private Map<String, Exam> exams;
 	
 	public Milestone (String name) {
 		this.name = name;
-		this.exams = new ArrayList<Exam>();
+		this.exams = new HashMap<String, Exam>();
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public ArrayList<Exam> getExams() {
+	public Map<String, Exam> getExams() {
 		return exams;
 	}
 	
 	public void addExam(Exam e) {
-		exams.add(e);
+		exams.put(e.getName(), e);
 	}
 
 	
@@ -29,7 +29,7 @@ public class Milestone {
 	@Override
 	public String toString() {
 		String s = "Milestone [id=" + name + ", exams=\n";
-		for(Exam e : exams)
+		for(Exam e : exams.values())
 			s +="\t"+e+";\n";
 		return s + "]";
 	}

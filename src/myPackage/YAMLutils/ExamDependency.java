@@ -1,4 +1,4 @@
-package myCompilerPackage.util;
+package myPackage.YAMLutils;
 
 public class ExamDependency {
 	private String exam;

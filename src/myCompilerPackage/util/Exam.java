@@ -8,6 +8,9 @@ public class Exam {
     private LocalDate appello; // Data dell'appello
     private Status status; // Stato dell'esame: PASSED / NOT_PASSED
     private String milestone;//milestone di riferimento. default: null
+    
+    //private HashMap<Exam> isBefore;
+    //private HashMap<Exam> isAfter;
 
     public Exam(String name, int cfu, LocalDate appello) {
         this.name = name;
@@ -35,7 +38,7 @@ public class Exam {
     }
 
     public void setStatus(String status) {
-        Status.valueOf(status);
+        this.status = Status.valueOf(status);
     }
     
     public String getMilestone() {

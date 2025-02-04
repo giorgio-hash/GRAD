@@ -1,12 +1,12 @@
-package myCompilerPackage.util;
+package myPackage.YAMLutils;
 
 import java.util.List;
 
 public class Dependency {
 	private String dependency;
 	private String description;
-	public List<ExamDependency> soft_dependencies;
-    public List<ExamDependency> strict_dependencies;
+	private List<ExamDependency> soft_dependencies;
+    private List<ExamDependency> strict_dependencies;
     
     
 

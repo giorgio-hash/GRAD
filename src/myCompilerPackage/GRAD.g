@@ -17,7 +17,6 @@ options {
 
 @members {
 	SemanticHandler h = SemanticHandler.getHandler();
-	int years=0;
 }
 
 WS  :   ( ' '
@@ -79,11 +78,11 @@ DOTCOMMA
 
 
 degreeRule
-	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'YEARS:' OPEN_SQB ( y=yearRule { h.addYear(y); } )+ CLOSE_SQB
+	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'DAILY_HOURS:' st=INT {h.setDailyStudyHours($st);} 'YEARS:' OPEN_SQB ( y=yearRule { h.addYear(y); } )+ CLOSE_SQB
 	;
 	
 yearRule returns [Year y]
-	:	'YEAR' id=INT { y=h.createYear($id); } OPEN_CUB 'EXAMS:' OPEN_SQB ( e=examRule { y.addExam(e); } DOTCOMMA)+ CLOSE_SQB CLOSE_CUB
+	:	'YEAR' { y=h.createYear(); } OPEN_CUB 'EXAMS:' OPEN_SQB ( e=examRule { y.addExam(e); } DOTCOMMA)+ CLOSE_SQB CLOSE_CUB
 	;
 	
 
