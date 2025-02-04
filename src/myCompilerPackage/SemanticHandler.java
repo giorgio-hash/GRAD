@@ -49,6 +49,8 @@ public class SemanticHandler {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate s = LocalDate.parse(stringdate.getText(), dtf);
 		
+		//la data deve stare al più intorno a 10 anni rispetto ad ora
+		
 		return new Exam(n,c,s);
 	}
 	
@@ -62,20 +64,12 @@ public class SemanticHandler {
 	public void assignExamToMilestone(Exam e, Token milestone) {
 		
 		String mil = milestone.getText();
-		boolean found = false;
 		e.setMilestone(mil);
 		
-		for(Milestone m : d.getMilestones()) {
-			if(m.getName().equals(mil))
-			{
-				found = true;
-				m.addExam(e);
-				break;
-			}
-		}
-		
-		if(!found)
-			createMilestone(mil).addExam(e);		
+			if(d.getMilestones().keySet().contains(mil))
+				d.getMilestones().get(mil).addExam(e);
+			else
+				createMilestone(mil).addExam(e);		
 	}
 	
 	

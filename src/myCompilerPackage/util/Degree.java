@@ -1,17 +1,19 @@
 package myCompilerPackage.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 
-import myCompilerPackage.SemanticHandler;
 
 public class Degree {
     private String name; // Nome scelto dall'utente
     //private int numYears; // Numero di anni (obbligatorio)
     private List<Year> years; // Lista degli anni associati al progetto
+    private Map<String, Milestone> milestones; // solo prototipo, sarebbe meglio usare un hashmap.
     
     private static Degree d;
-    private ArrayList<Milestone> milestones; // solo prototipo, sarebbe meglio usare un hashmap.
+    
 
 	public static Degree getDegree () {
 		if (d == null)
@@ -24,7 +26,7 @@ public class Degree {
     
     public Degree() {
         this.years = new ArrayList<Year>();
-        this.milestones = new ArrayList<Milestone>();
+        this.milestones = new HashMap<String, Milestone>();
         //for (int i = 1; i <= numYears; i++) {
             //years.add(new Year(i)); // Crea gli anni automaticamente con ID progressivi
         //}
@@ -54,13 +56,16 @@ public class Degree {
     }
 
     public void addMilestone(Milestone m) {
-    	milestones.add(m);
+    	milestones.put(m.getName(), m);
     }
 
-    public List<Milestone> getMilestones() {
+    public Map<String, Milestone> getMilestones() {
         return milestones;
     }
     
+    public int getNumOfMilestones() {
+    	return milestones.values().size();
+    }
     
 	@Override
 	public String toString() {
@@ -68,7 +73,7 @@ public class Degree {
 		for(Year y : years)
 			s += "\t"+y+";\n";
 		s += ", Milestones=\n";
-		for(Milestone m : milestones)
+		for(Milestone m : milestones.values())
 			s += "\t"+m+";\n";
 		return s + "]";
 	}
