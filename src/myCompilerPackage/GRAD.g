@@ -83,7 +83,7 @@ degreeRule
 	;
 	
 yearRule returns [Year y]
-	:	'YEAR' id=INT { y=h.createYear($id); } OPEN_CUB 'EXAMS:' OPEN_SQB ( e=examRule { y.addExam(e); } DOTCOMMA)+ CLOSE_SQB CLOSE_CUB
+	:	'YEAR' { y=h.createYear(); } OPEN_CUB 'EXAMS:' OPEN_SQB ( e=examRule { y.addExam(e); } DOTCOMMA)+ CLOSE_SQB CLOSE_CUB
 	;
 	
 

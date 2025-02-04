@@ -29,11 +29,9 @@ public class SemanticHandler {
 		d.setName(n);
 	}
 	
-	public Year createYear(Token id) {
+	public Year createYear() {
 		
-		int i = Integer.parseInt(id.getText());
-		
-		return new Year(i);
+		return new Year();
 	}
 	
 	

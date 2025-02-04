@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g 2025-02-02 14:43:19
+// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g 2025-02-04 12:20:14
 
 	package myCompilerPackage;
 	import myCompilerPackage.util.*;
@@ -130,25 +130,23 @@ public class GRADParser extends Parser {
 
 
 	// $ANTLR start "yearRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:1: yearRule returns [Year y] : 'YEAR' id= INT OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:85:1: yearRule returns [Year y] : 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB ;
 	public final Year yearRule() throws RecognitionException {
 		Year y = null;
 
 
-		Token id=null;
 		Exam e =null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:2: ( 'YEAR' id= INT OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:4: 'YEAR' id= INT OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:2: ( 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:4: 'YEAR' OPEN_CUB 'EXAMS:' OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
 			{
 			match(input,26,FOLLOW_26_in_yearRule562); 
-			id=(Token)match(input,INT,FOLLOW_INT_in_yearRule566); 
-			 y=h.createYear(id); 
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule570); 
-			match(input,23,FOLLOW_23_in_yearRule572); 
-			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule574); 
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:70: (e= examRule DOTCOMMA )+
+			 y=h.createYear(); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule566); 
+			match(input,23,FOLLOW_23_in_yearRule568); 
+			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule570); 
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:60: (e= examRule DOTCOMMA )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -160,14 +158,14 @@ public class GRADParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:72: e= examRule DOTCOMMA
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:86:62: e= examRule DOTCOMMA
 					{
-					pushFollow(FOLLOW_examRule_in_yearRule580);
+					pushFollow(FOLLOW_examRule_in_yearRule576);
 					e=examRule();
 					state._fsp--;
 
 					 y.addExam(e); 
-					match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_yearRule584); 
+					match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_yearRule580); 
 					}
 					break;
 
@@ -179,8 +177,8 @@ public class GRADParser extends Parser {
 				cnt2++;
 			}
 
-			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule588); 
-			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_yearRule590); 
+			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule584); 
+			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_yearRule586); 
 			}
 
 		}
@@ -213,12 +211,12 @@ public class GRADParser extends Parser {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:2: ( 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )? )
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:5: 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE ( 'STATUS' status= STATUS )? ( 'MILESTONE' mil= STRING )?
 			{
-			match(input,22,FOLLOW_22_in_examRule608); 
-			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule612); 
-			match(input,19,FOLLOW_19_in_examRule614); 
-			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule618); 
-			match(input,20,FOLLOW_20_in_examRule620); 
-			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule624); 
+			match(input,22,FOLLOW_22_in_examRule604); 
+			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule608); 
+			match(input,19,FOLLOW_19_in_examRule610); 
+			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule614); 
+			match(input,20,FOLLOW_20_in_examRule616); 
+			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule620); 
 			e=h.createExam(nome,cfu,stringdate);
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:103: ( 'STATUS' status= STATUS )?
 			int alt3=2;
@@ -230,8 +228,8 @@ public class GRADParser extends Parser {
 				case 1 :
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:104: 'STATUS' status= STATUS
 					{
-					match(input,25,FOLLOW_25_in_examRule629); 
-					status=(Token)match(input,STATUS,FOLLOW_STATUS_in_examRule633); 
+					match(input,25,FOLLOW_25_in_examRule625); 
+					status=(Token)match(input,STATUS,FOLLOW_STATUS_in_examRule629); 
 					h.setExamStatus(e,status); 
 					}
 					break;
@@ -248,8 +246,8 @@ public class GRADParser extends Parser {
 				case 1 :
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:91:161: 'MILESTONE' mil= STRING
 					{
-					match(input,24,FOLLOW_24_in_examRule640); 
-					mil=(Token)match(input,STRING,FOLLOW_STRING_in_examRule644); 
+					match(input,24,FOLLOW_24_in_examRule636); 
+					mil=(Token)match(input,STRING,FOLLOW_STRING_in_examRule640); 
 					h.assignExamToMilestone(e,mil);
 					}
 					break;
@@ -280,23 +278,22 @@ public class GRADParser extends Parser {
 	public static final BitSet FOLLOW_OPEN_SQB_in_degreeRule533 = new BitSet(new long[]{0x0000000004000000L});
 	public static final BitSet FOLLOW_yearRule_in_degreeRule539 = new BitSet(new long[]{0x0000000004000040L});
 	public static final BitSet FOLLOW_CLOSE_SQB_in_degreeRule546 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_26_in_yearRule562 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_INT_in_yearRule566 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_OPEN_CUB_in_yearRule570 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_yearRule572 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_OPEN_SQB_in_yearRule574 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_examRule_in_yearRule580 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_DOTCOMMA_in_yearRule584 = new BitSet(new long[]{0x0000000000400040L});
-	public static final BitSet FOLLOW_CLOSE_SQB_in_yearRule588 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_CLOSE_CUB_in_yearRule590 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_examRule608 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_STRING_in_examRule612 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_examRule614 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_INT_in_examRule618 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_20_in_examRule620 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_DATE_in_examRule624 = new BitSet(new long[]{0x0000000003000002L});
-	public static final BitSet FOLLOW_25_in_examRule629 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_STATUS_in_examRule633 = new BitSet(new long[]{0x0000000001000002L});
-	public static final BitSet FOLLOW_24_in_examRule640 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_STRING_in_examRule644 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_26_in_yearRule562 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_OPEN_CUB_in_yearRule566 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_yearRule568 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_OPEN_SQB_in_yearRule570 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_examRule_in_yearRule576 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_DOTCOMMA_in_yearRule580 = new BitSet(new long[]{0x0000000000400040L});
+	public static final BitSet FOLLOW_CLOSE_SQB_in_yearRule584 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_CLOSE_CUB_in_yearRule586 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_examRule604 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_STRING_in_examRule608 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_examRule610 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_INT_in_examRule614 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_20_in_examRule616 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_DATE_in_examRule620 = new BitSet(new long[]{0x0000000003000002L});
+	public static final BitSet FOLLOW_25_in_examRule625 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_STATUS_in_examRule629 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_24_in_examRule636 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_STRING_in_examRule640 = new BitSet(new long[]{0x0000000000000002L});
 }
