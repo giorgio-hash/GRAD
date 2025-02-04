@@ -79,7 +79,7 @@ DOTCOMMA
 
 
 degreeRule
-	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'YEARS:' OPEN_SQB ( y=yearRule { h.addYear(y); } )+ CLOSE_SQB
+	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'DAILY_HOURS:' st=INT {h.setDailyStudyHours($st);} 'YEARS:' OPEN_SQB ( y=yearRule { h.addYear(y); } )+ CLOSE_SQB
 	;
 	
 yearRule returns [Year y]

@@ -29,6 +29,11 @@ public class SemanticHandler {
 		d.setName(n);
 	}
 	
+	public void setDailyStudyHours(Token hours) {
+		int hhh = Integer.parseInt(hours.getText());
+		d.setDailyStudyHours(hhh);
+	}
+	
 	public Year createYear() {
 		
 		return new Year();

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g 2025-02-04 12:20:14
+// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g 2025-02-04 12:30:22
 
 	package myCompilerPackage;
 	import myCompilerPackage.util.*;
@@ -21,6 +21,7 @@ public class GRADLexer extends Lexer {
 	public static final int T__25=25;
 	public static final int T__26=26;
 	public static final int T__27=27;
+	public static final int T__28=28;
 	public static final int CHAR=4;
 	public static final int CLOSE_CUB=5;
 	public static final int CLOSE_SQB=6;
@@ -78,10 +79,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__20;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:13:7: ( 'DATE' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:13:9: 'DATE'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:13:7: ( 'DAILY_HOURS:' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:13:9: 'DAILY_HOURS:'
 			{
-			match("DATE"); 
+			match("DAILY_HOURS:"); 
 
 			}
 
@@ -99,10 +100,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__21;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:14:7: ( 'DEGREE:' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:14:9: 'DEGREE:'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:14:7: ( 'DATE' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:14:9: 'DATE'
 			{
-			match("DEGREE:"); 
+			match("DATE"); 
 
 			}
 
@@ -120,10 +121,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__22;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:15:7: ( 'EXAM' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:15:9: 'EXAM'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:15:7: ( 'DEGREE:' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:15:9: 'DEGREE:'
 			{
-			match("EXAM"); 
+			match("DEGREE:"); 
 
 			}
 
@@ -141,10 +142,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__23;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:16:7: ( 'EXAMS:' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:16:9: 'EXAMS:'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:16:7: ( 'EXAM' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:16:9: 'EXAM'
 			{
-			match("EXAMS:"); 
+			match("EXAM"); 
 
 			}
 
@@ -162,10 +163,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__24;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:17:7: ( 'MILESTONE' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:17:9: 'MILESTONE'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:17:7: ( 'EXAMS:' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:17:9: 'EXAMS:'
 			{
-			match("MILESTONE"); 
+			match("EXAMS:"); 
 
 			}
 
@@ -183,10 +184,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__25;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:18:7: ( 'STATUS' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:18:9: 'STATUS'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:18:7: ( 'MILESTONE' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:18:9: 'MILESTONE'
 			{
-			match("STATUS"); 
+			match("MILESTONE"); 
 
 			}
 
@@ -204,10 +205,10 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__26;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:19:7: ( 'YEAR' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:19:9: 'YEAR'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:19:7: ( 'STATUS' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:19:9: 'STATUS'
 			{
-			match("YEAR"); 
+			match("STATUS"); 
 
 			}
 
@@ -225,8 +226,29 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = T__27;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:20:7: ( 'YEARS:' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:20:9: 'YEARS:'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:20:7: ( 'YEAR' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:20:9: 'YEAR'
+			{
+			match("YEAR"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__27"
+
+	// $ANTLR start "T__28"
+	public final void mT__28() throws RecognitionException {
+		try {
+			int _type = T__28;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:21:7: ( 'YEARS:' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:21:9: 'YEARS:'
 			{
 			match("YEARS:"); 
 
@@ -239,7 +261,7 @@ public class GRADLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "T__27"
+	// $ANTLR end "T__28"
 
 	// $ANTLR start "WS"
 	public final void mWS() throws RecognitionException {
@@ -982,8 +1004,8 @@ public class GRADLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:8: ( T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | WS | STRING | CHAR | INT | DATE | STATUS | OPEN_SQB | CLOSE_SQB | OPEN_CUB | CLOSE_CUB | DOTCOMMA )
-		int alt8=20;
+		// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:8: ( T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | WS | STRING | CHAR | INT | DATE | STATUS | OPEN_SQB | CLOSE_SQB | OPEN_CUB | CLOSE_CUB | DOTCOMMA )
+		int alt8=21;
 		switch ( input.LA(1) ) {
 		case 'C':
 			{
@@ -994,10 +1016,31 @@ public class GRADLexer extends Lexer {
 			{
 			int LA8_2 = input.LA(2);
 			if ( (LA8_2=='A') ) {
-				alt8=2;
+				int LA8_18 = input.LA(3);
+				if ( (LA8_18=='I') ) {
+					alt8=2;
+				}
+				else if ( (LA8_18=='T') ) {
+					alt8=3;
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+							input.consume();
+						}
+						NoViableAltException nvae =
+							new NoViableAltException("", 8, 18, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
 			}
 			else if ( (LA8_2=='E') ) {
-				alt8=3;
+				alt8=4;
 			}
 
 			else {
@@ -1020,15 +1063,15 @@ public class GRADLexer extends Lexer {
 			if ( (LA8_3=='X') ) {
 				int LA8_20 = input.LA(3);
 				if ( (LA8_20=='A') ) {
-					int LA8_25 = input.LA(4);
-					if ( (LA8_25=='M') ) {
-						int LA8_28 = input.LA(5);
-						if ( (LA8_28=='S') ) {
-							alt8=5;
+					int LA8_27 = input.LA(4);
+					if ( (LA8_27=='M') ) {
+						int LA8_30 = input.LA(5);
+						if ( (LA8_30=='S') ) {
+							alt8=6;
 						}
 
 						else {
-							alt8=4;
+							alt8=5;
 						}
 
 					}
@@ -1040,7 +1083,7 @@ public class GRADLexer extends Lexer {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 8, 25, input);
+								new NoViableAltException("", 8, 27, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -1081,12 +1124,12 @@ public class GRADLexer extends Lexer {
 			break;
 		case 'M':
 			{
-			alt8=6;
+			alt8=7;
 			}
 			break;
 		case 'S':
 			{
-			alt8=7;
+			alt8=8;
 			}
 			break;
 		case 'Y':
@@ -1095,15 +1138,15 @@ public class GRADLexer extends Lexer {
 			if ( (LA8_6=='E') ) {
 				int LA8_21 = input.LA(3);
 				if ( (LA8_21=='A') ) {
-					int LA8_26 = input.LA(4);
-					if ( (LA8_26=='R') ) {
-						int LA8_29 = input.LA(5);
-						if ( (LA8_29=='S') ) {
-							alt8=9;
+					int LA8_28 = input.LA(4);
+					if ( (LA8_28=='R') ) {
+						int LA8_31 = input.LA(5);
+						if ( (LA8_31=='S') ) {
+							alt8=10;
 						}
 
 						else {
-							alt8=8;
+							alt8=9;
 						}
 
 					}
@@ -1115,7 +1158,7 @@ public class GRADLexer extends Lexer {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 8, 26, input);
+								new NoViableAltException("", 8, 28, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -1159,28 +1202,28 @@ public class GRADLexer extends Lexer {
 		case '\r':
 		case ' ':
 			{
-			alt8=10;
+			alt8=11;
 			}
 			break;
 		case '\"':
 			{
-			alt8=11;
+			alt8=12;
 			}
 			break;
 		case '\'':
 			{
-			alt8=12;
+			alt8=13;
 			}
 			break;
 		case '0':
 			{
 			int LA8_10 = input.LA(2);
 			if ( ((LA8_10 >= '0' && LA8_10 <= '9')) ) {
-				alt8=14;
+				alt8=15;
 			}
 
 			else {
-				alt8=13;
+				alt8=14;
 			}
 
 			}
@@ -1199,33 +1242,33 @@ public class GRADLexer extends Lexer {
 			if ( ((LA8_11 >= '0' && LA8_11 <= '9')) ) {
 				int LA8_24 = input.LA(3);
 				if ( ((LA8_24 >= '0' && LA8_24 <= '9')) ) {
-					int LA8_27 = input.LA(4);
-					if ( ((LA8_27 >= '0' && LA8_27 <= '9')) ) {
-						int LA8_30 = input.LA(5);
-						if ( (LA8_30=='-') ) {
-							alt8=14;
+					int LA8_29 = input.LA(4);
+					if ( ((LA8_29 >= '0' && LA8_29 <= '9')) ) {
+						int LA8_32 = input.LA(5);
+						if ( (LA8_32=='-') ) {
+							alt8=15;
 						}
 
 						else {
-							alt8=13;
+							alt8=14;
 						}
 
 					}
 
 					else {
-						alt8=13;
+						alt8=14;
 					}
 
 				}
 
 				else {
-					alt8=13;
+					alt8=14;
 				}
 
 			}
 
 			else {
-				alt8=13;
+				alt8=14;
 			}
 
 			}
@@ -1233,32 +1276,32 @@ public class GRADLexer extends Lexer {
 		case 'N':
 		case 'P':
 			{
-			alt8=15;
+			alt8=16;
 			}
 			break;
 		case '[':
 			{
-			alt8=16;
+			alt8=17;
 			}
 			break;
 		case ']':
 			{
-			alt8=17;
+			alt8=18;
 			}
 			break;
 		case '{':
 			{
-			alt8=18;
+			alt8=19;
 			}
 			break;
 		case '}':
 			{
-			alt8=19;
+			alt8=20;
 			}
 			break;
 		case ';':
 			{
-			alt8=20;
+			alt8=21;
 			}
 			break;
 		default:
@@ -1331,77 +1374,84 @@ public class GRADLexer extends Lexer {
 				}
 				break;
 			case 10 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:64: WS
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:64: T__28
+				{
+				mT__28(); 
+
+				}
+				break;
+			case 11 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:70: WS
 				{
 				mWS(); 
 
 				}
 				break;
-			case 11 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:67: STRING
+			case 12 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:73: STRING
 				{
 				mSTRING(); 
 
 				}
 				break;
-			case 12 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:74: CHAR
+			case 13 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:80: CHAR
 				{
 				mCHAR(); 
 
 				}
 				break;
-			case 13 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:79: INT
+			case 14 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:85: INT
 				{
 				mINT(); 
 
 				}
 				break;
-			case 14 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:83: DATE
+			case 15 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:89: DATE
 				{
 				mDATE(); 
 
 				}
 				break;
-			case 15 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:88: STATUS
+			case 16 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:94: STATUS
 				{
 				mSTATUS(); 
 
 				}
 				break;
-			case 16 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:95: OPEN_SQB
+			case 17 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:101: OPEN_SQB
 				{
 				mOPEN_SQB(); 
 
 				}
 				break;
-			case 17 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:104: CLOSE_SQB
+			case 18 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:110: CLOSE_SQB
 				{
 				mCLOSE_SQB(); 
 
 				}
 				break;
-			case 18 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:114: OPEN_CUB
+			case 19 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:120: OPEN_CUB
 				{
 				mOPEN_CUB(); 
 
 				}
 				break;
-			case 19 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:123: CLOSE_CUB
+			case 20 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:129: CLOSE_CUB
 				{
 				mCLOSE_CUB(); 
 
 				}
 				break;
-			case 20 :
-				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:133: DOTCOMMA
+			case 21 :
+				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\myCompilerPackage\\GRAD.g:1:139: DOTCOMMA
 				{
 				mDOTCOMMA(); 
 

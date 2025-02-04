@@ -1,4 +1,5 @@
 DEGREE: "laurea triennale in ingegneria informatica"
+DAILY_HOURS: 5
 YEARS: [
 	YEAR {
 		EXAMS: [
