@@ -1,6 +1,7 @@
 package myCompilerPackage.util;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 
 public class Exam {
     private String name; // Nome dell'esame
@@ -40,7 +41,11 @@ public class Exam {
     public void setStatus(String status) {
         this.status = Status.valueOf(status);
     }
-    
+
+    public boolean isPassed() {
+    	return this.status == Status.PASSED;
+    }
+
     public String getMilestone() {
         return milestone;
     }
@@ -52,10 +57,10 @@ public class Exam {
 
 	@Override
 	public String toString() {
+
 		return "\t Exam [name=" + name + ", cfu=" + cfu + ", appello=" + appello + ", status=" + status + ", milestone="
 				+ milestone + "]";
 	}
-    
-    
+
 }
 
