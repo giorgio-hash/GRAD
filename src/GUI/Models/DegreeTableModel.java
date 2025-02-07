@@ -1,8 +1,9 @@
-package GUI.Model;
+package GUI.Models;
 
 
 import javax.swing.table.AbstractTableModel;
 
+import GUI.Utils.Pair;
 import myCompilerPackage.util.Degree;
 import myCompilerPackage.util.Exam;
 import myCompilerPackage.util.Year;
@@ -74,33 +75,31 @@ public class DegreeTableModel extends AbstractTableModel
     @Override
     public int getRowCount()
     {
-        int count = 0;
-        for(Year y: degree.getYears()){
-            count += y.getExams().size();
-        }
-        return count;
+        if(toDisplay == null)
+            return 0;
+        return toDisplay.size();
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex)
     {
         if(0 == columnIndex) {
-            return examList.get(rowIndex).getLeft();
+            return toDisplay.get(rowIndex).getLeft();
         }
         else if(1 == columnIndex) {
-            return examList.get(rowIndex).getRight().getName();
+            return toDisplay.get(rowIndex).getRight().getName();
         }
         else if(2 == columnIndex) {
-            return examList.get(rowIndex).getRight().getCfu();
+            return toDisplay.get(rowIndex).getRight().getCfu();
         }
         else if(3 == columnIndex) {
-            return examList.get(rowIndex).getRight().getAppello();
+            return toDisplay.get(rowIndex).getRight().getAppello();
         }
         else if(4 == columnIndex) {
-            return examList.get(rowIndex).getRight().isPassed();
+            return toDisplay.get(rowIndex).getRight().isPassed();
         }
         else if(5 == columnIndex) {
-            return examList.get(rowIndex).getRight().getMilestone();
+            return toDisplay.get(rowIndex).getRight().getMilestone();
         }
         return null;
     }

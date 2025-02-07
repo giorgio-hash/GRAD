@@ -1,4 +1,4 @@
-package GUI.Model;
+package GUI.Utils;
 
 public class Pair<L,R> {
 
