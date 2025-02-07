@@ -14,18 +14,14 @@ import java.util.List;
 
 public class DegreeTableModel extends AbstractTableModel
 {
-    private List<Exam> exams;
-    private List<Integer> years;
-
-    //creare un oggetto pair per associare l'anno all'esame. Creare comparators
-
+    private List<Pair<Integer,Exam>> examList;
     private Degree degree;
 
     private final String[] columnNames = new String[] {
             "Year","Exam","CFU","Date","Passed","Milestone"
     };
     private final Class[] columnClass = new Class[] {
-            String.class, String.class, Integer.class, LocalDate.class , Boolean.class, String.class
+            String.class, String.class, String.class, LocalDate.class , Boolean.class, String.class
     };
 
     public DegreeTableModel()
@@ -34,13 +30,11 @@ public class DegreeTableModel extends AbstractTableModel
     }
 
     public void refresh(){
-        this.exams = new ArrayList<Exam>();
-        this.years = new ArrayList<Integer>();
+        this.examList = new ArrayList<Pair<Integer, Exam>>();
 
         for(Year y : degree.getYears()){
             for(Exam e: y.getExams().values()){
-                exams.add(e);
-                years.add(y.getId());
+                this.examList.add(new Pair<Integer, Exam>(y.getId(), e));
             }
         }
     }
@@ -77,22 +71,22 @@ public class DegreeTableModel extends AbstractTableModel
     public Object getValueAt(int rowIndex, int columnIndex)
     {
         if(0 == columnIndex) {
-            return years.get(rowIndex);
+            return examList.get(rowIndex).getLeft();
         }
         else if(1 == columnIndex) {
-            return exams.get(rowIndex).getName();
+            return examList.get(rowIndex).getRight().getName();
         }
         else if(2 == columnIndex) {
-            return exams.get(rowIndex).getCfu();
+            return examList.get(rowIndex).getRight().getCfu();
         }
         else if(3 == columnIndex) {
-            return exams.get(rowIndex).getAppello();
+            return examList.get(rowIndex).getRight().getAppello();
         }
         else if(4 == columnIndex) {
-            return exams.get(rowIndex).isPassed();
+            return examList.get(rowIndex).getRight().isPassed();
         }
         else if(5 == columnIndex) {
-            return exams.get(rowIndex).getMilestone();
+            return examList.get(rowIndex).getRight().getMilestone();
         }
         return null;
     }
@@ -101,16 +95,7 @@ public class DegreeTableModel extends AbstractTableModel
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex)
     {
-        //return columnIndex != 0;
         return false;
     }
 
-    /*
-    @Override
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex)
-    {
-
-    }
-
-     */
 }
