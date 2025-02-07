@@ -14,6 +14,7 @@ import java.util.List;
 
 public class DegreeTableModel extends AbstractTableModel
 {
+    private List<Pair<Integer,Exam>> toDisplay;
     private List<Pair<Integer,Exam>> examList;
     private Degree degree;
 
@@ -37,6 +38,19 @@ public class DegreeTableModel extends AbstractTableModel
                 this.examList.add(new Pair<Integer, Exam>(y.getId(), e));
             }
         }
+    }
+
+    public void displayByYear(int year){
+        this.toDisplay = new ArrayList<Pair<Integer, Exam>>();
+        for(Pair<Integer, Exam> p: examList){
+            if(p.getLeft() == year){
+                this.toDisplay.add(p);
+            }
+        }
+    }
+
+    public void displayCareer(){
+        this.toDisplay = this.examList;
     }
 
     @Override
