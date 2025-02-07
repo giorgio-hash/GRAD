@@ -28,7 +28,4 @@ public class ExamAggregator {
         return exams;
     }
 
-    public void setExams(SortedSet<ExamTile> exams) {
-        this.exams = exams;
-    }
 }

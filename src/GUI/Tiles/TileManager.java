@@ -11,7 +11,7 @@ public class TileManager extends GanttTile{
         tiles = new ArrayList<GanttTile>();
         for(int i=0; i< Degree.getDegree().getYears().size(); i++)
         {
-            tiles.add(new YearTile(i));
+            tiles.add(new YearTile(i+1));
         }
     }
 }

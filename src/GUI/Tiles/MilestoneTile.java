@@ -4,6 +4,7 @@ import myCompilerPackage.util.Degree;
 
 import java.time.LocalDate;
 import java.util.Iterator;
+import java.util.SortedSet;
 
 public class MilestoneTile extends GanttTile{
     private ExamAggregator exams;
@@ -11,6 +12,11 @@ public class MilestoneTile extends GanttTile{
     public MilestoneTile(String milestone){
 
         exams = new ExamAggregator(Degree.getDegree().getMilestones().get(milestone));
+
+        //fine anno
+        super.setEnd(exams.getExams().last().getEnd());
+
+        //inizio anno
         Iterator<ExamTile> iterator = exams.getExams().iterator();
         LocalDate start;
         while(iterator.hasNext()){
@@ -24,11 +30,8 @@ public class MilestoneTile extends GanttTile{
         }
     }
 
-    public ExamAggregator getExams() {
-        return exams;
+    public SortedSet<ExamTile> getExamTiles() {
+        return exams.getExams();
     }
 
-    public void setExams(ExamAggregator exams) {
-        this.exams = exams;
-    }
 }

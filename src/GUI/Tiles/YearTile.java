@@ -16,13 +16,19 @@ public class YearTile extends GanttTile {
 
     private HashMap<String, MilestoneTile> milestones;
 
+    private int year;
+
     public YearTile(int year){
 
-        exams = new ExamAggregator(Degree.getDegree().getYears().get(year));
+        this.year = year;
+        exams = new ExamAggregator(Degree.getDegree().getYears().get(year-1));
         milestones = new HashMap<String, MilestoneTile>();
 
+        // fine anno
+        super.setEnd(exams.getExams().last().getEnd());
+
+        // inizio anno
         String mil_name = null;
-        MilestoneTile mt = null;
         ExamTile e = null;
         Iterator<ExamTile> iterator = exams.getExams().iterator();
         while(iterator.hasNext()){
@@ -34,26 +40,24 @@ public class YearTile extends GanttTile {
                     super.setStart(e.getStart());
             }
 
-            if(e.getExam().getMilestone() != null){
+            if(e.getExam().getMilestone() != null ){
                 mil_name = e.getExam().getMilestone();
-                mt = new MilestoneTile(mil_name);
-                exams.getExams().removeAll(mt.getExams().getExams());
-                milestones.put(mil_name, mt);
+                if (!milestones.containsKey(mil_name))
+                    milestones.put(mil_name, new MilestoneTile(mil_name));
             }
         }
     }
 
-    public ExamAggregator getExamsWithoutMilestone(){
-        return exams;
+    public SortedSet<ExamTile> getExamTiles() {
+        return exams.getExams();
     }
 
-    public SortedSet<ExamTile> getAllExams(){
-        SortedSet<ExamTile> allExams = new TreeSet<>(new DeadlineComparator());
-        allExams.addAll(exams.getExams());
-        for(MilestoneTile mt : milestones.values()){
-            allExams.addAll(mt.getExams().getExams());
-        }
-        return allExams;
+    public HashMap<String, MilestoneTile> getMilestoneTiles() {
+        return milestones;
+    }
+
+    public int getYear(){
+        return year;
     }
 
 }
