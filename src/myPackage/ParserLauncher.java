@@ -10,7 +10,7 @@ import myCompilerPackage.GRADParser;
 import myCompilerPackage.util.Degree;
 import myCompilerPackage.util.Milestone;
 
-/* 
+/*
  * Questa � una classe di esempio
  * che simula un'applicazione 
  * che vuole usare un parser
@@ -34,7 +34,7 @@ public class ParserLauncher {
   		// 2. 
   		CommonTokenStream tokens = new CommonTokenStream (lexer);	
 
-  		// 3. 
+  		// 3.
 		parser = new GRADParser (tokens);
 
 			

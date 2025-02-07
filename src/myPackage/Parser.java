@@ -50,6 +50,7 @@ public class Parser {
 
 
             // 4. si lancia il parser dallo start simbol (prima produzione specificata)
+            Degree.getDegree().reset();
             parser.degreeRule();
         } catch (Exception e) {
             System.out.println ("Parsing con ANTLR abortito\n\n");
