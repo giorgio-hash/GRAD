@@ -246,3 +246,5 @@ buildNumber.properties
 
 
 *.iml
+*.jpg
+*.png
