@@ -4,6 +4,7 @@ import GUI.Models.DegreeTableModel;
 import GUI.Utils.Mode;
 import myCompilerPackage.util.Degree;
 import myPackage.Parser;
+import org.jfree.ui.RefineryUtilities;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -70,6 +71,17 @@ public class GRADgui  extends JFrame{
                     int year = (int) groupBox.getSelectedItem();
                     displayYear(year);
                 }
+            }
+        });
+
+        creaGanttButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GanttFrame gf = new GanttFrame("GanttChart");
+                gf.createDegreeTaskCollection();
+                gf.display();
+                gf.pack();
+                gf.setVisible(true);
             }
         });
     }

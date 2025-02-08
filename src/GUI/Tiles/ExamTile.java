@@ -10,25 +10,13 @@ public class ExamTile extends GanttTile{
     private Exam exam;
 
     public ExamTile(Exam exam){
-        super(exam.getAppello(),
-                exam.getAppello()
-                        .minusDays(
-                                exam.getCfu()*25/ Degree.getDegree().getDailyStudyHours()
-                        ));
+        super(exam.getAppello().minusDays(exam.getCfu()*25/ Degree.getDegree().getDailyStudyHours()),
+                                exam.getAppello());
+        this.exam = exam;
     }
 
     public Exam getExam() {
         return exam;
     }
 
-    public void setExam(Exam exam) {
-
-        this.exam = exam;
-        super.setEnd(exam.getAppello());
-        super.setStart(
-                exam.getAppello()
-                .minusDays(
-                        exam.getCfu()*25/Degree.getDegree().getDailyStudyHours()
-                ));
-    }
 }

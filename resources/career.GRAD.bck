@@ -1,0 +1,53 @@
+STUDENT {
+    NAME: "Giorgio Chirico";
+    MATRIX: 123456;
+    BIRTHDATE: 2003-01-01;
+    EMAIL: "chacha21@gmail.rete";
+    UNIVERSITY {
+        NAME: "Politecnico di Milano";
+        ADDRESS {
+            STREET "Piazza Leonardo da Vinci";
+            NUMBER 32;
+            ZIP 20133;
+            CITY "Milano";
+            COUNTRY "Italia";
+        };
+    };
+},
+DEGREE {
+    NAME: "laurea triennale in ingegneria informatica";
+    DAILY_HOURS: 5;
+    YEARS: [
+        YEAR {
+            EXAMS: [
+                EXAM {
+                    NAME "Matematica";
+                    CFU 6;
+                    DATE 2025-01-30;
+                    MILESTONE "a1gal";
+                },
+                EXAM {
+                    NAME "gal";
+                    CFU 6;
+                    DATE 2025-01-30;
+                    MILESTONE "a1gal";
+                }
+            ];
+        },
+        YEAR {
+            EXAMS: [
+                EXAM {
+                    NAME "analisi 2";
+                    CFU 6;
+                    DATE 0025-01-31;
+                    STATUS PASSED;
+                },
+                EXAM {
+                    NAME "Embedded";
+                    CFU 6;
+                    DATE 2025-01-30;
+                }
+            ];
+        }
+    ]
+}

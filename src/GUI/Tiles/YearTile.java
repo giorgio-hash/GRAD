@@ -3,6 +3,7 @@ package GUI.Tiles;
 import myCompilerPackage.util.Degree;
 import myCompilerPackage.util.Exam;
 import myCompilerPackage.util.Milestone;
+import myCompilerPackage.util.Year;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -13,15 +14,14 @@ import java.util.TreeSet;
 public class YearTile extends GanttTile {
 
     private ExamAggregator exams;
-
     private HashMap<String, MilestoneTile> milestones;
 
-    private int year;
+    private Year year;
 
     public YearTile(int year){
 
-        this.year = year;
-        exams = new ExamAggregator(Degree.getDegree().getYears().get(year-1));
+        this.year = Degree.getDegree().getYears().get(year-1);
+        exams = new ExamAggregator(this.year);
         milestones = new HashMap<String, MilestoneTile>();
 
         // fine anno
@@ -32,7 +32,7 @@ public class YearTile extends GanttTile {
         ExamTile e = null;
         Iterator<ExamTile> iterator = exams.getExams().iterator();
         while(iterator.hasNext()){
-            e = iterator.next();
+            e = (ExamTile) iterator.next();
             if (super.getStart() == null) {
                 super.setStart(e.getStart());
             }else{
@@ -56,7 +56,7 @@ public class YearTile extends GanttTile {
         return milestones;
     }
 
-    public int getYear(){
+    public Year getYear(){
         return year;
     }
 
