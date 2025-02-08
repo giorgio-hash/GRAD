@@ -24,7 +24,7 @@ public class SemanticHandler {
 	
 	public void createDegree(Token name) {
 		
-		String n = name.getText();
+		String n = name.getText().replace("\"","");
 		d = Degree.getDegree();
 		d.setName(n);
 	}
@@ -47,7 +47,7 @@ public class SemanticHandler {
 	
 	public Exam createExam(Token name, Token cfu, Token stringdate) {
 		
-		String n = name.getText();
+		String n = name.getText().replace("\"","");
 		int c = Integer.parseInt(cfu.getText());
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate s = LocalDate.parse(stringdate.getText(), dtf);
@@ -66,7 +66,7 @@ public class SemanticHandler {
 	
 	public void assignExamToMilestone(Exam e, Token milestone) {
 		
-		String mil = milestone.getText();
+		String mil = milestone.getText().replace("\"","");
 		e.setMilestone(mil);
 		
 			if(d.getMilestones().keySet().contains(mil))

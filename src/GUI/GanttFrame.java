@@ -34,12 +34,14 @@ public class GanttFrame extends ApplicationFrame {
         tm = new TileManager();
     }
 
+
     public void display(){
         IntervalCategoryDataset intervalcategorydataset = taskseriescollection;
         JFreeChart jfreechart = ChartFactory.createGanttChart(Degree.getDegree().getName(), "", "",
                 intervalcategorydataset, false, true, false);
         final CategoryPlot plot = (CategoryPlot) jfreechart.getPlot();
         MyTaskRenderer renderer = new MyTaskRenderer();
+        renderer.setMaximumBarWidth(0.05);
         plot.setRenderer(renderer);
         ChartPanel chartpanel = new ChartPanel(jfreechart);
         chartpanel.setPreferredSize(new Dimension(500, 270));
