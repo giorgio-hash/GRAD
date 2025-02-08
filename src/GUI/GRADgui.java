@@ -30,6 +30,7 @@ public class GRADgui  extends JFrame{
     private DegreeTableModel degreemodel;
 
     private Mode mode;
+    private int selected_year;
 
     public GRADgui() {
         setTitle("GRAD");
@@ -68,8 +69,8 @@ public class GRADgui  extends JFrame{
                 if(mode == Mode.CAREER){
                     displayCareer();
                 } else if(mode == Mode.YEAR){
-                    int year = (int) groupBox.getSelectedItem();
-                    displayYear(year);
+                    selected_year = (int) groupBox.getSelectedItem();
+                    displayYear(selected_year);
                 }
             }
         });
@@ -78,7 +79,11 @@ public class GRADgui  extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 GanttFrame gf = new GanttFrame("GanttChart");
-                gf.createDegreeTaskCollection();
+                if(mode.equals(Mode.CAREER)){
+                    gf.createDegreeTaskCollection();
+                } else if(mode.equals(Mode.YEAR)){
+                    gf.createYearTaskCollection(selected_year);
+                }
                 gf.display();
                 gf.pack();
                 gf.setVisible(true);
