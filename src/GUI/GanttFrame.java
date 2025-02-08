@@ -3,14 +3,10 @@ package GUI;
 import GUI.Tiles.*;
 import GUI.Utils.MyTaskRenderer;
 import myCompilerPackage.util.Degree;
-import myCompilerPackage.util.Milestone;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.chart.renderer.category.GanttRenderer;
 import org.jfree.chart.ui.ApplicationFrame;
 import org.jfree.data.category.IntervalCategoryDataset;
 import org.jfree.data.gantt.Task;
@@ -18,7 +14,6 @@ import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
 
 import java.awt.*;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
