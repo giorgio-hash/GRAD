@@ -31,7 +31,12 @@ public class Degree {
         this.dailyStudyHours = 4; //default
     }
 
-    
+    public void reset(){
+        	this.years = new ArrayList<Year>();
+            this.milestones = new HashMap<String, Milestone>();
+            this.dailyStudyHours = 4; //default
+    }
+
     public void setName(String name) {
     	this.name = name;
     }

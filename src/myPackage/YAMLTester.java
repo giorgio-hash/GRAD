@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 
-public class YAMLtester {
+public class YAMLTester {
     
     public static void main(String[] args) {
     	InputStream inputStream = null;
