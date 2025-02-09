@@ -31,17 +31,17 @@ public class GanttFrame extends JFrame {
     private double totPassed = 0;
     private double totExams = 0;
 
-    private boolean open_with_preferred_size;
+    private ChartPanel saved_chartpanel;
 
     public GanttFrame(String title) {
         super(title);
         taskseriescollection = new TaskSeriesCollection();
         tm = new TileManager();
-        open_with_preferred_size = true;
+        saved_chartpanel = null;
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
-                open_with_preferred_size = true;
+                saved_chartpanel = null;
             }
         });
     }
@@ -55,11 +55,14 @@ public class GanttFrame extends JFrame {
         MyTaskRenderer renderer = new MyTaskRenderer();
         renderer.setMaximumBarWidth(0.05);
         plot.setRenderer(renderer);
+
         ChartPanel chartpanel = new ChartPanel(jfreechart);
-        if(open_with_preferred_size){
+        if(saved_chartpanel==null){
             chartpanel.setPreferredSize(new Dimension(500, 270));
-            open_with_preferred_size = false;
+        }else{
+            chartpanel.setPreferredSize(saved_chartpanel.getSize());
         }
+        saved_chartpanel = chartpanel;
         setContentPane(chartpanel);
     }
 
