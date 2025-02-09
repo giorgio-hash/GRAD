@@ -151,7 +151,6 @@ public class GanttFrame extends JFrame {
         double tot = 0.0D;
         Task mt = newTask("milestone "+ms.getMilestone().getName(), ms.getStart(), ms.getEnd());
         addProccesColor(colorIndex++, Color.BLUE.brighter());
-        Task t;
 
         for(ExamTile e : ms.getExamTiles()){
             passed += registerPassedExam(e);
