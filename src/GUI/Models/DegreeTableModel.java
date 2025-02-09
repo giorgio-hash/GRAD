@@ -9,6 +9,7 @@ import myCompilerPackage.util.Exam;
 import myCompilerPackage.util.Year;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +94,7 @@ public class DegreeTableModel extends AbstractTableModel
             return toDisplay.get(rowIndex).getRight().getCfu();
         }
         else if(3 == columnIndex) {
-            return toDisplay.get(rowIndex).getRight().getAppello();
+            return toDisplay.get(rowIndex).getRight().getAppello().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         }
         else if(4 == columnIndex) {
             return toDisplay.get(rowIndex).getRight().isPassed();
