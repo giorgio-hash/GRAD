@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 
 public class GRADgui  extends JFrame{
+
+    //elementi grafici gnerati da IntelliJ Swing Designer
     private JTable dataTable;
     private JComboBox groupBox;
     private JComboBox typeBox;
@@ -27,8 +29,11 @@ public class GRADgui  extends JFrame{
     private JLabel doubleDotsLabel;
     private JLabel showLabel;
 
+    //elementi customizzati
     private DegreeTableModel degreemodel;
+    private GanttFrame gf;
 
+    //variabili d'appoggio
     private Mode mode;
     private int selected_year;
 
@@ -46,6 +51,7 @@ public class GRADgui  extends JFrame{
                 degreemodel.refresh();
                 displayCareer();
                 showTypeBox();
+                gf = new GanttFrame("GRAD - Gantt chart");
             }
         });
 
@@ -78,15 +84,17 @@ public class GRADgui  extends JFrame{
         creaGanttButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GanttFrame gf = new GanttFrame("GanttChart");
-                if(mode.equals(Mode.CAREER)){
-                    gf.createDegreeTaskCollection();
-                } else if(mode.equals(Mode.YEAR)){
-                    gf.createYearTaskCollection(selected_year);
-                }
-                gf.display();
-                gf.pack();
-                gf.setVisible(true);
+
+                        gf.clean();
+                        if(mode.equals(Mode.CAREER)){
+                            gf.createDegreeTaskCollection();
+                        } else if(mode.equals(Mode.YEAR)){
+                            gf.createYearTaskCollection(selected_year);
+                        }
+                        gf.display();
+                        gf.pack();
+                        gf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        gf.setVisible(true);
             }
         });
     }

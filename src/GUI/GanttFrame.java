@@ -13,11 +13,14 @@ import org.jfree.data.gantt.Task;
 import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.time.LocalDate;
 import java.util.*;
 
-public class GanttFrame extends ApplicationFrame {
+public class GanttFrame extends JFrame {
 
     private TaskSeriesCollection taskseriescollection;
     private TileManager tm;
@@ -28,10 +31,20 @@ public class GanttFrame extends ApplicationFrame {
 
     private double totPassed = 0;
     private double totExams = 0;
+
+    private boolean open_with_preferred_size;
+
     public GanttFrame(String title) {
         super(title);
         taskseriescollection = new TaskSeriesCollection();
         tm = new TileManager();
+        open_with_preferred_size = true;
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent we) {
+                open_with_preferred_size = true;
+            }
+        });
     }
 
 
@@ -44,9 +57,19 @@ public class GanttFrame extends ApplicationFrame {
         renderer.setMaximumBarWidth(0.05);
         plot.setRenderer(renderer);
         ChartPanel chartpanel = new ChartPanel(jfreechart);
-        chartpanel.setPreferredSize(new Dimension(500, 270));
+        if(open_with_preferred_size){
+            chartpanel.setPreferredSize(new Dimension(500, 270));
+            open_with_preferred_size = false;
+        }
         setContentPane(chartpanel);
+    }
 
+    public void clean(){
+        taskseriescollection = new TaskSeriesCollection();
+        colormap = new HashMap<Integer, Color>();
+        colorIndex = 0;
+        totPassed = 0;
+        totExams = 0;
     }
 
     public void createDegreeTaskCollection(){
@@ -163,6 +186,5 @@ public class GanttFrame extends ApplicationFrame {
     private void addProccesColor(Integer column, Color color) {
         colormap.put(column, color);
     }
-
 
 }
