@@ -93,7 +93,6 @@ public class GRADgui  extends JFrame{
                         }
                         gf.display();
                         gf.pack();
-                        gf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                         gf.setVisible(true);
             }
         });

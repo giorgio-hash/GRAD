@@ -21,29 +21,32 @@ import java.util.*;
 
 public class GanttFrame extends JFrame {
 
-    private TaskSeriesCollection taskseriescollection;
     private TileManager tm;
+    private TaskSeriesCollection taskseriescollection;
 
-    public static Map<Integer, Color> colormap = new HashMap<Integer, Color>();
+    public static Map<Integer, Color> colormap;
+    private int colorIndex;
 
-    private int colorIndex = 0;
-
-    private double totPassed = 0;
-    private double totExams = 0;
+    private double totPassed;
+    private double totExams;
 
     private ChartPanel saved_chartpanel;
 
     public GanttFrame(String title) {
         super(title);
-        taskseriescollection = new TaskSeriesCollection();
+
+        clean();
         tm = new TileManager();
         saved_chartpanel = null;
+
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent we) {
                 saved_chartpanel = null;
             }
         });
+
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
 
