@@ -8,10 +8,10 @@ public class Year {
     //private int numExams; // Numero di esami nell'anno
     private Map<String, Exam> exams; // Lista di esami associati all'anno
 
-    private static int idgen=1;
+
     
-    public Year() {
-        this.id = idgen++;
+    public Year(int id) {
+        this.id = id;
         //this.numExams = 0; // Numero di esami impostato inizialmente a zero
         this.exams = new HashMap<String, Exam>();
     }
