@@ -16,7 +16,7 @@ options {
 }
 
 @members {
-	SemanticHandler h = SemanticHandler.getHandler();
+	SemanticHandler h = new SemanticHandler();
 	
 	  public void displayRecognitionError(String[] tokenNames,
                                        RecognitionException e) {

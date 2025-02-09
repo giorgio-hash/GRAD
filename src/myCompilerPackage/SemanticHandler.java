@@ -11,8 +11,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 public class SemanticHandler {
-	
-	private static SemanticHandler h;
+	private Degree d;
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
@@ -28,19 +27,14 @@ public class SemanticHandler {
 	ArrayList<String> warnings;
 
 
-	private Degree d;
-	private SemanticHandler() {
+	protected SemanticHandler() {
 		d = null;
 		idYear=1;
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
 	}
-	public static SemanticHandler getHandler () {
-		if (h == null)
-			h = new SemanticHandler();
-		return h;
-	}
-	
+
+
 	public void createDegree(Token name) {
 		
 		String n = name.getText().replace("\"","");
