@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 
 public class GRADgui  extends JFrame{
+
+    //elementi grafici gnerati da IntelliJ Swing Designer
     private JTable dataTable;
     private JComboBox groupBox;
     private JComboBox typeBox;
@@ -27,10 +29,14 @@ public class GRADgui  extends JFrame{
     private JLabel doubleDotsLabel;
     private JLabel showLabel;
 
+    //elementi customizzati
     private DegreeTableModel degreemodel;
+    private GanttFrame gf;
 
+    //variabili d'appoggio
     private Mode mode;
     private int selected_year;
+
 
     public GRADgui() {
         setTitle("GRAD");
@@ -41,11 +47,40 @@ public class GRADgui  extends JFrame{
         caricaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 Parser.getInstance().parse();
+
                 mode = Mode.CAREER;
+
+                showGroupBox(false);
                 degreemodel.refresh();
                 displayCareer();
                 showTypeBox();
+
+                gf = new GanttFrame("GRAD - Gantt chart");
+
+                String s = "";
+                if(Parser.getInstance().hasErrors())
+                {
+                    for(String err : Parser.getInstance().getErrors())
+                        s += "\t- " + err + "\n";
+
+                    JOptionPane.showMessageDialog(null,
+                            s,
+                            "Errore in fase di compilazione",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                s = "";
+                if(Parser.getInstance().hasWarning())
+                {
+                    for(String wa : Parser.getInstance().getWarnings())
+                        s += "\t- " + wa + "\n";
+
+                    JOptionPane.showMessageDialog(null,
+                            s,
+                            "Warning in fase di compilazione",
+                            JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
 
@@ -78,15 +113,16 @@ public class GRADgui  extends JFrame{
         creaGanttButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GanttFrame gf = new GanttFrame("GanttChart");
-                if(mode.equals(Mode.CAREER)){
-                    gf.createDegreeTaskCollection();
-                } else if(mode.equals(Mode.YEAR)){
-                    gf.createYearTaskCollection(selected_year);
-                }
-                gf.display();
-                gf.pack();
-                gf.setVisible(true);
+
+                        gf.clean();
+                        if(mode.equals(Mode.CAREER)){
+                            gf.createDegreeTaskCollection();
+                        } else if(mode.equals(Mode.YEAR)){
+                            gf.createYearTaskCollection(selected_year);
+                        }
+                        gf.display();
+                        gf.pack();
+                        gf.setVisible(true);
             }
         });
     }

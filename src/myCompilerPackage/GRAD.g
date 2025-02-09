@@ -16,8 +16,25 @@ options {
 }
 
 @members {
-	SemanticHandler h = SemanticHandler.getHandler();
+	SemanticHandler h = new SemanticHandler();
+	
+	  public void displayRecognitionError(String[] tokenNames,
+                                       RecognitionException e) {
+		Token tk = input.LT(1);
+		String hdr = getErrorHeader(e);
+		String msg = getErrorMessage(e, tokenNames);
+		h.handleError(tokenNames, tk, e, hdr, msg);
+  	}
+  	
+  	public SemanticHandler getHandler(){
+  		return h;
+  	}
 }
+
+	
+/* ***********************************************
+			Tokens defintion part starts here
+************************************************** */
 
 WS  :   ( ' '
         | '\t'
@@ -58,7 +75,7 @@ UNICODE_ESC
 
 INT	:	'0'|('1'.. '9')('0'.. '9')*;
 
-DATE 	:	('0'.. '9')('0'.. '9')('0'.. '9')('0'.. '9') '-' ('0'.. '9')('0'.. '9') '-' ('0'.. '9')('0'.. '9'); 
+DATE 	:	('0'INT|INT) '-' ('0'INT|INT) '-' INT; 
 
 STATUS	:	'PASSED' | 'NOT_PASSED';
 
@@ -74,18 +91,45 @@ CLOSE_CUB
 
 DOTCOMMA
 	:	';';	
+	
+ERROR_TOKEN
+	:	. ;
 
+/* ***********************************************
+			Tokens defintion part ends here
+************************************************** */
 
+/* ***********************************************
+			Rules defintion part starts here
+************************************************** */
 
 degreeRule
-	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'DAILY_HOURS:' st=INT {h.setDailyStudyHours($st);} 'YEARS:' OPEN_SQB ( y=yearRule { h.addYear(y); } )+ CLOSE_SQB
+	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'DAILY_HOURS:' st=INT {h.setDailyStudyHours($st);} 'YEARS:' OPEN_SQB ( y=yearRule { if(y!=null)h.addYear(y); } )+ CLOSE_SQB {h.checkDegree($deg);}
 	;
 	
 yearRule returns [Year y]
-	:	'YEAR' { y=h.createYear(); } OPEN_CUB 'EXAMS:' OPEN_SQB ( e=examRule { y.addExam(e); } DOTCOMMA)+ CLOSE_SQB CLOSE_CUB
+	:	yt='YEAR' { y=h.createYear(); } OPEN_CUB 'EXAMS:' ex=OPEN_SQB ( e=examRule { if(e!=null)y.addExam(e); } DOTCOMMA)+ {y=h.checkYear(y,$yt);} CLOSE_SQB CLOSE_CUB
 	;
 	
 
 examRule returns [Exam e]
-	:	 'EXAM' nome=STRING 'CFU' cfu=INT 'DATE' stringdate=DATE {e=h.createExam($nome,$cfu,$stringdate);} ('STATUS' status=STATUS {h.setExamStatus(e,$status); })? ('MILESTONE' mil=STRING {h.assignExamToMilestone(e,$mil);}  )?
+	:	 'EXAM' nome=STRING 'CFU' cfu=INT 'DATE' stringdate=DATE {e=h.createExam($nome,$cfu,$stringdate);} facultativeInfoRule[e]
 	;
+
+facultativeInfoRule [Exam e]
+	:	(setMilestoneRule[e] (setStatusRule[e])? 
+		| setStatusRule[e] (setMilestoneRule[e])? 
+		)?
+	;
+	
+setStatusRule[Exam e]
+	:	'STATUS' status=STATUS { if(e!=null)h.setExamStatus(e,$status); }
+	;
+
+setMilestoneRule [Exam e]
+	:	'MILESTONE' mil=STRING {if(e!=null)h.assignExamToMilestone(e,$mil);}
+	;
+
+/* ***********************************************
+			Rules defintion part ends here
+************************************************** */
