@@ -7,22 +7,26 @@ import java.util.Map;
 public class DependencyManager {
 
 	private List<Dependency> dependencies;
-	private Map<String,Dependency> dependencies_map;
+	private Map<String,Dependency> dependenciesMap;
 
 
 	public void mapDependencies(){
-		dependencies_map = new HashMap<String,Dependency>();
+		dependenciesMap = new HashMap<String,Dependency>();
 		for(Dependency d : dependencies){
-			dependencies_map.put(d.getDependency(),d);
+			dependenciesMap.put(d.getDependency(),d);
 		}
 	}
 
 	public Dependency getDependency(String exam){
-        return dependencies_map.getOrDefault(exam, null);
+        return dependenciesMap.getOrDefault(exam, null);
 	}
 
 	public boolean hasDependencies(){
 		return dependencies.isEmpty();
+	}
+
+	public boolean hasDependency(String exam){
+		return dependenciesMap.containsKey(exam);
 	}
 
 	public List<Dependency> getDependencies() {

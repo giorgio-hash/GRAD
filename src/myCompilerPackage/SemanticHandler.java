@@ -4,17 +4,22 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import myPackage.Dependencies;
+import myPackage.YAMLutils.Dependency;
 import myPackage.YAMLutils.DependencyManager;
+import myPackage.YAMLutils.ExamDependency;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import myCompilerPackage.util.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SemanticHandler {
 	private Degree d;
 	private DependencyManager dep;
+	private Map<String, Exam> examsMap;
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
@@ -36,6 +41,7 @@ public class SemanticHandler {
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
 		dep = Dependencies.getInstance().loadYAML();
+		examsMap = new HashMap<String, Exam>();
 	}
 
 
@@ -56,9 +62,7 @@ public class SemanticHandler {
 	}
 	
 	
-	public void addYear(Year y) {
-		d.addYear(y);
-	}
+	public void addYear(Year y) {d.addYear(y);}
 	
 	
 	public Exam createExam(Token name, Token cfu, Token stringdate) {
@@ -67,15 +71,18 @@ public class SemanticHandler {
 		int c = Integer.parseInt(cfu.getText());
 		LocalDate s = checkDateDeclaration(stringdate);
 		if(s != null)
-			return new Exam(n,c,s);
+			return new Exam(n, c, s);
 		else
 			return null;
 	}
 	
 	public void setExamStatus(Exam e, Token status) {
 		
-		//se l'esame è "passato", qui si effettuano dei controlli per valutare se LocalDate.now() è dopo la data dell'esame 
+		//se l'esame è "PASSED", qui si effettuano dei controlli per valutare se LocalDate.now() è dopo la data dell'esame
+		//se l'esame è passato, tutte le sue dipendenze strict devono essere "PASSED", altrimenti setta a NOT_PASSED
 		e.setStatus(status.getText());
+
+
 	
 	}
 	
