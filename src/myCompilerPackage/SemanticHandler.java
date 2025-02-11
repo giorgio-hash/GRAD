@@ -3,6 +3,8 @@ package myCompilerPackage;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import myPackage.Dependencies;
+import myPackage.YAMLutils.DependencyManager;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import myCompilerPackage.util.*;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 public class SemanticHandler {
 	private Degree d;
+	private DependencyManager dep;
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
@@ -32,6 +35,7 @@ public class SemanticHandler {
 		idYear=1;
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
+		dep = Dependencies.getInstance().loadYAML();
 	}
 
 
