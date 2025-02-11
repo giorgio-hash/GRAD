@@ -21,6 +21,10 @@ public class DependencyManager {
         return dependencies_map.getOrDefault(exam, null);
 	}
 
+	public boolean hasDependencies(){
+		return dependencies.isEmpty();
+	}
+
 	public List<Dependency> getDependencies() {
 		return dependencies;
 	}
