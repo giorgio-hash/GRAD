@@ -97,13 +97,15 @@ public class SemanticHandler {
 			correct = false;
 		}
 		//se l'esame è passato, tutte le sue dipendenze strict devono essere "PASSED", altrimenti setta a NOT_PASSED
-		if(dep.hasDependency(e.getName()) && checkPastStrictDependencies(e)){
+		if(dep.hasDependency(e.getName()) && !checkPastStrictDependencies(e)){
 			addWarning(STRICT_DEPENDENCY_NOT_PASSED_WARNING,status);
 			correct = false;
 		}
 
 		if(!correct)
 			e.setStatus("NOT_PASSED");
+		else
+			e.setStatus(s);
 	}
 	
 	public void assignExamToMilestone(Exam e, Token milestone) {
@@ -200,14 +202,14 @@ public class SemanticHandler {
 	}
 
 	public void handleError(String[] tokenNames, Token tk, RecognitionException e, String hdr, String msg) {
-		// Cominciamo a gestire noi gli errori...
+
 		String coors = "[" + tk.getLine() + ", " + (tk.getCharPositionInLine()+1) + "]";
 		if (tk.getType() == GRADLexer.ERROR_TOKEN)
 			errors.add("Errore Lessicale in " + coors + ":\t" + msg + "\t" + tk.getText());
 		else
 			errors.add("Errore Sintattico in " + coors + ":\t" + msg +"\t" + tk.getText());
 	}
-	// gestore gli errori semantici
+	// gestore gli errori semantic
 	void addError (int errCode, Token tk) {
 		String str = tk.getText();
 		String coors = "[" + tk.getLine() + ", " + (tk.getCharPositionInLine()+1) + "]";

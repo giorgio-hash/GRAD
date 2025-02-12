@@ -50,37 +50,22 @@ public class GRADgui  extends JFrame{
 
                 Parser.getInstance().parse();
 
+                displayErrorsAndWarnings();
+
                 mode = Mode.CAREER;
 
-                showGroupBox(false);
+                if(Parser.getInstance().hasErrors()){
+                    showGroupBox(false);
+                    showTypeBox(false);
+                    gf = null;
+                }else{
+                    showTypeBox(true);
+                    showGroupBox(false);
+                    gf = new GanttFrame("GRAD - Gantt chart");
+                }
+
                 degreemodel.refresh();
                 displayCareer();
-                showTypeBox();
-
-                gf = new GanttFrame("GRAD - Gantt chart");
-
-                String s = "";
-                if(Parser.getInstance().hasErrors())
-                {
-                    for(String err : Parser.getInstance().getErrors())
-                        s += "\t- " + err + "\n";
-
-                    JOptionPane.showMessageDialog(null,
-                            s,
-                            "Errore in fase di compilazione",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-                s = "";
-                if(Parser.getInstance().hasWarning())
-                {
-                    for(String wa : Parser.getInstance().getWarnings())
-                        s += "\t- " + wa + "\n";
-
-                    JOptionPane.showMessageDialog(null,
-                            s,
-                            "Warning in fase di compilazione",
-                            JOptionPane.WARNING_MESSAGE);
-                }
             }
         });
 
@@ -127,6 +112,31 @@ public class GRADgui  extends JFrame{
         });
     }
 
+    private void displayErrorsAndWarnings(){
+        String s = "";
+        if(Parser.getInstance().hasErrors())
+        {
+            for(String err : Parser.getInstance().getErrors())
+                s += "\t- " + err + "\n";
+
+            JOptionPane.showMessageDialog(null,
+                    s,
+                    "Errore in fase di compilazione",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        s = "";
+        if(Parser.getInstance().hasWarning())
+        {
+            for(String wa : Parser.getInstance().getWarnings())
+                s += "\t- " + wa + "\n";
+
+            JOptionPane.showMessageDialog(null,
+                    s,
+                    "Warning in fase di compilazione",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     private void loadYearsGroupBox(){
         groupBox.removeAllItems();
         for(int i=1; i<=Degree.getDegree().getYears().size(); i++){
@@ -142,13 +152,17 @@ public class GRADgui  extends JFrame{
         degreemodel.displayByYear(year);
         dataTable.updateUI();
     }
-    private void showTypeBox(){
-        showLabel.setText("Seleziona");
-        String[] types = {"CAREER","YEAR"};
-        typeBox.setModel(new DefaultComboBoxModel(types));
-        typeBox.setVisible(true);
-        creaGanttButton.setVisible(true);
-        invioButton.setVisible(true);
+    private void showTypeBox(boolean show){
+        if(show){
+            showLabel.setText("Seleziona");
+            String[] types = {"CAREER","YEAR"};
+            typeBox.setModel(new DefaultComboBoxModel(types));
+        }else{
+            showLabel.setText("Benvenuto in GRAD! Per iniziare, carica un file \".GRAD\".");
+        }
+        typeBox.setVisible(show);
+        creaGanttButton.setVisible(show);
+        invioButton.setVisible(show);
     }
 
     private void showGroupBox(boolean show){

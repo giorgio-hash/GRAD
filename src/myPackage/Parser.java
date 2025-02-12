@@ -2,6 +2,7 @@ package myPackage;
 
 import myCompilerPackage.GRADLexer;
 import myCompilerPackage.GRADParser;
+import myCompilerPackage.util.Degree;
 import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 
@@ -51,6 +52,9 @@ public class Parser {
 
             // 4. si lancia il parser dallo start simbol (prima produzione specificata)
             parser.degreeRule();
+
+            if(hasErrors())
+                Degree.getDegree().reset();
 
         } catch (Exception e) {
             System.out.println ("Parsing con ANTLR abortito\n\n");
