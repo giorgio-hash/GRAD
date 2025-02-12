@@ -13,6 +13,7 @@ public class Parser {
 
     private GRADParser parser;
     private String fileIn;
+    private boolean otherExceptions;
 
     private static Parser instance = null;
 
@@ -32,6 +33,7 @@ public class Parser {
     }
 
   	public void parse(){
+        otherExceptions = false;
         try {
             // Inizializzazione del parser (antlr docet):
             //		1. Si inizializza il lexer
@@ -58,6 +60,7 @@ public class Parser {
 
         } catch (Exception e) {
             System.out.println ("Parsing con ANTLR abortito\n\n");
+            otherExceptions = true;
             e.printStackTrace();
         }
     }
@@ -76,5 +79,8 @@ public class Parser {
 
     public boolean hasWarning(){
         return parser.getHandler().hasWarning();
+    }
+    public boolean hasOtherExceptions(){
+        return otherExceptions;
     }
 }

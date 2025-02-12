@@ -54,7 +54,7 @@ public class GRADgui  extends JFrame{
 
                 mode = Mode.CAREER;
 
-                if(Parser.getInstance().hasErrors()){
+                if(Parser.getInstance().hasErrors() || Parser.getInstance().hasOtherExceptions()){
                     showGroupBox(false);
                     showTypeBox(false);
                     gf = null;
@@ -113,6 +113,14 @@ public class GRADgui  extends JFrame{
     }
 
     private void displayErrorsAndWarnings(){
+
+        if(Parser.getInstance().hasOtherExceptions()){
+            JOptionPane.showMessageDialog(null,
+                    "Assicurati che il percorso al tuo file '.GRAD' sia corretto o consulta il manuale.\nSe l'errore persiste, lascia una segnalazione agli sviluppatori.",
+                    "Eccezione non controllata",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
         String s = "";
         if(Parser.getInstance().hasErrors())
         {
