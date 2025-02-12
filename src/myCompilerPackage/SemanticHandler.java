@@ -233,9 +233,9 @@ public class SemanticHandler {
 		else if (warnCode == INVALID_DATE_RANGE_WARNING)
 			msg += "La data d'appello '"+str+"' supera il range anni consentito ["+LocalDate.now().minusYears(10L).getYear()+", "+LocalDate.now().plusYears(10L).getYear()+"]. Impostato limite più vicino";
 		else if (warnCode == PASSED_AFTER_TODAY_WARNING)
-			msg += "STATUS '"+tk+"' è PASSED in un appello futuro. Impostato NOT_PASSED";
+			msg += "STATUS è PASSED in un appello futuro. Impostato NOT_PASSED";
 		else if (warnCode == STRICT_DEPENDENCY_NOT_PASSED_WARNING)
-			msg += "STATUS '"+tk+"' è PASSED ma gli esami propedeutici sono NOT_PASSED. Impostato NOT_PASSED";
+			msg += "STATUS è PASSED ma gli esami propedeutici sono NOT_PASSED. Impostato NOT_PASSED";
 		warnings.add (msg);
 	}
 // ----------------------- fine gestione degli errori
