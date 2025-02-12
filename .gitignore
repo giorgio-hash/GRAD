@@ -249,3 +249,4 @@ buildNumber.properties
 *.jpg
 *.png
 /META-INF/
+/resources/
