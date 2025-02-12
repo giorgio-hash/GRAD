@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import myPackage.Dependencies;
-import myPackage.YAMLutils.Dependency;
 import myPackage.YAMLutils.DependencyManager;
 import myPackage.YAMLutils.ExamDependency;
 import org.antlr.runtime.RecognitionException;
@@ -30,6 +29,9 @@ public class SemanticHandler {
 	public static int EMPTY_DEGREE_ERROR = 12;
 	public static int INVALID_DATE_RANGE_WARNING 	= 100;
 	public static int INVALID_STUDYHOURS_RANGE_WARNING = 101;
+	public static int PASSED_AFTER_TODAY_WARNING = 102;
+	public static int STRICT_DEPENDENCY_NOT_PASSED_WARNING = 103;
+	//public static int SOFT_DEPENDENCY_NOT_PASSED_WARNING = 104;
 
 	ArrayList<String> errors;
 	ArrayList<String> warnings;
@@ -70,20 +72,38 @@ public class SemanticHandler {
 		String n = name.getText().replace("\"","");
 		int c = Integer.parseInt(cfu.getText());
 		LocalDate s = checkDateDeclaration(stringdate);
-		if(s != null)
-			return new Exam(n, c, s);
-		else
+		if(s != null) {
+			Exam x = new Exam(n, c, s);
+			examsMap.put(x.getName(), x);
+			return x;
+		}else
 			return null;
 	}
 	
 	public void setExamStatus(Exam e, Token status) {
 		
-		//se l'esame è "PASSED", qui si effettuano dei controlli per valutare se LocalDate.now() è dopo la data dell'esame
+
+		String s = status.getText();
+		if(!s.equals("PASSED")){
+			e.setStatus(s);
+			return;
+		}
+
+		boolean correct = true;
+		//se l'esame è "PASSED", qui si effettuano dei controlli per valutare se la data dell'esame è dopo LocalDate.now()
+		if(LocalDate.now().isBefore(e.getAppello()))
+		{
+			addWarning(PASSED_AFTER_TODAY_WARNING,status);
+			correct = false;
+		}
 		//se l'esame è passato, tutte le sue dipendenze strict devono essere "PASSED", altrimenti setta a NOT_PASSED
-		e.setStatus(status.getText());
+		if(checkPastStrictDependencies(e)){
+			addWarning(STRICT_DEPENDENCY_NOT_PASSED_WARNING,status);
+			correct = false;
+		}
 
-
-	
+		if(!correct)
+			e.setStatus("NOT_PASSED");
 	}
 	
 	public void assignExamToMilestone(Exam e, Token milestone) {
@@ -117,6 +137,19 @@ public class SemanticHandler {
 	}
 	public ArrayList<String> getWarnings( ) {
 		return warnings;
+	}
+
+	public boolean checkPastStrictDependencies(Exam e){
+		if(!dep.hasDependency(e.getName()))
+			return true;
+
+		for(ExamDependency d : dep.getDependency(e.getName()).getStrict_dependencies()){
+			if(examsMap.containsKey(d.getExam()) && !examsMap.get(d.getExam()).isPassed()) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	public Year checkYear(Year y, Token yt){
@@ -199,7 +232,10 @@ public class SemanticHandler {
 			msg += "DAILY_HOURS dev'essere compreso in [1, 24]. Impostato default: 5";
 		else if (warnCode == INVALID_DATE_RANGE_WARNING)
 			msg += "La data d'appello '"+str+"' supera il range anni consentito ["+LocalDate.now().minusYears(10L).getYear()+", "+LocalDate.now().plusYears(10L).getYear()+"]. Impostato limite più vicino";
-
+		else if (warnCode == PASSED_AFTER_TODAY_WARNING)
+			msg += "STATUS '"+tk+"' è PASSED in un appello futuro. Impostato NOT_PASSED";
+		else if (warnCode == STRICT_DEPENDENCY_NOT_PASSED_WARNING)
+			msg += "STATUS '"+tk+"' è PASSED ma gli esami propedeutici sono NOT_PASSED. Impostato NOT_PASSED";
 		warnings.add (msg);
 	}
 // ----------------------- fine gestione degli errori
