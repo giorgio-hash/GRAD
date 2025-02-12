@@ -97,7 +97,7 @@ public class SemanticHandler {
 			correct = false;
 		}
 		//se l'esame è passato, tutte le sue dipendenze strict devono essere "PASSED", altrimenti setta a NOT_PASSED
-		if(checkPastStrictDependencies(e)){
+		if(dep.hasDependency(e.getName()) && checkPastStrictDependencies(e)){
 			addWarning(STRICT_DEPENDENCY_NOT_PASSED_WARNING,status);
 			correct = false;
 		}
@@ -140,7 +140,7 @@ public class SemanticHandler {
 	}
 
 	public boolean checkPastStrictDependencies(Exam e){
-		if(!dep.hasDependency(e.getName()))
+		if(dep.getDependency(e.getName()).getStrict_dependencies().isEmpty())
 			return true;
 
 		for(ExamDependency d : dep.getDependency(e.getName()).getStrict_dependencies()){
