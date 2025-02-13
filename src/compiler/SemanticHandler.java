@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import controller.Degree;
-import controller.Dependencies;
-import model.yaml.DependencyManager;
+import controller.DependencyManager;
+import model.yaml.DependencyMapper;
 import model.yaml.ExamDependency;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class SemanticHandler {
 	private Degree d;
-	private DependencyManager dep;
+	private DependencyMapper dep;
 	private Map<String, Exam> examsMap;
 	private int idYear;
 
@@ -43,7 +43,7 @@ public class SemanticHandler {
 		idYear=1;
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
-		dep = Dependencies.getInstance().loadYAML();
+		dep = DependencyManager.getInstance().loadYAML();
 		examsMap = new HashMap<String, Exam>();
 	}
 

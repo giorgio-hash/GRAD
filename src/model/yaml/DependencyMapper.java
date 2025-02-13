@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DependencyManager {
+public class DependencyMapper {
 
 	private List<Dependency> dependencies;
 	private Map<String,Dependency> dependenciesMap;
@@ -42,7 +42,7 @@ public class DependencyManager {
 	@Override
 	public String toString() {
 		
-		String s = "DependencyManager [dependencies=\n";
+		String s = "DependencyMapper [dependencies=\n";
 		for (Dependency dependency : dependencies) {
 			s += "\t"+dependency+",\n";
 		}

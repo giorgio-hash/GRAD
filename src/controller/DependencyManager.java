@@ -1,34 +1,34 @@
 package controller;
 
-import model.yaml.DependencyManager;
+import model.yaml.DependencyMapper;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class Dependencies {
+public class DependencyManager {
 
-    private static Dependencies instance=null;
+    private static DependencyManager instance=null;
     private String path;
-    DependencyManager data;
+    DependencyMapper data;
 
-    private Dependencies(){
+    private DependencyManager(){
         this.path=".\\resources\\career.yaml";
     }
 
-    public static Dependencies getInstance(){
+    public static DependencyManager getInstance(){
         if(instance == null)
-            return new Dependencies();
+            return new DependencyManager();
         return instance;
     }
 
-    public DependencyManager loadYAML(){
+    public DependencyMapper loadYAML(){
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream(path);
             Yaml yaml = new Yaml();
-            data = yaml.loadAs(inputStream,DependencyManager.class);
+            data = yaml.loadAs(inputStream, DependencyMapper.class);
         } catch (FileNotFoundException e) {
             System.out.println("File non trovato o non compilabile.");
             return null;
@@ -38,12 +38,12 @@ public class Dependencies {
         return data;
     }
 
-    public DependencyManager loadYAML(String path){
+    public DependencyMapper loadYAML(String path){
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream(path);
             Yaml yaml = new Yaml();
-            data = yaml.loadAs(inputStream,DependencyManager.class);
+            data = yaml.loadAs(inputStream, DependencyMapper.class);
         } catch (FileNotFoundException e) {
             System.out.println("File non trovato o non compilabile.");
             return null;
@@ -52,7 +52,7 @@ public class Dependencies {
         return data;
     }
 
-    public DependencyManager getDependencyManager(){
+    public DependencyMapper getDependencyManager(){
         return data;
     }
 
