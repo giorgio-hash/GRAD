@@ -248,3 +248,5 @@ buildNumber.properties
 *.iml
 *.jpg
 *.png
+/META-INF/
+/resources/

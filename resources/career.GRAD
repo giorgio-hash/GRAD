@@ -3,14 +3,14 @@ DAILY_HOURS: 5
 YEARS: [
     YEAR {
         EXAMS: [
-            EXAM "Matematica" CFU 6 DATE 10-02-225 MILESTONE "a1gal" STATUS PASSED;
-            EXAM "gal" CFU 6 DATE 10-02-2025 MILESTONE "a1gal";
+            EXAM "analisi 1" CFU 6 DATE 10-02-2050 MILESTONE "a1gal" STATUS PASSED;
+            EXAM "geometria ed algebra lineare" CFU 6 DATE 10-02-2025 MILESTONE "a1gal" STATUS PASSED;
         ]
     }
     YEAR {
         EXAMS: [
-            EXAM "analisi 2" CFU 6 DATE 03-03-2250 STATUS PASSED;
-            EXAM "Embedded" CFU 6 DATE 03-03-2025;
+            EXAM "analisi 2" CFU 6 DATE 11-02-2025 STATUS PASSED;
+            EXAM "Embedded" CFU 6 DATE 03-03-2250;
         ]
     }
 ]
