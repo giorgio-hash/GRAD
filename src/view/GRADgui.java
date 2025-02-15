@@ -115,7 +115,7 @@ public class GRADgui  extends JFrame{
         if(Parser.getInstance().hasOtherExceptions()){
             JOptionPane.showMessageDialog(null,
                     "Assicurati che il percorso al tuo file '.GRAD' sia corretto o consulta il manuale.\nSe l'errore persiste, lascia una segnalazione agli sviluppatori.",
-                    "Eccezione non controllata",
+                    "Eccezione di configurazione",
                     JOptionPane.ERROR_MESSAGE);
         }
 
@@ -127,7 +127,7 @@ public class GRADgui  extends JFrame{
 
             JOptionPane.showMessageDialog(null,
                     s,
-                    "Errore in fase di compilazione",
+                    "Errore in compilazione GRAD",
                     JOptionPane.ERROR_MESSAGE);
         }
         s = "";
@@ -138,7 +138,7 @@ public class GRADgui  extends JFrame{
 
             JOptionPane.showMessageDialog(null,
                     s,
-                    "Warning in fase di compilazione",
+                    "Warning in compilazione GRAD",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
