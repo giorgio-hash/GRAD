@@ -28,6 +28,7 @@ public class SemanticHandler {
 	public static int INVALID_DATE_FORMAT_ERROR 	= 10;
 	public static int EMPTY_YEAR_ERROR = 11;
 	public static int EMPTY_DEGREE_ERROR = 12;
+	public static int EXAM_ALREADY_EXISTS_ERROR = 13;
 	public static int INVALID_DATE_RANGE_WARNING 	= 100;
 	public static int INVALID_STUDYHOURS_RANGE_WARNING = 101;
 	public static int PASSED_AFTER_TODAY_WARNING = 102;
@@ -73,7 +74,7 @@ public class SemanticHandler {
 		String n = name.getText().replace("\"","");
 		int c = Integer.parseInt(cfu.getText());
 		LocalDate s = checkDateDeclaration(stringdate);
-		if(s != null) {
+		if(s != null && !checkIfExamExists(name)) {
 			Exam x = new Exam(n, c, s);
 			examsMap.put(x.getName(), x);
 			return x;
@@ -140,6 +141,15 @@ public class SemanticHandler {
 	}
 	public ArrayList<String> getWarnings( ) {
 		return warnings;
+	}
+
+	public boolean checkIfExamExists(Token t){
+		for(Year y : d.getYears())
+			if(y.getExams().containsKey(t.getText())){
+				addError(EXAM_ALREADY_EXISTS_ERROR,t);
+				return true;
+			}
+		return false;
 	}
 
 	public boolean checkPastStrictDependencies(Exam e){
@@ -221,7 +231,9 @@ public class SemanticHandler {
 		else if(errCode == EMPTY_YEAR_ERROR)
 			msg += "YEAR non presenta alcun esame valido in elenco";
 		else if (errCode == EMPTY_DEGREE_ERROR)
-			msg += "DEGREE '"+tk+"' non presenta alcun anno valido in elenco";
+			msg += "DEGREE '"+str+"' non presenta alcun anno valido in elenco";
+		else if (errCode == EXAM_ALREADY_EXISTS_ERROR)
+			msg += "EXAM '"+str+"' è stato già inserito precedentemente";
 
 		errors.add(msg);
 	}
