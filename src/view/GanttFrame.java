@@ -80,7 +80,7 @@ public class GanttFrame extends JFrame {
 
     public void createDegreeTaskCollection(){
         TaskSeries ts = new TaskSeries("Degree");
-        Task t = newTask(Degree.getDegree().getName(), tm.getStart(),tm.getEnd(), (double) totPassed/totExams);
+        Task t = newTask(Degree.getDegree().getName(), tm.getStart(),tm.getEnd());
         ts.add(t);
         addProccesColor(colorIndex++, Color.darkGray);
         taskseriescollection.add(ts);
@@ -141,7 +141,7 @@ public class GanttFrame extends JFrame {
 
     private double registerPassedExam(ExamTile et){
 
-        if(et.getExam().getStatus().equals("PASSED")){
+        if(et.getExam().isPassed()){
             addProccesColor(colorIndex++, Color.green.darker());
             return 1.0D;
         }
@@ -168,12 +168,12 @@ public class GanttFrame extends JFrame {
     private void newSubTask(Task t, Task sub){
         t.addSubtask(sub);
     }*/
-
+/*
     private Task newTask(String name, LocalDate start, LocalDate end, Double complete){
         Task t = new Task(name, newDate(start), newDate(end));
         t.setPercentComplete(complete);
         return t;
-    }
+    }*/
     private Task newTask(String name, LocalDate start, LocalDate end){
         return new Task(name, newDate(start), newDate(end));
     }
