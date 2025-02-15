@@ -185,7 +185,7 @@ public class SemanticHandler {
 		if(hhh > 24 || hhh < 1)
 		{
 			addWarning(INVALID_STUDYHOURS_RANGE_WARNING, studyhours);
-			return 5;
+			return Degree.getDegree().getDailyStudyHours();
 		}
 
 		return hhh;
@@ -244,7 +244,7 @@ public class SemanticHandler {
 		String msg = "Warning in " + coors + ":\t";
 
 		if(warnCode == INVALID_STUDYHOURS_RANGE_WARNING)
-			msg += "DAILY_HOURS dev'essere compreso in [1, 24]. Impostato default: 5";
+			msg += "DAILY_HOURS dev'essere compreso in [1, 24]. Impostato default: "+Degree.getDegree().getDailyStudyHours();
 		else if (warnCode == INVALID_DATE_RANGE_WARNING)
 			msg += "La data d'appello '"+str+"' supera il range anni consentito ["+LocalDate.now().minusYears(10L).getYear()+", "+LocalDate.now().plusYears(10L).getYear()+"]. Impostato limite più vicino";
 		else if (warnCode == PASSED_AFTER_TODAY_WARNING)
