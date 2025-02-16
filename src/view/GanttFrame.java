@@ -17,6 +17,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -178,14 +180,19 @@ public class GanttFrame extends JFrame {
         return new Task(name, newDate(start), newDate(end));
     }
     private Date newDate(LocalDate ld){
-        return date(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
+        return date(ld.getDayOfMonth(), ld.getMonthValue(), ld.getYear());
     }
 
-    private static Date date(int gg, int mm, int aa) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(gg, mm, aa);
-        Date date1 = calendar.getTime();
-        return date1;
+    private static Date date(int gg, int mm, int aa){
+        String date_string = gg+"-"+mm+"-"+aa;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = formatter.parse(date_string);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return date;
     }
 
     private void addProccesColor(Integer column, Color color) {
