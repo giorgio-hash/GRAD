@@ -3,14 +3,20 @@ DAILY_HOURS: 5
 YEARS: [
     YEAR {
         EXAMS: [
-            EXAM "analisi 1" CFU 6 DATE 10-02-2050 MILESTONE "a1gal" STATUS PASSED;
-            EXAM "geometria ed algebra lineare" CFU 6 DATE 10-02-2025 MILESTONE "a1gal" STATUS PASSED;
+            EXAM "programmazione avanzata" CFU 6 DATE 11-01-2024 MILESTONE "PACandPA" STATUS PASSED;
+            EXAM "progettazione algoritmi e computabilità" CFU 6 DATE 09-07-2024 MILESTONE "PACandPA" STATUS PASSED;
+            EXAM "Modelli Algoritmi Ottimizzazione" CFU 9 DATE 02-04-2025 MILESTONE "AIandMAO";
+            EXAM "Intelligenza Artificiale" CFU 6 DATE 02-04-2025 MILESTONE "AIandMAO";
+            EXAM "Telecomunicazioni" CFU 6 DATE 10-09-2024 MILESTONE "TITandT" STATUS PASSED;
+            EXAM "Teoria dell'Informazione e della Trasmissione" CFU 9 DATE 17-02-2025 MILESTONE "TITandT";
+            EXAM "Identificazione Modelli Analisi Dati" CFU 6 DATE 20-01-2024 STATUS PASSED;
         ]
     }
     YEAR {
         EXAMS: [
-            EXAM "analisi 2" CFU 6 DATE 11-02-2025 STATUS PASSED;
-            EXAM "Embedded" CFU 6 DATE 03-03-2250;
+            EXAM "Controlli Automatici" CFU 6 DATE 11-12-2024 STATUS PASSED;
+            EXAM "Advanced Data Management" CFU 9 DATE 15-01-2025 STATUS PASSED;
+            EXAM "Linguaggi Formali e Compilatori" CFU 9 DATE 23-12-2024 STATUS PASSED; 
         ]
     }
 ]

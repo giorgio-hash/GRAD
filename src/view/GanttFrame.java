@@ -100,7 +100,7 @@ public class GanttFrame extends JFrame {
         SortedSet<GanttTile> ea = new TreeSet<GanttTile>(new DeadlineComparator());
         ea.addAll(yt.getExamTiles());
         for(MilestoneTile ms : yt.getMilestoneTiles().values()){
-            ea.removeIf(e -> ((ExamTile) e).getExam().getMilestone().equals(ms.getMilestone().getName()));
+            ea.removeIf(e -> ( e instanceof ExamTile && ((ExamTile) e).getExam().getMilestone() != null && ((ExamTile) e).getExam().getMilestone().equals(ms.getMilestone().getName())));
             ea.add(ms);
         }
 
