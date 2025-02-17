@@ -17,6 +17,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -78,9 +80,9 @@ public class GanttFrame extends JFrame {
         totExams = 0;
     }
 
-    public void createDegreeTaskCollection(){
+    public void createDegreeTaskCollection() throws ParseException {
         TaskSeries ts = new TaskSeries("Degree");
-        Task t = newTask(Degree.getDegree().getName(), tm.getStart(),tm.getEnd(), (double) totPassed/totExams);
+        Task t = newTask(Degree.getDegree().getName(), tm.getStart(),tm.getEnd());
         ts.add(t);
         addProccesColor(colorIndex++, Color.darkGray);
         taskseriescollection.add(ts);
@@ -90,17 +92,17 @@ public class GanttFrame extends JFrame {
         t.setPercentComplete(totPassed/totExams);
     }
 
-    public void createYearTaskCollection(int year){
+    public void createYearTaskCollection(int year) throws ParseException {
         taskseriescollection.add(createYearTaskSeries(tm.getYearTiles().get(year-1)));
     }
 
-    private TaskSeries createYearTaskSeries(YearTile yt){
+    private TaskSeries createYearTaskSeries(YearTile yt) throws ParseException {
 
         TaskSeries ts = new TaskSeries("Year " + yt.getYear().getId());
         SortedSet<GanttTile> ea = new TreeSet<GanttTile>(new DeadlineComparator());
         ea.addAll(yt.getExamTiles());
         for(MilestoneTile ms : yt.getMilestoneTiles().values()){
-            ea.removeIf(e -> ((ExamTile) e).getExam().getMilestone().equals(ms.getMilestone().getName()));
+            ea.removeIf(e -> ( e instanceof ExamTile && ((ExamTile) e).getExam().getMilestone() != null && ((ExamTile) e).getExam().getMilestone().equals(ms.getMilestone().getName())));
             ea.add(ms);
         }
 
@@ -141,7 +143,7 @@ public class GanttFrame extends JFrame {
 
     private double registerPassedExam(ExamTile et){
 
-        if(et.getExam().getStatus().equals("PASSED")){
+        if(et.getExam().isPassed()){
             addProccesColor(colorIndex++, Color.green.darker());
             return 1.0D;
         }
@@ -149,7 +151,7 @@ public class GanttFrame extends JFrame {
         addProccesColor(colorIndex++, Color.red.darker());
         return 0.0D;
     }
-    private Task createMilestoneTask(MilestoneTile ms){
+    private Task createMilestoneTask(MilestoneTile ms) throws ParseException {
 
         double passed = 0.0D;
         double tot = 0.0D;
@@ -168,24 +170,25 @@ public class GanttFrame extends JFrame {
     private void newSubTask(Task t, Task sub){
         t.addSubtask(sub);
     }*/
-
+/*
     private Task newTask(String name, LocalDate start, LocalDate end, Double complete){
         Task t = new Task(name, newDate(start), newDate(end));
         t.setPercentComplete(complete);
         return t;
-    }
-    private Task newTask(String name, LocalDate start, LocalDate end){
+    }*/
+    private Task newTask(String name, LocalDate start, LocalDate end) throws ParseException {
         return new Task(name, newDate(start), newDate(end));
     }
-    private Date newDate(LocalDate ld){
-        return date(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
+    private Date newDate(LocalDate ld) throws ParseException {
+        return date(ld.getDayOfMonth(), ld.getMonthValue(), ld.getYear());
     }
 
-    private static Date date(int gg, int mm, int aa) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(gg, mm, aa);
-        Date date1 = calendar.getTime();
-        return date1;
+    private static Date date(int gg, int mm, int aa) throws ParseException {
+        String date_string = gg+"-"+mm+"-"+aa;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = formatter.parse(date_string);
+
+        return date;
     }
 
     private void addProccesColor(Integer column, Color color) {

@@ -28,6 +28,7 @@ public class SemanticHandler {
 	public static int INVALID_DATE_FORMAT_ERROR 	= 10;
 	public static int EMPTY_YEAR_ERROR = 11;
 	public static int EMPTY_DEGREE_ERROR = 12;
+	public static int EXAM_ALREADY_EXISTS_ERROR = 13;
 	public static int INVALID_DATE_RANGE_WARNING 	= 100;
 	public static int INVALID_STUDYHOURS_RANGE_WARNING = 101;
 	public static int PASSED_AFTER_TODAY_WARNING = 102;
@@ -73,7 +74,7 @@ public class SemanticHandler {
 		String n = name.getText().replace("\"","");
 		int c = Integer.parseInt(cfu.getText());
 		LocalDate s = checkDateDeclaration(stringdate);
-		if(s != null) {
+		if(s != null && !checkIfExamExists(name)) {
 			Exam x = new Exam(n, c, s);
 			examsMap.put(x.getName(), x);
 			return x;
@@ -142,6 +143,15 @@ public class SemanticHandler {
 		return warnings;
 	}
 
+	public boolean checkIfExamExists(Token t){
+		for(Year y : d.getYears())
+			if(y.getExams().containsKey(t.getText())){
+				addError(EXAM_ALREADY_EXISTS_ERROR,t);
+				return true;
+			}
+		return false;
+	}
+
 	public boolean checkPastStrictDependencies(Exam e){
 		if(dep.getDependency(e.getName()).getStrict_dependencies().isEmpty())
 			return true;
@@ -175,7 +185,7 @@ public class SemanticHandler {
 		if(hhh > 24 || hhh < 1)
 		{
 			addWarning(INVALID_STUDYHOURS_RANGE_WARNING, studyhours);
-			return 5;
+			return Degree.getDegree().getDailyStudyHours();
 		}
 
 		return hhh;
@@ -221,7 +231,9 @@ public class SemanticHandler {
 		else if(errCode == EMPTY_YEAR_ERROR)
 			msg += "YEAR non presenta alcun esame valido in elenco";
 		else if (errCode == EMPTY_DEGREE_ERROR)
-			msg += "DEGREE '"+tk+"' non presenta alcun anno valido in elenco";
+			msg += "DEGREE '"+str+"' non presenta alcun anno valido in elenco";
+		else if (errCode == EXAM_ALREADY_EXISTS_ERROR)
+			msg += "EXAM '"+str+"' è stato già inserito precedentemente";
 
 		errors.add(msg);
 	}
@@ -232,7 +244,7 @@ public class SemanticHandler {
 		String msg = "Warning in " + coors + ":\t";
 
 		if(warnCode == INVALID_STUDYHOURS_RANGE_WARNING)
-			msg += "DAILY_HOURS dev'essere compreso in [1, 24]. Impostato default: 5";
+			msg += "DAILY_HOURS dev'essere compreso in [1, 24]. Impostato default: "+Degree.getDegree().getDailyStudyHours();
 		else if (warnCode == INVALID_DATE_RANGE_WARNING)
 			msg += "La data d'appello '"+str+"' supera il range anni consentito ["+LocalDate.now().minusYears(10L).getYear()+", "+LocalDate.now().plusYears(10L).getYear()+"]. Impostato limite più vicino";
 		else if (warnCode == PASSED_AFTER_TODAY_WARNING)
