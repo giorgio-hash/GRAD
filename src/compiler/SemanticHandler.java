@@ -19,7 +19,6 @@ import java.util.Map;
 public class SemanticHandler {
 	private Degree d;
 	private DependencyMapper dep;
-	private Map<String, Exam> examsMap;
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
@@ -45,7 +44,6 @@ public class SemanticHandler {
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
 		dep = DependencyManager.getInstance().loadYAML();
-		examsMap = new HashMap<String, Exam>();
 	}
 
 
@@ -76,7 +74,8 @@ public class SemanticHandler {
 		LocalDate s = checkDateDeclaration(stringdate);
 		if(s != null && !checkIfExamExists(name)) {
 			Exam x = new Exam(n, c, s);
-			examsMap.put(x.getName(), x);
+			//examsMap.put(x.getName(), x);
+			Degree.getDegree().addExam(x);
 			return x;
 		}else
 			return null;
@@ -157,7 +156,7 @@ public class SemanticHandler {
 			return true;
 
 		for(ExamDependency d : dep.getDependency(e.getName()).getStrict_dependencies()){
-			if(examsMap.containsKey(d.getExam()) && !examsMap.get(d.getExam()).isPassed()) {
+			if(Degree.getDegree().getExams().containsKey(d.getExam()) && !Degree.getDegree().getExams().get(d.getExam()).isPassed()) {
 				return false;
 			}
 		}

@@ -52,7 +52,7 @@ public class DependencyManager {
         return data;
     }
 
-    public DependencyMapper getDependencyManager(){
+    public DependencyMapper getDependencyMapper(){
         return data;
     }
 

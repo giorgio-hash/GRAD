@@ -1,5 +1,6 @@
 package controller;
 
+import model.compiler.Exam;
 import model.compiler.Milestone;
 import model.compiler.Year;
 
@@ -11,9 +12,9 @@ import java.util.List;
 
 public class Degree {
     private String name; // Nome scelto dall'utente
-    //private int numYears; // Numero di anni (obbligatorio)
     private List<Year> years; // Lista degli anni associati al progetto
     private Map<String, Milestone> milestones; // solo prototipo, sarebbe meglio usare un hashmap.
+    private Map<String, Exam> exams;
     private int dailyStudyHours;
     
     private static Degree d;
@@ -28,16 +29,15 @@ public class Degree {
     
     
     
-    public Degree() {
-        this.years = new ArrayList<Year>();
-        this.milestones = new HashMap<String, Milestone>();
-        this.dailyStudyHours = 4; //default
+    private Degree() {
+        reset();
     }
 
     public void reset(){
         	this.years = new ArrayList<Year>();
             this.milestones = new HashMap<String, Milestone>();
             this.dailyStudyHours = 4; //default
+            this.exams = new HashMap<String, Exam>();
     }
 
     public void setName(String name) {
@@ -69,7 +69,13 @@ public class Degree {
     	return milestones.values().size();
     }
     
-    
+    public void addExam(Exam e){
+        exams.put(e.getName(), e);
+    }
+
+    public Map<String,Exam> getExams(){
+        return exams;
+    }
     
 	public int getDailyStudyHours() {
 		return dailyStudyHours;

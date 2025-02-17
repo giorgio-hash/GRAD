@@ -1,5 +1,6 @@
 package view;
 
+import controller.DependencyManager;
 import view.tableModel.DegreeTableModel;
 import view.utils.Mode;
 import controller.Degree;
@@ -171,7 +172,17 @@ public class GRADgui  extends JFrame{
     private void showTypeBox(boolean show){
         if(show){
             showLabel.setText("Seleziona");
-            String[] types = {"CAREER","YEAR"};
+            String[] types;
+            if(DependencyManager.getInstance().getDependencyMapper().hasDependencies()) {
+                types = new String[3];
+                types[0] = "CAREER";
+                types[1] = "YEAR";
+                types[2] = "DEPENDENCY_OF";
+            }else{
+                types = new String[2];
+                types[0] = "CAREER";
+                types[1] = "YEAR";
+            }
             typeBox.setModel(new DefaultComboBoxModel(types));
         }else{
             showLabel.setText("Benvenuto in GRAD! Per iniziare, carica un file \".GRAD\".");
