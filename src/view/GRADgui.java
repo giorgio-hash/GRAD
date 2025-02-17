@@ -1,5 +1,8 @@
 package view;
 
+import controller.DependencyManager;
+import model.compiler.Exam;
+import model.yaml.Dependency;
 import view.tableModel.DegreeTableModel;
 import view.utils.Mode;
 import controller.Degree;
@@ -11,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class GRADgui  extends JFrame{
 
-    //elementi grafici gnerati da IntelliJ Swing Designer
+    //elementi grafici generati da IntelliJ Swing Designer
     private JTable dataTable;
     private JComboBox groupBox;
     private JComboBox typeBox;
@@ -33,7 +36,8 @@ public class GRADgui  extends JFrame{
 
     //variabili d'appoggio
     private Mode mode;
-    private int selected_year;
+    private int selectedYear;
+    private String selectedExam;
 
 
     public GRADgui() {
@@ -76,6 +80,9 @@ public class GRADgui  extends JFrame{
                     showGroupBox(true);
                 } else if (s.equals("CAREER")) {
                     showGroupBox(false);
+                } else if (s.equals("DEPENDENCY_OF")){
+                    loadDependenciesGroupBox();
+                    showGroupBox(true);
                 }
             }
         });
@@ -87,8 +94,11 @@ public class GRADgui  extends JFrame{
                 if(mode == Mode.CAREER){
                     displayCareer();
                 } else if(mode == Mode.YEAR){
-                    selected_year = (int) groupBox.getSelectedItem();
-                    displayYear(selected_year);
+                    selectedYear = (int) groupBox.getSelectedItem();
+                    displayYear(selectedYear);
+                } else if(mode == Mode.DEPENDENCY_OF){
+                    selectedExam = (String) groupBox.getSelectedItem();
+                    displayDependencies(selectedExam);
                 }
             }
         });
@@ -103,7 +113,9 @@ public class GRADgui  extends JFrame{
                             if (mode.equals(Mode.CAREER)) {
                                 gf.createDegreeTaskCollection();
                             } else if (mode.equals(Mode.YEAR)) {
-                                gf.createYearTaskCollection(selected_year);
+                                gf.createYearTaskCollection(selectedYear);
+                            } else if (mode.equals(Mode.DEPENDENCY_OF)){
+                                gf.createDependencyTaskCollection(selectedExam);
                             }
                             gf.display();
                             gf.pack();
@@ -155,9 +167,8 @@ public class GRADgui  extends JFrame{
 
     private void loadYearsGroupBox(){
         groupBox.removeAllItems();
-        for(int i=1; i<=Degree.getDegree().getYears().size(); i++){
+        for(int i=1; i<=Degree.getDegree().getYears().size(); i++)
             groupBox.addItem(i);
-        }
     }
 
     private void displayCareer(){
@@ -168,10 +179,33 @@ public class GRADgui  extends JFrame{
         degreemodel.displayByYear(year);
         dataTable.updateUI();
     }
+
+    private void displayDependencies(String exam){
+        degreemodel.displayDependencies(exam);
+        dataTable.updateUI();
+    }
+
+    private void loadDependenciesGroupBox(){
+        groupBox.removeAllItems();
+        for(Exam e : DependencyManager.getInstance().getExamsWithDependencies())
+            groupBox.addItem(e.getName());
+    }
+
+
     private void showTypeBox(boolean show){
         if(show){
             showLabel.setText("Seleziona");
-            String[] types = {"CAREER","YEAR"};
+            String[] types;
+            if(DependencyManager.getInstance().hasDependencies() && DependencyManager.getInstance().hasAnyDependencyLoaded()) {
+                types = new String[3];
+                types[0] = "CAREER";
+                types[1] = "YEAR";
+                types[2] = "DEPENDENCY_OF";
+            }else{
+                types = new String[2];
+                types[0] = "CAREER";
+                types[1] = "YEAR";
+            }
             typeBox.setModel(new DefaultComboBoxModel(types));
         }else{
             showLabel.setText("Benvenuto in GRAD! Per iniziare, carica un file \".GRAD\".");

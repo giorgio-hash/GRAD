@@ -3,6 +3,7 @@ package view.tableModel;
 
 import javax.swing.table.AbstractTableModel;
 
+import controller.DependencyManager;
 import view.utils.Pair;
 import controller.Degree;
 import model.compiler.Exam;
@@ -46,6 +47,18 @@ public class DegreeTableModel extends AbstractTableModel
         this.toDisplay = new ArrayList<Pair<Integer, Exam>>();
         for(Pair<Integer, Exam> p: examList){
             if(p.getLeft() == year){
+                this.toDisplay.add(p);
+            }
+        }
+    }
+
+    public void displayDependencies(String examName){
+        this.toDisplay = new ArrayList<Pair<Integer, Exam>>();
+        ArrayList<Exam> dependencies = new ArrayList<Exam>();
+        dependencies.addAll(DependencyManager.getInstance().loadSoftDependencies(Degree.getDegree().getExam(examName)));
+        dependencies.addAll(DependencyManager.getInstance().loadStrictDependencies(Degree.getDegree().getExam(examName)));
+        for(Pair<Integer, Exam> p: examList){
+            if(dependencies.contains(p.getRight())){
                 this.toDisplay.add(p);
             }
         }

@@ -1,11 +1,5 @@
 dependencies:
-   - dependency: "analisi 2"
-     description: "blabla"
-     strict_dependencies:
-        - exam: "analisi 1"
-        - exam: "geometria ed algebra lineare"
-   - dependency: "Robotica"
-     description: "per fare robotica meglio sapere fisica"
+   - dependency: "Controlli Automatici"
+     description: "prima di fare controlli automatici può essere comodo IMAD"
      soft_dependencies:
-        - exam: "fisica I"
-        - exam: "fisica II"
+        - exam: "Identificazione Modelli Analisi Dati"
