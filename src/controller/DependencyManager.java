@@ -28,23 +28,25 @@ public class DependencyManager {
         return instance;
     }
 
-    public DependencyMapper loadYAML(){
+    public void loadYAML(){
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream(path);
             Yaml yaml = new Yaml();
             data = yaml.loadAs(inputStream, DependencyMapper.class);
+            data.mapDependencies();
         } catch (FileNotFoundException e) {
             System.out.println("File non trovato o non compilabile.");
-            return null;
+            data=null;
         }
-
-        data.mapDependencies();
-        return data;
     }
 
     public DependencyMapper getDependencyMapper(){
         return data;
+    }
+
+    public Dependency getDependency(Exam e){
+        return data.getDependency(e.getName());
     }
 
     public boolean hasDependency(Exam e){
@@ -55,10 +57,15 @@ public class DependencyManager {
     }
 
     public boolean hasDependencies(){
+        if(data == null)
+            return false;
+
         return data.hasDependencies();
     }
 
     public boolean hasAnyDependencyLoaded(){
+        if(data == null)
+            return false;
 
         for(Dependency d : data.getDependencies()){
             if(Degree.getDegree().hasExam(d.getDependency()) && hasDependencyLoaded(Degree.getDegree().getExam(d.getDependency()))){
@@ -74,6 +81,12 @@ public class DependencyManager {
                 || hasSoftDependencyLoaded(e));
     }
 
+    public boolean hasSoftDependencies(Exam e){
+        if(data == null)
+            return false;
+
+        return data.hasSoftDependencies(e.getName());
+    }
     public boolean hasSoftDependencyLoaded(Exam e){
         if(data == null)
             return false;
@@ -88,6 +101,12 @@ public class DependencyManager {
         return false;
     }
 
+    public boolean hasStrictDependencies(Exam e){
+        if(data == null)
+            return false;
+
+        return data.hasStrictDependencies(e.getName());
+    }
     public boolean hasStrictDependencyLoaded(Exam e){
         if(data == null)
             return false;
@@ -114,7 +133,7 @@ public class DependencyManager {
 
     public List<Exam> loadSoftDependencies(Exam e){
         List<Exam> list = new ArrayList<Exam>();
-        if(hasStrictDependencyLoaded(e))
+        if(!hasSoftDependencyLoaded(e))
             return list;
         for(ExamDependency d : data.getDependency(e.getName()).getSoft_dependencies()){
             if(Degree.getDegree().hasExam(d.getExam())) {
@@ -127,9 +146,8 @@ public class DependencyManager {
 
     public List<Exam> loadStrictDependencies(Exam e){
         List<Exam> list = new ArrayList<Exam>();
-        if(hasSoftDependencyLoaded(e))
+        if(!hasStrictDependencyLoaded(e))
             return list;
-
         for(ExamDependency d : data.getDependency(e.getName()).getStrict_dependencies()){
             if(Degree.getDegree().hasExam(d.getExam())) {
                 list.add(Degree.getDegree().getExam(d.getExam()));

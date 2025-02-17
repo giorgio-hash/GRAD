@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class SemanticHandler {
 	private Degree d;
-	private DependencyMapper dep;
+	private DependencyManager dep;
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
@@ -43,7 +43,8 @@ public class SemanticHandler {
 		idYear=1;
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
-		dep = DependencyManager.getInstance().loadYAML();
+		DependencyManager.getInstance().loadYAML();
+		dep = DependencyManager.getInstance();
 	}
 
 
@@ -98,7 +99,7 @@ public class SemanticHandler {
 			correct = false;
 		}
 		//se l'esame è passato, tutte le sue dipendenze strict devono essere "PASSED", altrimenti setta a NOT_PASSED
-		if(dep.hasDependency(e.getName()) && !checkPastStrictDependencies(e)){
+		if(dep.hasDependency(e) && !checkPastStrictDependencies(e)){
 			addWarning(STRICT_DEPENDENCY_NOT_PASSED_WARNING,status);
 			correct = false;
 		}
@@ -152,10 +153,10 @@ public class SemanticHandler {
 	}
 
 	public boolean checkPastStrictDependencies(Exam e){
-		if(!dep.hasStrictDependencies(e.getName()))
+		if(!dep.hasStrictDependencies(e))
 			return true;
 
-		for(ExamDependency d : dep.getDependency(e.getName()).getStrict_dependencies()){
+		for(ExamDependency d : dep.getDependency(e).getStrict_dependencies()){
 			if(Degree.getDegree().hasExam(e.getName()) && !Degree.getDegree().getExam(d.getExam()).isPassed()) {
 				return false;
 			}

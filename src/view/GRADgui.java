@@ -163,6 +163,12 @@ public class GRADgui  extends JFrame{
                     "Warning in compilazione GRAD",
                     JOptionPane.WARNING_MESSAGE);
         }
+
+        if(DependencyManager.getInstance().getDependencyMapper() == null)
+            JOptionPane.showMessageDialog(null,
+                    "File 'career.YML' non trovato o non corretto. Le dipendenze tra i corsi non sono state prese in considerazione.",
+                    "Nessuna dipendenza corso",
+                    JOptionPane.WARNING_MESSAGE);
     }
 
     private void loadYearsGroupBox(){
