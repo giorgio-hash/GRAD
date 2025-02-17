@@ -80,7 +80,7 @@ public class GanttFrame extends JFrame {
         totExams = 0;
     }
 
-    public void createDegreeTaskCollection(){
+    public void createDegreeTaskCollection() throws ParseException {
         TaskSeries ts = new TaskSeries("Degree");
         Task t = newTask(Degree.getDegree().getName(), tm.getStart(),tm.getEnd());
         ts.add(t);
@@ -92,11 +92,11 @@ public class GanttFrame extends JFrame {
         t.setPercentComplete(totPassed/totExams);
     }
 
-    public void createYearTaskCollection(int year){
+    public void createYearTaskCollection(int year) throws ParseException {
         taskseriescollection.add(createYearTaskSeries(tm.getYearTiles().get(year-1)));
     }
 
-    private TaskSeries createYearTaskSeries(YearTile yt){
+    private TaskSeries createYearTaskSeries(YearTile yt) throws ParseException {
 
         TaskSeries ts = new TaskSeries("Year " + yt.getYear().getId());
         SortedSet<GanttTile> ea = new TreeSet<GanttTile>(new DeadlineComparator());
@@ -151,7 +151,7 @@ public class GanttFrame extends JFrame {
         addProccesColor(colorIndex++, Color.red.darker());
         return 0.0D;
     }
-    private Task createMilestoneTask(MilestoneTile ms){
+    private Task createMilestoneTask(MilestoneTile ms) throws ParseException {
 
         double passed = 0.0D;
         double tot = 0.0D;
@@ -176,22 +176,18 @@ public class GanttFrame extends JFrame {
         t.setPercentComplete(complete);
         return t;
     }*/
-    private Task newTask(String name, LocalDate start, LocalDate end){
+    private Task newTask(String name, LocalDate start, LocalDate end) throws ParseException {
         return new Task(name, newDate(start), newDate(end));
     }
-    private Date newDate(LocalDate ld){
+    private Date newDate(LocalDate ld) throws ParseException {
         return date(ld.getDayOfMonth(), ld.getMonthValue(), ld.getYear());
     }
 
-    private static Date date(int gg, int mm, int aa){
+    private static Date date(int gg, int mm, int aa) throws ParseException {
         String date_string = gg+"-"+mm+"-"+aa;
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = null;
-        try {
-            date = formatter.parse(date_string);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        Date date = formatter.parse(date_string);
+
         return date;
     }
 

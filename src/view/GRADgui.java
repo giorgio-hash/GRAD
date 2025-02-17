@@ -97,15 +97,25 @@ public class GRADgui  extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                        gf.clean();
-                        if(mode.equals(Mode.CAREER)){
-                            gf.createDegreeTaskCollection();
-                        } else if(mode.equals(Mode.YEAR)){
-                            gf.createYearTaskCollection(selected_year);
+                        try {
+
+                            gf.clean();
+                            if (mode.equals(Mode.CAREER)) {
+                                gf.createDegreeTaskCollection();
+                            } else if (mode.equals(Mode.YEAR)) {
+                                gf.createYearTaskCollection(selected_year);
+                            }
+                            gf.display();
+                            gf.pack();
+                            gf.setVisible(true);
+
+                        }catch(Exception ex){
+                            JOptionPane.showMessageDialog(null,
+                                    "Qualcosa è andato storto durante la generazione del Gantt. Dettagli:\n\n"+ex.getMessage(),
+                                    "Errore in generazione Gantt GRAD",
+                                    JOptionPane.ERROR_MESSAGE);
+                            gf.clean();
                         }
-                        gf.display();
-                        gf.pack();
-                        gf.setVisible(true);
             }
         });
     }
