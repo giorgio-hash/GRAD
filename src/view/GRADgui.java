@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class GRADgui  extends JFrame{
 
-    //elementi grafici gnerati da IntelliJ Swing Designer
+    //elementi grafici generati da IntelliJ Swing Designer
     private JTable dataTable;
     private JComboBox groupBox;
     private JComboBox typeBox;
