@@ -45,6 +45,10 @@ public class DependencyManager {
         return data;
     }
 
+    public boolean hasDependencyMapper(){
+        return data != null;
+    }
+
     public Dependency getDependency(Exam e){
         return data.getDependency(e.getName());
     }

@@ -164,7 +164,7 @@ public class GRADgui  extends JFrame{
                     JOptionPane.WARNING_MESSAGE);
         }
 
-        if(DependencyManager.getInstance().getDependencyMapper() == null)
+        if(!DependencyManager.getInstance().hasDependencyMapper())
             JOptionPane.showMessageDialog(null,
                     "File 'career.YML' non trovato o non corretto. Le dipendenze tra i corsi non sono state prese in considerazione.",
                     "Nessuna dipendenza corso",
