@@ -246,16 +246,7 @@ public class GanttFrame extends JFrame {
         return mt;
     }
 
-    /*
-    private void newSubTask(Task t, Task sub){
-        t.addSubtask(sub);
-    }*/
-/*
-    private Task newTask(String name, LocalDate start, LocalDate end, Double complete){
-        Task t = new Task(name, newDate(start), newDate(end));
-        t.setPercentComplete(complete);
-        return t;
-    }*/
+
     private Task newTask(String name, LocalDate start, LocalDate end) throws ParseException {
         return new Task(name, newDate(start), newDate(end));
     }

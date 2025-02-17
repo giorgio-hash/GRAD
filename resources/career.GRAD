@@ -1,22 +1,22 @@
-DEGREE: "Laurea triennale in ingegneria informatica"
+DEGREE: "Laurea triennale in Psicologia"
 DAILY_HOURS: 5
 YEARS: [
     YEAR {
         EXAMS: [
-            EXAM "programmazione avanzata" CFU 6 DATE 11-01-2024 MILESTONE "PACandPA" STATUS PASSED;
-            EXAM "progettazione algoritm e computabilità" CFU 6 DATE 09-07-2024 MILESTONE "PACandPA" STATUS PASSED;
-            EXAM "Modelli Algoritmi Ottimizzazione" CFU 9 DATE 02-04-2025 MILESTONE "AIandMAO";
-            EXAM "Intelligenza Artificiale" CFU 6 DATE 02-04-2025 MILESTONE "AIandMAO";
-            EXAM "Telecomunicazioni" CFU 6 DATE 10-09-2024 MILESTONE "TITandT" STATUS PASSED;
-            EXAM "Teoria dell'Informazione e della Trasmissione" CFU 9 DATE 17-02-2025 MILESTONE "TITandT";
-            EXAM "Identificazione Modelli Analisi Dati" CFU 6 DATE 20-01-2024 STATUS PASSED;
+            EXAM "Introduzione alla Psicologia" CFU 6 DATE 15-01-2024 MILESTONE "BasePsy" STATUS PASSED;
+            EXAM "Metodologia della Ricerca Psicologica" CFU 9 DATE 10-06-2024 MILESTONE "BasePsy" STATUS PASSED;
+            EXAM "Psicologia dello Sviluppo" CFU 6 DATE 25-09-2024 MILESTONE "DevPsy";
+            EXAM "Psicobiologia" CFU 9 DATE 12-02-2025 MILESTONE "NeuroPsy";
+            EXAM "Psicologia Sociale" CFU 6 DATE 30-04-2025 MILESTONE "SocPsy";
+            EXAM "Statistica per la Psicologia" CFU 9 DATE 20-07-2024 MILESTONE "StatsPsy" STATUS PASSED;
+            EXAM "Neuroscienze Cognitive" CFU 6 DATE 15-03-2025;
         ]
     }
     YEAR {
         EXAMS: [
-            EXAM "Controlli Automatici" CFU 6 DATE 11-12-2024 STATUS PASSED;
-            EXAM "Advanced Data Management" CFU 9 DATE 15-01-2025 STATUS PASSED;
-            EXAM "Linguaggi Formali e Compilatori" CFU 9 DATE 23-12-2024 STATUS PASSED; 
+            EXAM "Psicopatologia" CFU 6 DATE 08-12-2024 STATUS PASSED;
+            EXAM "Psicologia Clinica" CFU 9 DATE 18-01-2025 STATUS PASSED;
+            EXAM "Teorie e Tecniche del Colloquio Psicologico" CFU 9 DATE 05-06-2025; 
         ]
     }
 ]
