@@ -5,7 +5,7 @@ import compiler.GRADParser;
 import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Parser {
@@ -54,9 +54,14 @@ public class Parser {
             // 4. si lancia il parser dallo start simbol (prima produzione specificata)
             parser.degreeRule();
 
-            if(hasErrors())
+            if(hasErrors()) {
                 Degree.getDegree().reset();
+                dumpToFile(getErrors(),"errors.log");
+            }
 
+            if(hasWarning()){
+                dumpToFile(getWarnings(),"warnings.log");
+            }
         } catch (Exception e) {
             System.out.println ("Parsing con ANTLR abortito\n\n");
             otherExceptions = true;
@@ -81,5 +86,20 @@ public class Parser {
     }
     public boolean hasOtherExceptions(){
         return otherExceptions;
+    }
+
+    private void dumpToFile(ArrayList<String> toWrite, String path){
+        try {
+            File file = new File(path);
+            BufferedWriter out = new BufferedWriter(new FileWriter(file));
+            for(String s : toWrite){
+                out.write(s);
+                out.newLine();
+            }
+            out.close();
+        } catch (Exception e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
