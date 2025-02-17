@@ -2,7 +2,7 @@ package view;
 
 import controller.TileManager;
 import model.tiles.*;
-import view.utils.MyTaskRenderer;
+import view.utils.TaskRenderer;
 import controller.Degree;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -27,7 +27,7 @@ public class GanttFrame extends JFrame {
     private TileManager tm;
     private TaskSeriesCollection taskseriescollection;
 
-    public static Map<Integer, Color> colormap;
+    public Map<Integer, Color> colormap;
     private int colorIndex;
 
     private double totPassed;
@@ -58,7 +58,7 @@ public class GanttFrame extends JFrame {
         JFreeChart jfreechart = ChartFactory.createGanttChart(Degree.getDegree().getName(), "", "",
                 intervalcategorydataset, false, true, false);
         final CategoryPlot plot = (CategoryPlot) jfreechart.getPlot();
-        MyTaskRenderer renderer = new MyTaskRenderer();
+        TaskRenderer renderer = new TaskRenderer(colormap);
         renderer.setMaximumBarWidth(0.05);
         plot.setRenderer(renderer);
 
