@@ -22,11 +22,23 @@ public class DependencyMapper {
 	}
 
 	public boolean hasDependencies(){
-		return dependencies.isEmpty();
+		return !dependencies.isEmpty();
 	}
 
 	public boolean hasDependency(String exam){
 		return dependenciesMap.containsKey(exam);
+	}
+
+	public boolean hasStrictDependencies(String exam){
+		if(dependenciesMap.get(exam).getStrict_dependencies() == null)
+			return false;
+		return !dependenciesMap.get(exam).getStrict_dependencies().isEmpty();
+	}
+
+	public boolean hasSoftDependencies(String exam){
+		if(dependenciesMap.get(exam).getSoft_dependencies() == null)
+			return false;
+		return !dependenciesMap.get(exam).getSoft_dependencies().isEmpty();
 	}
 
 	public List<Dependency> getDependencies() {

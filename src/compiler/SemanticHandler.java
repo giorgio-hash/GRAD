@@ -152,11 +152,11 @@ public class SemanticHandler {
 	}
 
 	public boolean checkPastStrictDependencies(Exam e){
-		if(dep.getDependency(e.getName()).getStrict_dependencies().isEmpty())
+		if(!dep.hasStrictDependencies(e.getName()))
 			return true;
 
 		for(ExamDependency d : dep.getDependency(e.getName()).getStrict_dependencies()){
-			if(Degree.getDegree().getExams().containsKey(d.getExam()) && !Degree.getDegree().getExams().get(d.getExam()).isPassed()) {
+			if(Degree.getDegree().hasExam(e.getName()) && !Degree.getDegree().getExam(d.getExam()).isPassed()) {
 				return false;
 			}
 		}

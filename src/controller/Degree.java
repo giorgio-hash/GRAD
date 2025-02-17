@@ -76,6 +76,14 @@ public class Degree {
     public Map<String,Exam> getExams(){
         return exams;
     }
+
+    public Exam getExam(String examName){
+        return exams.get(examName);
+    }
+
+    public boolean hasExam(String examName){
+        return exams.containsKey(examName);
+    }
     
 	public int getDailyStudyHours() {
 		return dailyStudyHours;

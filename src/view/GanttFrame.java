@@ -1,6 +1,8 @@
 package view;
 
+import controller.DependencyManager;
 import controller.TileManager;
+import model.compiler.Exam;
 import model.tiles.*;
 import view.utils.TaskRenderer;
 import controller.Degree;
@@ -21,6 +23,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.List;
 
 public class GanttFrame extends JFrame {
 
@@ -96,6 +99,10 @@ public class GanttFrame extends JFrame {
         taskseriescollection.add(createYearTaskSeries(tm.getYearTiles().get(year-1)));
     }
 
+    public void createDependencyTaskCollection(String exam) throws ParseException {
+        taskseriescollection.add(createDependencyTaskSeries(exam));
+    }
+
     private TaskSeries createYearTaskSeries(YearTile yt) throws ParseException {
 
         TaskSeries ts = new TaskSeries("Year " + yt.getYear().getId());
@@ -137,6 +144,79 @@ public class GanttFrame extends JFrame {
         totExams += tot;
         totPassed += passed;
         yeartask.setPercentComplete( 0.0D + (passed/tot));
+
+        return ts;
+    }
+
+    private TaskSeries createDependencyTaskSeries(String exam) throws ParseException {
+
+        SortedSet<ExamTile> strictDepsTiles = new TreeSet<ExamTile>(new DeadlineComparator());
+        SortedSet<ExamTile> softDepsTiles = new TreeSet<ExamTile>(new DeadlineComparator());
+
+        List<Exam> strictDeps = DependencyManager.getInstance().loadStrictDependencies(Degree.getDegree().getExam(exam));
+        List<Exam> softDeps = DependencyManager.getInstance().loadSoftDependencies(Degree.getDegree().getExam(exam));
+
+        boolean strictDepsLoaded = DependencyManager.getInstance().hasStrictDependencyLoaded(Degree.getDegree().getExam(exam));
+        boolean softdepsLoaded = DependencyManager.getInstance().hasSoftDependencyLoaded(Degree.getDegree().getExam(exam));
+
+        ExamTile dependency = null;
+
+        TaskSeries ts = new TaskSeries("Propedeutica");
+
+        Task t = null;
+        double passed, tot;
+
+        for(int i=0 ; i < tm.getYearTiles().size(); i++)
+            for(ExamTile et : tm.getYearTiles().get(i).getExamTiles()){
+                if(strictDepsLoaded)
+                    if(strictDeps.contains(et.getExam()))
+                        strictDepsTiles.add(et);
+                if(softdepsLoaded)
+                    if(softDeps.contains(et.getExam()))
+                        softDepsTiles.add(et);
+
+                if(et.getExam().getName().equals(exam)) {
+                    dependency = et;
+                    break;
+                }
+            }
+
+
+        if(strictDepsLoaded){
+            passed = 0;
+            tot=0;
+            Task strictMilestone = newTask("---Esami propedeutici---",strictDepsTiles.first().getStart(), strictDepsTiles.last().getEnd());
+            addProccesColor(colorIndex++, Color.BLUE.brighter());
+            ts.add(strictMilestone);
+            for(ExamTile e : strictDepsTiles)
+            {
+                t = newTask(e.getExam().getName(), e.getStart(), e.getEnd());
+                passed += registerPassedExam(e);
+                tot++;
+                ts.add(t);
+            }
+            strictMilestone.setPercentComplete(passed/tot);
+        }
+
+        if(softdepsLoaded){
+            passed = 0;
+            tot=0;
+            Task softMilestone = newTask("---Esami consigliati---",softDepsTiles.first().getStart(), softDepsTiles.last().getEnd());
+            addProccesColor(colorIndex++, Color.BLUE.brighter());
+            ts.add(softMilestone);
+            for(ExamTile e : softDepsTiles)
+            {
+                t = newTask(e.getExam().getName(), e.getStart(), e.getEnd());
+                passed += registerPassedExam(e);
+                tot++;
+                ts.add(t);
+            }
+            softMilestone.setPercentComplete(passed/tot);
+        }
+
+        t = newTask(dependency.getExam().getName(), dependency.getStart(), dependency.getEnd());
+        registerPassedExam(dependency);
+        ts.add(t);
 
         return ts;
     }
