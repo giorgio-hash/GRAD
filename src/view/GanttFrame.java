@@ -119,7 +119,7 @@ public class GanttFrame extends JFrame {
 
     /**
      * Crea una <i>{@link TaskSeries}</i> per rappresentare graficamente l'intera carriera (istanza di <i>{@link Degree}</i>) e la aggiunge al <i>{@link TaskSeriesCollection}</i>.
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     public void createDegreeTaskCollection() throws ParseException {
         TaskSeries ts = new TaskSeries("Degree");
@@ -136,7 +136,7 @@ public class GanttFrame extends JFrame {
     /**
      * Crea una <i>{@link TaskSeries}</i> per rappresentare graficamente un anno e la aggiunge al <i>{@link TaskSeriesCollection}</i>.
      * @param year identificativo <i>int</i> per estrarre l'oggetto <i>Year</i> in <i>{@link Degree}</i>
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     public void createYearTaskCollection(int year) throws ParseException {
         taskseriescollection.add(createYearTaskSeries(tm.getYearTiles().get(year-1)));
@@ -145,7 +145,7 @@ public class GanttFrame extends JFrame {
     /**
      * Crea una <i>{@link TaskSeries}</i> per rappresentare le dipendenze di un esame e la aggiunge al <i>{@link TaskSeriesCollection}</i>.
      * @param exam identificativo <i>String</i> dell'esame
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     public void createDependencyTaskCollection(String exam) throws ParseException {
         taskseriescollection.add(createDependencyTaskSeries(exam));
@@ -155,7 +155,7 @@ public class GanttFrame extends JFrame {
      * Crea una <i>{@link TaskSeries}</i> per rappresentare graficamente un anno, comprendendo task anno, task esami e task Milestone al suo interno.
      * @param yt oggetto <i>{@link YearTile}</i>
      * @return serie di task <i>{@link TaskSeries}</i>
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     private TaskSeries createYearTaskSeries(YearTile yt) throws ParseException {
 
@@ -206,7 +206,7 @@ public class GanttFrame extends JFrame {
      * Crea una <i>{@link TaskSeries}</i> per rappresentare le dipendenze di un esame, comprendendo l'esame stesso, milestone per dipendenze soft e/o strict ed esami annessi (di quest'ultimi, vengono effettivamente rappresentati solo quelli che hanno il corrispettivo ogetto <i>{@link Exam}</i> istanziato in <i>{@link Degree}</i>).
      * @param exam nome <i>String</i> dell'esame con dipendenze
      * @return serie di task <i>{@link TaskSeries}</i>
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     private TaskSeries createDependencyTaskSeries(String exam) throws ParseException {
 
@@ -302,7 +302,7 @@ public class GanttFrame extends JFrame {
      * Crea una <i>{@link Task}</i> da associare alla Milestone, aggiorna <tt>colormap</tt> con indice->colore relativo alla task e imposta la percentuale di completamento in base al numero di esami associati alla Milestone che sono stati superati.
      * @param ms oggetto <i>MilestoneTile</i>
      * @return elemento <i>Task</i>
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     private Task createMilestoneTask(MilestoneTile ms) throws ParseException {
 
@@ -326,7 +326,7 @@ public class GanttFrame extends JFrame {
      * @param start data di inizio della task, formato <i>{@link Date}</i>
      * @param end data di fine della task, formato <i>{@link Date}</i>
      * @return oggetto <i>Task</i>
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo <tt>newDate(LocalDate ld)</tt> se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     private Task newTask(String name, LocalDate start, LocalDate end) throws ParseException {
         return new Task(name, newDate(start), newDate(end));
@@ -336,7 +336,7 @@ public class GanttFrame extends JFrame {
      * Effettua il casting di una data da <i>{@link LocalDate}</i> a <i>{@link Date}</i>.
      * @param ld data in formato <i>LocalDate</i>
      * @return data in formato <i>Date</i>
-     * @throws ParseException generata dal metodo statico <tt>date(int gg, int mm, int aa)</tt> se ci sono problemi col parsing della data (può servire a segnalare malfunzionamenti del codice)
+     * @throws ParseException generata dal metodo se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
      */
     private Date newDate(LocalDate ld) throws ParseException {
         String date_string = ld.getDayOfMonth() + "-" + ld.getMonthValue() + "-" + ld.getYear();
