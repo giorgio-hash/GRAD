@@ -2,24 +2,45 @@ package model.compiler;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Per diverse realtà accademiche, alcuni esami costituiscono modulo complementare con altri esami; tale vincolo può impropriamente formalizzarsi tramite il concetto di Milestone, trasposto dal mondo del Project Management.
+ * <br><br>In GRAD, una Milestone definisce un insieme di esami, tipicamente entro lo stesso anno, per cui la registrazione dell'esito è vincolata dal superamento sommario degli esami entro l'insieme di interesse.
+ * <br><br>Ad esempio, la Milestone <i>Fisica</i> può servire a definire l'insieme che vincola <i>Fisica 1</i> e <i>Fisica 2</i>, indicando che c'è un vincolo sulla registrazione dell'esito di entrambi i voti.
+ * <br><br>Attualmente, GRAD non applica restrizioni che funzionino tramite questo vincolo: una Milestone non può essere dipendenza <tt>strict</tt> per un esame o per un'altra Milestone. Tali logiche sono delegate alla definizione propria di un file YAML per il DependencyMapper.
+ */
 public class Milestone {
 
-	private String name;
-	private Map<String, Exam> exams;
-	
+	private String name; //nome Milestone
+	private Map<String, Exam> exams; //mappa nomeEsame->esame
+
+	/**
+	 * Costruttore Milestone
+	 * @param name nome della Milestone, formato <i>String</i>
+	 */
 	public Milestone (String name) {
 		this.name = name;
 		this.exams = new HashMap<String, Exam>();
 	}
 
+	/**
+	 * Restituisce il nome della Milestone.
+	 * @return elemento <i>String</i>
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Restituisce la <i>Map</i> nomeEsame->esame associata a questa Milestone.
+	 * @return <i>Map</i> con chiavi <i>String</i> ed oggetti <i>Exam</i>
+	 */
 	public Map<String, Exam> getExams() {
 		return exams;
 	}
-	
+
+	/**
+	 * Aggiunge un <i>Exam</i> alla Milestone.
+	 */
 	public void addExam(Exam e) {
 		exams.put(e.getName(), e);
 	}
