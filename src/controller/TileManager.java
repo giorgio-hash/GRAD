@@ -1,6 +1,5 @@
 package controller;
 
-import controller.Degree;
 import model.tiles.GanttTile;
 import model.tiles.YearTile;
 

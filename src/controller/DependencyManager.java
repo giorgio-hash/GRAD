@@ -16,9 +16,9 @@ import java.util.List;
  * Classe per la gestione delle dipendenze tra esami. Usa il pattern <i>singleton</i>.<br>
  * Le dipendenze sono gestite tramite il DependencyMapper e gli oggetti su cui si appoggia:
  * <ul>
- *     <li><i>DependencyMapper</i>: contiene la lista delle strutture di dipendenza;</li>
- *     <li><i>Dependency</i>: una struttura che definisce le dipendenze verso un certo esame;</li>
- *     <li><i>ExamDependency</i>: elemento che definisce una dipendenza <i>soft</i> o <i>strict</i> nella <i>Dependency</i>.</li>
+ *     <li><i>{@link DependencyMapper}</i>: contiene la lista delle strutture di dipendenza;</li>
+ *     <li><i>{@link Dependency}</i>: una struttura che definisce le dipendenze verso un certo esame;</li>
+ *     <li><i>{@link ExamDependency}</i>: elemento che definisce una dipendenza <i>soft</i> o <i>strict</i> nella <i>Dependency</i>.</li>
  * </ul>
  * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:<br><br>
  *  <i>DependencyMapper</i><br>
