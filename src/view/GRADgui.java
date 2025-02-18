@@ -2,7 +2,6 @@ package view;
 
 import controller.DependencyManager;
 import model.compiler.Exam;
-import model.yaml.Dependency;
 import view.tableModel.DegreeTableModel;
 import view.utils.Mode;
 import controller.Degree;
@@ -12,9 +11,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Estensione di <i>{@link JFrame}</i> e realizzata principalmente con <i>Swing</i> ed il supporto di <a href="https://plugins.jetbrains.com/plugin/25304-swing-ui-designer">IntelliJ Swing UI Designer</a>, è la componente principale del livello <i>view</i>. Costituisce l'elemento grafico principale.
+ * <ul>
+ *     <li>Contiene una <i>{@link JTable}</i> con <i>{@link DegreeTableModel}</i> per visualizzare le informazioni degli esami;</li>
+ *     <li>Configurazione di diversi <i>{@link ActionListener}</i> ed <i>{@link ActionEvent}</i> per rispondere all'interazione utente;</li>
+ *     <li>Da questa interfaccia, l'utente può caricare il file GRAD (popolando il modello gestito da {@link Degree}) e generare una <i>{@link GanttFrame}</i>.</li>
+ * </ul>
+ */
 public class GRADgui  extends JFrame{
 
-    //elementi grafici generati da IntelliJ Swing Designer
+    //elementi grafici generati da IntelliJ UI Swing Designer
     private JTable dataTable;
     private JComboBox groupBox;
     private JComboBox typeBox;
@@ -39,7 +46,9 @@ public class GRADgui  extends JFrame{
     private int selectedYear;
     private String selectedExam;
 
-
+    /**
+     * Costruttore di GRADgui.
+     */
     public GRADgui() {
         setTitle("GRAD");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -132,6 +141,14 @@ public class GRADgui  extends JFrame{
         });
     }
 
+    /**
+     * Se presenti, visualizza JDialog per segnalare
+     * <ul>
+     *     <li>Errori di compilazione.</li>
+     *     <li>Warning di compilazione;</li>
+     *     <li>eccezioni di diverso genere (ad es. file GRAD non trovato).</li>
+     * </ul>
+     */
     private void displayErrorsAndWarnings(){
 
         if(Parser.getInstance().hasOtherExceptions()){
@@ -171,26 +188,44 @@ public class GRADgui  extends JFrame{
                     JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Carica la GroupBox con gli identificativi degli elementi <i>Year</i> in <i>{@link Degree}</i>.
+     */
     private void loadYearsGroupBox(){
         groupBox.removeAllItems();
         for(int i=1; i<=Degree.getDegree().getYears().size(); i++)
             groupBox.addItem(i);
     }
 
+    /**
+     * Aggiorna il modello <i>{@link DegreeTableModel}</i> con successiva notifica alla <i>JTable</i> per visualizzare tutti gli esami di carriera nella <i>JTable</i>
+     */
     private void displayCareer(){
         degreemodel.displayCareer();
         dataTable.updateUI();
     }
+
+    /**
+     * Aggiorna il modello <i>{@link DegreeTableModel}</i> con successiva notifica alla <i>JTable</i> per visualizzare gli esami di uno specifico anno nella <i>JTable</i>
+     * @param year identificativo <i>int</i> anno
+     */
     private void displayYear(int year){
         degreemodel.displayByYear(year);
         dataTable.updateUI();
     }
 
+    /**
+     * Aggiorna il modello <i>{@link DegreeTableModel}</i> con successiva notifica alla <i>JTable</i> per visualizzare gli esami che sono dipendenza di uno specifico esame, nella <i>JTable</i>
+     * @param exam identificativo <i>String</i> per l'esame con dipendenze
+     */
     private void displayDependencies(String exam){
         degreemodel.displayDependencies(exam);
         dataTable.updateUI();
     }
 
+    /**
+     * Carica la <tt>groupBox</tt> con gli identificativi degli elementi <i>Exam</i> in <i>{@link Degree}</i> che hanno dipendenze presenti come oggetti <i>Exam</i> in <i>Degree</i>
+     */
     private void loadDependenciesGroupBox(){
         groupBox.removeAllItems();
         for(Exam e : DependencyManager.getInstance().getExamsWithDependencies())
@@ -198,6 +233,10 @@ public class GRADgui  extends JFrame{
     }
 
 
+    /**
+     * Visualizza <tt>typeBox</tt> e modifica label di fianco
+     * @param show  booleano, <tt>true</tt> per mostrare e <tt>false</tt> altrimenti
+     */
     private void showTypeBox(boolean show){
         if(show){
             showLabel.setText("Seleziona");
@@ -221,11 +260,18 @@ public class GRADgui  extends JFrame{
         invioButton.setVisible(show);
     }
 
+    /**
+     * Visualizza <tt>groupBox</tt>
+     * @param show  booleano, <tt>true</tt> per mostrare e <tt>false</tt> altrimenti
+     */
     private void showGroupBox(boolean show){
         doubleDotsLabel.setVisible(show);
         groupBox.setVisible(show);
     }
 
+    /**
+     * Metodo predisposto da <a href="https://plugins.jetbrains.com/plugin/25304-swing-ui-designer">IntelliJ Swing UI Designer</a> per creazione personalizzata di componenti UI
+     */
     private void createUIComponents() {
 
         degreemodel = new DegreeTableModel();

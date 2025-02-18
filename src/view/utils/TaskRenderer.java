@@ -1,15 +1,22 @@
 package view.utils;
 
-import view.GanttFrame;
 import org.jfree.chart.renderer.category.GanttRenderer;
 
 import java.awt.*;
 import java.util.Map;
 
+/**
+ * Specializzazione di <i>{@link GanttRenderer}</i> dalla libreria <i>{@link org.jfree.chart.renderer}</i>.
+ * <br>Personalizza la visualizzazione delle task in <i>GanttFrame</i> ed altri elementi grafici. In particolare, effettua l'override dei metodi ereditati.
+ */
 public class TaskRenderer extends GanttRenderer {
     private static final long serialVersionUID = 1L;
-    private static Map<Integer, Color> colormap;
+    private static Map<Integer, Color> colormap; //mappa rigaTask->colore
 
+    /**
+     * Costruttore con mappa dei colori per le task.
+     * @param colormap mappa dei colori per le task
+     */
     public TaskRenderer(Map<Integer, Color> colormap) {
         super();
         this.colormap = colormap;

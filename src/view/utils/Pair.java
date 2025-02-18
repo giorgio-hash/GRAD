@@ -1,5 +1,10 @@
 package view.utils;
 
+/**
+ * Classe generica che accetta un elemento <tt>left</tt> e <tt>right</tt> per poter creare una coppia.
+ * @param <L> elemento <tt>left</tt>
+ * @param <R> elemento <tt>right</tt>
+ */
 public class Pair<L,R> {
 
     private final L left;
