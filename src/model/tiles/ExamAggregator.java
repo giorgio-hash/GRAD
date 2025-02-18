@@ -8,7 +8,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
- * Classe che riunisce gli <i>ExamTile</i> in un <i>{@link SortedSet}</i> (istanziato come <i>{@link TreeSet}</i>) ordinato secondo <i>{@link DeadlineComparator}</i>.<br><br>
+ * Classe che riunisce gli <i>ExamTile</i> in un <i>{@link SortedSet}</i> (istanziato come <i>{@link TreeSet}</i>) ordinato secondo <i>{@link DeadlineComparator}</i>.
+ * <br><br>
  * Alcuni Tile (quali ad es. YearTile, MilestoneTile) vogliono rappresentare un'aggregazione di più esami.
  * L'oggetto <i>ExamAggregator</i> serve ad aggregare gli esami sotto un certo vincolo (Year, Milestone)
  * mantenendoli ordinati per data d'appello.
