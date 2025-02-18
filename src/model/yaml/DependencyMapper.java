@@ -71,7 +71,7 @@ public class DependencyMapper {
 	 * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
 	 */
 	public boolean hasStrictDependencies(String exam){
-		if(hasDependencies() || !hasDependency(exam))
+		if(!hasDependencies() || !hasDependency(exam))
 			return false;
 
 		if(dependenciesMap.get(exam).getStrict_dependencies() == null)
@@ -85,7 +85,7 @@ public class DependencyMapper {
 	 * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
 	 */
 	public boolean hasSoftDependencies(String exam){
-		if(hasDependencies() || !hasDependency(exam))
+		if(!hasDependencies() || !hasDependency(exam))
 			return false;
 
 		if(dependenciesMap.get(exam).getSoft_dependencies() == null)

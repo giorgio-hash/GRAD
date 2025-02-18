@@ -50,7 +50,8 @@ public class DependencyManager {
      */
     public static DependencyManager getInstance(){
         if(instance == null)
-            return new DependencyManager();
+            instance = new DependencyManager();
+
         return instance;
     }
 
