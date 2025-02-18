@@ -41,6 +41,17 @@ public class Parser {
     }
 
 
+    /**
+     * Esegue la lettura di un file GRAD al percorso specificato, che di default è: "<tt>.\resources\career.GRAD</tt>".
+     * <br> Questo metodo può catturare errori, warning ed eccezioni impreviste (vedi <tt>hasOtherExceptions</tt>).
+     * <ol>
+     *     <li>Inizializza il lexer;</li>
+     *     <li>Crea uno stream di token;</li>
+     *     <li>Istanzia il parser con lo stream di token;</li>
+     *     <li>Lancia il parser dallo Start Symbol;</li>
+     *     <li>verifica la presenza di errori ed esegue dump nel caso.</li>
+     * </ol>
+     */
   	public void parse(){
         otherExceptions = false;
         try {
@@ -130,7 +141,6 @@ public class Parser {
             }
             out.close();
         } catch (Exception e) {
-            System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
