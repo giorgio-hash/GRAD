@@ -3,6 +3,10 @@ package model.tiles;
 import java.time.LocalDate;
 import java.util.Comparator;
 
+/**
+ * Utility <i>{@link Comparator}</i> per ordinare in maniera crescente un insieme di <i>GanttTile</i> secondo la data di fine (attributo <i>end</i>).
+ * <br>Se due <i>GanttTile</i> hanno la stessa fine, li ordina in maniera crescente per data di inizio (attributo <tt>start</tt>).
+ */
 public class DeadlineComparator implements Comparator<GanttTile> {
 
     @Override

@@ -7,13 +7,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.SortedSet;
 
+/**
+ * Specializzazione del <i>GanttTile</i> su cui si appoggerà la costruzione della Task, nel Gantt, associata ad elemento <i>Year</i>, di <i>Degree</i>.
+ */
 public class YearTile extends GanttTile {
 
-    private ExamAggregator exams;
-    private HashMap<String, MilestoneTile> milestones;
+    private ExamAggregator exams;//insieme di esami ordinato per data di appello
+    private HashMap<String, MilestoneTile> milestones;//Mappa con Milestones di cui nessuno, alcuni o tutti gli esami presenti nell'anno fanno parte
 
-    private Year year;
+    private Year year; //oggetto Year di riferimento
 
+    /**
+     * Costruttore che estrae oggetto <i>Year</i> da Degree
+     * @param year identificativo anno <i>int</i> da estrarre
+     */
     public YearTile(int year){
 
         this.year = Degree.getDegree().getYears().get(year-1);
@@ -44,14 +51,26 @@ public class YearTile extends GanttTile {
         }
     }
 
+    /**
+     *
+     * @return <i>{@link SortedSet}</i> di elementi <i>{@link ExamTile}</i>
+     */
     public SortedSet<ExamTile> getExamTiles() {
         return exams.getExams();
     }
 
+    /**
+     * Restituisce mappa nomeMilestone->MilestoneTile
+     * @return <i>HashMap</i> con chiave <i>String</i> ed elementi <i>MilestoneTile</i>
+     */
     public HashMap<String, MilestoneTile> getMilestoneTiles() {
         return milestones;
     }
 
+    /**
+     *
+     * @return elemento <i>Year</i> asssociato
+     */
     public Year getYear(){
         return year;
     }
