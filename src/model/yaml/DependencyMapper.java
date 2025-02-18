@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Mappa della struttura delle dipendenze.<br>
+ * Mappa della struttura delle dipendenze.
+ * <br>
  * Le dipendenze sono gestite tramite il DependencyMapper e gli oggetti su cui si appoggia:<br>
  * <ul>
  *     <li><i>{@link DependencyMapper}</i>: contiene la lista delle strutture di dipendenza;</li>

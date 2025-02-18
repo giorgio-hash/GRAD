@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.Map;
 
 /**
- * Specializzazione di <i>{@link GanttRenderer}</i> dalla libreria <i>{@link org.jfree.chart.renderer}</i>.
+ * Specializzazione di <i>{@link GanttRenderer}</i>.
  * <br>Personalizza la visualizzazione delle task in <i>GanttFrame</i> ed altri elementi grafici. In particolare, effettua l'override dei metodi ereditati.
  */
 public class TaskRenderer extends GanttRenderer {
