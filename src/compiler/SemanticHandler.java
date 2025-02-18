@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 import controller.Degree;
 import controller.DependencyManager;
-import model.yaml.DependencyMapper;
 import model.yaml.ExamDependency;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
@@ -13,17 +12,16 @@ import model.compiler.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
+/**
+ * Analizzatore semantico per compilazione linguaggio GRAD.
+ */
 public class SemanticHandler {
 	private Degree d;
 	private DependencyManager dep;
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
-	//public static int LEXICAL_ERROR 		= 0;
-	//public static int SYNTAX_ERROR 			= 1;
 	public static int INVALID_DATE_FORMAT_ERROR 	= 10;
 	public static int EMPTY_YEAR_ERROR = 11;
 	public static int EMPTY_DEGREE_ERROR = 12;
@@ -32,7 +30,7 @@ public class SemanticHandler {
 	public static int INVALID_STUDYHOURS_RANGE_WARNING = 101;
 	public static int PASSED_AFTER_TODAY_WARNING = 102;
 	public static int STRICT_DEPENDENCY_NOT_PASSED_WARNING = 103;
-	//public static int SOFT_DEPENDENCY_NOT_PASSED_WARNING = 104;
+
 
 	ArrayList<String> errors;
 	ArrayList<String> warnings;

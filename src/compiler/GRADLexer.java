@@ -5,6 +5,9 @@
 
 import org.antlr.runtime.*;
 
+/**
+ * Lexer autogenerato da ANTLRv3.
+ */
 @SuppressWarnings("all")
 public class GRADLexer extends Lexer {
 	public static final int EOF=-1;

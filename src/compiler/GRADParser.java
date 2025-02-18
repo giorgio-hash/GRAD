@@ -6,6 +6,9 @@
 
 import org.antlr.runtime.*;
 
+/**
+ * Parser autogenerato con ANTLRv3.
+ */
 @SuppressWarnings("all")
 public class GRADParser extends Parser {
 	public static final String[] tokenNames = new String[] {
