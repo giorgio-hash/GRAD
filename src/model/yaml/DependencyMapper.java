@@ -12,7 +12,7 @@ import java.util.Map;
  *     <li><i>{@link Dependency}</i>: una struttura che definisce le dipendenze verso un certo esame;</li>
  *     <li><i>{@link ExamDependency}</i>: elemento che definisce una dipendenza <i>soft</i> o <i>strict</i> nella <i>Dependency</i>.</li>
  * </ul>
- * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:<br>
+ * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:<br><br>
  *  <i>DependencyMapper</i><br>
  *  &nbsp;&nbsp;&#9492;&#9472;<i>Dependency</i><br>
  *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>ExamDependency</i><br>
