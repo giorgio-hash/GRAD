@@ -10,29 +10,42 @@ import java.util.Map;
 import java.util.List;
 
 
+/**
+ * Classe per la gestione della laurea: esami, anni, milestones e attributi della laurea. Usa il pattern <i>singleton</i>.
+ */
 public class Degree {
-    private String name; // Nome scelto dall'utente
-    private List<Year> years; // Lista degli anni associati al progetto
-    private Map<String, Milestone> milestones; // solo prototipo, sarebbe meglio usare un hashmap.
+    private String name;
+    private List<Year> years;
+    private Map<String, Milestone> milestones;
     private Map<String, Exam> exams;
     private int dailyStudyHours;
-    
-    private static Degree d;
-    
 
+
+    //pattern singleton
+    private static Degree d;
+
+    /**
+     * Metodo statico che restituisce l'oggetto statico <i>Degree</i> (pattern singleton).
+     * @return oggetto <i>Degree</i>
+     */
 	public static Degree getDegree () {
 		if (d == null)
 			d = new Degree();
 		return d;
 	}
-    
-    
-    
-    
+
+    /**
+     * Costruttore privato (pattern Singleton)
+     */
     private Degree() {
         reset();
     }
 
+    //metodi
+
+    /**
+     * Resetta l'oggetto Degree alle impostazioni iniziali
+     */
     public void reset(){
         	this.years = new ArrayList<Year>();
             this.milestones = new HashMap<String, Milestone>();
@@ -40,58 +53,101 @@ public class Degree {
             this.exams = new HashMap<String, Exam>();
     }
 
+    /**
+     *
+     * @param name nome della laurea
+     */
     public void setName(String name) {
     	this.name = name;
     }
-    
+
+    /**
+     *
+     * @return nome della laurea
+     */
     public String getName() {
         return name;
     }
 
-    
+    /**
+     *
+     * @param y oggetto <i>Year</i>
+     */
     public void addYear(Year y) {
     	years.add(y);
     }
 
+    /**
+     *
+     * @return <i>List</i> di elementi <i>Year</i>
+     */
     public List<Year> getYears() {
         return years;
     }
 
+    /**
+     *
+     * @param m  oggetto <i>Milestone</i>
+     */
     public void addMilestone(Milestone m) {
     	milestones.put(m.getName(), m);
     }
 
+    /**
+     *
+     * @return <i>Map</i> con chiave <i>String</i> (nome) in riferimento all'oggetto <i>Milestone</i>
+     */
     public Map<String, Milestone> getMilestones() {
         return milestones;
     }
-    
-    public int getNumOfMilestones() {
-    	return milestones.values().size();
-    }
-    
+
+    /**
+     *
+     * @param e oggetto Exam
+     */
     public void addExam(Exam e){
         exams.put(e.getName(), e);
     }
 
+    /**
+     *
+     * @return <i>Map</i> con chiave <i>String</i> (nome) in riferimento all'oggetto <i>Exam</i>
+     */
     public Map<String,Exam> getExams(){
         return exams;
     }
 
+    /**
+     *
+     * @param examName nome esame
+     * @return oggetto Exam corrispondente
+     */
     public Exam getExam(String examName){
         return exams.get(examName);
     }
 
+    /**
+     *
+     * @param examName nome esame
+     * @return <tt>true</tt> se l'esame è presente nell'oggetto Degree
+     */
     public boolean hasExam(String examName){
         return exams.containsKey(examName);
     }
-    
+
+    /**
+     *
+     * @return ore medie di studio al giorno, attualmente impostate
+     */
 	public int getDailyStudyHours() {
 		return dailyStudyHours;
 	}
 
 
-
-
+    /**
+     *
+     * @param dailyStudyHours numero di ore di studio giornaliere (tipo <tt>int</tt>)
+     */
 	public void setDailyStudyHours(int dailyStudyHours) {
 		this.dailyStudyHours = dailyStudyHours;
 	}

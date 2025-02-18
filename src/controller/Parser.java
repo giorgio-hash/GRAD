@@ -7,51 +7,57 @@ import org.antlr.runtime.CommonTokenStream;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Parser <i>GRAD</i> definito con pattern singleton.
+ */
 public class Parser {
 
     private GRADParser parser;
     private String fileIn;
     private boolean otherExceptions;
 
+    //pattern singleton
     private static Parser instance = null;
 
+    /**
+     * Metodo statico che restituisce l'oggetto statico <i>Parser</i> (pattern singleton).
+     * @return oggetto <i>Parser</i>
+     */
     public static Parser getInstance() {
         if (instance == null) {
             instance = new Parser();
         }
         return instance;
     }
+
+    /**
+     * Costruttore privato (pattern Singleton)
+     */
     private Parser() {
         fileIn = ".\\resources\\career.GRAD";
         parser = null;
     }
 
-    public void setFileIn(String fileIn) {
-        this.fileIn = fileIn;
-    }
 
   	public void parse(){
         otherExceptions = false;
         try {
-            // Inizializzazione del parser (antlr docet):
-            //		1. Si inizializza il lexer
-            //		2. Si crea uno stream di token
-            //		3. si istanzia il parser passandogli lo stream di token
 
-            // 1.
+            //Inizializza il lexer
             GRADLexer lexer = new GRADLexer (
                     new ANTLRReaderStream(
                             new FileReader(fileIn)));
 
-            // 2.
+            //Crea uno stream di token
             CommonTokenStream tokens = new CommonTokenStream (lexer);
 
-            // 3.
+            //Istanzia il parser passandogli lo stream di token
             parser = new GRADParser (tokens);
 
 
-            // 4. si lancia il parser dallo start simbol (prima produzione specificata)
+            //Lancia il parser dallo start simbol (prima produzione specificata)
             parser.degreeRule();
 
             if(hasErrors()) {
@@ -69,26 +75,52 @@ public class Parser {
         }
     }
 
-    public ArrayList<String> getErrors(){
+    /**
+     * Ritorna la lista di errori in fase di compilazione
+     * @return <i>List</i> di frasi descrittive <i>String</i>
+     */
+    public List<String> getErrors(){
         return parser.getHandler().getErrors();
     }
 
+    /**
+     * Verifica la presenza di errori in fase di compilazione
+     * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
+     */
     public boolean hasErrors(){
         return parser.getHandler().hasErrors();
     }
 
-    public ArrayList<String> getWarnings(){
+    /**
+     * Ritorna la lista di warning in fase di compilazione
+     * @return <i>List</i> di frasi descrittive <i>String</i>
+     */
+    public List<String> getWarnings(){
         return parser.getHandler().getWarnings();
     }
 
+    /**
+     * Verifica la presenza di warning in fase di compilazione
+     * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
+     */
     public boolean hasWarning(){
         return parser.getHandler().hasWarning();
     }
+
+    /**
+     * Verifica se, in fase di compilazione, sia stata innescata qualsiasi altra <i>Exception</i> non controllata.
+     * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
+     */
     public boolean hasOtherExceptions(){
         return otherExceptions;
     }
 
-    private void dumpToFile(ArrayList<String> toWrite, String path){
+    /**
+     * Utile per la creazione di file di log, dove conservare errori, warning e altre informazioni importanti.
+     * @param toWrite lista di stringhe da scrivere
+     * @param path percorso al file da scrivere/sovrascrivere
+     */
+    private void dumpToFile(List<String> toWrite, String path){
         try {
             File file = new File(path);
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
