@@ -47,6 +47,7 @@ public class DependencyMapper {
         return dependenciesMap.getOrDefault(exam, null);
 	}
 
+
 	/**
 	 * Verifica che la <i>DependencyMap</i> non sia vuota.
 	 * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
@@ -98,6 +99,14 @@ public class DependencyMapper {
 	 */
 	public List<Dependency> getDependencies() {
 		return dependencies;
+	}
+
+	/**
+	 * Serve a SnakeYAML
+	 * @param dependencies
+	 */
+	public void setDependencies(List<Dependency> dependencies) {
+		this.dependencies = dependencies;
 	}
 
 

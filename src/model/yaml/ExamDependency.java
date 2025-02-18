@@ -7,12 +7,20 @@ package model.yaml;
  */
 public class ExamDependency {
 	private String exam;
-	
 
+
+	/**
+	 * Restituisce il nome della dipendenza
+	 * @return oggetto <i>String</i>
+	 */
 	public String getExam() {
 		return exam;
 	}
 
+	/**
+	 * serve a SnakeYAML
+	 * @param exam
+	 */
 	public void setExam(String exam) {
 		this.exam = exam;
 	}

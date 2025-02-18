@@ -25,7 +25,6 @@ public class Dependency {
 	private List<ExamDependency> soft_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
     private List<ExamDependency> strict_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
 
-
 	/**
 	 * Ritorna il nome dell'esame con dipendenze.
 	 * @return nome dell'esame <i>String</i>
@@ -34,6 +33,11 @@ public class Dependency {
 		return dependency;
 	}
 
+	/**
+	 * Serve a SnakeYAML
+	 * @param dependency
+	 */
+	public void setDependency(String dependency){this.dependency=dependency;}
 
 	/**
 	 * Ritorna una descrizione della <i>Dependency</i> (ad es. il motivo per cui è stata formalizzata la dipendenza tra <tt>dependency</tt> e le dipendenze <i>strict</i>/<i>soft</i>)
@@ -41,6 +45,14 @@ public class Dependency {
 	 */
 	public String getDescription() {
 		return description;
+	}
+
+	/**
+	 * Serve a SnakeYAML
+	 * @param description
+	 */
+	public void setDescription(String description){
+		this.description=description;
 	}
 
 
@@ -53,19 +65,28 @@ public class Dependency {
 	}
 
 
-
+	/**
+	 * serve a SnakeYAML
+	 * @param soft_dependencies
+	 */
 	public void setSoft_dependencies(List<ExamDependency> soft_dependencies) {
 		this.soft_dependencies = soft_dependencies;
 	}
 
 
-
+	/**
+	 * Restituisce la lista di dipendenze <tt>strict</tt>, definite come <i>ExamDependency</i>
+	 * @return <i>List</i> di elementi <i>ExamDependency</i>
+	 */
 	public List<ExamDependency> getStrict_dependencies() {
 		return strict_dependencies;
 	}
 
 
-
+	/**
+	 * serve a SnakeYAML
+	 * @param strict_dependencies
+	 */
 	public void setStrict_dependencies(List<ExamDependency> strict_dependencies) {
 		this.strict_dependencies = strict_dependencies;
 	}
