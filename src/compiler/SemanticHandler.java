@@ -33,6 +33,8 @@ import java.util.ArrayList;
  * </ul>
  */
 public class SemanticHandler {
+
+
 	/**
 	 * Riferimento all'istanza singleton di <i>{@link Degree}</i>
 	 */
@@ -98,6 +100,7 @@ public class SemanticHandler {
 	}
 
 
+
 	/**
 	 * Creazione della struttura <i>{@link Degree}</i>
 	 * @param name {@link Token} contenente il nome della struttura <i>Degree</i>
@@ -142,7 +145,7 @@ public class SemanticHandler {
 	 * @param name {@link Token} contenente il nome
 	 * @param cfu Token contenente i CFU
 	 * @param stringdate Token contenente la data
-	 * @return
+	 * @return oggetto <i>Exam</i> corrispondente
 	 */
 	public Exam createExam(Token name, Token cfu, Token stringdate) {
 		
@@ -222,6 +225,51 @@ public class SemanticHandler {
 		Milestone m = new Milestone(milestone);
 		d.addMilestone(m);
 		return m;
+	}
+
+	/**
+	 * Utilizzato nella <i>studentRule</i> durante la compilazione, serve a creare un oggetto <i>{@link Student}</i> in fase di analisi semantica.
+	 * @param name {@link Token} con nome studente
+	 * @param sur Token con cognome studente
+	 * @param serial Token con matricola studente
+	 * @param birthdate Token con anno di nascita
+	 * @param email Token con email
+	 * @param u oggetto <i>{@link University}</i> con dati università studente
+	 */
+	public void createStudent(Token name,Token sur,Token serial,Token birthdate,Token email,University u){
+		d.setStudent(new Student(name.getText(),
+				sur.getText(),Integer.parseInt(serial.getText()),
+				checkLocalDate(birthdate),
+				email.getText(),
+				u)
+		);
+	}
+
+	/**
+	 * Utilizzato nella <i>universityRule</i> durante la compilazione, serve a creare un oggetto <i>{@link University}</i> in fase di analisi semantica.
+	 * @param uname {@link Token} con nome dell'università
+	 * @param a oggetto <i>{@link Address}</i> per specificare l'indirizzo
+	 * @return oggetto <i>University</i> corrispondente
+	 */
+	public University createUniversity(Token uname, Address a){
+		return new University(uname.getText(), a);
+	}
+
+	/**
+	 * Utilizzato nella <i>addressRule</i> durante la compilazione, serve a creare un oggetto <i>{@link Address}</i> in fase di analisi semantica.
+	 * @param street {@link Token} con nome strada
+	 * @param number Token con numero <i>int</i>
+	 * @param zip Token con codice postale <i>int</i>
+	 * @param city Token con nome città
+	 * @param country Token con nome nazione
+	 * @return oggetto <i>Address</i> corrispondente
+	 */
+	public Address createAddress(Token street, Token number, Token zip, Token city, Token country){
+		return new Address(street.getText(),
+				Integer.parseInt(number.getText()),
+				Integer.parseInt(zip.getText()),
+				city.getText(),
+				country.getText());
 	}
 
 	// *********************** gestione degli errori
@@ -335,27 +383,48 @@ public class SemanticHandler {
 	/**
 	 * Controlla che la data nel {@link Token} sia conforme al formato "dd-MM-yyyy" e che sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra rispettivamente <tt>INVALID_DATE_FORMAT_ERROR</tt> ed <tt>INVALID_DATE_RANGE_WARNING</tt>.
 	 * @param stringdate Token contenente data
-	 * @return oggetto <i>{@link LocalDate}</i> corrispondente
+	 * @return oggetto <i>{@link LocalDate}</i> corrispondente, oppure <tt>null</tt> in caso di INVALID_DATE_FORMAT_ERROR
 	 */
 	public LocalDate checkDateDeclaration( Token stringdate){
 
+		LocalDate s = checkLocalDate(stringdate);
+		checkDateRange(s,stringdate);
+
+		return s;
+	}
+
+	/**
+	 * Controlla che la data nel {@link Token} sia conforme al formato "dd-MM-yyyy". Altrimenti, registra <tt>INVALID_DATE_RANGE_WARNING</tt>.
+	 * @param stringdate Token contenente data
+	 * @return oggetto <i>{@link LocalDate}</i> corrispondente, oppure <tt>null</tt> in caso di INVALID_DATE_FORMAT_ERROR
+	 */
+	public LocalDate checkLocalDate(Token stringdate){
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDate s = null;
 		try{
 			s = LocalDate.parse(stringdate.getText(), dtf);
-			if(s.plusYears(10L).isBefore(LocalDate.now())){
-				addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
-				s = LocalDate.now().minusYears(10L);
-			}
-			if(s.minusYears(10L).isAfter(LocalDate.now())){
-				addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
-				s = LocalDate.now().plusYears(10L);
-			}
 		}catch(DateTimeParseException e){
 			addError(INVALID_DATE_FORMAT_ERROR, stringdate);
 		}
-
 		return s;
+	}
+
+	/**
+	 * Controlla che la data nel {@link Token} sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra <tt>INVALID_DATE_RANGE_WARNING</tt>.
+	 * @param stringdate Token contenente data
+	 */
+	public void checkDateRange(LocalDate s, Token stringdate){
+		if(s == null)
+			return;
+
+		if(s.plusYears(10L).isBefore(LocalDate.now())){
+			addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
+			s = LocalDate.now().minusYears(10L);
+		}
+		if(s.minusYears(10L).isAfter(LocalDate.now())){
+			addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
+			s = LocalDate.now().plusYears(10L);
+		}
 	}
 
 	/**

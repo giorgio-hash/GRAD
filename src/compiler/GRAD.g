@@ -6,13 +6,12 @@ options {
 }
 
 @lexer::header{
-	package myCompilerPackage;
-	import myCompilerPackage.util.*;
+	package compiler;
 }
 
 @parser::header{
-	package myCompilerPackage;
-	import myCompilerPackage.util.*;
+	package compiler;
+	import model.compiler.*;
 }
 
 @members {
@@ -102,6 +101,35 @@ ERROR_TOKEN
 /* ***********************************************
 			Rules defintion part starts here
 ************************************************** */
+
+programRule
+	: (studentRule)? degreeRule
+	;
+
+studentRule
+	: 'STUDENT' OPEN_CUB 'NAME:' name=STRING 'SURNAME:' sur=STRING 
+	  'SERIAL:' serial=INT
+	  'BIRTHDATE:' birthdate=DATE 
+	  'EMAIL:' email=STRING 
+	  u=universityRule {h.createStudent($name,$sur,$serial,$birthdate,$email,u);}
+	  CLOSE_CUB
+	;
+
+universityRule returns [University u]
+	: 'UNIVERSITY' OPEN_CUB 'NAME:' uname=STRING 
+	  a=addressRule {u=h.createUniversity($uname,a);}
+	  CLOSE_CUB
+	;
+
+addressRule returns [Address a]
+	: 'ADDRESS' OPEN_CUB 'STREET' street=STRING 
+	  'NUMBER' number=INT 
+	  'ZIP' zip=INT 
+	  'CITY' city=STRING 
+	  'COUNTRY' country=STRING {a=h.createAddress($street,$number,$zip,$city,$country);}
+	  CLOSE_CUB
+	;
+
 
 degreeRule
 	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'DAILY_HOURS:' st=INT {h.setDailyStudyHours($st);} 'YEARS:' OPEN_SQB ( y=yearRule { if(y!=null)h.addYear(y); } )+ CLOSE_SQB {h.checkDegree($deg);}
