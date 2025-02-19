@@ -33,8 +33,17 @@ import java.util.ArrayList;
  * </ul>
  */
 public class SemanticHandler {
+	/**
+	 * Riferimento all'istanza singleton di <i>{@link Degree}</i>
+	 */
 	private Degree d;
+	/**
+	 * Riferimento all'istanza singleton di <i>{@link DependencyManager}</i>
+	 */
 	private DependencyManager dep;
+	/**
+	 * Variabile per generare in maniera incrementale gli identificativi per gli oggetti <i>{@link Year}</i>
+	 */
 	private int idYear;
 
 	// ****** codici per i messaggi d'errore
