@@ -8,7 +8,10 @@ import model.compiler.Exam;
  */
 public class ExamTile extends GanttTile{
 
-    private Exam exam;//oggetto Exam associato
+    /**
+     * oggetto <i>{@link Exam}</i> associato
+     */
+    private Exam exam;
 
     /**
      * Costruttore che computa data di inizio della task basandosi su:

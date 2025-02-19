@@ -14,14 +14,31 @@ import java.util.List;
  * Classe per la gestione della laurea: esami, anni, milestones e attributi della laurea. Usa il pattern <i>singleton</i>.
  */
 public class Degree {
+    /**
+     * Nome della facoltà di laurea
+     */
     private String name;
+    /**
+     * Lista di oggetti <i>{@link Year}</i> corrispondenti agli anni di laurea
+     */
     private List<Year> years;
+    /**
+     * oggetto <i>{@link Map}</i> per estrarre oggetti <i>{@link Milestone}</i> usando il nome
+     */
     private Map<String, Milestone> milestones;
+    /**
+     * oggetto <i>{@link Map}</i> per estrarre oggetti <i>{@link Exam}</i> usando il nome
+     */
     private Map<String, Exam> exams;
+    /**
+     * Numero orde di studio giornaliero
+     */
     private int dailyStudyHours;
 
 
-    //pattern singleton
+    /**
+     * istanza per pattern singleton
+     */
     private static Degree d;
 
     /**

@@ -7,8 +7,14 @@ import java.util.Map;
  * insieme di esami (oggetti {@link Exam}) entro un certo anno.
  */
 public class Year {
-    private int id; // ID progressivo dell'anno
-    private Map<String, Exam> exams; // Lista di esami associati all'anno
+    /**
+     * ID numerico dell'anno
+     */
+    private int id;
+    /**
+     * <i>{@link Map}</i> per estrarre <i>{@link Exam}</i> secondo il nome
+     */
+    private Map<String, Exam> exams;
 
 
     /**

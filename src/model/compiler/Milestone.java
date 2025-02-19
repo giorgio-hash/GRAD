@@ -10,8 +10,14 @@ import java.util.Map;
  */
 public class Milestone {
 
-	private String name; //nome Milestone
-	private Map<String, Exam> exams; //mappa nomeEsame->esame
+	/**
+	 * nome <i>Milestone</i>
+	 */
+	private String name;
+	/**
+	 * <i>{@link Map}</i> per estrarre oggetti <i>{@link Exam}</i> in base al loro nome
+	 */
+	private Map<String, Exam> exams;
 
 	/**
 	 * Costruttore Milestone

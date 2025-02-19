@@ -24,8 +24,13 @@ import java.util.Map;
  *  &nbsp;&nbsp;&#9492;&#9472;<i>Dependency</i><br>
  */
 public class DependencyMapper {
-
+	/**
+	 * lista degli oggetti <i>{@link Dependency}</i>
+	 */
 	private List<Dependency> dependencies;
+	/**
+	 * <i>{@link Map}</i> per estrarre le <i>{@link Dependency}</i> usando il nome dell'esame per cui son state definite delle dipendenze
+	 */
 	private Map<String,Dependency> dependenciesMap;
 
 

@@ -12,10 +12,19 @@ import java.util.SortedSet;
  */
 public class YearTile extends GanttTile {
 
-    private ExamAggregator exams;//insieme di esami ordinato per data di appello
-    private HashMap<String, MilestoneTile> milestones;//Mappa con Milestones di cui nessuno, alcuni o tutti gli esami presenti nell'anno fanno parte
+    /**
+     * insieme di esami ordinato per data di appello (vedi <i>{@link ExamAggregator}</i>)
+     */
+    private ExamAggregator exams;
+    /**
+     * <i>{@link HashMap}</i> con oggetti <i>{@link MilestoneTile}</i> estraibili per nome, ciascuno dei quali contiene almeno un <i>{@link ExamTile}</i> di questo <i>{@link YearTile}</i>
+     */
+    private HashMap<String, MilestoneTile> milestones;
 
-    private Year year; //oggetto Year di riferimento
+    /**
+     * oggetto <i>{@link Year}</i> di riferimento
+     */
+    private Year year;
 
     /**
      * Costruttore che estrae oggetto <i>Year</i> da Degree

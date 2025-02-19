@@ -11,9 +11,14 @@ import java.util.SortedSet;
  * Specializzazione del <i>GanttTile</i> su cui si appoggerà la costruzione della Task, nel Gantt, associata ad elemento <i>Milestone</i>, di <i>Degree</i>.
  */
 public class MilestoneTile extends GanttTile{
-    private ExamAggregator exams;//insieme di esami ordinato per data di appello
-
-    private Milestone ms;//milestone associata
+    /**
+     * insieme di esami ordinato per data di appello
+     */
+    private ExamAggregator exams;
+    /**
+     * <i>{@link Milestone}</i> associata
+     */
+    private Milestone ms;
 
     /**
      * Costruttore che estrae la Milestone di riferimento sfruttando <i>Degree</i>

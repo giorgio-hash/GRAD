@@ -27,16 +27,29 @@ import java.util.List;
  */
 public class DegreeTableModel extends AbstractTableModel
 {
-    private List<Pair<Integer,Exam>> toDisplay;//elementi da visualizzare
-    private List<Pair<Integer,Exam>> examList;//lista sommaria
-    private Degree degree;//riferimento all'istanza singleton di Degree
+    /**
+     * Elementi <i>{@link Pair}</i> (coppie anno-esame) da visualizzare
+     */
+    private List<Pair<Integer,Exam>> toDisplay;
+    /**
+     * Buffer che memorizza tutti gli elementi <i>{@link Pair}</i> (coppie anno-esame)
+     */
+    private List<Pair<Integer,Exam>> examList;
+    /**
+     * Riferimento all'istanza singleton di <i>{@link Degree}</i>
+     */
+    private Degree degree;
 
-    //array ordinato dei nomi delle colonne
+    /**
+     * Array ordinato dei nomi delle colonne
+     */
     private final String[] columnNames = new String[] {
             "Year","Exam","CFU","Date","Passed","Milestone"
     };
 
-    //array ordinato tipi delle colonne
+    /**
+     * Array ordinato tipi delle colonne
+     */
     private final Class[] columnClass = new Class[] {
             String.class, String.class, String.class, LocalDate.class , Boolean.class, String.class
     };

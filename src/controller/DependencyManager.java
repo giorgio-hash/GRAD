@@ -23,18 +23,25 @@ import java.util.List;
  * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:<br><br>
  *  <i>DependencyMapper</i><br>
  *  &nbsp;&nbsp;&#9492;&#9472;<i>Dependency</i><br>
- *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>ExamDependency</i>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>ExamDependency</i><br>
+ *  <br>La mappa è estraibile da file YAML. Per tale scopo, la classe mette a disposizione un metodo, <tt>loadYAML()</tt>, per la lettura di un file YAML col supporto di <a href="https://github.com/snakeyaml/snakeyaml">snakeyaml</a>.
  */
 public class DependencyManager {
 
-    //path per il file YAML dove verranno lette le dipendenze
+    /**
+     * path per il file YAML dove verranno lette le dipendenze.
+     */
     private String path;
 
-    //oggetto che mappa le dipendenze
+    /**
+     * oggetto che mappa le <i>{@link Dependency}</i> (vedi {@link DependencyMapper}).
+     */
     private static DependencyMapper data;
 
 
-    //pattern singleton
+    /**
+     * istanza per pattern singleton
+     */
     private static DependencyManager instance=null;
 
     /**
@@ -56,7 +63,7 @@ public class DependencyManager {
     }
 
     /**
-     * Metodo per la lettura di un file YAML conforme alla struttura del modello su cui DependencyManager si appoggia (vedi documentazione).
+     * Metodo per la lettura di un file YAML (tramite <a href="https://github.com/snakeyaml/snakeyaml">snakeyaml</a>) conforme alla struttura del modello su cui <i>DependencyManager</i> si appoggia (vedi <i>{@link DependencyMapper}</i>).
      * <ul>
      *     <li>Se il file viene trovato e letto, si crea il <i>DependencyMapper</i>;</li>
      *     <li>Altrimenti, <i>DependencyMapper</i> è <tt>null</tt>.</li>
