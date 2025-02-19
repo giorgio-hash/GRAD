@@ -6,11 +6,26 @@ import java.time.LocalDate;
  * Mappa un oggetto EXAM definito nel file con estensione ".GRAD".
  */
 public class Exam {
-    private String name; // Nome dell'esame
-    private int cfu; // Numero di crediti associati all'esame
-    private LocalDate appello; // Data dell'appello
-    private Status status; // Stato dell'esame: PASSED / NOT_PASSED
-    private String milestone;//milestone di riferimento. default: null
+    /**
+     *  Nome dell'esame
+     */
+    private String name;
+    /**
+     * Numero di crediti associati all'esame
+     */
+    private int cfu;
+    /**
+     * Data dell'appello
+     */
+    private LocalDate appello;
+    /**
+     * Stato dell'esame: <tt>PASSED</tt> / <tt>NOT_PASSED</tt>
+     */
+    private Status status;
+    /**
+     * milestone di riferimento. default: <tt>null</tt>
+     */
+    private String milestone;
 
 
     /**
