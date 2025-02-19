@@ -29,10 +29,13 @@ import java.util.ArrayList;
  *     <li><tt>INVALID_DATE_RANGE_WARNING (100)</tt> se la data d'appello è oltre 10 anni prima o dopo la data corrente;</li>
  *     <li><tt>INVALID_STUDYHOURS_RANGE_WARNING (101)</tt> se le ore di studio sono meno di 1 o più di 24;</li>
  *     <li><tt>PASSED_AFTER_TODAY_WARNING (102)</tt> se un esame risulta passato in una data successiva rispetto alla data corrente;</li>
- *     <li><tt>STRICT_DEPENDENCY_NOT_PASSED_WARNING (103)</tt> se un esame risulta passato dopo la data corrente.</li>
+ *     <li><tt>STRICT_DEPENDENCY_NOT_PASSED_WARNING (103)</tt> se un esame risulta passato dopo la data corrente;</li>
+ *     <li><tt>NO_STUDENT_INFO_WARNING (104)</tt> se la compilazione ha avuto succcesso ma mancano i dati dello studente.</li>
  * </ul>
  */
 public class SemanticHandler {
+
+
 	/**
 	 * Riferimento all'istanza singleton di <i>{@link Degree}</i>
 	 */
@@ -79,7 +82,10 @@ public class SemanticHandler {
 	 * se un esame risulta passato dopo la data corrente
 	 */
 	public static final int STRICT_DEPENDENCY_NOT_PASSED_WARNING = 103;
-
+	/**
+	 * se la compilazione ha avuto succcesso ma mancano i dati dello studente
+	 */
+	public static final int NO_STUDENT_INFO_WARING = 104;
 
 	private ArrayList<String> errors;
 	private ArrayList<String> warnings;
@@ -89,13 +95,15 @@ public class SemanticHandler {
 	 * Costruttore del SemanticHandler. Inizializza lo stato ai valori iniziali.
 	 */
 	protected SemanticHandler() {
-		d = null;
+		d = Degree.getDegree();
+		d.reset();
 		idYear=1;
 		errors = new ArrayList<String>();
 		warnings = new ArrayList<String>();
 		DependencyManager.getInstance().loadYAML();
 		dep = DependencyManager.getInstance();
 	}
+
 
 
 	/**
@@ -105,8 +113,6 @@ public class SemanticHandler {
 	public void createDegree(Token name) {
 		
 		String n = name.getText().replace("\"","");
-		d = Degree.getDegree();
-		d.reset();
 		d.setName(n);
 	}
 
@@ -142,7 +148,7 @@ public class SemanticHandler {
 	 * @param name {@link Token} contenente il nome
 	 * @param cfu Token contenente i CFU
 	 * @param stringdate Token contenente la data
-	 * @return
+	 * @return oggetto <i>Exam</i> corrispondente
 	 */
 	public Exam createExam(Token name, Token cfu, Token stringdate) {
 		
@@ -224,6 +230,53 @@ public class SemanticHandler {
 		return m;
 	}
 
+	/**
+	 * Utilizzato nella <i>studentRule</i> durante la compilazione, serve a creare un oggetto <i>{@link Student}</i> in fase di analisi semantica.
+	 * @param name {@link Token} con nome studente
+	 * @param sur Token con cognome studente
+	 * @param serial Token con matricola studente
+	 * @param birthdate Token con anno di nascita
+	 * @param email Token con email
+	 * @param u oggetto <i>{@link University}</i> con dati università studente
+	 */
+	public void createStudent(Token name,Token sur,Token serial,Token birthdate,Token email,University u){
+		d.setStudent(new Student(name.getText().replace("\"",""),
+				sur.getText().replace("\"",""),
+				serial.getText().replace("\"",""),
+				checkLocalDate(birthdate),
+				email.getText().replace("\"",""),
+				u)
+		);
+	}
+
+	/**
+	 * Utilizzato nella <i>universityRule</i> durante la compilazione, serve a creare un oggetto <i>{@link University}</i> in fase di analisi semantica.
+	 * @param uname {@link Token} con nome dell'università
+	 * @param a oggetto <i>{@link Address}</i> per specificare l'indirizzo
+	 * @return oggetto <i>University</i> corrispondente
+	 */
+	public University createUniversity(Token uname, Address a){
+		return new University(uname.getText().replace("\"",""), a);
+	}
+
+	/**
+	 * Utilizzato nella <i>addressRule</i> durante la compilazione, serve a creare un oggetto <i>{@link Address}</i> in fase di analisi semantica.
+	 * @param street {@link Token} con nome strada
+	 * @param number Token con numero <i>int</i>
+	 * @param zip Token con codice postale <i>int</i>
+	 * @param city Token con nome città
+	 * @param country Token con nome nazione
+	 * @return oggetto <i>Address</i> corrispondente
+	 */
+	public Address createAddress(Token street, Token number, Token zip, Token city, Token country){
+		return new Address(street.getText().replace("\"",""),
+				Integer.parseInt(number.getText()),
+				zip.getText().replace("\"",""),
+				city.getText().replace("\"",""),
+				country.getText().replace("\"","")
+		);
+	}
+
 	// *********************** gestione degli errori
 
 	/**
@@ -275,11 +328,12 @@ public class SemanticHandler {
 	/**
 	 * Verifica se l'oggetto <i>{@link Exam}</i> abbia delle dipendenze <tt>strict</tt> nella rispettiva <i>Dependency</i> in <i>{@link DependencyManager}</i>.
 	 * Quindi, verifica se queste dipendenze abbiano un oggetto <i>Exam</i> corrispondente in <i>{@link Degree}</i> con attributo <i>{@link Status}</i> <tt>PASSED</tt>.
+	 * Se questi gli <i>Exam</i> da cui <tt>e</tt> dipende sono tutti PASSED, allora viene restituito <tt>true</tt>.
 	 * @param e oggetto <i>Exam</i>
 	 * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
 	 */
 	public boolean checkPastStrictDependencies(Exam e){
-		if(!dep.hasStrictDependencies(e))
+		if(!Degree.getDegree().hasAnyExam() || !dep.hasStrictDependencies(e))
 			return true;
 
 		for(ExamDependency d : dep.getDependency(e).getStrict_dependencies()){
@@ -314,6 +368,8 @@ public class SemanticHandler {
 	public void checkDegree(Token deg){
 		if(d.getYears().isEmpty())
 			addError(EMPTY_DEGREE_ERROR,deg);
+		if(!d.hasStudent())
+			addWarning(NO_STUDENT_INFO_WARING,deg);
 	}
 
 	/**
@@ -335,27 +391,48 @@ public class SemanticHandler {
 	/**
 	 * Controlla che la data nel {@link Token} sia conforme al formato "dd-MM-yyyy" e che sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra rispettivamente <tt>INVALID_DATE_FORMAT_ERROR</tt> ed <tt>INVALID_DATE_RANGE_WARNING</tt>.
 	 * @param stringdate Token contenente data
-	 * @return oggetto <i>{@link LocalDate}</i> corrispondente
+	 * @return oggetto <i>{@link LocalDate}</i> corrispondente, oppure <tt>null</tt> in caso di INVALID_DATE_FORMAT_ERROR
 	 */
 	public LocalDate checkDateDeclaration( Token stringdate){
 
+		LocalDate s = checkLocalDate(stringdate);
+		checkDateRange(s,stringdate);
+
+		return s;
+	}
+
+	/**
+	 * Controlla che la data nel {@link Token} sia conforme al formato "dd-MM-yyyy". Altrimenti, registra <tt>INVALID_DATE_RANGE_WARNING</tt>.
+	 * @param stringdate Token contenente data
+	 * @return oggetto <i>{@link LocalDate}</i> corrispondente, oppure <tt>null</tt> in caso di INVALID_DATE_FORMAT_ERROR
+	 */
+	public LocalDate checkLocalDate(Token stringdate){
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		LocalDate s = null;
 		try{
 			s = LocalDate.parse(stringdate.getText(), dtf);
-			if(s.plusYears(10L).isBefore(LocalDate.now())){
-				addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
-				s = LocalDate.now().minusYears(10L);
-			}
-			if(s.minusYears(10L).isAfter(LocalDate.now())){
-				addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
-				s = LocalDate.now().plusYears(10L);
-			}
 		}catch(DateTimeParseException e){
 			addError(INVALID_DATE_FORMAT_ERROR, stringdate);
 		}
-
 		return s;
+	}
+
+	/**
+	 * Controlla che la data nel {@link Token} sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra <tt>INVALID_DATE_RANGE_WARNING</tt>.
+	 * @param stringdate Token contenente data
+	 */
+	public void checkDateRange(LocalDate s, Token stringdate){
+		if(s == null)
+			return;
+
+		if(s.plusYears(10L).isBefore(LocalDate.now())){
+			addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
+			s = LocalDate.now().minusYears(10L);
+		}
+		if(s.minusYears(10L).isAfter(LocalDate.now())){
+			addWarning(INVALID_DATE_RANGE_WARNING, stringdate);
+			s = LocalDate.now().plusYears(10L);
+		}
 	}
 
 	/**
@@ -417,6 +494,8 @@ public class SemanticHandler {
 			msg += "STATUS è PASSED in un appello futuro. Impostato NOT_PASSED";
 		else if (warnCode == STRICT_DEPENDENCY_NOT_PASSED_WARNING)
 			msg += "STATUS è PASSED ma gli esami propedeutici sono NOT_PASSED. Impostato NOT_PASSED";
+		else if (warnCode == NO_STUDENT_INFO_WARING)
+			msg += "Non sono stati inseriti i dati dello studente (struttura STUDENT non individuata).";
 		warnings.add (msg);
 	}
 // ----------------------- fine gestione degli errori

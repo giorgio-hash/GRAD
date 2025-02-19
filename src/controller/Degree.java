@@ -2,6 +2,7 @@ package controller;
 
 import model.compiler.Exam;
 import model.compiler.Milestone;
+import model.compiler.Student;
 import model.compiler.Year;
 
 import java.util.ArrayList;
@@ -35,6 +36,10 @@ public class Degree {
      */
     private int dailyStudyHours;
 
+    /**
+     * Dati aggiuntivi per lo studente (vedi <i>{@link Student}</i>)
+     */
+    private Student s;
 
     /**
      * istanza per pattern singleton
@@ -68,6 +73,7 @@ public class Degree {
             this.milestones = new HashMap<String, Milestone>();
             this.dailyStudyHours = 4; //default
             this.exams = new HashMap<String, Exam>();
+            this.s = null;
     }
 
     /**
@@ -153,6 +159,12 @@ public class Degree {
     }
 
     /**
+     * Controlla se <i>Degree</i> contenga al suo interno effettivamente degli esami
+     * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
+     */
+    public boolean hasAnyExam(){return exams.isEmpty();}
+
+    /**
      *
      * @return ore medie di studio al giorno, attualmente impostate
      */
@@ -169,8 +181,29 @@ public class Degree {
 		this.dailyStudyHours = dailyStudyHours;
 	}
 
+    /**
+     *
+     * @return oggetto <i>{@link Student}</i>
+     */
+    public Student getStudent(){
+        return s;
+    }
 
+    /**
+     *
+     * @param s oggetto student;
+     */
+    public void setStudent(Student s){
+        this.s=s;
+    }
 
+    /**
+     *
+     * @return <tt>true</tt> se field <tt>s</tt> non è null
+     */
+    public boolean hasStudent(){
+        return s != null;
+    }
 
 	@Override
 	public String toString() {

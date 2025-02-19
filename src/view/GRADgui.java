@@ -1,7 +1,10 @@
 package view;
 
 import controller.DependencyManager;
+import model.compiler.Address;
 import model.compiler.Exam;
+import model.compiler.Student;
+import model.compiler.University;
 import view.tableModel.DegreeTableModel;
 import view.utils.Mode;
 import controller.Degree;
@@ -10,6 +13,7 @@ import controller.Parser;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Estensione di <i>{@link JFrame}</i> e realizzata principalmente con <i>Swing</i> ed il supporto di <a href="https://plugins.jetbrains.com/plugin/25304-swing-ui-designer">IntelliJ Swing UI Designer</a>, è la componente principale del livello <i>view</i>. Costituisce l'elemento grafico principale.
@@ -36,6 +40,7 @@ public class GRADgui  extends JFrame{
     private JScrollBar horizontalScrollBar;
     private JLabel doubleDotsLabel;
     private JLabel showLabel;
+    private JButton datiStudenteButton;
 
     //elementi customizzati
     /**
@@ -90,6 +95,7 @@ public class GRADgui  extends JFrame{
                     gf = new GanttFrame("GRAD - Gantt chart");
                 }
 
+                datiStudenteButton.setVisible(Degree.getDegree().hasStudent());
                 degreemodel.refresh();
                 displayCareer();
             }
@@ -152,6 +158,27 @@ public class GRADgui  extends JFrame{
                                     JOptionPane.ERROR_MESSAGE);
                             gf.clean();
                         }
+            }
+        });
+
+        datiStudenteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Degree.getDegree().hasStudent())
+                {
+                    Student x = Degree.getDegree().getStudent();
+                    University u = x.getUniversity();
+                    Address a = u.getAddress();
+                    String s = ""+x.getName()+" "+x.getSurname() +" (matr. "+x.getSerial() +")"
+                            +"\nData di Nascita:"+x.getBirthdate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                            +"\nEmail:"+x.getEmail()
+                            +"\n\nStudente  presso "+u.getName()
+                            +"\n" + a.getStreet() + ", n° "+a.getNumber() +", "+a.getZip()
+                            +"\n" + a.getCity() + " ("+a.getCountry()+")";
+
+                    JOptionPane.showMessageDialog(null, s,"Dati Studente",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
     }

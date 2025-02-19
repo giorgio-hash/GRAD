@@ -1,3 +1,20 @@
+STUDENT {
+    NAME: "John"
+    SURNAME: "Doe"
+    SERIAL: 12345
+    BIRTHDATE: 15-05-2000
+    EMAIL: "john.doe@example.com"
+    UNIVERSITY {
+        NAME: "Harvard University"
+        ADDRESS {
+            STREET "Massachusetts Ave"
+            NUMBER 1
+            ZIP 02138
+            CITY "Cambridge"
+            COUNTRY "USA"
+        }
+    }
+}
 DEGREE: "Laurea triennale in Psicologia"
 DAILY_HOURS: 5
 YEARS: [
