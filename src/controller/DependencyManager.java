@@ -23,7 +23,8 @@ import java.util.List;
  * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:<br><br>
  *  <i>DependencyMapper</i><br>
  *  &nbsp;&nbsp;&#9492;&#9472;<i>Dependency</i><br>
- *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>ExamDependency</i>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>ExamDependency</i><br>
+ *  <br>La mappa è estraibile da file YAML. Per tale scopo, la classe mette a disposizione un metodo, <tt>loadYAML()</tt>, per la lettura di un file YAML col supporto di <a href="https://github.com/snakeyaml/snakeyaml">snakeyaml</a>.
  */
 public class DependencyManager {
 

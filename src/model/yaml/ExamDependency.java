@@ -3,9 +3,12 @@ package model.yaml;
 /**
  * Oggetto che definisce una dipendenza <i>strict</i>/<i>soft</i> per un esame <i>Dependency</i>. In breve, contiene una <i>String</i> col nome dell'esame.
  * <br>Serve principalmente come parte della struttura {@link Dependency} ed è definito in un file YAML sotto le voci <tt>soft_dependencies</tt> o <tt>strict_dependencies</tt> come segue: <br><br>
- * - <tt>exam: </tt> [valore]
+ * - <tt>exam</tt>: "valore stringa"
  */
 public class ExamDependency {
+	/**
+	 * nome della dipendenza per <i>{@link Dependency}</i>
+	 */
 	private String exam;
 
 

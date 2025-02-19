@@ -11,19 +11,31 @@ import java.util.List;
  * Sebbene il termine <tt>dependency</tt> può essere ambiguo, la definizione di <tt>dependency</tt> vorrebbe indicare un esame che ha delle precedenze da assolvere, dai quali quindi dipende.
  * <br>La struttura può essere estratta da file YAML e segue la gerarchia di attributi. Le dipendenze sono definite tramite la classe {@link ExamDependency} opportunamente codificati: <br><br>
  *  &nbsp;&nbsp;- <tt>dependency</tt>: "valore stringa"<br>
- *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;<i>description</i>: "valore stringa" (opzionale)<br>
- *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;<i>soft_dependencies</i>: (opzionale)<br>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;<tt>description</tt>: "valore stringa" (opzionale)<br>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;<tt>soft_dependencies</tt>: (opzionale)<br>
  *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;<i>{@link ExamDependency}</i><br>
  *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472; <tt> ... </tt><br>
- *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>strict_dependencies</i>: (opzionale)<br>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<tt>strict_dependencies</tt>: (opzionale)<br>
  *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;<i>{@link ExamDependency}</i><br>
  *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472; <tt> ... </tt><br>
  */
 public class Dependency {
+	/**
+	 * Nome esame per cui son state definite delle dipendenze
+	 */
 	private String dependency;
+	/**
+	 * Descrizione aggiuntiva per dettagliare i motivi dei vincoli di dipendenza
+	 */
 	private String description;
+	/**
+	 * lista delle dipendenze <tt>soft</tt> per <tt>dependency</tt> (vedi <i>{@link ExamDependency}</i>)
+	 */
 	private List<ExamDependency> soft_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
-    private List<ExamDependency> strict_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
+	/**
+	 * lista delle dipendenze <tt>strict</tt> per <tt>dependency</tt> (vedi <i>{@link ExamDependency}</i>)
+	 */
+	private List<ExamDependency> strict_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
 
 	/**
 	 * Ritorna il nome dell'esame con dipendenze.
