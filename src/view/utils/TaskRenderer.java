@@ -11,7 +11,10 @@ import java.util.Map;
  */
 public class TaskRenderer extends GanttRenderer {
     private static final long serialVersionUID = 1L;
-    private static Map<Integer, Color> colormap; //mappa rigaTask->colore
+    /**
+     * Mappa rigaTask-><i>{@link Color}</i>
+     */
+    private static Map<Integer, Color> colormap;
 
     /**
      * Costruttore con mappa dei colori per le task.

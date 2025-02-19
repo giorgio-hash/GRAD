@@ -38,12 +38,27 @@ public class GRADgui  extends JFrame{
     private JLabel showLabel;
 
     //elementi customizzati
+    /**
+     * Modello per la <i>{@link JTable}</i>
+     */
     private DegreeTableModel degreemodel;
+    /**
+     * Riferimento alla {@link JFrame} responsabile del grafico Gantt
+     */
     private GanttFrame gf;
 
     //variabili d'appoggio
+    /**
+     * Modalità di filtraggio dati (vedi <i>{@link Mode}</i>)
+     */
     private Mode mode;
+    /**
+     * anno selezionato nella <tt>groupBox</tt> (per <tt>mode==Mode.YEAR</tt>)
+     */
     private int selectedYear;
+    /**
+     * esame selezionato nella <tt>groupBox</tt> (per <tt>mode==Mode.DEPENDENCY_OF</tt>)
+     */
     private String selectedExam;
 
     /**

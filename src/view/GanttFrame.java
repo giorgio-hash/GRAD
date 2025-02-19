@@ -50,17 +50,37 @@ import java.util.List;
  */
 public class GanttFrame extends JFrame {
 
-    private TileManager tm;//gestore dei GanttTile
-    private TaskSeriesCollection taskseriescollection;//collezione di TaskSeries
-
-    public Map<Integer, Color> colormap;//mappa indiceTask->colore
-    private int colorIndex;//generatore incrementale per indice Task nel colormap
+    /**
+     * gestore dei <i>{@link GanttTile}</i>
+     */
+    private TileManager tm;
+    /**
+     * collezione di <i>{@link TaskSeries}</i>
+     */
+    private TaskSeriesCollection taskseriescollection;
+    /**
+     * mappa indiceTask-><i>{@link Color}</i>
+     */
+    public Map<Integer, Color> colormap;
+    /**
+     * generatore incrementale per indiceTask nel <tt>colormap</tt>
+     */
+    private int colorIndex;
 
     //varaibili d'appoggio
+    /**
+     * Variabile d'appoggio per contare il numero globale di esami passati per una certa vista
+     */
     private double totPassed;
+    /**
+     * Variabile d'appoggio per contare il numero globale di esami per una certa vista
+     */
     private double totExams;
 
-    private ChartPanel saved_chartpanel;//si può evitare di ricostruire il chartPanel qualora la finestra grafica fosse già stata generata. A tal scopo, si salva un riferimento all'ultima chartPanel.
+    /**
+     * Variabile d'appoggio per evitare di ricostruire il {@link ChartPanel} qualora la finestra grafica fosse già stata generata. A tal scopo, si salva un riferimento.
+     */
+    private ChartPanel saved_chartpanel;
 
     /**
      * Costruttore con titolo per la JFrame
