@@ -72,9 +72,10 @@ UNICODE_ESC
     ;
 
 
-INT	:	'0'|('1'.. '9')('0'.. '9')*;
+INT	:	('0'.. '9')+;
 
-DATE 	:	('0'INT|INT) '-' ('0'INT|INT) '-' INT; 
+
+DATE 	:	INT '-' INT '-' INT; 
 
 STATUS	:	'PASSED' | 'NOT_PASSED';
 
@@ -102,8 +103,8 @@ ERROR_TOKEN
 			Rules defintion part starts here
 ************************************************** */
 
-programRule
-	: (studentRule)? degreeRule
+startRule
+	: (studentRule)? degreeRule 
 	;
 
 studentRule
@@ -124,12 +125,11 @@ universityRule returns [University u]
 addressRule returns [Address a]
 	: 'ADDRESS' OPEN_CUB 'STREET' street=STRING 
 	  'NUMBER' number=INT 
-	  'ZIP' zip=INT 
+	  'ZIP' zip=INT
 	  'CITY' city=STRING 
 	  'COUNTRY' country=STRING {a=h.createAddress($street,$number,$zip,$city,$country);}
 	  CLOSE_CUB
 	;
-
 
 degreeRule
 	:	'DEGREE:' deg=STRING {h.createDegree($deg);} 'DAILY_HOURS:' st=INT {h.setDailyStudyHours($st);} 'YEARS:' OPEN_SQB ( y=yearRule { if(y!=null)h.addYear(y); } )+ CLOSE_SQB {h.checkDegree($deg);}

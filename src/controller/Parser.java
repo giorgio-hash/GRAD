@@ -82,7 +82,7 @@ public class Parser {
 
 
             //Lancia il parser dallo start simbol (prima produzione specificata)
-            parser.degreeRule();
+            parser.startRule();
 
             if(hasErrors()) {
                 Degree.getDegree().reset();
@@ -95,6 +95,7 @@ public class Parser {
         } catch (Exception e) {
             System.out.println ("Parsing con ANTLR abortito\n\n");
             otherExceptions = true;
+            Degree.getDegree().reset();
             e.printStackTrace();
         }
     }

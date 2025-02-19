@@ -8,7 +8,7 @@ public class Address {
     private String street;
 
     private int number;
-    private int zip;
+    private String zip;
     private String city;
     private String country;
 
@@ -20,7 +20,7 @@ public class Address {
      * @param city
      * @param country
      */
-    public Address(String street, int number, int zip, String city, String country) {
+    public Address(String street, int number, String zip, String city, String country) {
         this.street = street;
         this.number = number;
         this.zip = zip;
@@ -36,7 +36,7 @@ public class Address {
         return number;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 

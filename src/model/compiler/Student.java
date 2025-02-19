@@ -17,7 +17,7 @@ public class Student {
     /**
      * matricola studente
      */
-    private int serial;
+    private String serial;
     /**
      * data di nascita dello studente
      */
@@ -41,7 +41,7 @@ public class Student {
      * @param email email dello studente
      * @param u oggetto <i>{@link University}</i> per dati università
      */
-    public Student(String name, String surname, int serial, LocalDate birthdate, String email, University u) {
+    public Student(String name, String surname, String serial, LocalDate birthdate, String email, University u) {
         this.name = name;
         this.surname = surname;
         this.serial = serial;
@@ -70,7 +70,7 @@ public class Student {
      *
      * @return matricola studente
      */
-    public int getSerial() {
+    public String getSerial() {
         return serial;
     }
 

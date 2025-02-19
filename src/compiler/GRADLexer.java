@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-19 15:29:59
+// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-19 17:34:44
 
 	package compiler;
 
@@ -980,33 +980,24 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:5: ( '0' | ( '1' .. '9' ) ( '0' .. '9' )* )
-			int alt6=2;
-			int LA6_0 = input.LA(1);
-			if ( (LA6_0=='0') ) {
-				alt6=1;
-			}
-			else if ( ((LA6_0 >= '1' && LA6_0 <= '9')) ) {
-				alt6=2;
-			}
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:5: ( ( '0' .. '9' )+ )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:7: ( '0' .. '9' )+
+			{
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:7: ( '0' .. '9' )+
+			int cnt5=0;
+			loop5:
+			while (true) {
+				int alt5=2;
+				int LA5_0 = input.LA(1);
+				if ( ((LA5_0 >= '0' && LA5_0 <= '9')) ) {
+					alt5=1;
+				}
 
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 6, 0, input);
-				throw nvae;
-			}
-
-			switch (alt6) {
+				switch (alt5) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:7: '0'
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:
 					{
-					match('0'); 
-					}
-					break;
-				case 2 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:11: ( '1' .. '9' ) ( '0' .. '9' )*
-					{
-					if ( (input.LA(1) >= '1' && input.LA(1) <= '9') ) {
+					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 						input.consume();
 					}
 					else {
@@ -1014,39 +1005,19 @@ public class GRADLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:22: ( '0' .. '9' )*
-					loop5:
-					while (true) {
-						int alt5=2;
-						int LA5_0 = input.LA(1);
-						if ( ((LA5_0 >= '0' && LA5_0 <= '9')) ) {
-							alt5=1;
-						}
-
-						switch (alt5) {
-						case 1 :
-							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:
-							{
-							if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
-								input.consume();
-							}
-							else {
-								MismatchedSetException mse = new MismatchedSetException(null,input);
-								recover(mse);
-								throw mse;
-							}
-							}
-							break;
-
-						default :
-							break loop5;
-						}
-					}
-
 					}
 					break;
 
+				default :
+					if ( cnt5 >= 1 ) break loop5;
+					EarlyExitException eee = new EarlyExitException(5, input);
+					throw eee;
+				}
+				cnt5++;
 			}
+
+			}
+
 			state.type = _type;
 			state.channel = _channel;
 		}
@@ -1061,117 +1032,13 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:7: ( ( '0' INT | INT ) '-' ( '0' INT | INT ) '-' INT )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:9: ( '0' INT | INT ) '-' ( '0' INT | INT ) '-' INT
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:78:7: ( INT '-' INT '-' INT )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:78:9: INT '-' INT '-' INT
 			{
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:9: ( '0' INT | INT )
-			int alt7=2;
-			int LA7_0 = input.LA(1);
-			if ( (LA7_0=='0') ) {
-				int LA7_1 = input.LA(2);
-				if ( ((LA7_1 >= '0' && LA7_1 <= '9')) ) {
-					alt7=1;
-				}
-				else if ( (LA7_1=='-') ) {
-					alt7=2;
-				}
-
-				else {
-					int nvaeMark = input.mark();
-					try {
-						input.consume();
-						NoViableAltException nvae =
-							new NoViableAltException("", 7, 1, input);
-						throw nvae;
-					} finally {
-						input.rewind(nvaeMark);
-					}
-				}
-
-			}
-			else if ( ((LA7_0 >= '1' && LA7_0 <= '9')) ) {
-				alt7=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 7, 0, input);
-				throw nvae;
-			}
-
-			switch (alt7) {
-				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:10: '0' INT
-					{
-					match('0'); 
-					mINT(); 
-
-					}
-					break;
-				case 2 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:17: INT
-					{
-					mINT(); 
-
-					}
-					break;
-
-			}
+			mINT(); 
 
 			match('-'); 
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:26: ( '0' INT | INT )
-			int alt8=2;
-			int LA8_0 = input.LA(1);
-			if ( (LA8_0=='0') ) {
-				int LA8_1 = input.LA(2);
-				if ( ((LA8_1 >= '0' && LA8_1 <= '9')) ) {
-					alt8=1;
-				}
-				else if ( (LA8_1=='-') ) {
-					alt8=2;
-				}
-
-				else {
-					int nvaeMark = input.mark();
-					try {
-						input.consume();
-						NoViableAltException nvae =
-							new NoViableAltException("", 8, 1, input);
-						throw nvae;
-					} finally {
-						input.rewind(nvaeMark);
-					}
-				}
-
-			}
-			else if ( ((LA8_0 >= '1' && LA8_0 <= '9')) ) {
-				alt8=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 8, 0, input);
-				throw nvae;
-			}
-
-			switch (alt8) {
-				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:27: '0' INT
-					{
-					match('0'); 
-					mINT(); 
-
-					}
-					break;
-				case 2 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:77:34: INT
-					{
-					mINT(); 
-
-					}
-					break;
-
-			}
+			mINT(); 
 
 			match('-'); 
 			mINT(); 
@@ -1192,32 +1059,32 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = STATUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:79:8: ( 'PASSED' | 'NOT_PASSED' )
-			int alt9=2;
-			int LA9_0 = input.LA(1);
-			if ( (LA9_0=='P') ) {
-				alt9=1;
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:80:8: ( 'PASSED' | 'NOT_PASSED' )
+			int alt6=2;
+			int LA6_0 = input.LA(1);
+			if ( (LA6_0=='P') ) {
+				alt6=1;
 			}
-			else if ( (LA9_0=='N') ) {
-				alt9=2;
+			else if ( (LA6_0=='N') ) {
+				alt6=2;
 			}
 
 			else {
 				NoViableAltException nvae =
-					new NoViableAltException("", 9, 0, input);
+					new NoViableAltException("", 6, 0, input);
 				throw nvae;
 			}
 
-			switch (alt9) {
+			switch (alt6) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:79:10: 'PASSED'
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:80:10: 'PASSED'
 					{
 					match("PASSED"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:79:21: 'NOT_PASSED'
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:80:21: 'NOT_PASSED'
 					{
 					match("NOT_PASSED"); 
 
@@ -1239,8 +1106,8 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = OPEN_SQB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:82:2: ( '[' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:82:4: '['
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:83:2: ( '[' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:83:4: '['
 			{
 			match('['); 
 			}
@@ -1259,8 +1126,8 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = CLOSE_SQB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:84:2: ( ']' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:84:4: ']'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:85:2: ( ']' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:85:4: ']'
 			{
 			match(']'); 
 			}
@@ -1279,8 +1146,8 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = OPEN_CUB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:87:2: ( '{' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:87:4: '{'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:88:2: ( '{' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:88:4: '{'
 			{
 			match('{'); 
 			}
@@ -1299,8 +1166,8 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = CLOSE_CUB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:89:2: ( '}' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:89:4: '}'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:90:2: ( '}' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:90:4: '}'
 			{
 			match('}'); 
 			}
@@ -1319,8 +1186,8 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = DOTCOMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:92:2: ( ';' )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:92:4: ';'
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:93:2: ( ';' )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:93:4: ';'
 			{
 			match(';'); 
 			}
@@ -1339,8 +1206,8 @@ public class GRADLexer extends Lexer {
 		try {
 			int _type = ERROR_TOKEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:95:2: ( . )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:95:4: .
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:96:2: ( . )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:96:4: .
 			{
 			matchAny(); 
 			}
@@ -1357,9 +1224,9 @@ public class GRADLexer extends Lexer {
 	@Override
 	public void mTokens() throws RecognitionException {
 		// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:8: ( T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | WS | STRING | CHAR | INT | DATE | STATUS | OPEN_SQB | CLOSE_SQB | OPEN_CUB | CLOSE_CUB | DOTCOMMA | ERROR_TOKEN )
-		int alt10=35;
-		alt10 = dfa10.predict(input);
-		switch (alt10) {
+		int alt7=35;
+		alt7 = dfa7.predict(input);
+		switch (alt7) {
 			case 1 :
 				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:10: T__20
 				{
@@ -1610,48 +1477,47 @@ public class GRADLexer extends Lexer {
 	}
 
 
-	protected DFA10 dfa10 = new DFA10(this);
-	static final String DFA10_eotS =
-		"\1\uffff\13\27\1\uffff\2\27\2\56\1\27\36\uffff\1\56\14\uffff\1\100\1\102"+
+	protected DFA7 dfa7 = new DFA7(this);
+	static final String DFA7_eotS =
+		"\1\uffff\13\26\1\uffff\2\26\1\55\1\26\35\uffff\1\55\15\uffff\1\77\1\101"+
 		"\4\uffff";
-	static final String DFA10_eofS =
-		"\103\uffff";
-	static final String DFA10_minS =
+	static final String DFA7_eofS =
+		"\102\uffff";
+	static final String DFA7_minS =
 		"\1\0\1\104\1\111\1\106\1\101\1\115\1\111\1\101\1\105\1\116\1\105\1\111"+
-		"\1\uffff\2\0\2\55\1\101\13\uffff\1\111\2\uffff\1\101\5\uffff\1\101\2\uffff"+
-		"\1\101\6\uffff\1\55\7\uffff\1\115\3\uffff\1\122\2\123\4\uffff";
-	static final String DFA10_maxS =
+		"\1\uffff\2\0\1\55\1\101\13\uffff\1\111\2\uffff\1\101\5\uffff\1\101\2\uffff"+
+		"\1\101\5\uffff\1\55\10\uffff\1\115\3\uffff\1\122\2\123\4\uffff";
+	static final String DFA7_maxS =
 		"\1\uffff\1\104\1\111\1\117\1\105\1\130\1\111\2\125\1\116\1\105\1\111\1"+
-		"\uffff\2\uffff\2\71\1\101\13\uffff\1\124\2\uffff\1\101\5\uffff\1\125\2"+
-		"\uffff\1\101\6\uffff\1\71\7\uffff\1\115\3\uffff\1\122\2\123\4\uffff";
-	static final String DFA10_acceptS =
-		"\14\uffff\1\30\5\uffff\1\36\1\37\1\40\1\41\1\42\1\43\1\1\1\2\1\3\1\4\1"+
+		"\uffff\2\uffff\1\71\1\101\13\uffff\1\124\2\uffff\1\101\5\uffff\1\125\2"+
+		"\uffff\1\101\5\uffff\1\71\10\uffff\1\115\3\uffff\1\122\2\123\4\uffff";
+	static final String DFA7_acceptS =
+		"\14\uffff\1\30\4\uffff\1\36\1\37\1\40\1\41\1\42\1\43\1\1\1\2\1\3\1\4\1"+
 		"\5\1\uffff\1\10\1\11\1\uffff\1\14\1\15\1\16\1\35\1\17\1\uffff\1\23\1\24"+
-		"\1\uffff\1\27\1\30\1\31\1\32\1\33\1\34\1\uffff\1\36\1\37\1\40\1\41\1\42"+
+		"\1\uffff\1\27\1\30\1\31\1\32\1\33\1\uffff\1\34\1\36\1\37\1\40\1\41\1\42"+
 		"\1\6\1\7\1\uffff\1\20\1\21\1\22\3\uffff\1\13\1\12\1\26\1\25";
-	static final String DFA10_specialS =
-		"\1\1\14\uffff\1\0\1\2\64\uffff}>";
-	static final String[] DFA10_transitionS = {
-			"\11\27\2\14\2\27\1\14\22\27\1\14\1\27\1\15\4\27\1\16\10\27\1\17\11\20"+
-			"\1\27\1\26\5\27\1\1\1\2\1\3\1\4\1\5\7\27\1\6\1\7\1\27\1\21\2\27\1\10"+
-			"\1\27\1\11\3\27\1\12\1\13\1\22\1\27\1\23\35\27\1\24\1\27\1\25\uff82\27",
+	static final String DFA7_specialS =
+		"\1\1\14\uffff\1\2\1\0\63\uffff}>";
+	static final String[] DFA7_transitionS = {
+			"\11\26\2\14\2\26\1\14\22\26\1\14\1\26\1\15\4\26\1\16\10\26\12\17\1\26"+
+			"\1\25\5\26\1\1\1\2\1\3\1\4\1\5\7\26\1\6\1\7\1\26\1\20\2\26\1\10\1\26"+
+			"\1\11\3\26\1\12\1\13\1\21\1\26\1\22\35\26\1\23\1\26\1\24\uff82\26",
+			"\1\27",
 			"\1\30",
-			"\1\31",
-			"\1\32\2\uffff\1\33\5\uffff\1\34",
-			"\1\35\3\uffff\1\36",
-			"\1\37\12\uffff\1\40",
-			"\1\41",
-			"\1\42\15\uffff\1\44\5\uffff\1\43",
-			"\1\45\16\uffff\1\46\1\47",
+			"\1\31\2\uffff\1\32\5\uffff\1\33",
+			"\1\34\3\uffff\1\35",
+			"\1\36\12\uffff\1\37",
+			"\1\40",
+			"\1\41\15\uffff\1\43\5\uffff\1\42",
+			"\1\44\16\uffff\1\45\1\46",
+			"\1\47",
 			"\1\50",
 			"\1\51",
-			"\1\52",
 			"",
-			"\0\54",
-			"\47\55\1\uffff\uffd8\55",
-			"\1\57\2\uffff\12\57",
-			"\1\57\2\uffff\12\60",
-			"\1\44",
+			"\0\53",
+			"\47\54\1\uffff\uffd8\54",
+			"\1\57\2\uffff\12\56",
+			"\1\43",
 			"",
 			"",
 			"",
@@ -1663,74 +1529,74 @@ public class GRADLexer extends Lexer {
 			"",
 			"",
 			"",
-			"\1\66\12\uffff\1\67",
+			"\1\65\12\uffff\1\66",
 			"",
 			"",
-			"\1\70",
+			"\1\67",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\71\20\uffff\1\72\2\uffff\1\73",
+			"\1\70\20\uffff\1\71\2\uffff\1\72",
+			"",
+			"",
+			"\1\73",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"\1\57\2\uffff\12\56",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
 			"",
 			"",
 			"\1\74",
 			"",
 			"",
 			"",
-			"",
-			"",
-			"",
-			"\1\57\2\uffff\12\60",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
 			"\1\75",
-			"",
-			"",
-			"",
 			"\1\76",
-			"\1\77",
-			"\1\101",
+			"\1\100",
 			"",
 			"",
 			"",
 			""
 	};
 
-	static final short[] DFA10_eot = DFA.unpackEncodedString(DFA10_eotS);
-	static final short[] DFA10_eof = DFA.unpackEncodedString(DFA10_eofS);
-	static final char[] DFA10_min = DFA.unpackEncodedStringToUnsignedChars(DFA10_minS);
-	static final char[] DFA10_max = DFA.unpackEncodedStringToUnsignedChars(DFA10_maxS);
-	static final short[] DFA10_accept = DFA.unpackEncodedString(DFA10_acceptS);
-	static final short[] DFA10_special = DFA.unpackEncodedString(DFA10_specialS);
-	static final short[][] DFA10_transition;
+	static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
+	static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
+	static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
+	static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
+	static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
+	static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
+	static final short[][] DFA7_transition;
 
 	static {
-		int numStates = DFA10_transitionS.length;
-		DFA10_transition = new short[numStates][];
+		int numStates = DFA7_transitionS.length;
+		DFA7_transition = new short[numStates][];
 		for (int i=0; i<numStates; i++) {
-			DFA10_transition[i] = DFA.unpackEncodedString(DFA10_transitionS[i]);
+			DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
 		}
 	}
 
-	protected class DFA10 extends DFA {
+	protected class DFA7 extends DFA {
 
-		public DFA10(BaseRecognizer recognizer) {
+		public DFA7(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
-			this.decisionNumber = 10;
-			this.eot = DFA10_eot;
-			this.eof = DFA10_eof;
-			this.min = DFA10_min;
-			this.max = DFA10_max;
-			this.accept = DFA10_accept;
-			this.special = DFA10_special;
-			this.transition = DFA10_transition;
+			this.decisionNumber = 7;
+			this.eot = DFA7_eot;
+			this.eof = DFA7_eof;
+			this.min = DFA7_min;
+			this.max = DFA7_max;
+			this.accept = DFA7_accept;
+			this.special = DFA7_special;
+			this.transition = DFA7_transition;
 		}
 		@Override
 		public String getDescription() {
@@ -1742,52 +1608,51 @@ public class GRADLexer extends Lexer {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA10_13 = input.LA(1);
+						int LA7_14 = input.LA(1);
 						s = -1;
-						if ( ((LA10_13 >= '\u0000' && LA10_13 <= '\uFFFF')) ) {s = 44;}
-						else s = 23;
+						if ( ((LA7_14 >= '\u0000' && LA7_14 <= '&')||(LA7_14 >= '(' && LA7_14 <= '\uFFFF')) ) {s = 44;}
+						else s = 22;
 						if ( s>=0 ) return s;
 						break;
 
 					case 1 : 
-						int LA10_0 = input.LA(1);
+						int LA7_0 = input.LA(1);
 						s = -1;
-						if ( (LA10_0=='A') ) {s = 1;}
-						else if ( (LA10_0=='B') ) {s = 2;}
-						else if ( (LA10_0=='C') ) {s = 3;}
-						else if ( (LA10_0=='D') ) {s = 4;}
-						else if ( (LA10_0=='E') ) {s = 5;}
-						else if ( (LA10_0=='M') ) {s = 6;}
-						else if ( (LA10_0=='N') ) {s = 7;}
-						else if ( (LA10_0=='S') ) {s = 8;}
-						else if ( (LA10_0=='U') ) {s = 9;}
-						else if ( (LA10_0=='Y') ) {s = 10;}
-						else if ( (LA10_0=='Z') ) {s = 11;}
-						else if ( ((LA10_0 >= '\t' && LA10_0 <= '\n')||LA10_0=='\r'||LA10_0==' ') ) {s = 12;}
-						else if ( (LA10_0=='\"') ) {s = 13;}
-						else if ( (LA10_0=='\'') ) {s = 14;}
-						else if ( (LA10_0=='0') ) {s = 15;}
-						else if ( ((LA10_0 >= '1' && LA10_0 <= '9')) ) {s = 16;}
-						else if ( (LA10_0=='P') ) {s = 17;}
-						else if ( (LA10_0=='[') ) {s = 18;}
-						else if ( (LA10_0==']') ) {s = 19;}
-						else if ( (LA10_0=='{') ) {s = 20;}
-						else if ( (LA10_0=='}') ) {s = 21;}
-						else if ( (LA10_0==';') ) {s = 22;}
-						else if ( ((LA10_0 >= '\u0000' && LA10_0 <= '\b')||(LA10_0 >= '\u000B' && LA10_0 <= '\f')||(LA10_0 >= '\u000E' && LA10_0 <= '\u001F')||LA10_0=='!'||(LA10_0 >= '#' && LA10_0 <= '&')||(LA10_0 >= '(' && LA10_0 <= '/')||LA10_0==':'||(LA10_0 >= '<' && LA10_0 <= '@')||(LA10_0 >= 'F' && LA10_0 <= 'L')||LA10_0=='O'||(LA10_0 >= 'Q' && LA10_0 <= 'R')||LA10_0=='T'||(LA10_0 >= 'V' && LA10_0 <= 'X')||LA10_0=='\\'||(LA10_0 >= '^' && LA10_0 <= 'z')||LA10_0=='|'||(LA10_0 >= '~' && LA10_0 <= '\uFFFF')) ) {s = 23;}
+						if ( (LA7_0=='A') ) {s = 1;}
+						else if ( (LA7_0=='B') ) {s = 2;}
+						else if ( (LA7_0=='C') ) {s = 3;}
+						else if ( (LA7_0=='D') ) {s = 4;}
+						else if ( (LA7_0=='E') ) {s = 5;}
+						else if ( (LA7_0=='M') ) {s = 6;}
+						else if ( (LA7_0=='N') ) {s = 7;}
+						else if ( (LA7_0=='S') ) {s = 8;}
+						else if ( (LA7_0=='U') ) {s = 9;}
+						else if ( (LA7_0=='Y') ) {s = 10;}
+						else if ( (LA7_0=='Z') ) {s = 11;}
+						else if ( ((LA7_0 >= '\t' && LA7_0 <= '\n')||LA7_0=='\r'||LA7_0==' ') ) {s = 12;}
+						else if ( (LA7_0=='\"') ) {s = 13;}
+						else if ( (LA7_0=='\'') ) {s = 14;}
+						else if ( ((LA7_0 >= '0' && LA7_0 <= '9')) ) {s = 15;}
+						else if ( (LA7_0=='P') ) {s = 16;}
+						else if ( (LA7_0=='[') ) {s = 17;}
+						else if ( (LA7_0==']') ) {s = 18;}
+						else if ( (LA7_0=='{') ) {s = 19;}
+						else if ( (LA7_0=='}') ) {s = 20;}
+						else if ( (LA7_0==';') ) {s = 21;}
+						else if ( ((LA7_0 >= '\u0000' && LA7_0 <= '\b')||(LA7_0 >= '\u000B' && LA7_0 <= '\f')||(LA7_0 >= '\u000E' && LA7_0 <= '\u001F')||LA7_0=='!'||(LA7_0 >= '#' && LA7_0 <= '&')||(LA7_0 >= '(' && LA7_0 <= '/')||LA7_0==':'||(LA7_0 >= '<' && LA7_0 <= '@')||(LA7_0 >= 'F' && LA7_0 <= 'L')||LA7_0=='O'||(LA7_0 >= 'Q' && LA7_0 <= 'R')||LA7_0=='T'||(LA7_0 >= 'V' && LA7_0 <= 'X')||LA7_0=='\\'||(LA7_0 >= '^' && LA7_0 <= 'z')||LA7_0=='|'||(LA7_0 >= '~' && LA7_0 <= '\uFFFF')) ) {s = 22;}
 						if ( s>=0 ) return s;
 						break;
 
 					case 2 : 
-						int LA10_14 = input.LA(1);
+						int LA7_13 = input.LA(1);
 						s = -1;
-						if ( ((LA10_14 >= '\u0000' && LA10_14 <= '&')||(LA10_14 >= '(' && LA10_14 <= '\uFFFF')) ) {s = 45;}
-						else s = 23;
+						if ( ((LA7_13 >= '\u0000' && LA7_13 <= '\uFFFF')) ) {s = 43;}
+						else s = 22;
 						if ( s>=0 ) return s;
 						break;
 			}
 			NoViableAltException nvae =
-				new NoViableAltException(getDescription(), 10, _s, input);
+				new NoViableAltException(getDescription(), 7, _s, input);
 			error(nvae);
 			throw nvae;
 		}

@@ -73,6 +73,7 @@ public class Degree {
             this.milestones = new HashMap<String, Milestone>();
             this.dailyStudyHours = 4; //default
             this.exams = new HashMap<String, Exam>();
+            this.s = null;
     }
 
     /**
@@ -158,6 +159,12 @@ public class Degree {
     }
 
     /**
+     * Controlla se <i>Degree</i> contenga al suo interno effettivamente degli esami
+     * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
+     */
+    public boolean hasAnyExam(){return exams.isEmpty();}
+
+    /**
      *
      * @return ore medie di studio al giorno, attualmente impostate
      */
@@ -190,6 +197,13 @@ public class Degree {
         this.s=s;
     }
 
+    /**
+     *
+     * @return <tt>true</tt> se field <tt>s</tt> non è null
+     */
+    public boolean hasStudent(){
+        return s != null;
+    }
 
 	@Override
 	public String toString() {

@@ -34,6 +34,13 @@
               <visible value="false"/>
             </properties>
           </component>
+          <component id="7f0a6" class="javax.swing.JButton" binding="datiStudenteButton">
+            <constraints/>
+            <properties>
+              <text value="dati studente"/>
+              <visible value="false"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="a274f" binding="upperPanel" layout-manager="GridLayoutManager" row-count="1" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

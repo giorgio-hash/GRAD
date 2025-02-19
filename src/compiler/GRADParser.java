@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-19 15:29:59
+// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-19 17:34:44
 
 	package compiler;
 	import model.compiler.*;
@@ -96,14 +96,14 @@ public class GRADParser extends Parser {
 
 
 
-	// $ANTLR start "programRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:105:1: programRule : ( studentRule )? degreeRule ;
-	public final void programRule() throws RecognitionException {
+	// $ANTLR start "startRule"
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:1: startRule : ( studentRule )? degreeRule ;
+	public final void startRule() throws RecognitionException {
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:2: ( ( studentRule )? degreeRule )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:4: ( studentRule )? degreeRule
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:2: ( ( studentRule )? degreeRule )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:4: ( studentRule )? degreeRule
 			{
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:4: ( studentRule )?
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:4: ( studentRule )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==37) ) {
@@ -111,9 +111,9 @@ public class GRADParser extends Parser {
 			}
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:5: studentRule
+					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:5: studentRule
 					{
-					pushFollow(FOLLOW_studentRule_in_programRule509);
+					pushFollow(FOLLOW_studentRule_in_startRule492);
 					studentRule();
 					state._fsp--;
 
@@ -122,7 +122,7 @@ public class GRADParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_degreeRule_in_programRule513);
+			pushFollow(FOLLOW_degreeRule_in_startRule496);
 			degreeRule();
 			state._fsp--;
 
@@ -137,12 +137,12 @@ public class GRADParser extends Parser {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "programRule"
+	// $ANTLR end "startRule"
 
 
 
 	// $ANTLR start "studentRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:109:1: studentRule : 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:110:1: studentRule : 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB ;
 	public final void studentRule() throws RecognitionException {
 		Token name=null;
 		Token sur=null;
@@ -152,27 +152,27 @@ public class GRADParser extends Parser {
 		University u =null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:110:2: ( 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:110:4: 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:111:2: ( 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:111:4: 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB
 			{
-			match(input,37,FOLLOW_37_in_studentRule524); 
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_studentRule526); 
-			match(input,32,FOLLOW_32_in_studentRule528); 
-			name=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule532); 
-			match(input,38,FOLLOW_38_in_studentRule534); 
-			sur=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule538); 
-			match(input,34,FOLLOW_34_in_studentRule544); 
-			serial=(Token)match(input,INT,FOLLOW_INT_in_studentRule548); 
-			match(input,21,FOLLOW_21_in_studentRule553); 
-			birthdate=(Token)match(input,DATE,FOLLOW_DATE_in_studentRule557); 
-			match(input,28,FOLLOW_28_in_studentRule563); 
-			email=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule567); 
-			pushFollow(FOLLOW_universityRule_in_studentRule575);
+			match(input,37,FOLLOW_37_in_studentRule508); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_studentRule510); 
+			match(input,32,FOLLOW_32_in_studentRule512); 
+			name=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule516); 
+			match(input,38,FOLLOW_38_in_studentRule518); 
+			sur=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule522); 
+			match(input,34,FOLLOW_34_in_studentRule528); 
+			serial=(Token)match(input,INT,FOLLOW_INT_in_studentRule532); 
+			match(input,21,FOLLOW_21_in_studentRule537); 
+			birthdate=(Token)match(input,DATE,FOLLOW_DATE_in_studentRule541); 
+			match(input,28,FOLLOW_28_in_studentRule547); 
+			email=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule551); 
+			pushFollow(FOLLOW_universityRule_in_studentRule559);
 			u=universityRule();
 			state._fsp--;
 
 			h.createStudent(name,sur,serial,birthdate,email,u);
-			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_studentRule582); 
+			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_studentRule566); 
 			}
 
 		}
@@ -189,7 +189,7 @@ public class GRADParser extends Parser {
 
 
 	// $ANTLR start "universityRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:118:1: universityRule returns [University u] : 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:119:1: universityRule returns [University u] : 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB ;
 	public final University universityRule() throws RecognitionException {
 		University u = null;
 
@@ -198,19 +198,19 @@ public class GRADParser extends Parser {
 		Address a =null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:119:2: ( 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:119:4: 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:120:2: ( 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:120:4: 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB
 			{
-			match(input,39,FOLLOW_39_in_universityRule597); 
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_universityRule599); 
-			match(input,32,FOLLOW_32_in_universityRule601); 
-			uname=(Token)match(input,STRING,FOLLOW_STRING_in_universityRule605); 
-			pushFollow(FOLLOW_addressRule_in_universityRule613);
+			match(input,39,FOLLOW_39_in_universityRule581); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_universityRule583); 
+			match(input,32,FOLLOW_32_in_universityRule585); 
+			uname=(Token)match(input,STRING,FOLLOW_STRING_in_universityRule589); 
+			pushFollow(FOLLOW_addressRule_in_universityRule597);
 			a=addressRule();
 			state._fsp--;
 
 			u=h.createUniversity(uname,a);
-			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_universityRule620); 
+			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_universityRule604); 
 			}
 
 		}
@@ -228,7 +228,7 @@ public class GRADParser extends Parser {
 
 
 	// $ANTLR start "addressRule"
-	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:124:1: addressRule returns [Address a] : 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB ;
+	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:125:1: addressRule returns [Address a] : 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB ;
 	public final Address addressRule() throws RecognitionException {
 		Address a = null;
 
@@ -240,23 +240,23 @@ public class GRADParser extends Parser {
 		Token country=null;
 
 		try {
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:125:2: ( 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB )
-			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:125:4: 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:126:2: ( 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB )
+			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:126:4: 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB
 			{
-			match(input,20,FOLLOW_20_in_addressRule635); 
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_addressRule637); 
-			match(input,36,FOLLOW_36_in_addressRule639); 
-			street=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule643); 
-			match(input,33,FOLLOW_33_in_addressRule649); 
-			number=(Token)match(input,INT,FOLLOW_INT_in_addressRule653); 
-			match(input,42,FOLLOW_42_in_addressRule659); 
-			zip=(Token)match(input,INT,FOLLOW_INT_in_addressRule663); 
-			match(input,23,FOLLOW_23_in_addressRule669); 
-			city=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule673); 
-			match(input,24,FOLLOW_24_in_addressRule679); 
-			country=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule683); 
+			match(input,20,FOLLOW_20_in_addressRule619); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_addressRule621); 
+			match(input,36,FOLLOW_36_in_addressRule623); 
+			street=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule627); 
+			match(input,33,FOLLOW_33_in_addressRule633); 
+			number=(Token)match(input,INT,FOLLOW_INT_in_addressRule637); 
+			match(input,42,FOLLOW_42_in_addressRule643); 
+			zip=(Token)match(input,INT,FOLLOW_INT_in_addressRule647); 
+			match(input,23,FOLLOW_23_in_addressRule652); 
+			city=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule656); 
+			match(input,24,FOLLOW_24_in_addressRule662); 
+			country=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule666); 
 			a=h.createAddress(street,number,zip,city,country);
-			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_addressRule690); 
+			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_addressRule673); 
 			}
 
 		}
@@ -290,14 +290,14 @@ public class GRADParser extends Parser {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:2: ( 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB )
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:4: 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB
 			{
-			match(input,27,FOLLOW_27_in_degreeRule702); 
-			deg=(Token)match(input,STRING,FOLLOW_STRING_in_degreeRule706); 
+			match(input,27,FOLLOW_27_in_degreeRule684); 
+			deg=(Token)match(input,STRING,FOLLOW_STRING_in_degreeRule688); 
 			h.createDegree(deg);
-			match(input,25,FOLLOW_25_in_degreeRule710); 
-			st=(Token)match(input,INT,FOLLOW_INT_in_degreeRule714); 
+			match(input,25,FOLLOW_25_in_degreeRule692); 
+			st=(Token)match(input,INT,FOLLOW_INT_in_degreeRule696); 
 			h.setDailyStudyHours(st);
-			match(input,41,FOLLOW_41_in_degreeRule718); 
-			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_degreeRule720); 
+			match(input,41,FOLLOW_41_in_degreeRule700); 
+			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_degreeRule702); 
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:118: (y= yearRule )+
 			int cnt2=0;
 			loop2:
@@ -312,7 +312,7 @@ public class GRADParser extends Parser {
 				case 1 :
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:120: y= yearRule
 					{
-					pushFollow(FOLLOW_yearRule_in_degreeRule726);
+					pushFollow(FOLLOW_yearRule_in_degreeRule708);
 					y=yearRule();
 					state._fsp--;
 
@@ -328,7 +328,7 @@ public class GRADParser extends Parser {
 				cnt2++;
 			}
 
-			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_degreeRule733); 
+			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_degreeRule715); 
 			h.checkDegree(deg);
 			}
 
@@ -362,11 +362,11 @@ public class GRADParser extends Parser {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:2: (yt= 'YEAR' OPEN_CUB 'EXAMS:' ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:4: yt= 'YEAR' OPEN_CUB 'EXAMS:' ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
 			{
-			yt=(Token)match(input,40,FOLLOW_40_in_yearRule753); 
+			yt=(Token)match(input,40,FOLLOW_40_in_yearRule735); 
 			 y=h.createYear(); 
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule757); 
-			match(input,30,FOLLOW_30_in_yearRule759); 
-			ex=(Token)match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule763); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule739); 
+			match(input,30,FOLLOW_30_in_yearRule741); 
+			ex=(Token)match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule745); 
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:66: (e= examRule DOTCOMMA )+
 			int cnt3=0;
 			loop3:
@@ -381,12 +381,12 @@ public class GRADParser extends Parser {
 				case 1 :
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:68: e= examRule DOTCOMMA
 					{
-					pushFollow(FOLLOW_examRule_in_yearRule769);
+					pushFollow(FOLLOW_examRule_in_yearRule751);
 					e=examRule();
 					state._fsp--;
 
 					 if(e!=null)y.addExam(e); 
-					match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_yearRule773); 
+					match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_yearRule755); 
 					}
 					break;
 
@@ -399,8 +399,8 @@ public class GRADParser extends Parser {
 			}
 
 			y=h.checkYear(y,yt);
-			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule779); 
-			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_yearRule781); 
+			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule761); 
+			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_yearRule763); 
 			}
 
 		}
@@ -431,14 +431,14 @@ public class GRADParser extends Parser {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:144:2: ( 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE facultativeInfoRule[e] )
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:144:5: 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE facultativeInfoRule[e]
 			{
-			match(input,29,FOLLOW_29_in_examRule799); 
-			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule803); 
-			match(input,22,FOLLOW_22_in_examRule805); 
-			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule809); 
-			match(input,26,FOLLOW_26_in_examRule811); 
-			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule815); 
+			match(input,29,FOLLOW_29_in_examRule781); 
+			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule785); 
+			match(input,22,FOLLOW_22_in_examRule787); 
+			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule791); 
+			match(input,26,FOLLOW_26_in_examRule793); 
+			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule797); 
 			e=h.createExam(nome,cfu,stringdate);
-			pushFollow(FOLLOW_facultativeInfoRule_in_examRule819);
+			pushFollow(FOLLOW_facultativeInfoRule_in_examRule801);
 			facultativeInfoRule(e);
 			state._fsp--;
 
@@ -478,7 +478,7 @@ public class GRADParser extends Parser {
 				case 1 :
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:5: setMilestoneRule[e] ( setStatusRule[e] )?
 					{
-					pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule834);
+					pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule816);
 					setMilestoneRule(e);
 					state._fsp--;
 
@@ -492,7 +492,7 @@ public class GRADParser extends Parser {
 						case 1 :
 							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:26: setStatusRule[e]
 							{
-							pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule838);
+							pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule820);
 							setStatusRule(e);
 							state._fsp--;
 
@@ -506,7 +506,7 @@ public class GRADParser extends Parser {
 				case 2 :
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:5: setStatusRule[e] ( setMilestoneRule[e] )?
 					{
-					pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule848);
+					pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule830);
 					setStatusRule(e);
 					state._fsp--;
 
@@ -520,7 +520,7 @@ public class GRADParser extends Parser {
 						case 1 :
 							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:23: setMilestoneRule[e]
 							{
-							pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule852);
+							pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule834);
 							setMilestoneRule(e);
 							state._fsp--;
 
@@ -558,8 +558,8 @@ public class GRADParser extends Parser {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:154:2: ( 'STATUS' status= STATUS )
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:154:4: 'STATUS' status= STATUS
 			{
-			match(input,35,FOLLOW_35_in_setStatusRule874); 
-			status=(Token)match(input,STATUS,FOLLOW_STATUS_in_setStatusRule878); 
+			match(input,35,FOLLOW_35_in_setStatusRule856); 
+			status=(Token)match(input,STATUS,FOLLOW_STATUS_in_setStatusRule860); 
 			 if(e!=null)h.setExamStatus(e,status); 
 			}
 
@@ -585,8 +585,8 @@ public class GRADParser extends Parser {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:158:2: ( 'MILESTONE' mil= STRING )
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:158:4: 'MILESTONE' mil= STRING
 			{
-			match(input,31,FOLLOW_31_in_setMilestoneRule893); 
-			mil=(Token)match(input,STRING,FOLLOW_STRING_in_setMilestoneRule897); 
+			match(input,31,FOLLOW_31_in_setMilestoneRule875); 
+			mil=(Token)match(input,STRING,FOLLOW_STRING_in_setMilestoneRule879); 
 			if(e!=null)h.assignExamToMilestone(e,mil);
 			}
 
@@ -605,70 +605,70 @@ public class GRADParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_studentRule_in_programRule509 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_degreeRule_in_programRule513 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_37_in_studentRule524 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_OPEN_CUB_in_studentRule526 = new BitSet(new long[]{0x0000000100000000L});
-	public static final BitSet FOLLOW_32_in_studentRule528 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_studentRule532 = new BitSet(new long[]{0x0000004000000000L});
-	public static final BitSet FOLLOW_38_in_studentRule534 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_studentRule538 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_34_in_studentRule544 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_INT_in_studentRule548 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_21_in_studentRule553 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_DATE_in_studentRule557 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_28_in_studentRule563 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_studentRule567 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_universityRule_in_studentRule575 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_CLOSE_CUB_in_studentRule582 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_39_in_universityRule597 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_OPEN_CUB_in_universityRule599 = new BitSet(new long[]{0x0000000100000000L});
-	public static final BitSet FOLLOW_32_in_universityRule601 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_universityRule605 = new BitSet(new long[]{0x0000000000100000L});
-	public static final BitSet FOLLOW_addressRule_in_universityRule613 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_CLOSE_CUB_in_universityRule620 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_20_in_addressRule635 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_OPEN_CUB_in_addressRule637 = new BitSet(new long[]{0x0000001000000000L});
-	public static final BitSet FOLLOW_36_in_addressRule639 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_addressRule643 = new BitSet(new long[]{0x0000000200000000L});
-	public static final BitSet FOLLOW_33_in_addressRule649 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_INT_in_addressRule653 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_addressRule659 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_INT_in_addressRule663 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_addressRule669 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_addressRule673 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_24_in_addressRule679 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_addressRule683 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_CLOSE_CUB_in_addressRule690 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_27_in_degreeRule702 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_degreeRule706 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_25_in_degreeRule710 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_INT_in_degreeRule714 = new BitSet(new long[]{0x0000020000000000L});
-	public static final BitSet FOLLOW_41_in_degreeRule718 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_OPEN_SQB_in_degreeRule720 = new BitSet(new long[]{0x0000010000000000L});
-	public static final BitSet FOLLOW_yearRule_in_degreeRule726 = new BitSet(new long[]{0x0000010000000040L});
-	public static final BitSet FOLLOW_CLOSE_SQB_in_degreeRule733 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_40_in_yearRule753 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_OPEN_CUB_in_yearRule757 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_30_in_yearRule759 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_OPEN_SQB_in_yearRule763 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_examRule_in_yearRule769 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_DOTCOMMA_in_yearRule773 = new BitSet(new long[]{0x0000000020000040L});
-	public static final BitSet FOLLOW_CLOSE_SQB_in_yearRule779 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_CLOSE_CUB_in_yearRule781 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_29_in_examRule799 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_examRule803 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_examRule805 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_INT_in_examRule809 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_26_in_examRule811 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_DATE_in_examRule815 = new BitSet(new long[]{0x0000000880000000L});
-	public static final BitSet FOLLOW_facultativeInfoRule_in_examRule819 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_setMilestoneRule_in_facultativeInfoRule834 = new BitSet(new long[]{0x0000000800000002L});
-	public static final BitSet FOLLOW_setStatusRule_in_facultativeInfoRule838 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_setStatusRule_in_facultativeInfoRule848 = new BitSet(new long[]{0x0000000080000002L});
-	public static final BitSet FOLLOW_setMilestoneRule_in_facultativeInfoRule852 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_35_in_setStatusRule874 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_STATUS_in_setStatusRule878 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_31_in_setMilestoneRule893 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_STRING_in_setMilestoneRule897 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_studentRule_in_startRule492 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_degreeRule_in_startRule496 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_37_in_studentRule508 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_OPEN_CUB_in_studentRule510 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_32_in_studentRule512 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_studentRule516 = new BitSet(new long[]{0x0000004000000000L});
+	public static final BitSet FOLLOW_38_in_studentRule518 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_studentRule522 = new BitSet(new long[]{0x0000000400000000L});
+	public static final BitSet FOLLOW_34_in_studentRule528 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_INT_in_studentRule532 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_21_in_studentRule537 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_DATE_in_studentRule541 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_studentRule547 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_studentRule551 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_universityRule_in_studentRule559 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_CLOSE_CUB_in_studentRule566 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_39_in_universityRule581 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_OPEN_CUB_in_universityRule583 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_32_in_universityRule585 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_universityRule589 = new BitSet(new long[]{0x0000000000100000L});
+	public static final BitSet FOLLOW_addressRule_in_universityRule597 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_CLOSE_CUB_in_universityRule604 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_20_in_addressRule619 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_OPEN_CUB_in_addressRule621 = new BitSet(new long[]{0x0000001000000000L});
+	public static final BitSet FOLLOW_36_in_addressRule623 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_addressRule627 = new BitSet(new long[]{0x0000000200000000L});
+	public static final BitSet FOLLOW_33_in_addressRule633 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_INT_in_addressRule637 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_42_in_addressRule643 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_INT_in_addressRule647 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_addressRule652 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_addressRule656 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_addressRule662 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_addressRule666 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_CLOSE_CUB_in_addressRule673 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_27_in_degreeRule684 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_degreeRule688 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_degreeRule692 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_INT_in_degreeRule696 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_41_in_degreeRule700 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_OPEN_SQB_in_degreeRule702 = new BitSet(new long[]{0x0000010000000000L});
+	public static final BitSet FOLLOW_yearRule_in_degreeRule708 = new BitSet(new long[]{0x0000010000000040L});
+	public static final BitSet FOLLOW_CLOSE_SQB_in_degreeRule715 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_40_in_yearRule735 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_OPEN_CUB_in_yearRule739 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_30_in_yearRule741 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_OPEN_SQB_in_yearRule745 = new BitSet(new long[]{0x0000000020000000L});
+	public static final BitSet FOLLOW_examRule_in_yearRule751 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_DOTCOMMA_in_yearRule755 = new BitSet(new long[]{0x0000000020000040L});
+	public static final BitSet FOLLOW_CLOSE_SQB_in_yearRule761 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_CLOSE_CUB_in_yearRule763 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_29_in_examRule781 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_examRule785 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_examRule787 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_INT_in_examRule791 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_26_in_examRule793 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_DATE_in_examRule797 = new BitSet(new long[]{0x0000000880000000L});
+	public static final BitSet FOLLOW_facultativeInfoRule_in_examRule801 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_setMilestoneRule_in_facultativeInfoRule816 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_setStatusRule_in_facultativeInfoRule820 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_setStatusRule_in_facultativeInfoRule830 = new BitSet(new long[]{0x0000000080000002L});
+	public static final BitSet FOLLOW_setMilestoneRule_in_facultativeInfoRule834 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_35_in_setStatusRule856 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_STATUS_in_setStatusRule860 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_setMilestoneRule875 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_STRING_in_setMilestoneRule879 = new BitSet(new long[]{0x0000000000000002L});
 }
