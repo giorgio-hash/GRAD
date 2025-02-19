@@ -50,39 +50,39 @@ public class SemanticHandler {
 	/**
 	 * per errore formattazione data (dev'essere in forma dd-mm-aaaa)
 	 */
-	public static int INVALID_DATE_FORMAT_ERROR 	= 10;
+	public static final int INVALID_DATE_FORMAT_ERROR 	= 10;
 	/**
 	 * se un anno risulta senza esami inseriti
 	 */
-	public static int EMPTY_YEAR_ERROR = 11;
+	public static final int EMPTY_YEAR_ERROR = 11;
 	/**
 	 * se l'intera struttura DEGREE non risulta avere esami
 	 */
-	public static int EMPTY_DEGREE_ERROR = 12;
+	public static final int EMPTY_DEGREE_ERROR = 12;
 	/**
 	 * se trova un esame duplicato
 	 */
-	public static int EXAM_ALREADY_EXISTS_ERROR = 13;
+	public static final int EXAM_ALREADY_EXISTS_ERROR = 13;
 	/**
 	 * se la data d'appello è oltre 10 anni prima o dopo la data corrente
 	 */
-	public static int INVALID_DATE_RANGE_WARNING 	= 100;
+	public static final int INVALID_DATE_RANGE_WARNING 	= 100;
 	/**
 	 * se le ore di studio sono meno di 1 o più di 24
 	 */
-	public static int INVALID_STUDYHOURS_RANGE_WARNING = 101;
+	public static final int INVALID_STUDYHOURS_RANGE_WARNING = 101;
 	/**
 	 * se un esame risulta passato in una data successiva rispetto alla data corrente
 	 */
-	public static int PASSED_AFTER_TODAY_WARNING = 102;
+	public static final int PASSED_AFTER_TODAY_WARNING = 102;
 	/**
 	 * se un esame risulta passato dopo la data corrente
 	 */
-	public static int STRICT_DEPENDENCY_NOT_PASSED_WARNING = 103;
+	public static final int STRICT_DEPENDENCY_NOT_PASSED_WARNING = 103;
 
 
-	ArrayList<String> errors;
-	ArrayList<String> warnings;
+	private ArrayList<String> errors;
+	private ArrayList<String> warnings;
 
 
 	/**
