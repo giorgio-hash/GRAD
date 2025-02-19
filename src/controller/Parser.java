@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * Parser <i>GRAD</i> definito con pattern singleton.
+ * <br>Dopo aver letto il file GRAD, può creare dei dump file contenenti errori, warning ed altre eccezioni.
+ * <br>In presenza di errori, Parser è programmato per abortire la realizzazione di {@link Degree}, reinizializzandolo allo stato iniziale.
  */
 public class Parser {
 
