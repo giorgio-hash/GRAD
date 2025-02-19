@@ -2,6 +2,7 @@ package controller;
 
 import model.compiler.Exam;
 import model.compiler.Milestone;
+import model.compiler.Student;
 import model.compiler.Year;
 
 import java.util.ArrayList;
@@ -35,6 +36,10 @@ public class Degree {
      */
     private int dailyStudyHours;
 
+    /**
+     * Dati aggiuntivi per lo studente (vedi <i>{@link Student}</i>)
+     */
+    private Student s;
 
     /**
      * istanza per pattern singleton
@@ -169,7 +174,21 @@ public class Degree {
 		this.dailyStudyHours = dailyStudyHours;
 	}
 
+    /**
+     *
+     * @return oggetto <i>{@link Student}</i>
+     */
+    public Student getStudent(){
+        return s;
+    }
 
+    /**
+     *
+     * @param s oggetto student;
+     */
+    public void setStudent(Student s){
+        this.s=s;
+    }
 
 
 	@Override
