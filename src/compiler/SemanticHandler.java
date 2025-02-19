@@ -419,7 +419,8 @@ public class SemanticHandler {
 
 	/**
 	 * Controlla che la data nel {@link Token} sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra <tt>INVALID_DATE_RANGE_WARNING</tt>.
-	 * @param stringdate Token contenente data
+	 * @param s versione <i>{@link LocalDate}</i> della data contenuta in <tt>stringdate</tt> (per controllo valore)
+	 * @param stringdate Token contenente data (per segnalare posizione dell'errore nel file)
 	 */
 	public void checkDateRange(LocalDate s, Token stringdate){
 		if(s == null)
