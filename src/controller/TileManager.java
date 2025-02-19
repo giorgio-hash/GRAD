@@ -15,6 +15,9 @@ import java.util.ArrayList;
  *  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;<i>ExamTile</i><br>
  */
 public class TileManager extends GanttTile {
+    /**
+     * Lista ordinata di oggetti <i>{@link YearTile}</i>, rispettando l'ordine dei corrispondenti <i>Year</i> in <i>{@link Degree}</i>
+     */
     private ArrayList<YearTile> tiles;
 
     /**

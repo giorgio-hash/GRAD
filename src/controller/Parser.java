@@ -16,11 +16,22 @@ import java.util.List;
  */
 public class Parser {
 
+    /**
+     * istanza di <i>GRADparser</i> (classe generata da <a href="https://www.antlr3.org/">ANTLRv3</a>).
+     */
     private GRADParser parser;
+    /**
+     * percorso al file GRAD da leggere
+     */
     private String fileIn;
+    /**
+     * inizializzato <tt>false</tt>, diventa <tt>true</tt> se vengono catturate eccezioni non previste.
+     */
     private boolean otherExceptions;
 
-    //pattern singleton
+    /**
+     * istanza del pattern singleton
+     */
     private static Parser instance = null;
 
     /**
