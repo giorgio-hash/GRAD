@@ -16,7 +16,10 @@ import java.util.TreeSet;
  */
 public class ExamAggregator {
 
-    private SortedSet<ExamTile> exams; //insieme di esami ordinato per data d'appello
+    /**
+     * insieme di esami ordinato per data d'appello
+     */
+    private SortedSet<ExamTile> exams;
 
     /**
      * Costruttore ExamAggregator per aggregare gli esami di un certo anno, mantenendo un ordine per data d'appello.

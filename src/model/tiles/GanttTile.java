@@ -13,8 +13,14 @@ import java.time.LocalDate;
  */
 public abstract class GanttTile {
 
-    private LocalDate start; //data inizio
-    private LocalDate end; //data fine
+    /**
+     * data inizio
+     */
+    private LocalDate start;
+    /**
+     * data fine
+     */
+    private LocalDate end;
 
     /**
      * Costruttore GanttTile
