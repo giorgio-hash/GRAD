@@ -18,14 +18,19 @@ public class Milestone {
 	 * <i>{@link Map}</i> per estrarre oggetti <i>{@link Exam}</i> in base al loro nome
 	 */
 	private Map<String, Exam> exams;
+	/**
+	 *anno di riferimento per la Milestone
+	 */
+	private int year;
 
 	/**
 	 * Costruttore Milestone
 	 * @param name nome della Milestone, formato <i>String</i>
 	 */
-	public Milestone (String name) {
+	public Milestone (String name, int year) {
 		this.name = name;
 		this.exams = new HashMap<String, Exam>();
+		this.year = year;
 	}
 
 	/**
@@ -51,8 +56,13 @@ public class Milestone {
 		exams.put(e.getName(), e);
 	}
 
-	
-	
+	/**
+	 * @return anno a cui la Milestone appartiene
+	 */
+	public int getYear(){
+		return year;
+	}
+
 	@Override
 	public String toString() {
 		String s = "Milestone [id=" + name + ", exams=\n";

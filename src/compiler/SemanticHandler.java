@@ -86,6 +86,10 @@ public class SemanticHandler {
 	 * se la compilazione ha avuto succcesso ma mancano i dati dello studente
 	 */
 	public static final int NO_STUDENT_INFO_WARING = 104;
+	/**
+	 * se viene ricreata una milestone in un anno diverso rispetto alla prima
+	 */
+	public static final int DUPLICATED_MILESTONE_WARNING = 105;
 
 	private ArrayList<String> errors;
 	private ArrayList<String> warnings;
@@ -211,12 +215,19 @@ public class SemanticHandler {
 	public void assignExamToMilestone(Exam e, Token milestone) {
 		
 		String mil = milestone.getText().replace("\"","");
-		e.setMilestone(mil);
+
 		
-			if(d.getMilestones().keySet().contains(mil))
-				d.getMilestones().get(mil).addExam(e);
-			else
-				createMilestone(mil).addExam(e);		
+			if(d.getMilestones().keySet().contains(mil)) {
+				if (d.getMilestones().get(mil).getYear() == idYear) {
+					e.setMilestone(mil);
+					d.getMilestones().get(mil).addExam(e);
+				} else {
+					addWarning(DUPLICATED_MILESTONE_WARNING,milestone);
+				}
+			}else{
+				e.setMilestone(mil);
+				createMilestone(mil).addExam(e);
+			}
 	}
 
 	/**
@@ -225,7 +236,7 @@ public class SemanticHandler {
 	 * @return oggetto <i>Milestone</i> creato
 	 */
 	public Milestone createMilestone(String milestone) {
-		Milestone m = new Milestone(milestone);
+		Milestone m = new Milestone(milestone,idYear);
 		d.addMilestone(m);
 		return m;
 	}
@@ -497,6 +508,8 @@ public class SemanticHandler {
 			msg += "STATUS è PASSED ma gli esami propedeutici sono NOT_PASSED. Impostato NOT_PASSED";
 		else if (warnCode == NO_STUDENT_INFO_WARING)
 			msg += "Non sono stati inseriti i dati dello studente (struttura STUDENT non individuata).";
+		else if (warnCode == DUPLICATED_MILESTONE_WARNING)
+			msg += "La milestone "+tk.getText()+" è stata duplicata. Questo esame sarà senza Milestone";
 		warnings.add (msg);
 	}
 // ----------------------- fine gestione degli errori

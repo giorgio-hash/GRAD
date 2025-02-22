@@ -6,6 +6,8 @@ import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -149,6 +151,8 @@ public class Parser {
         try {
             File file = new File(path);
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
+            out.write("Esecuzione "+LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+            out.newLine();
             for(String s : toWrite){
                 out.write(s);
                 out.newLine();
