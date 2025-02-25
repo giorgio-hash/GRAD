@@ -30,7 +30,8 @@ import java.util.ArrayList;
  *     <li><tt>INVALID_STUDYHOURS_RANGE_WARNING (101)</tt> se le ore di studio sono meno di 1 o più di 24;</li>
  *     <li><tt>PASSED_AFTER_TODAY_WARNING (102)</tt> se un esame risulta passato in una data successiva rispetto alla data corrente;</li>
  *     <li><tt>STRICT_DEPENDENCY_NOT_PASSED_WARNING (103)</tt> se un esame risulta passato dopo la data corrente;</li>
- *     <li><tt>NO_STUDENT_INFO_WARNING (104)</tt> se la compilazione ha avuto succcesso ma mancano i dati dello studente.</li>
+ *     <li><tt>NO_STUDENT_INFO_WARNING (104)</tt> se la compilazione ha avuto succcesso ma mancano i dati dello studente;</li>
+ *     <li><tt>DUPLICATED_MILESTONE_WARNING (105)</tt> se un esame viene associato ad una Milestone che era già stata istanziata in un anno precedente.</li>
  * </ul>
  */
 public class SemanticHandler {
