@@ -22,8 +22,6 @@ public class Pair<L,R> {
      * @param right oggetto di classe generica
      */
     public Pair(L left, R right) {
-        assert left != null;
-        assert right != null;
 
         this.left = left;
         this.right = right;

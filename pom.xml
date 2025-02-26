@@ -5,9 +5,16 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>GRAD</name>
   <description>project for GRAD language and GUI</description>
-  
-  
+
+
 	<dependencies>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
         <dependency>
             <groupId>org.yaml</groupId>

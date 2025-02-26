@@ -61,7 +61,7 @@ public class GanttFrame extends JFrame {
     /**
      * mappa indiceTask-><i>{@link Color}</i>
      */
-    public Map<Integer, Color> colormap;
+    private Map<Integer, Color> colormap;
     /**
      * generatore incrementale per indiceTask nel <tt>colormap</tt>
      */
