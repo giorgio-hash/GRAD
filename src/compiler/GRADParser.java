@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-24 19:40:48
+// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-25 23:44:55
 
 	package compiler;
 	import model.compiler.*;
@@ -9,10 +9,8 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.antlr.runtime.debug.*;
-import java.io.IOException;
 @SuppressWarnings("all")
-public class GRADParser extends DebugParser {
+public class GRADParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "CHAR", "CLOSE_CUB", "CLOSE_SQB", 
 		"DATE", "DOTCOMMA", "ERROR_TOKEN", "ESC_SEQ", "HEX_DIGIT", "INT", "OCTAL_ESC", 
@@ -71,46 +69,11 @@ public class GRADParser extends DebugParser {
 	// delegators
 
 
-	public static final String[] ruleNames = new String[] {
-		"invalidRule", "setStatusRule", "startRule", "degreeRule", "setMilestoneRule", 
-		"addressRule", "facultativeInfoRule", "yearRule", "studentRule", "universityRule", 
-		"examRule"
-	};
-
-	public static final boolean[] decisionCanBacktrack = new boolean[] {
-		false, // invalid decision
-		false, false, false, false, false, false
-	};
-
- 
-	public int ruleLevel = 0;
-	public int getRuleLevel() { return ruleLevel; }
-	public void incRuleLevel() { ruleLevel++; }
-	public void decRuleLevel() { ruleLevel--; }
 	public GRADParser(TokenStream input) {
-		this(input, DebugEventSocketProxy.DEFAULT_DEBUGGER_PORT, new RecognizerSharedState());
+		this(input, new RecognizerSharedState());
 	}
-	public GRADParser(TokenStream input, int port, RecognizerSharedState state) {
+	public GRADParser(TokenStream input, RecognizerSharedState state) {
 		super(input, state);
-		DebugEventSocketProxy proxy =
-			new DebugEventSocketProxy(this, port, null);
-
-		setDebugListener(proxy);
-		try {
-			proxy.handshake();
-		}
-		catch (IOException ioe) {
-			reportError(ioe);
-		}
-	}
-
-	public GRADParser(TokenStream input, DebugEventListener dbg) {
-		super(input, dbg, new RecognizerSharedState());
-	}
-
-	protected boolean evalPredicate(boolean result, String predicate) {
-		dbg.semanticPredicate(result, predicate);
-		return result;
 	}
 
 	@Override public String[] getTokenNames() { return GRADParser.tokenNames; }
@@ -136,36 +99,20 @@ public class GRADParser extends DebugParser {
 	// $ANTLR start "startRule"
 	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:1: startRule : ( studentRule )? degreeRule ;
 	public final void startRule() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "startRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(106, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:2: ( ( studentRule )? degreeRule )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:4: ( studentRule )? degreeRule
 			{
-			dbg.location(107,4);
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:4: ( studentRule )?
 			int alt1=2;
-			try { dbg.enterSubRule(1);
-			try { dbg.enterDecision(1, decisionCanBacktrack[1]);
-
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==37) ) {
 				alt1=1;
 			}
-			} finally {dbg.exitDecision(1);}
-
 			switch (alt1) {
 				case 1 :
-					dbg.enterAlt(1);
-
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:5: studentRule
 					{
-					dbg.location(107,5);
 					pushFollow(FOLLOW_studentRule_in_startRule492);
 					studentRule();
 					state._fsp--;
@@ -174,8 +121,7 @@ public class GRADParser extends DebugParser {
 					break;
 
 			}
-			} finally {dbg.exitSubRule(1);}
-			dbg.location(107,19);
+
 			pushFollow(FOLLOW_degreeRule_in_startRule496);
 			degreeRule();
 			state._fsp--;
@@ -190,15 +136,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(108, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "startRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 	}
 	// $ANTLR end "startRule"
 
@@ -214,35 +151,27 @@ public class GRADParser extends DebugParser {
 		Token email=null;
 		University u =null;
 
-		try { dbg.enterRule(getGrammarFileName(), "studentRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(110, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:111:2: ( 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:111:4: 'STUDENT' OPEN_CUB 'NAME:' name= STRING 'SURNAME:' sur= STRING 'SERIAL:' serial= INT 'BIRTHDATE:' birthdate= DATE 'EMAIL:' email= STRING u= universityRule CLOSE_CUB
 			{
-			dbg.location(111,4);
-			match(input,37,FOLLOW_37_in_studentRule508); dbg.location(111,14);
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_studentRule510); dbg.location(111,23);
-			match(input,32,FOLLOW_32_in_studentRule512); dbg.location(111,35);
-			name=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule516); dbg.location(111,43);
-			match(input,38,FOLLOW_38_in_studentRule518); dbg.location(111,57);
-			sur=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule522); dbg.location(112,4);
-			match(input,34,FOLLOW_34_in_studentRule528); dbg.location(112,20);
-			serial=(Token)match(input,INT,FOLLOW_INT_in_studentRule532); dbg.location(113,4);
-			match(input,21,FOLLOW_21_in_studentRule537); dbg.location(113,26);
-			birthdate=(Token)match(input,DATE,FOLLOW_DATE_in_studentRule541); dbg.location(114,4);
-			match(input,28,FOLLOW_28_in_studentRule547); dbg.location(114,18);
-			email=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule551); dbg.location(115,5);
+			match(input,37,FOLLOW_37_in_studentRule508); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_studentRule510); 
+			match(input,32,FOLLOW_32_in_studentRule512); 
+			name=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule516); 
+			match(input,38,FOLLOW_38_in_studentRule518); 
+			sur=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule522); 
+			match(input,34,FOLLOW_34_in_studentRule528); 
+			serial=(Token)match(input,INT,FOLLOW_INT_in_studentRule532); 
+			match(input,21,FOLLOW_21_in_studentRule537); 
+			birthdate=(Token)match(input,DATE,FOLLOW_DATE_in_studentRule541); 
+			match(input,28,FOLLOW_28_in_studentRule547); 
+			email=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule551); 
 			pushFollow(FOLLOW_universityRule_in_studentRule559);
 			u=universityRule();
 			state._fsp--;
-			dbg.location(115,21);
-			h.createStudent(name,sur,serial,birthdate,email,u);dbg.location(116,4);
+
+			h.createStudent(name,sur,serial,birthdate,email,u);
 			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_studentRule566); 
 			}
 
@@ -254,15 +183,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(117, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "studentRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 	}
 	// $ANTLR end "studentRule"
 
@@ -277,27 +197,19 @@ public class GRADParser extends DebugParser {
 		Token uname=null;
 		Address a =null;
 
-		try { dbg.enterRule(getGrammarFileName(), "universityRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(119, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:120:2: ( 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:120:4: 'UNIVERSITY' OPEN_CUB 'NAME:' uname= STRING a= addressRule CLOSE_CUB
 			{
-			dbg.location(120,4);
-			match(input,39,FOLLOW_39_in_universityRule581); dbg.location(120,17);
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_universityRule583); dbg.location(120,26);
-			match(input,32,FOLLOW_32_in_universityRule585); dbg.location(120,39);
-			uname=(Token)match(input,STRING,FOLLOW_STRING_in_universityRule589); dbg.location(121,5);
+			match(input,39,FOLLOW_39_in_universityRule581); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_universityRule583); 
+			match(input,32,FOLLOW_32_in_universityRule585); 
+			uname=(Token)match(input,STRING,FOLLOW_STRING_in_universityRule589); 
 			pushFollow(FOLLOW_addressRule_in_universityRule597);
 			a=addressRule();
 			state._fsp--;
-			dbg.location(121,18);
-			u=h.createUniversity(uname,a);dbg.location(122,4);
+
+			u=h.createUniversity(uname,a);
 			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_universityRule604); 
 			}
 
@@ -309,15 +221,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(123, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "universityRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 		return u;
 	}
 	// $ANTLR end "universityRule"
@@ -336,31 +239,23 @@ public class GRADParser extends DebugParser {
 		Token city=null;
 		Token country=null;
 
-		try { dbg.enterRule(getGrammarFileName(), "addressRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(125, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:126:2: ( 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:126:4: 'ADDRESS' OPEN_CUB 'STREET' street= STRING 'NUMBER' number= INT 'ZIP' zip= INT 'CITY' city= STRING 'COUNTRY' country= STRING CLOSE_CUB
 			{
-			dbg.location(126,4);
-			match(input,20,FOLLOW_20_in_addressRule619); dbg.location(126,14);
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_addressRule621); dbg.location(126,23);
-			match(input,36,FOLLOW_36_in_addressRule623); dbg.location(126,38);
-			street=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule627); dbg.location(127,4);
-			match(input,33,FOLLOW_33_in_addressRule633); dbg.location(127,19);
-			number=(Token)match(input,INT,FOLLOW_INT_in_addressRule637); dbg.location(128,4);
-			match(input,42,FOLLOW_42_in_addressRule643); dbg.location(128,13);
-			zip=(Token)match(input,INT,FOLLOW_INT_in_addressRule647); dbg.location(129,4);
-			match(input,23,FOLLOW_23_in_addressRule652); dbg.location(129,15);
-			city=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule656); dbg.location(130,4);
-			match(input,24,FOLLOW_24_in_addressRule662); dbg.location(130,21);
-			country=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule666); dbg.location(130,29);
-			a=h.createAddress(street,number,zip,city,country);dbg.location(131,4);
+			match(input,20,FOLLOW_20_in_addressRule619); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_addressRule621); 
+			match(input,36,FOLLOW_36_in_addressRule623); 
+			street=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule627); 
+			match(input,33,FOLLOW_33_in_addressRule633); 
+			number=(Token)match(input,INT,FOLLOW_INT_in_addressRule637); 
+			match(input,42,FOLLOW_42_in_addressRule643); 
+			zip=(Token)match(input,INT,FOLLOW_INT_in_addressRule647); 
+			match(input,23,FOLLOW_23_in_addressRule652); 
+			city=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule656); 
+			match(input,24,FOLLOW_24_in_addressRule662); 
+			country=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule666); 
+			a=h.createAddress(street,number,zip,city,country);
 			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_addressRule673); 
 			}
 
@@ -372,15 +267,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(132, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "addressRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 		return a;
 	}
 	// $ANTLR end "addressRule"
@@ -400,53 +286,36 @@ public class GRADParser extends DebugParser {
 		Token st=null;
 		Year y =null;
 
-		try { dbg.enterRule(getGrammarFileName(), "degreeRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(134, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:2: ( 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:4: 'DEGREE:' deg= STRING 'DAILY_HOURS:' st= INT 'YEARS:' OPEN_SQB (y= yearRule )+ CLOSE_SQB
 			{
-			dbg.location(135,4);
-			match(input,27,FOLLOW_27_in_degreeRule684); dbg.location(135,17);
-			deg=(Token)match(input,STRING,FOLLOW_STRING_in_degreeRule688); dbg.location(135,25);
-			h.createDegree(deg);dbg.location(135,49);
-			match(input,25,FOLLOW_25_in_degreeRule692); dbg.location(135,66);
-			st=(Token)match(input,INT,FOLLOW_INT_in_degreeRule696); dbg.location(135,71);
-			h.setDailyStudyHours(st);dbg.location(135,100);
-			match(input,41,FOLLOW_41_in_degreeRule700); dbg.location(135,109);
-			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_degreeRule702); dbg.location(135,118);
+			match(input,27,FOLLOW_27_in_degreeRule684); 
+			deg=(Token)match(input,STRING,FOLLOW_STRING_in_degreeRule688); 
+			h.createDegree(deg);
+			match(input,25,FOLLOW_25_in_degreeRule692); 
+			st=(Token)match(input,INT,FOLLOW_INT_in_degreeRule696); 
+			h.setDailyStudyHours(st);
+			match(input,41,FOLLOW_41_in_degreeRule700); 
+			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_degreeRule702); 
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:118: (y= yearRule )+
 			int cnt2=0;
-			try { dbg.enterSubRule(2);
-
 			loop2:
 			while (true) {
 				int alt2=2;
-				try { dbg.enterDecision(2, decisionCanBacktrack[2]);
-
 				int LA2_0 = input.LA(1);
 				if ( (LA2_0==40) ) {
 					alt2=1;
 				}
 
-				} finally {dbg.exitDecision(2);}
-
 				switch (alt2) {
 				case 1 :
-					dbg.enterAlt(1);
-
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:120: y= yearRule
 					{
-					dbg.location(135,121);
 					pushFollow(FOLLOW_yearRule_in_degreeRule708);
 					y=yearRule();
 					state._fsp--;
-					dbg.location(135,131);
+
 					 if(y!=null)h.addYear(y); 
 					}
 					break;
@@ -454,15 +323,12 @@ public class GRADParser extends DebugParser {
 				default :
 					if ( cnt2 >= 1 ) break loop2;
 					EarlyExitException eee = new EarlyExitException(2, input);
-					dbg.recognitionException(eee);
-
 					throw eee;
 				}
 				cnt2++;
 			}
-			} finally {dbg.exitSubRule(2);}
-			dbg.location(135,163);
-			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_degreeRule715); dbg.location(135,173);
+
+			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_degreeRule715); 
 			h.checkDegree(deg);
 			}
 
@@ -476,15 +342,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(136, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "degreeRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 		return retval;
 	}
 	// $ANTLR end "degreeRule"
@@ -501,51 +358,34 @@ public class GRADParser extends DebugParser {
 		Token ex=null;
 		Exam e =null;
 
-		try { dbg.enterRule(getGrammarFileName(), "yearRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(138, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:2: (yt= 'YEAR' OPEN_CUB 'EXAMS:' ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:4: yt= 'YEAR' OPEN_CUB 'EXAMS:' ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
 			{
-			dbg.location(139,6);
-			yt=(Token)match(input,40,FOLLOW_40_in_yearRule735); dbg.location(139,14);
-			 y=h.createYear(); dbg.location(139,36);
-			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule739); dbg.location(139,45);
-			match(input,30,FOLLOW_30_in_yearRule741); dbg.location(139,56);
-			ex=(Token)match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule745); dbg.location(139,66);
+			yt=(Token)match(input,40,FOLLOW_40_in_yearRule735); 
+			 y=h.createYear(); 
+			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule739); 
+			match(input,30,FOLLOW_30_in_yearRule741); 
+			ex=(Token)match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule745); 
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:66: (e= examRule DOTCOMMA )+
 			int cnt3=0;
-			try { dbg.enterSubRule(3);
-
 			loop3:
 			while (true) {
 				int alt3=2;
-				try { dbg.enterDecision(3, decisionCanBacktrack[3]);
-
 				int LA3_0 = input.LA(1);
 				if ( (LA3_0==29) ) {
 					alt3=1;
 				}
 
-				} finally {dbg.exitDecision(3);}
-
 				switch (alt3) {
 				case 1 :
-					dbg.enterAlt(1);
-
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:68: e= examRule DOTCOMMA
 					{
-					dbg.location(139,69);
 					pushFollow(FOLLOW_examRule_in_yearRule751);
 					e=examRule();
 					state._fsp--;
-					dbg.location(139,79);
-					 if(e!=null)y.addExam(e); dbg.location(139,108);
+
+					 if(e!=null)y.addExam(e); 
 					match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_yearRule755); 
 					}
 					break;
@@ -553,16 +393,13 @@ public class GRADParser extends DebugParser {
 				default :
 					if ( cnt3 >= 1 ) break loop3;
 					EarlyExitException eee = new EarlyExitException(3, input);
-					dbg.recognitionException(eee);
-
 					throw eee;
 				}
 				cnt3++;
 			}
-			} finally {dbg.exitSubRule(3);}
-			dbg.location(139,119);
-			y=h.checkYear(y,yt);dbg.location(139,143);
-			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule761); dbg.location(139,153);
+
+			y=h.checkYear(y,yt);
+			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule761); 
 			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_yearRule763); 
 			}
 
@@ -574,15 +411,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(140, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "yearRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 		return y;
 	}
 	// $ANTLR end "yearRule"
@@ -599,25 +427,17 @@ public class GRADParser extends DebugParser {
 		Token cfu=null;
 		Token stringdate=null;
 
-		try { dbg.enterRule(getGrammarFileName(), "examRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(143, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:144:2: ( 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE facultativeInfoRule[e] )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:144:5: 'EXAM' nome= STRING 'CFU' cfu= INT 'DATE' stringdate= DATE facultativeInfoRule[e]
 			{
-			dbg.location(144,5);
-			match(input,29,FOLLOW_29_in_examRule781); dbg.location(144,16);
-			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule785); dbg.location(144,24);
-			match(input,22,FOLLOW_22_in_examRule787); dbg.location(144,33);
-			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule791); dbg.location(144,38);
-			match(input,26,FOLLOW_26_in_examRule793); dbg.location(144,55);
-			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule797); dbg.location(144,61);
-			e=h.createExam(nome,cfu,stringdate);dbg.location(144,103);
+			match(input,29,FOLLOW_29_in_examRule781); 
+			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule785); 
+			match(input,22,FOLLOW_22_in_examRule787); 
+			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule791); 
+			match(input,26,FOLLOW_26_in_examRule793); 
+			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule797); 
+			e=h.createExam(nome,cfu,stringdate);
 			pushFollow(FOLLOW_facultativeInfoRule_in_examRule801);
 			facultativeInfoRule(e);
 			state._fsp--;
@@ -632,15 +452,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(145, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "examRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 		return e;
 	}
 	// $ANTLR end "examRule"
@@ -650,23 +461,12 @@ public class GRADParser extends DebugParser {
 	// $ANTLR start "facultativeInfoRule"
 	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:147:1: facultativeInfoRule[Exam e] : ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )? ;
 	public final void facultativeInfoRule(Exam e) throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "facultativeInfoRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(147, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:2: ( ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )? )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:4: ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )?
 			{
-			dbg.location(148,4);
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:4: ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )?
 			int alt6=3;
-			try { dbg.enterSubRule(6);
-			try { dbg.enterDecision(6, decisionCanBacktrack[6]);
-
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==31) ) {
 				alt6=1;
@@ -674,37 +474,24 @@ public class GRADParser extends DebugParser {
 			else if ( (LA6_0==35) ) {
 				alt6=2;
 			}
-			} finally {dbg.exitDecision(6);}
-
 			switch (alt6) {
 				case 1 :
-					dbg.enterAlt(1);
-
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:5: setMilestoneRule[e] ( setStatusRule[e] )?
 					{
-					dbg.location(148,5);
 					pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule816);
 					setMilestoneRule(e);
 					state._fsp--;
-					dbg.location(148,25);
+
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:25: ( setStatusRule[e] )?
 					int alt4=2;
-					try { dbg.enterSubRule(4);
-					try { dbg.enterDecision(4, decisionCanBacktrack[4]);
-
 					int LA4_0 = input.LA(1);
 					if ( (LA4_0==35) ) {
 						alt4=1;
 					}
-					} finally {dbg.exitDecision(4);}
-
 					switch (alt4) {
 						case 1 :
-							dbg.enterAlt(1);
-
 							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:26: setStatusRule[e]
 							{
-							dbg.location(148,26);
 							pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule820);
 							setStatusRule(e);
 							state._fsp--;
@@ -713,38 +500,26 @@ public class GRADParser extends DebugParser {
 							break;
 
 					}
-					} finally {dbg.exitSubRule(4);}
 
 					}
 					break;
 				case 2 :
-					dbg.enterAlt(2);
-
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:5: setStatusRule[e] ( setMilestoneRule[e] )?
 					{
-					dbg.location(149,5);
 					pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule830);
 					setStatusRule(e);
 					state._fsp--;
-					dbg.location(149,22);
+
 					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:22: ( setMilestoneRule[e] )?
 					int alt5=2;
-					try { dbg.enterSubRule(5);
-					try { dbg.enterDecision(5, decisionCanBacktrack[5]);
-
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==31) ) {
 						alt5=1;
 					}
-					} finally {dbg.exitDecision(5);}
-
 					switch (alt5) {
 						case 1 :
-							dbg.enterAlt(1);
-
 							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:23: setMilestoneRule[e]
 							{
-							dbg.location(149,23);
 							pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule834);
 							setMilestoneRule(e);
 							state._fsp--;
@@ -753,13 +528,11 @@ public class GRADParser extends DebugParser {
 							break;
 
 					}
-					} finally {dbg.exitSubRule(5);}
 
 					}
 					break;
 
 			}
-			} finally {dbg.exitSubRule(6);}
 
 			}
 
@@ -771,15 +544,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(151, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "facultativeInfoRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 	}
 	// $ANTLR end "facultativeInfoRule"
 
@@ -790,20 +554,12 @@ public class GRADParser extends DebugParser {
 	public final void setStatusRule(Exam e) throws RecognitionException {
 		Token status=null;
 
-		try { dbg.enterRule(getGrammarFileName(), "setStatusRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(153, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:154:2: ( 'STATUS' status= STATUS )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:154:4: 'STATUS' status= STATUS
 			{
-			dbg.location(154,4);
-			match(input,35,FOLLOW_35_in_setStatusRule856); dbg.location(154,19);
-			status=(Token)match(input,STATUS,FOLLOW_STATUS_in_setStatusRule860); dbg.location(154,27);
+			match(input,35,FOLLOW_35_in_setStatusRule856); 
+			status=(Token)match(input,STATUS,FOLLOW_STATUS_in_setStatusRule860); 
 			 if(e!=null)h.setExamStatus(e,status); 
 			}
 
@@ -815,15 +571,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(155, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "setStatusRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 	}
 	// $ANTLR end "setStatusRule"
 
@@ -834,20 +581,12 @@ public class GRADParser extends DebugParser {
 	public final void setMilestoneRule(Exam e) throws RecognitionException {
 		Token mil=null;
 
-		try { dbg.enterRule(getGrammarFileName(), "setMilestoneRule");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(157, 0);
-
 		try {
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:158:2: ( 'MILESTONE' mil= STRING )
-			dbg.enterAlt(1);
-
 			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:158:4: 'MILESTONE' mil= STRING
 			{
-			dbg.location(158,4);
-			match(input,31,FOLLOW_31_in_setMilestoneRule875); dbg.location(158,19);
-			mil=(Token)match(input,STRING,FOLLOW_STRING_in_setMilestoneRule879); dbg.location(158,27);
+			match(input,31,FOLLOW_31_in_setMilestoneRule875); 
+			mil=(Token)match(input,STRING,FOLLOW_STRING_in_setMilestoneRule879); 
 			if(e!=null)h.assignExamToMilestone(e,mil);
 			}
 
@@ -859,15 +598,6 @@ public class GRADParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(159, 1);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "setMilestoneRule");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
 	}
 	// $ANTLR end "setMilestoneRule"
 

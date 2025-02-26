@@ -475,8 +475,8 @@ public class SemanticHandler {
 	void addError (int errCode, Token tk) {
 		String str = tk.getText();
 		String coors = "[" + tk.getLine() + ", " + (tk.getCharPositionInLine()+1) + "]";
+		String msg = "Errore Semantico in " + coors + ": ("+errCode+") \t";
 
-		String msg = "Errore Semantico in " + coors + ":\t";
 		if (errCode == INVALID_DATE_FORMAT_ERROR)
 			msg += "Il formato della data '"+str+"' è errato (dev'essere gg-mm-aaaa)";
 		else if(errCode == EMPTY_YEAR_ERROR)
@@ -485,7 +485,7 @@ public class SemanticHandler {
 			msg += "DEGREE '"+str+"' non presenta alcun anno valido in elenco";
 		else if (errCode == EXAM_ALREADY_EXISTS_ERROR)
 			msg += "EXAM '"+str+"' è stato già inserito precedentemente";
-
+		msg += " ("+errCode+")";
 		errors.add(msg);
 	}
 
@@ -511,6 +511,7 @@ public class SemanticHandler {
 			msg += "Non sono stati inseriti i dati dello studente (struttura STUDENT non individuata).";
 		else if (warnCode == DUPLICATED_MILESTONE_WARNING)
 			msg += "La milestone "+tk.getText()+" è stata duplicata. Questo esame sarà senza Milestone";
+		msg += " ("+warnCode+")";
 		warnings.add (msg);
 	}
 // ----------------------- fine gestione degli errori
