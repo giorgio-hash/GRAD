@@ -1,0 +1,804 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GRADParser</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">compiler</a>
+</div>
+
+<h1>Coverage Summary for Class: GRADParser (compiler)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GRADParser</td>
+<td class="coverageStat">
+  <span class="percent">
+    88,9%
+  </span>
+  <span class="absValue">
+    (16/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85,2%
+  </span>
+  <span class="absValue">
+    (265/311)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GRADParser$degreeRule_return</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    89,5%
+  </span>
+  <span class="absValue">
+    (17/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85,3%
+  </span>
+  <span class="absValue">
+    (266/312)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-25 23:44:55
+&nbsp;
+&nbsp;	package compiler;
+&nbsp;	import model.compiler.*;
+&nbsp;
+&nbsp;
+&nbsp;import org.antlr.runtime.*;
+&nbsp;import java.util.Stack;
+&nbsp;import java.util.List;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;public class GRADParser extends Parser {
+<b class="fc">&nbsp;	public static final String[] tokenNames = new String[] {</b>
+&nbsp;		&quot;&lt;invalid&gt;&quot;, &quot;&lt;EOR&gt;&quot;, &quot;&lt;DOWN&gt;&quot;, &quot;&lt;UP&gt;&quot;, &quot;CHAR&quot;, &quot;CLOSE_CUB&quot;, &quot;CLOSE_SQB&quot;, 
+&nbsp;		&quot;DATE&quot;, &quot;DOTCOMMA&quot;, &quot;ERROR_TOKEN&quot;, &quot;ESC_SEQ&quot;, &quot;HEX_DIGIT&quot;, &quot;INT&quot;, &quot;OCTAL_ESC&quot;, 
+&nbsp;		&quot;OPEN_CUB&quot;, &quot;OPEN_SQB&quot;, &quot;STATUS&quot;, &quot;STRING&quot;, &quot;UNICODE_ESC&quot;, &quot;WS&quot;, &quot;&#39;ADDRESS&#39;&quot;, 
+&nbsp;		&quot;&#39;BIRTHDATE:&#39;&quot;, &quot;&#39;CFU&#39;&quot;, &quot;&#39;CITY&#39;&quot;, &quot;&#39;COUNTRY&#39;&quot;, &quot;&#39;DAILY_HOURS:&#39;&quot;, &quot;&#39;DATE&#39;&quot;, 
+&nbsp;		&quot;&#39;DEGREE:&#39;&quot;, &quot;&#39;EMAIL:&#39;&quot;, &quot;&#39;EXAM&#39;&quot;, &quot;&#39;EXAMS:&#39;&quot;, &quot;&#39;MILESTONE&#39;&quot;, &quot;&#39;NAME:&#39;&quot;, 
+&nbsp;		&quot;&#39;NUMBER&#39;&quot;, &quot;&#39;SERIAL:&#39;&quot;, &quot;&#39;STATUS&#39;&quot;, &quot;&#39;STREET&#39;&quot;, &quot;&#39;STUDENT&#39;&quot;, &quot;&#39;SURNAME:&#39;&quot;, 
+&nbsp;		&quot;&#39;UNIVERSITY&#39;&quot;, &quot;&#39;YEAR&#39;&quot;, &quot;&#39;YEARS:&#39;&quot;, &quot;&#39;ZIP&#39;&quot;
+&nbsp;	};
+&nbsp;	public static final int EOF=-1;
+&nbsp;	public static final int T__20=20;
+&nbsp;	public static final int T__21=21;
+&nbsp;	public static final int T__22=22;
+&nbsp;	public static final int T__23=23;
+&nbsp;	public static final int T__24=24;
+&nbsp;	public static final int T__25=25;
+&nbsp;	public static final int T__26=26;
+&nbsp;	public static final int T__27=27;
+&nbsp;	public static final int T__28=28;
+&nbsp;	public static final int T__29=29;
+&nbsp;	public static final int T__30=30;
+&nbsp;	public static final int T__31=31;
+&nbsp;	public static final int T__32=32;
+&nbsp;	public static final int T__33=33;
+&nbsp;	public static final int T__34=34;
+&nbsp;	public static final int T__35=35;
+&nbsp;	public static final int T__36=36;
+&nbsp;	public static final int T__37=37;
+&nbsp;	public static final int T__38=38;
+&nbsp;	public static final int T__39=39;
+&nbsp;	public static final int T__40=40;
+&nbsp;	public static final int T__41=41;
+&nbsp;	public static final int T__42=42;
+&nbsp;	public static final int CHAR=4;
+&nbsp;	public static final int CLOSE_CUB=5;
+&nbsp;	public static final int CLOSE_SQB=6;
+&nbsp;	public static final int DATE=7;
+&nbsp;	public static final int DOTCOMMA=8;
+&nbsp;	public static final int ERROR_TOKEN=9;
+&nbsp;	public static final int ESC_SEQ=10;
+&nbsp;	public static final int HEX_DIGIT=11;
+&nbsp;	public static final int INT=12;
+&nbsp;	public static final int OCTAL_ESC=13;
+&nbsp;	public static final int OPEN_CUB=14;
+&nbsp;	public static final int OPEN_SQB=15;
+&nbsp;	public static final int STATUS=16;
+&nbsp;	public static final int STRING=17;
+&nbsp;	public static final int UNICODE_ESC=18;
+&nbsp;	public static final int WS=19;
+&nbsp;
+&nbsp;	// delegates
+&nbsp;	public Parser[] getDelegates() {
+<b class="nc">&nbsp;		return new Parser[] {};</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	// delegators
+&nbsp;
+&nbsp;
+&nbsp;	public GRADParser(TokenStream input) {
+<b class="fc">&nbsp;		this(input, new RecognizerSharedState());</b>
+&nbsp;	}
+&nbsp;	public GRADParser(TokenStream input, RecognizerSharedState state) {
+<b class="fc">&nbsp;		super(input, state);</b>
+&nbsp;	}
+&nbsp;
+<b class="fc">&nbsp;	@Override public String[] getTokenNames() { return GRADParser.tokenNames; }</b>
+<b class="nc">&nbsp;	@Override public String getGrammarFileName() { return &quot;C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g&quot;; }</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;		SemanticHandler h = new SemanticHandler();</b>
+&nbsp;		
+&nbsp;		  public void displayRecognitionError(String[] tokenNames,
+&nbsp;	                                       RecognitionException e) {
+<b class="fc">&nbsp;			Token tk = input.LT(1);</b>
+<b class="fc">&nbsp;			String hdr = getErrorHeader(e);</b>
+<b class="fc">&nbsp;			String msg = getErrorMessage(e, tokenNames);</b>
+<b class="fc">&nbsp;			h.handleError(tokenNames, tk, e, hdr, msg);</b>
+&nbsp;	  	}
+&nbsp;	  	
+&nbsp;	  	public SemanticHandler getHandler(){
+<b class="fc">&nbsp;	  		return h;</b>
+&nbsp;	  	}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;startRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:106:1: startRule : ( studentRule )? degreeRule ;
+&nbsp;	public final void startRule() throws RecognitionException {
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:2: ( ( studentRule )? degreeRule )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:4: ( studentRule )? degreeRule
+&nbsp;			{
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:4: ( studentRule )?
+<b class="fc">&nbsp;			int alt1=2;</b>
+<b class="fc">&nbsp;			int LA1_0 = input.LA(1);</b>
+<b class="fc">&nbsp;			if ( (LA1_0==37) ) {</b>
+<b class="fc">&nbsp;				alt1=1;</b>
+&nbsp;			}
+<b class="fc">&nbsp;			switch (alt1) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:107:5: studentRule
+&nbsp;					{
+<b class="fc">&nbsp;					pushFollow(FOLLOW_studentRule_in_startRule492);</b>
+<b class="fc">&nbsp;					studentRule();</b>
+<b class="fc">&nbsp;					state._fsp--;</b>
+&nbsp;
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			pushFollow(FOLLOW_degreeRule_in_startRule496);</b>
+<b class="fc">&nbsp;			degreeRule();</b>
+<b class="fc">&nbsp;			state._fsp--;</b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;startRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;studentRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:110:1: studentRule : &#39;STUDENT&#39; OPEN_CUB &#39;NAME:&#39; name= STRING &#39;SURNAME:&#39; sur= STRING &#39;SERIAL:&#39; serial= INT &#39;BIRTHDATE:&#39; birthdate= DATE &#39;EMAIL:&#39; email= STRING u= universityRule CLOSE_CUB ;
+&nbsp;	public final void studentRule() throws RecognitionException {
+<b class="fc">&nbsp;		Token name=null;</b>
+<b class="fc">&nbsp;		Token sur=null;</b>
+<b class="fc">&nbsp;		Token serial=null;</b>
+<b class="fc">&nbsp;		Token birthdate=null;</b>
+<b class="fc">&nbsp;		Token email=null;</b>
+<b class="fc">&nbsp;		University u =null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:111:2: ( &#39;STUDENT&#39; OPEN_CUB &#39;NAME:&#39; name= STRING &#39;SURNAME:&#39; sur= STRING &#39;SERIAL:&#39; serial= INT &#39;BIRTHDATE:&#39; birthdate= DATE &#39;EMAIL:&#39; email= STRING u= universityRule CLOSE_CUB )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:111:4: &#39;STUDENT&#39; OPEN_CUB &#39;NAME:&#39; name= STRING &#39;SURNAME:&#39; sur= STRING &#39;SERIAL:&#39; serial= INT &#39;BIRTHDATE:&#39; birthdate= DATE &#39;EMAIL:&#39; email= STRING u= universityRule CLOSE_CUB
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,37,FOLLOW_37_in_studentRule508); </b>
+<b class="fc">&nbsp;			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_studentRule510); </b>
+<b class="fc">&nbsp;			match(input,32,FOLLOW_32_in_studentRule512); </b>
+<b class="fc">&nbsp;			name=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule516); </b>
+<b class="fc">&nbsp;			match(input,38,FOLLOW_38_in_studentRule518); </b>
+<b class="fc">&nbsp;			sur=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule522); </b>
+<b class="fc">&nbsp;			match(input,34,FOLLOW_34_in_studentRule528); </b>
+<b class="fc">&nbsp;			serial=(Token)match(input,INT,FOLLOW_INT_in_studentRule532); </b>
+<b class="fc">&nbsp;			match(input,21,FOLLOW_21_in_studentRule537); </b>
+<b class="fc">&nbsp;			birthdate=(Token)match(input,DATE,FOLLOW_DATE_in_studentRule541); </b>
+<b class="fc">&nbsp;			match(input,28,FOLLOW_28_in_studentRule547); </b>
+<b class="fc">&nbsp;			email=(Token)match(input,STRING,FOLLOW_STRING_in_studentRule551); </b>
+<b class="fc">&nbsp;			pushFollow(FOLLOW_universityRule_in_studentRule559);</b>
+<b class="fc">&nbsp;			u=universityRule();</b>
+<b class="fc">&nbsp;			state._fsp--;</b>
+&nbsp;
+<b class="fc">&nbsp;			h.createStudent(name,sur,serial,birthdate,email,u);</b>
+<b class="fc">&nbsp;			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_studentRule566); </b>
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="nc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;studentRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;universityRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:119:1: universityRule returns [University u] : &#39;UNIVERSITY&#39; OPEN_CUB &#39;NAME:&#39; uname= STRING a= addressRule CLOSE_CUB ;
+&nbsp;	public final University universityRule() throws RecognitionException {
+<b class="fc">&nbsp;		University u = null;</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;		Token uname=null;</b>
+<b class="fc">&nbsp;		Address a =null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:120:2: ( &#39;UNIVERSITY&#39; OPEN_CUB &#39;NAME:&#39; uname= STRING a= addressRule CLOSE_CUB )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:120:4: &#39;UNIVERSITY&#39; OPEN_CUB &#39;NAME:&#39; uname= STRING a= addressRule CLOSE_CUB
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,39,FOLLOW_39_in_universityRule581); </b>
+<b class="fc">&nbsp;			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_universityRule583); </b>
+<b class="fc">&nbsp;			match(input,32,FOLLOW_32_in_universityRule585); </b>
+<b class="fc">&nbsp;			uname=(Token)match(input,STRING,FOLLOW_STRING_in_universityRule589); </b>
+<b class="fc">&nbsp;			pushFollow(FOLLOW_addressRule_in_universityRule597);</b>
+<b class="fc">&nbsp;			a=addressRule();</b>
+<b class="fc">&nbsp;			state._fsp--;</b>
+&nbsp;
+<b class="fc">&nbsp;			u=h.createUniversity(uname,a);</b>
+<b class="fc">&nbsp;			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_universityRule604); </b>
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="nc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+<b class="fc">&nbsp;		return u;</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;universityRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;addressRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:125:1: addressRule returns [Address a] : &#39;ADDRESS&#39; OPEN_CUB &#39;STREET&#39; street= STRING &#39;NUMBER&#39; number= INT &#39;ZIP&#39; zip= INT &#39;CITY&#39; city= STRING &#39;COUNTRY&#39; country= STRING CLOSE_CUB ;
+&nbsp;	public final Address addressRule() throws RecognitionException {
+<b class="fc">&nbsp;		Address a = null;</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;		Token street=null;</b>
+<b class="fc">&nbsp;		Token number=null;</b>
+<b class="fc">&nbsp;		Token zip=null;</b>
+<b class="fc">&nbsp;		Token city=null;</b>
+<b class="fc">&nbsp;		Token country=null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:126:2: ( &#39;ADDRESS&#39; OPEN_CUB &#39;STREET&#39; street= STRING &#39;NUMBER&#39; number= INT &#39;ZIP&#39; zip= INT &#39;CITY&#39; city= STRING &#39;COUNTRY&#39; country= STRING CLOSE_CUB )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:126:4: &#39;ADDRESS&#39; OPEN_CUB &#39;STREET&#39; street= STRING &#39;NUMBER&#39; number= INT &#39;ZIP&#39; zip= INT &#39;CITY&#39; city= STRING &#39;COUNTRY&#39; country= STRING CLOSE_CUB
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,20,FOLLOW_20_in_addressRule619); </b>
+<b class="fc">&nbsp;			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_addressRule621); </b>
+<b class="fc">&nbsp;			match(input,36,FOLLOW_36_in_addressRule623); </b>
+<b class="fc">&nbsp;			street=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule627); </b>
+<b class="fc">&nbsp;			match(input,33,FOLLOW_33_in_addressRule633); </b>
+<b class="fc">&nbsp;			number=(Token)match(input,INT,FOLLOW_INT_in_addressRule637); </b>
+<b class="fc">&nbsp;			match(input,42,FOLLOW_42_in_addressRule643); </b>
+<b class="fc">&nbsp;			zip=(Token)match(input,INT,FOLLOW_INT_in_addressRule647); </b>
+<b class="fc">&nbsp;			match(input,23,FOLLOW_23_in_addressRule652); </b>
+<b class="fc">&nbsp;			city=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule656); </b>
+<b class="fc">&nbsp;			match(input,24,FOLLOW_24_in_addressRule662); </b>
+<b class="fc">&nbsp;			country=(Token)match(input,STRING,FOLLOW_STRING_in_addressRule666); </b>
+<b class="fc">&nbsp;			a=h.createAddress(street,number,zip,city,country);</b>
+<b class="fc">&nbsp;			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_addressRule673); </b>
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="nc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+<b class="fc">&nbsp;		return a;</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;addressRule&quot;
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;	public static class degreeRule_return extends ParserRuleReturnScope {</b>
+&nbsp;	};
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;degreeRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:134:1: degreeRule : &#39;DEGREE:&#39; deg= STRING &#39;DAILY_HOURS:&#39; st= INT &#39;YEARS:&#39; OPEN_SQB (y= yearRule )+ CLOSE_SQB ;
+&nbsp;	public final GRADParser.degreeRule_return degreeRule() throws RecognitionException {
+<b class="fc">&nbsp;		GRADParser.degreeRule_return retval = new GRADParser.degreeRule_return();</b>
+<b class="fc">&nbsp;		retval.start = input.LT(1);</b>
+&nbsp;
+<b class="fc">&nbsp;		Token deg=null;</b>
+<b class="fc">&nbsp;		Token st=null;</b>
+<b class="fc">&nbsp;		Year y =null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:2: ( &#39;DEGREE:&#39; deg= STRING &#39;DAILY_HOURS:&#39; st= INT &#39;YEARS:&#39; OPEN_SQB (y= yearRule )+ CLOSE_SQB )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:4: &#39;DEGREE:&#39; deg= STRING &#39;DAILY_HOURS:&#39; st= INT &#39;YEARS:&#39; OPEN_SQB (y= yearRule )+ CLOSE_SQB
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,27,FOLLOW_27_in_degreeRule684); </b>
+<b class="fc">&nbsp;			deg=(Token)match(input,STRING,FOLLOW_STRING_in_degreeRule688); </b>
+<b class="fc">&nbsp;			h.createDegree(deg);</b>
+<b class="fc">&nbsp;			match(input,25,FOLLOW_25_in_degreeRule692); </b>
+<b class="fc">&nbsp;			st=(Token)match(input,INT,FOLLOW_INT_in_degreeRule696); </b>
+<b class="fc">&nbsp;			h.setDailyStudyHours(st);</b>
+<b class="fc">&nbsp;			match(input,41,FOLLOW_41_in_degreeRule700); </b>
+<b class="fc">&nbsp;			match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_degreeRule702); </b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:118: (y= yearRule )+
+<b class="fc">&nbsp;			int cnt2=0;</b>
+&nbsp;			loop2:
+&nbsp;			while (true) {
+<b class="fc">&nbsp;				int alt2=2;</b>
+<b class="fc">&nbsp;				int LA2_0 = input.LA(1);</b>
+<b class="fc">&nbsp;				if ( (LA2_0==40) ) {</b>
+<b class="fc">&nbsp;					alt2=1;</b>
+&nbsp;				}
+&nbsp;
+<b class="fc">&nbsp;				switch (alt2) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:135:120: y= yearRule
+&nbsp;					{
+<b class="fc">&nbsp;					pushFollow(FOLLOW_yearRule_in_degreeRule708);</b>
+<b class="fc">&nbsp;					y=yearRule();</b>
+<b class="fc">&nbsp;					state._fsp--;</b>
+&nbsp;
+<b class="fc">&nbsp;					 if(y!=null)h.addYear(y); </b>
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;				default :
+<b class="fc">&nbsp;					if ( cnt2 &gt;= 1 ) break loop2;</b>
+<b class="nc">&nbsp;					EarlyExitException eee = new EarlyExitException(2, input);</b>
+<b class="nc">&nbsp;					throw eee;</b>
+&nbsp;				}
+<b class="fc">&nbsp;				cnt2++;</b>
+<b class="fc">&nbsp;			}</b>
+&nbsp;
+<b class="fc">&nbsp;			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_degreeRule715); </b>
+<b class="fc">&nbsp;			h.checkDegree(deg);</b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			retval.stop = input.LT(-1);</b>
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+<b class="fc">&nbsp;		return retval;</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;degreeRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;yearRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:138:1: yearRule returns [Year y] : yt= &#39;YEAR&#39; OPEN_CUB &#39;EXAMS:&#39; ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB ;
+&nbsp;	public final Year yearRule() throws RecognitionException {
+<b class="fc">&nbsp;		Year y = null;</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;		Token yt=null;</b>
+<b class="fc">&nbsp;		Token ex=null;</b>
+<b class="fc">&nbsp;		Exam e =null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:2: (yt= &#39;YEAR&#39; OPEN_CUB &#39;EXAMS:&#39; ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:4: yt= &#39;YEAR&#39; OPEN_CUB &#39;EXAMS:&#39; ex= OPEN_SQB (e= examRule DOTCOMMA )+ CLOSE_SQB CLOSE_CUB
+&nbsp;			{
+<b class="fc">&nbsp;			yt=(Token)match(input,40,FOLLOW_40_in_yearRule735); </b>
+<b class="fc">&nbsp;			 y=h.createYear(); </b>
+<b class="fc">&nbsp;			match(input,OPEN_CUB,FOLLOW_OPEN_CUB_in_yearRule739); </b>
+<b class="fc">&nbsp;			match(input,30,FOLLOW_30_in_yearRule741); </b>
+<b class="fc">&nbsp;			ex=(Token)match(input,OPEN_SQB,FOLLOW_OPEN_SQB_in_yearRule745); </b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:66: (e= examRule DOTCOMMA )+
+<b class="fc">&nbsp;			int cnt3=0;</b>
+&nbsp;			loop3:
+&nbsp;			while (true) {
+<b class="fc">&nbsp;				int alt3=2;</b>
+<b class="fc">&nbsp;				int LA3_0 = input.LA(1);</b>
+<b class="fc">&nbsp;				if ( (LA3_0==29) ) {</b>
+<b class="fc">&nbsp;					alt3=1;</b>
+&nbsp;				}
+&nbsp;
+<b class="fc">&nbsp;				switch (alt3) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:139:68: e= examRule DOTCOMMA
+&nbsp;					{
+<b class="fc">&nbsp;					pushFollow(FOLLOW_examRule_in_yearRule751);</b>
+<b class="fc">&nbsp;					e=examRule();</b>
+<b class="fc">&nbsp;					state._fsp--;</b>
+&nbsp;
+<b class="fc">&nbsp;					 if(e!=null)y.addExam(e); </b>
+<b class="fc">&nbsp;					match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_yearRule755); </b>
+&nbsp;					}
+<b class="fc">&nbsp;					break;</b>
+&nbsp;
+&nbsp;				default :
+<b class="fc">&nbsp;					if ( cnt3 &gt;= 1 ) break loop3;</b>
+<b class="nc">&nbsp;					EarlyExitException eee = new EarlyExitException(3, input);</b>
+<b class="nc">&nbsp;					throw eee;</b>
+&nbsp;				}
+<b class="fc">&nbsp;				cnt3++;</b>
+<b class="fc">&nbsp;			}</b>
+&nbsp;
+<b class="fc">&nbsp;			y=h.checkYear(y,yt);</b>
+<b class="fc">&nbsp;			match(input,CLOSE_SQB,FOLLOW_CLOSE_SQB_in_yearRule761); </b>
+<b class="fc">&nbsp;			match(input,CLOSE_CUB,FOLLOW_CLOSE_CUB_in_yearRule763); </b>
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+<b class="fc">&nbsp;		return y;</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;yearRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;examRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:143:1: examRule returns [Exam e] : &#39;EXAM&#39; nome= STRING &#39;CFU&#39; cfu= INT &#39;DATE&#39; stringdate= DATE facultativeInfoRule[e] ;
+&nbsp;	public final Exam examRule() throws RecognitionException {
+<b class="fc">&nbsp;		Exam e = null;</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;		Token nome=null;</b>
+<b class="fc">&nbsp;		Token cfu=null;</b>
+<b class="fc">&nbsp;		Token stringdate=null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:144:2: ( &#39;EXAM&#39; nome= STRING &#39;CFU&#39; cfu= INT &#39;DATE&#39; stringdate= DATE facultativeInfoRule[e] )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:144:5: &#39;EXAM&#39; nome= STRING &#39;CFU&#39; cfu= INT &#39;DATE&#39; stringdate= DATE facultativeInfoRule[e]
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,29,FOLLOW_29_in_examRule781); </b>
+<b class="fc">&nbsp;			nome=(Token)match(input,STRING,FOLLOW_STRING_in_examRule785); </b>
+<b class="fc">&nbsp;			match(input,22,FOLLOW_22_in_examRule787); </b>
+<b class="fc">&nbsp;			cfu=(Token)match(input,INT,FOLLOW_INT_in_examRule791); </b>
+<b class="fc">&nbsp;			match(input,26,FOLLOW_26_in_examRule793); </b>
+<b class="fc">&nbsp;			stringdate=(Token)match(input,DATE,FOLLOW_DATE_in_examRule797); </b>
+<b class="fc">&nbsp;			e=h.createExam(nome,cfu,stringdate);</b>
+<b class="fc">&nbsp;			pushFollow(FOLLOW_facultativeInfoRule_in_examRule801);</b>
+<b class="fc">&nbsp;			facultativeInfoRule(e);</b>
+<b class="fc">&nbsp;			state._fsp--;</b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+<b class="fc">&nbsp;		return e;</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;examRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;facultativeInfoRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:147:1: facultativeInfoRule[Exam e] : ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )? ;
+&nbsp;	public final void facultativeInfoRule(Exam e) throws RecognitionException {
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:2: ( ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )? )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:4: ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )?
+&nbsp;			{
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:4: ( setMilestoneRule[e] ( setStatusRule[e] )? | setStatusRule[e] ( setMilestoneRule[e] )? )?
+<b class="fc">&nbsp;			int alt6=3;</b>
+<b class="fc">&nbsp;			int LA6_0 = input.LA(1);</b>
+<b class="fc">&nbsp;			if ( (LA6_0==31) ) {</b>
+<b class="fc">&nbsp;				alt6=1;</b>
+&nbsp;			}
+<b class="fc">&nbsp;			else if ( (LA6_0==35) ) {</b>
+<b class="fc">&nbsp;				alt6=2;</b>
+&nbsp;			}
+<b class="fc">&nbsp;			switch (alt6) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:5: setMilestoneRule[e] ( setStatusRule[e] )?
+&nbsp;					{
+<b class="fc">&nbsp;					pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule816);</b>
+<b class="fc">&nbsp;					setMilestoneRule(e);</b>
+<b class="fc">&nbsp;					state._fsp--;</b>
+&nbsp;
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:25: ( setStatusRule[e] )?
+<b class="fc">&nbsp;					int alt4=2;</b>
+<b class="fc">&nbsp;					int LA4_0 = input.LA(1);</b>
+<b class="fc">&nbsp;					if ( (LA4_0==35) ) {</b>
+<b class="fc">&nbsp;						alt4=1;</b>
+&nbsp;					}
+<b class="fc">&nbsp;					switch (alt4) {</b>
+&nbsp;						case 1 :
+&nbsp;							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:148:26: setStatusRule[e]
+&nbsp;							{
+<b class="fc">&nbsp;							pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule820);</b>
+<b class="fc">&nbsp;							setStatusRule(e);</b>
+<b class="fc">&nbsp;							state._fsp--;</b>
+&nbsp;
+&nbsp;							}
+&nbsp;							break;
+&nbsp;
+&nbsp;					}
+&nbsp;
+&nbsp;					}
+<b class="fc">&nbsp;					break;</b>
+&nbsp;				case 2 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:5: setStatusRule[e] ( setMilestoneRule[e] )?
+&nbsp;					{
+<b class="fc">&nbsp;					pushFollow(FOLLOW_setStatusRule_in_facultativeInfoRule830);</b>
+<b class="fc">&nbsp;					setStatusRule(e);</b>
+<b class="fc">&nbsp;					state._fsp--;</b>
+&nbsp;
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:22: ( setMilestoneRule[e] )?
+<b class="fc">&nbsp;					int alt5=2;</b>
+<b class="fc">&nbsp;					int LA5_0 = input.LA(1);</b>
+<b class="fc">&nbsp;					if ( (LA5_0==31) ) {</b>
+<b class="nc">&nbsp;						alt5=1;</b>
+&nbsp;					}
+<b class="fc">&nbsp;					switch (alt5) {</b>
+&nbsp;						case 1 :
+&nbsp;							// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:149:23: setMilestoneRule[e]
+&nbsp;							{
+<b class="nc">&nbsp;							pushFollow(FOLLOW_setMilestoneRule_in_facultativeInfoRule834);</b>
+<b class="nc">&nbsp;							setMilestoneRule(e);</b>
+<b class="nc">&nbsp;							state._fsp--;</b>
+&nbsp;
+&nbsp;							}
+&nbsp;							break;
+&nbsp;
+&nbsp;					}
+&nbsp;
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;			}
+&nbsp;
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="nc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;facultativeInfoRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;setStatusRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:153:1: setStatusRule[Exam e] : &#39;STATUS&#39; status= STATUS ;
+&nbsp;	public final void setStatusRule(Exam e) throws RecognitionException {
+<b class="fc">&nbsp;		Token status=null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:154:2: ( &#39;STATUS&#39; status= STATUS )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:154:4: &#39;STATUS&#39; status= STATUS
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,35,FOLLOW_35_in_setStatusRule856); </b>
+<b class="fc">&nbsp;			status=(Token)match(input,STATUS,FOLLOW_STATUS_in_setStatusRule860); </b>
+<b class="fc">&nbsp;			 if(e!=null)h.setExamStatus(e,status); </b>
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="nc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;setStatusRule&quot;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;setMilestoneRule&quot;
+&nbsp;	// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:157:1: setMilestoneRule[Exam e] : &#39;MILESTONE&#39; mil= STRING ;
+&nbsp;	public final void setMilestoneRule(Exam e) throws RecognitionException {
+<b class="fc">&nbsp;		Token mil=null;</b>
+&nbsp;
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:158:2: ( &#39;MILESTONE&#39; mil= STRING )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:158:4: &#39;MILESTONE&#39; mil= STRING
+&nbsp;			{
+<b class="fc">&nbsp;			match(input,31,FOLLOW_31_in_setMilestoneRule875); </b>
+<b class="fc">&nbsp;			mil=(Token)match(input,STRING,FOLLOW_STRING_in_setMilestoneRule879); </b>
+<b class="fc">&nbsp;			if(e!=null)h.assignExamToMilestone(e,mil);</b>
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+<b class="nc">&nbsp;		catch (RecognitionException re) {</b>
+<b class="nc">&nbsp;			reportError(re);</b>
+<b class="nc">&nbsp;			recover(input,re);</b>
+&nbsp;		}
+<b class="nc">&nbsp;		finally {</b>
+&nbsp;			// do for sure before leaving
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;setMilestoneRule&quot;
+&nbsp;
+&nbsp;	// Delegated rules
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_studentRule_in_startRule492 = new BitSet(new long[]{0x0000000008000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_degreeRule_in_startRule496 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_37_in_studentRule508 = new BitSet(new long[]{0x0000000000004000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_OPEN_CUB_in_studentRule510 = new BitSet(new long[]{0x0000000100000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_32_in_studentRule512 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_studentRule516 = new BitSet(new long[]{0x0000004000000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_38_in_studentRule518 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_studentRule522 = new BitSet(new long[]{0x0000000400000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_34_in_studentRule528 = new BitSet(new long[]{0x0000000000001000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_INT_in_studentRule532 = new BitSet(new long[]{0x0000000000200000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_21_in_studentRule537 = new BitSet(new long[]{0x0000000000000080L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_DATE_in_studentRule541 = new BitSet(new long[]{0x0000000010000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_28_in_studentRule547 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_studentRule551 = new BitSet(new long[]{0x0000008000000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_universityRule_in_studentRule559 = new BitSet(new long[]{0x0000000000000020L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_CLOSE_CUB_in_studentRule566 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_39_in_universityRule581 = new BitSet(new long[]{0x0000000000004000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_OPEN_CUB_in_universityRule583 = new BitSet(new long[]{0x0000000100000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_32_in_universityRule585 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_universityRule589 = new BitSet(new long[]{0x0000000000100000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_addressRule_in_universityRule597 = new BitSet(new long[]{0x0000000000000020L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_CLOSE_CUB_in_universityRule604 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_20_in_addressRule619 = new BitSet(new long[]{0x0000000000004000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_OPEN_CUB_in_addressRule621 = new BitSet(new long[]{0x0000001000000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_36_in_addressRule623 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_addressRule627 = new BitSet(new long[]{0x0000000200000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_33_in_addressRule633 = new BitSet(new long[]{0x0000000000001000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_INT_in_addressRule637 = new BitSet(new long[]{0x0000040000000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_42_in_addressRule643 = new BitSet(new long[]{0x0000000000001000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_INT_in_addressRule647 = new BitSet(new long[]{0x0000000000800000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_23_in_addressRule652 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_addressRule656 = new BitSet(new long[]{0x0000000001000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_24_in_addressRule662 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_addressRule666 = new BitSet(new long[]{0x0000000000000020L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_CLOSE_CUB_in_addressRule673 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_27_in_degreeRule684 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_degreeRule688 = new BitSet(new long[]{0x0000000002000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_25_in_degreeRule692 = new BitSet(new long[]{0x0000000000001000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_INT_in_degreeRule696 = new BitSet(new long[]{0x0000020000000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_41_in_degreeRule700 = new BitSet(new long[]{0x0000000000008000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_OPEN_SQB_in_degreeRule702 = new BitSet(new long[]{0x0000010000000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_yearRule_in_degreeRule708 = new BitSet(new long[]{0x0000010000000040L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_CLOSE_SQB_in_degreeRule715 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_40_in_yearRule735 = new BitSet(new long[]{0x0000000000004000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_OPEN_CUB_in_yearRule739 = new BitSet(new long[]{0x0000000040000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_30_in_yearRule741 = new BitSet(new long[]{0x0000000000008000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_OPEN_SQB_in_yearRule745 = new BitSet(new long[]{0x0000000020000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_examRule_in_yearRule751 = new BitSet(new long[]{0x0000000000000100L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_DOTCOMMA_in_yearRule755 = new BitSet(new long[]{0x0000000020000040L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_CLOSE_SQB_in_yearRule761 = new BitSet(new long[]{0x0000000000000020L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_CLOSE_CUB_in_yearRule763 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_29_in_examRule781 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_examRule785 = new BitSet(new long[]{0x0000000000400000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_22_in_examRule787 = new BitSet(new long[]{0x0000000000001000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_INT_in_examRule791 = new BitSet(new long[]{0x0000000004000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_26_in_examRule793 = new BitSet(new long[]{0x0000000000000080L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_DATE_in_examRule797 = new BitSet(new long[]{0x0000000880000000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_facultativeInfoRule_in_examRule801 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_setMilestoneRule_in_facultativeInfoRule816 = new BitSet(new long[]{0x0000000800000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_setStatusRule_in_facultativeInfoRule820 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_setStatusRule_in_facultativeInfoRule830 = new BitSet(new long[]{0x0000000080000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_setMilestoneRule_in_facultativeInfoRule834 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_35_in_setStatusRule856 = new BitSet(new long[]{0x0000000000010000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STATUS_in_setStatusRule860 = new BitSet(new long[]{0x0000000000000002L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_31_in_setMilestoneRule875 = new BitSet(new long[]{0x0000000000020000L});</b>
+<b class="fc">&nbsp;	public static final BitSet FOLLOW_STRING_in_setMilestoneRule879 = new BitSet(new long[]{0x0000000000000002L});</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

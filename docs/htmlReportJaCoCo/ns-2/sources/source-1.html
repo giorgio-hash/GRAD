@@ -1,0 +1,1791 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GRADLexer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">compiler</a>
+</div>
+
+<h1>Coverage Summary for Class: GRADLexer (compiler)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GRADLexer</td>
+<td class="coverageStat">
+  <span class="percent">
+    82,6%
+  </span>
+  <span class="absValue">
+    (38/46)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    64,6%
+  </span>
+  <span class="absValue">
+    (281/435)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GRADLexer$DFA7</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    77,4%
+  </span>
+  <span class="absValue">
+    (41/53)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    81,6%
+  </span>
+  <span class="absValue">
+    (40/49)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66%
+  </span>
+  <span class="absValue">
+    (322/488)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;// $ANTLR 3.5.1 C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g 2025-02-25 23:44:55
+&nbsp;
+&nbsp;	package compiler;
+&nbsp;
+&nbsp;
+&nbsp;import org.antlr.runtime.*;
+&nbsp;import java.util.Stack;
+&nbsp;import java.util.List;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;public class GRADLexer extends Lexer {
+&nbsp;	public static final int EOF=-1;
+&nbsp;	public static final int T__20=20;
+&nbsp;	public static final int T__21=21;
+&nbsp;	public static final int T__22=22;
+&nbsp;	public static final int T__23=23;
+&nbsp;	public static final int T__24=24;
+&nbsp;	public static final int T__25=25;
+&nbsp;	public static final int T__26=26;
+&nbsp;	public static final int T__27=27;
+&nbsp;	public static final int T__28=28;
+&nbsp;	public static final int T__29=29;
+&nbsp;	public static final int T__30=30;
+&nbsp;	public static final int T__31=31;
+&nbsp;	public static final int T__32=32;
+&nbsp;	public static final int T__33=33;
+&nbsp;	public static final int T__34=34;
+&nbsp;	public static final int T__35=35;
+&nbsp;	public static final int T__36=36;
+&nbsp;	public static final int T__37=37;
+&nbsp;	public static final int T__38=38;
+&nbsp;	public static final int T__39=39;
+&nbsp;	public static final int T__40=40;
+&nbsp;	public static final int T__41=41;
+&nbsp;	public static final int T__42=42;
+&nbsp;	public static final int CHAR=4;
+&nbsp;	public static final int CLOSE_CUB=5;
+&nbsp;	public static final int CLOSE_SQB=6;
+&nbsp;	public static final int DATE=7;
+&nbsp;	public static final int DOTCOMMA=8;
+&nbsp;	public static final int ERROR_TOKEN=9;
+&nbsp;	public static final int ESC_SEQ=10;
+&nbsp;	public static final int HEX_DIGIT=11;
+&nbsp;	public static final int INT=12;
+&nbsp;	public static final int OCTAL_ESC=13;
+&nbsp;	public static final int OPEN_CUB=14;
+&nbsp;	public static final int OPEN_SQB=15;
+&nbsp;	public static final int STATUS=16;
+&nbsp;	public static final int STRING=17;
+&nbsp;	public static final int UNICODE_ESC=18;
+&nbsp;	public static final int WS=19;
+&nbsp;
+&nbsp;	// delegates
+&nbsp;	// delegators
+&nbsp;	public Lexer[] getDelegates() {
+<b class="nc">&nbsp;		return new Lexer[] {};</b>
+&nbsp;	}
+&nbsp;
+<b class="nc">&nbsp;	public GRADLexer() {} </b>
+&nbsp;	public GRADLexer(CharStream input) {
+<b class="fc">&nbsp;		this(input, new RecognizerSharedState());</b>
+&nbsp;	}
+&nbsp;	public GRADLexer(CharStream input, RecognizerSharedState state) {
+<b class="fc">&nbsp;		super(input,state);</b>
+&nbsp;	}
+<b class="nc">&nbsp;	@Override public String getGrammarFileName() { return &quot;C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g&quot;; }</b>
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__20&quot;
+&nbsp;	public final void mT__20() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__20;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:11:7: ( &#39;ADDRESS&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:11:9: &#39;ADDRESS&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;ADDRESS&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__20&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__21&quot;
+&nbsp;	public final void mT__21() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__21;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:12:7: ( &#39;BIRTHDATE:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:12:9: &#39;BIRTHDATE:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;BIRTHDATE:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__21&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__22&quot;
+&nbsp;	public final void mT__22() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__22;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:13:7: ( &#39;CFU&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:13:9: &#39;CFU&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;CFU&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__22&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__23&quot;
+&nbsp;	public final void mT__23() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__23;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:14:7: ( &#39;CITY&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:14:9: &#39;CITY&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;CITY&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__23&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__24&quot;
+&nbsp;	public final void mT__24() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__24;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:15:7: ( &#39;COUNTRY&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:15:9: &#39;COUNTRY&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;COUNTRY&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__24&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__25&quot;
+&nbsp;	public final void mT__25() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__25;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:16:7: ( &#39;DAILY_HOURS:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:16:9: &#39;DAILY_HOURS:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;DAILY_HOURS:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__25&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__26&quot;
+&nbsp;	public final void mT__26() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__26;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:17:7: ( &#39;DATE&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:17:9: &#39;DATE&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;DATE&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__26&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__27&quot;
+&nbsp;	public final void mT__27() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__27;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:18:7: ( &#39;DEGREE:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:18:9: &#39;DEGREE:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;DEGREE:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__27&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__28&quot;
+&nbsp;	public final void mT__28() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__28;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:19:7: ( &#39;EMAIL:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:19:9: &#39;EMAIL:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;EMAIL:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__28&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__29&quot;
+&nbsp;	public final void mT__29() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__29;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:20:7: ( &#39;EXAM&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:20:9: &#39;EXAM&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;EXAM&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__29&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__30&quot;
+&nbsp;	public final void mT__30() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__30;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:21:7: ( &#39;EXAMS:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:21:9: &#39;EXAMS:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;EXAMS:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__30&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__31&quot;
+&nbsp;	public final void mT__31() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__31;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:22:7: ( &#39;MILESTONE&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:22:9: &#39;MILESTONE&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;MILESTONE&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__31&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__32&quot;
+&nbsp;	public final void mT__32() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__32;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:23:7: ( &#39;NAME:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:23:9: &#39;NAME:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;NAME:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__32&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__33&quot;
+&nbsp;	public final void mT__33() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__33;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:24:7: ( &#39;NUMBER&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:24:9: &#39;NUMBER&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;NUMBER&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__33&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__34&quot;
+&nbsp;	public final void mT__34() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__34;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:25:7: ( &#39;SERIAL:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:25:9: &#39;SERIAL:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;SERIAL:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__34&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__35&quot;
+&nbsp;	public final void mT__35() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__35;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:26:7: ( &#39;STATUS&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:26:9: &#39;STATUS&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;STATUS&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__35&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__36&quot;
+&nbsp;	public final void mT__36() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__36;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:27:7: ( &#39;STREET&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:27:9: &#39;STREET&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;STREET&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__36&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__37&quot;
+&nbsp;	public final void mT__37() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__37;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:28:7: ( &#39;STUDENT&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:28:9: &#39;STUDENT&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;STUDENT&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__37&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__38&quot;
+&nbsp;	public final void mT__38() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__38;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:29:7: ( &#39;SURNAME:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:29:9: &#39;SURNAME:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;SURNAME:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__38&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__39&quot;
+&nbsp;	public final void mT__39() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__39;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:30:7: ( &#39;UNIVERSITY&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:30:9: &#39;UNIVERSITY&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;UNIVERSITY&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__39&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__40&quot;
+&nbsp;	public final void mT__40() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__40;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:31:7: ( &#39;YEAR&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:31:9: &#39;YEAR&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;YEAR&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__40&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__41&quot;
+&nbsp;	public final void mT__41() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__41;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:32:7: ( &#39;YEARS:&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:32:9: &#39;YEARS:&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;YEARS:&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__41&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;T__42&quot;
+&nbsp;	public final void mT__42() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = T__42;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:33:7: ( &#39;ZIP&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:33:9: &#39;ZIP&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&quot;ZIP&quot;); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;T__42&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;WS&quot;
+&nbsp;	public final void mWS() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = WS;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:38:5: ( ( &#39; &#39; | &#39;\\t&#39; | &#39;\\r&#39; | &#39;\\n&#39; ) )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:38:9: ( &#39; &#39; | &#39;\\t&#39; | &#39;\\r&#39; | &#39;\\n&#39; )
+&nbsp;			{
+<b class="fc">&nbsp;			if ( (input.LA(1) &gt;= &#39;\t&#39; &amp;&amp; input.LA(1) &lt;= &#39;\n&#39;)||input.LA(1)==&#39;\r&#39;||input.LA(1)==&#39; &#39; ) {</b>
+<b class="fc">&nbsp;				input.consume();</b>
+&nbsp;			}
+&nbsp;			else {
+<b class="nc">&nbsp;				MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;				recover(mse);</b>
+<b class="nc">&nbsp;				throw mse;</b>
+&nbsp;			}
+<b class="fc">&nbsp;			_channel=HIDDEN;</b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;WS&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;STRING&quot;
+&nbsp;	public final void mSTRING() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = STRING;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:46:5: ( &#39;\&quot;&#39; ( ESC_SEQ |~ ( &#39;\\\\&#39; | &#39;\&quot;&#39; ) )* &#39;\&quot;&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:46:8: &#39;\&quot;&#39; ( ESC_SEQ |~ ( &#39;\\\\&#39; | &#39;\&quot;&#39; ) )* &#39;\&quot;&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&#39;\&quot;&#39;); </b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:46:12: ( ESC_SEQ |~ ( &#39;\\\\&#39; | &#39;\&quot;&#39; ) )*
+&nbsp;			loop1:
+&nbsp;			while (true) {
+<b class="fc">&nbsp;				int alt1=3;</b>
+<b class="fc">&nbsp;				int LA1_0 = input.LA(1);</b>
+<b class="fc">&nbsp;				if ( (LA1_0==&#39;\\&#39;) ) {</b>
+<b class="nc">&nbsp;					alt1=1;</b>
+&nbsp;				}
+<b class="fc">&nbsp;				else if ( ((LA1_0 &gt;= &#39;\u0000&#39; &amp;&amp; LA1_0 &lt;= &#39;!&#39;)||(LA1_0 &gt;= &#39;#&#39; &amp;&amp; LA1_0 &lt;= &#39;[&#39;)||(LA1_0 &gt;= &#39;]&#39; &amp;&amp; LA1_0 &lt;= &#39;\uFFFF&#39;)) ) {</b>
+<b class="fc">&nbsp;					alt1=2;</b>
+&nbsp;				}
+&nbsp;
+<b class="fc">&nbsp;				switch (alt1) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:46:14: ESC_SEQ
+&nbsp;					{
+<b class="nc">&nbsp;					mESC_SEQ(); </b>
+&nbsp;
+&nbsp;					}
+<b class="nc">&nbsp;					break;</b>
+&nbsp;				case 2 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:46:24: ~ ( &#39;\\\\&#39; | &#39;\&quot;&#39; )
+&nbsp;					{
+<b class="fc">&nbsp;					if ( (input.LA(1) &gt;= &#39;\u0000&#39; &amp;&amp; input.LA(1) &lt;= &#39;!&#39;)||(input.LA(1) &gt;= &#39;#&#39; &amp;&amp; input.LA(1) &lt;= &#39;[&#39;)||(input.LA(1) &gt;= &#39;]&#39; &amp;&amp; input.LA(1) &lt;= &#39;\uFFFF&#39;) ) {</b>
+<b class="fc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;				default :
+<b class="fc">&nbsp;					break loop1;</b>
+&nbsp;				}
+<b class="fc">&nbsp;			}</b>
+&nbsp;
+<b class="fc">&nbsp;			match(&#39;\&quot;&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;STRING&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;CHAR&quot;
+&nbsp;	public final void mCHAR() throws RecognitionException {
+&nbsp;		try {
+<b class="nc">&nbsp;			int _type = CHAR;</b>
+<b class="nc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:49:5: ( &#39;\\&#39;&#39; ( ESC_SEQ |~ ( &#39;\\&#39;&#39; | &#39;\\\\&#39; ) ) &#39;\\&#39;&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:49:8: &#39;\\&#39;&#39; ( ESC_SEQ |~ ( &#39;\\&#39;&#39; | &#39;\\\\&#39; ) ) &#39;\\&#39;&#39;
+&nbsp;			{
+<b class="nc">&nbsp;			match(&#39;\&#39;&#39;); </b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:49:13: ( ESC_SEQ |~ ( &#39;\\&#39;&#39; | &#39;\\\\&#39; ) )
+<b class="nc">&nbsp;			int alt2=2;</b>
+<b class="nc">&nbsp;			int LA2_0 = input.LA(1);</b>
+<b class="nc">&nbsp;			if ( (LA2_0==&#39;\\&#39;) ) {</b>
+<b class="nc">&nbsp;				alt2=1;</b>
+&nbsp;			}
+<b class="nc">&nbsp;			else if ( ((LA2_0 &gt;= &#39;\u0000&#39; &amp;&amp; LA2_0 &lt;= &#39;&amp;&#39;)||(LA2_0 &gt;= &#39;(&#39; &amp;&amp; LA2_0 &lt;= &#39;[&#39;)||(LA2_0 &gt;= &#39;]&#39; &amp;&amp; LA2_0 &lt;= &#39;\uFFFF&#39;)) ) {</b>
+<b class="nc">&nbsp;				alt2=2;</b>
+&nbsp;			}
+&nbsp;
+&nbsp;			else {
+<b class="nc">&nbsp;				NoViableAltException nvae =</b>
+&nbsp;					new NoViableAltException(&quot;&quot;, 2, 0, input);
+<b class="nc">&nbsp;				throw nvae;</b>
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;			switch (alt2) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:49:15: ESC_SEQ
+&nbsp;					{
+<b class="nc">&nbsp;					mESC_SEQ(); </b>
+&nbsp;
+&nbsp;					}
+<b class="nc">&nbsp;					break;</b>
+&nbsp;				case 2 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:49:25: ~ ( &#39;\\&#39;&#39; | &#39;\\\\&#39; )
+&nbsp;					{
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;\u0000&#39; &amp;&amp; input.LA(1) &lt;= &#39;&amp;&#39;)||(input.LA(1) &gt;= &#39;(&#39; &amp;&amp; input.LA(1) &lt;= &#39;[&#39;)||(input.LA(1) &gt;= &#39;]&#39; &amp;&amp; input.LA(1) &lt;= &#39;\uFFFF&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;			match(&#39;\&#39;&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;			state.type = _type;</b>
+<b class="nc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;CHAR&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;HEX_DIGIT&quot;
+&nbsp;	public final void mHEX_DIGIT() throws RecognitionException {
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:54:11: ( ( &#39;0&#39; .. &#39;9&#39; | &#39;a&#39; .. &#39;f&#39; | &#39;A&#39; .. &#39;F&#39; ) )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:
+&nbsp;			{
+<b class="nc">&nbsp;			if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;9&#39;)||(input.LA(1) &gt;= &#39;A&#39; &amp;&amp; input.LA(1) &lt;= &#39;F&#39;)||(input.LA(1) &gt;= &#39;a&#39; &amp;&amp; input.LA(1) &lt;= &#39;f&#39;) ) {</b>
+<b class="nc">&nbsp;				input.consume();</b>
+&nbsp;			}
+&nbsp;			else {
+<b class="nc">&nbsp;				MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;				recover(mse);</b>
+<b class="nc">&nbsp;				throw mse;</b>
+&nbsp;			}
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;HEX_DIGIT&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;ESC_SEQ&quot;
+&nbsp;	public final void mESC_SEQ() throws RecognitionException {
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:58:5: ( &#39;\\\\&#39; ( &#39;b&#39; | &#39;t&#39; | &#39;n&#39; | &#39;f&#39; | &#39;r&#39; | &#39;\\\&quot;&#39; | &#39;\\&#39;&#39; | &#39;\\\\&#39; ) | UNICODE_ESC | OCTAL_ESC )
+<b class="nc">&nbsp;			int alt3=3;</b>
+<b class="nc">&nbsp;			int LA3_0 = input.LA(1);</b>
+<b class="nc">&nbsp;			if ( (LA3_0==&#39;\\&#39;) ) {</b>
+<b class="nc">&nbsp;				switch ( input.LA(2) ) {</b>
+&nbsp;				case &#39;\&quot;&#39;:
+&nbsp;				case &#39;\&#39;&#39;:
+&nbsp;				case &#39;\\&#39;:
+&nbsp;				case &#39;b&#39;:
+&nbsp;				case &#39;f&#39;:
+&nbsp;				case &#39;n&#39;:
+&nbsp;				case &#39;r&#39;:
+&nbsp;				case &#39;t&#39;:
+&nbsp;					{
+<b class="nc">&nbsp;					alt3=1;</b>
+&nbsp;					}
+<b class="nc">&nbsp;					break;</b>
+&nbsp;				case &#39;u&#39;:
+&nbsp;					{
+<b class="nc">&nbsp;					alt3=2;</b>
+&nbsp;					}
+<b class="nc">&nbsp;					break;</b>
+&nbsp;				case &#39;0&#39;:
+&nbsp;				case &#39;1&#39;:
+&nbsp;				case &#39;2&#39;:
+&nbsp;				case &#39;3&#39;:
+&nbsp;				case &#39;4&#39;:
+&nbsp;				case &#39;5&#39;:
+&nbsp;				case &#39;6&#39;:
+&nbsp;				case &#39;7&#39;:
+&nbsp;					{
+<b class="nc">&nbsp;					alt3=3;</b>
+&nbsp;					}
+<b class="nc">&nbsp;					break;</b>
+&nbsp;				default:
+<b class="nc">&nbsp;					int nvaeMark = input.mark();</b>
+&nbsp;					try {
+<b class="nc">&nbsp;						input.consume();</b>
+<b class="nc">&nbsp;						NoViableAltException nvae =</b>
+&nbsp;							new NoViableAltException(&quot;&quot;, 3, 1, input);
+<b class="nc">&nbsp;						throw nvae;</b>
+&nbsp;					} finally {
+<b class="nc">&nbsp;						input.rewind(nvaeMark);</b>
+<b class="nc">&nbsp;					}</b>
+&nbsp;				}
+&nbsp;			}
+&nbsp;
+&nbsp;			else {
+<b class="nc">&nbsp;				NoViableAltException nvae =</b>
+&nbsp;					new NoViableAltException(&quot;&quot;, 3, 0, input);
+<b class="nc">&nbsp;				throw nvae;</b>
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;			switch (alt3) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:58:9: &#39;\\\\&#39; ( &#39;b&#39; | &#39;t&#39; | &#39;n&#39; | &#39;f&#39; | &#39;r&#39; | &#39;\\\&quot;&#39; | &#39;\\&#39;&#39; | &#39;\\\\&#39; )
+&nbsp;					{
+<b class="nc">&nbsp;					match(&#39;\\&#39;); </b>
+<b class="nc">&nbsp;					if ( input.LA(1)==&#39;\&quot;&#39;||input.LA(1)==&#39;\&#39;&#39;||input.LA(1)==&#39;\\&#39;||input.LA(1)==&#39;b&#39;||input.LA(1)==&#39;f&#39;||input.LA(1)==&#39;n&#39;||input.LA(1)==&#39;r&#39;||input.LA(1)==&#39;t&#39; ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;				case 2 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:59:9: UNICODE_ESC
+&nbsp;					{
+<b class="nc">&nbsp;					mUNICODE_ESC(); </b>
+&nbsp;
+&nbsp;					}
+<b class="nc">&nbsp;					break;</b>
+&nbsp;				case 3 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:60:9: OCTAL_ESC
+&nbsp;					{
+<b class="nc">&nbsp;					mOCTAL_ESC(); </b>
+&nbsp;
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;			}
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;ESC_SEQ&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;OCTAL_ESC&quot;
+&nbsp;	public final void mOCTAL_ESC() throws RecognitionException {
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:65:5: ( &#39;\\\\&#39; ( &#39;0&#39; .. &#39;3&#39; ) ( &#39;0&#39; .. &#39;7&#39; ) ( &#39;0&#39; .. &#39;7&#39; ) | &#39;\\\\&#39; ( &#39;0&#39; .. &#39;7&#39; ) ( &#39;0&#39; .. &#39;7&#39; ) | &#39;\\\\&#39; ( &#39;0&#39; .. &#39;7&#39; ) )
+<b class="nc">&nbsp;			int alt4=3;</b>
+<b class="nc">&nbsp;			int LA4_0 = input.LA(1);</b>
+<b class="nc">&nbsp;			if ( (LA4_0==&#39;\\&#39;) ) {</b>
+<b class="nc">&nbsp;				int LA4_1 = input.LA(2);</b>
+<b class="nc">&nbsp;				if ( ((LA4_1 &gt;= &#39;0&#39; &amp;&amp; LA4_1 &lt;= &#39;3&#39;)) ) {</b>
+<b class="nc">&nbsp;					int LA4_2 = input.LA(3);</b>
+<b class="nc">&nbsp;					if ( ((LA4_2 &gt;= &#39;0&#39; &amp;&amp; LA4_2 &lt;= &#39;7&#39;)) ) {</b>
+<b class="nc">&nbsp;						int LA4_4 = input.LA(4);</b>
+<b class="nc">&nbsp;						if ( ((LA4_4 &gt;= &#39;0&#39; &amp;&amp; LA4_4 &lt;= &#39;7&#39;)) ) {</b>
+<b class="nc">&nbsp;							alt4=1;</b>
+&nbsp;						}
+&nbsp;
+&nbsp;						else {
+<b class="nc">&nbsp;							alt4=2;</b>
+&nbsp;						}
+&nbsp;
+<b class="nc">&nbsp;					}</b>
+&nbsp;
+&nbsp;					else {
+<b class="nc">&nbsp;						alt4=3;</b>
+&nbsp;					}
+&nbsp;
+<b class="nc">&nbsp;				}</b>
+<b class="nc">&nbsp;				else if ( ((LA4_1 &gt;= &#39;4&#39; &amp;&amp; LA4_1 &lt;= &#39;7&#39;)) ) {</b>
+<b class="nc">&nbsp;					int LA4_3 = input.LA(3);</b>
+<b class="nc">&nbsp;					if ( ((LA4_3 &gt;= &#39;0&#39; &amp;&amp; LA4_3 &lt;= &#39;7&#39;)) ) {</b>
+<b class="nc">&nbsp;						alt4=2;</b>
+&nbsp;					}
+&nbsp;
+&nbsp;					else {
+<b class="nc">&nbsp;						alt4=3;</b>
+&nbsp;					}
+&nbsp;
+<b class="nc">&nbsp;				}</b>
+&nbsp;
+&nbsp;				else {
+<b class="nc">&nbsp;					int nvaeMark = input.mark();</b>
+&nbsp;					try {
+<b class="nc">&nbsp;						input.consume();</b>
+<b class="nc">&nbsp;						NoViableAltException nvae =</b>
+&nbsp;							new NoViableAltException(&quot;&quot;, 4, 1, input);
+<b class="nc">&nbsp;						throw nvae;</b>
+&nbsp;					} finally {
+<b class="nc">&nbsp;						input.rewind(nvaeMark);</b>
+<b class="nc">&nbsp;					}</b>
+&nbsp;				}
+&nbsp;
+<b class="nc">&nbsp;			}</b>
+&nbsp;
+&nbsp;			else {
+<b class="nc">&nbsp;				NoViableAltException nvae =</b>
+&nbsp;					new NoViableAltException(&quot;&quot;, 4, 0, input);
+<b class="nc">&nbsp;				throw nvae;</b>
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;			switch (alt4) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:65:9: &#39;\\\\&#39; ( &#39;0&#39; .. &#39;3&#39; ) ( &#39;0&#39; .. &#39;7&#39; ) ( &#39;0&#39; .. &#39;7&#39; )
+&nbsp;					{
+<b class="nc">&nbsp;					match(&#39;\\&#39;); </b>
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;3&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;7&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;7&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;				case 2 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:66:9: &#39;\\\\&#39; ( &#39;0&#39; .. &#39;7&#39; ) ( &#39;0&#39; .. &#39;7&#39; )
+&nbsp;					{
+<b class="nc">&nbsp;					match(&#39;\\&#39;); </b>
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;7&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;7&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;				case 3 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:67:9: &#39;\\\\&#39; ( &#39;0&#39; .. &#39;7&#39; )
+&nbsp;					{
+<b class="nc">&nbsp;					match(&#39;\\&#39;); </b>
+<b class="nc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;7&#39;) ) {</b>
+<b class="nc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;			}
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;OCTAL_ESC&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;UNICODE_ESC&quot;
+&nbsp;	public final void mUNICODE_ESC() throws RecognitionException {
+&nbsp;		try {
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:72:5: ( &#39;\\\\&#39; &#39;u&#39; HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:72:9: &#39;\\\\&#39; &#39;u&#39; HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+&nbsp;			{
+<b class="nc">&nbsp;			match(&#39;\\&#39;); </b>
+<b class="nc">&nbsp;			match(&#39;u&#39;); </b>
+<b class="nc">&nbsp;			mHEX_DIGIT(); </b>
+&nbsp;
+<b class="nc">&nbsp;			mHEX_DIGIT(); </b>
+&nbsp;
+<b class="nc">&nbsp;			mHEX_DIGIT(); </b>
+&nbsp;
+<b class="nc">&nbsp;			mHEX_DIGIT(); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;UNICODE_ESC&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;INT&quot;
+&nbsp;	public final void mINT() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = INT;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:5: ( ( &#39;0&#39; .. &#39;9&#39; )+ )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:7: ( &#39;0&#39; .. &#39;9&#39; )+
+&nbsp;			{
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:75:7: ( &#39;0&#39; .. &#39;9&#39; )+
+<b class="fc">&nbsp;			int cnt5=0;</b>
+&nbsp;			loop5:
+&nbsp;			while (true) {
+<b class="fc">&nbsp;				int alt5=2;</b>
+<b class="fc">&nbsp;				int LA5_0 = input.LA(1);</b>
+<b class="fc">&nbsp;				if ( ((LA5_0 &gt;= &#39;0&#39; &amp;&amp; LA5_0 &lt;= &#39;9&#39;)) ) {</b>
+<b class="fc">&nbsp;					alt5=1;</b>
+&nbsp;				}
+&nbsp;
+<b class="fc">&nbsp;				switch (alt5) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:
+&nbsp;					{
+<b class="fc">&nbsp;					if ( (input.LA(1) &gt;= &#39;0&#39; &amp;&amp; input.LA(1) &lt;= &#39;9&#39;) ) {</b>
+<b class="fc">&nbsp;						input.consume();</b>
+&nbsp;					}
+&nbsp;					else {
+<b class="nc">&nbsp;						MismatchedSetException mse = new MismatchedSetException(null,input);</b>
+<b class="nc">&nbsp;						recover(mse);</b>
+<b class="nc">&nbsp;						throw mse;</b>
+&nbsp;					}
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;				default :
+<b class="fc">&nbsp;					if ( cnt5 &gt;= 1 ) break loop5;</b>
+<b class="nc">&nbsp;					EarlyExitException eee = new EarlyExitException(5, input);</b>
+<b class="nc">&nbsp;					throw eee;</b>
+&nbsp;				}
+<b class="fc">&nbsp;				cnt5++;</b>
+<b class="fc">&nbsp;			}</b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;INT&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;DATE&quot;
+&nbsp;	public final void mDATE() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = DATE;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:78:7: ( INT &#39;-&#39; INT &#39;-&#39; INT )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:78:9: INT &#39;-&#39; INT &#39;-&#39; INT
+&nbsp;			{
+<b class="fc">&nbsp;			mINT(); </b>
+&nbsp;
+<b class="fc">&nbsp;			match(&#39;-&#39;); </b>
+<b class="fc">&nbsp;			mINT(); </b>
+&nbsp;
+<b class="fc">&nbsp;			match(&#39;-&#39;); </b>
+<b class="fc">&nbsp;			mINT(); </b>
+&nbsp;
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;DATE&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;STATUS&quot;
+&nbsp;	public final void mSTATUS() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = STATUS;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:80:8: ( &#39;PASSED&#39; | &#39;NOT_PASSED&#39; )
+<b class="fc">&nbsp;			int alt6=2;</b>
+<b class="fc">&nbsp;			int LA6_0 = input.LA(1);</b>
+<b class="fc">&nbsp;			if ( (LA6_0==&#39;P&#39;) ) {</b>
+<b class="fc">&nbsp;				alt6=1;</b>
+&nbsp;			}
+<b class="nc">&nbsp;			else if ( (LA6_0==&#39;N&#39;) ) {</b>
+<b class="nc">&nbsp;				alt6=2;</b>
+&nbsp;			}
+&nbsp;
+&nbsp;			else {
+<b class="nc">&nbsp;				NoViableAltException nvae =</b>
+&nbsp;					new NoViableAltException(&quot;&quot;, 6, 0, input);
+<b class="nc">&nbsp;				throw nvae;</b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			switch (alt6) {</b>
+&nbsp;				case 1 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:80:10: &#39;PASSED&#39;
+&nbsp;					{
+<b class="fc">&nbsp;					match(&quot;PASSED&quot;); </b>
+&nbsp;
+&nbsp;					}
+<b class="fc">&nbsp;					break;</b>
+&nbsp;				case 2 :
+&nbsp;					// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:80:21: &#39;NOT_PASSED&#39;
+&nbsp;					{
+<b class="nc">&nbsp;					match(&quot;NOT_PASSED&quot;); </b>
+&nbsp;
+&nbsp;					}
+&nbsp;					break;
+&nbsp;
+&nbsp;			}
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;STATUS&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;OPEN_SQB&quot;
+&nbsp;	public final void mOPEN_SQB() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = OPEN_SQB;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:83:2: ( &#39;[&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:83:4: &#39;[&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&#39;[&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;OPEN_SQB&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;CLOSE_SQB&quot;
+&nbsp;	public final void mCLOSE_SQB() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = CLOSE_SQB;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:85:2: ( &#39;]&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:85:4: &#39;]&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&#39;]&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;CLOSE_SQB&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;OPEN_CUB&quot;
+&nbsp;	public final void mOPEN_CUB() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = OPEN_CUB;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:88:2: ( &#39;{&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:88:4: &#39;{&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&#39;{&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;OPEN_CUB&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;CLOSE_CUB&quot;
+&nbsp;	public final void mCLOSE_CUB() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = CLOSE_CUB;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:90:2: ( &#39;}&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:90:4: &#39;}&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&#39;}&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;CLOSE_CUB&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;DOTCOMMA&quot;
+&nbsp;	public final void mDOTCOMMA() throws RecognitionException {
+&nbsp;		try {
+<b class="fc">&nbsp;			int _type = DOTCOMMA;</b>
+<b class="fc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:93:2: ( &#39;;&#39; )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:93:4: &#39;;&#39;
+&nbsp;			{
+<b class="fc">&nbsp;			match(&#39;;&#39;); </b>
+&nbsp;			}
+&nbsp;
+<b class="fc">&nbsp;			state.type = _type;</b>
+<b class="fc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;DOTCOMMA&quot;
+&nbsp;
+&nbsp;	// $ANTLR start &quot;ERROR_TOKEN&quot;
+&nbsp;	public final void mERROR_TOKEN() throws RecognitionException {
+&nbsp;		try {
+<b class="nc">&nbsp;			int _type = ERROR_TOKEN;</b>
+<b class="nc">&nbsp;			int _channel = DEFAULT_TOKEN_CHANNEL;</b>
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:96:2: ( . )
+&nbsp;			// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:96:4: .
+&nbsp;			{
+<b class="nc">&nbsp;			matchAny(); </b>
+&nbsp;			}
+&nbsp;
+<b class="nc">&nbsp;			state.type = _type;</b>
+<b class="nc">&nbsp;			state.channel = _channel;</b>
+&nbsp;		}
+&nbsp;		finally {
+&nbsp;			// do for sure before leaving
+&nbsp;		}
+&nbsp;	}
+&nbsp;	// $ANTLR end &quot;ERROR_TOKEN&quot;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public void mTokens() throws RecognitionException {
+&nbsp;		// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:8: ( T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | WS | STRING | CHAR | INT | DATE | STATUS | OPEN_SQB | CLOSE_SQB | OPEN_CUB | CLOSE_CUB | DOTCOMMA | ERROR_TOKEN )
+<b class="fc">&nbsp;		int alt7=35;</b>
+<b class="fc">&nbsp;		alt7 = dfa7.predict(input);</b>
+<b class="fc">&nbsp;		switch (alt7) {</b>
+&nbsp;			case 1 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:10: T__20
+&nbsp;				{
+<b class="fc">&nbsp;				mT__20(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 2 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:16: T__21
+&nbsp;				{
+<b class="fc">&nbsp;				mT__21(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 3 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:22: T__22
+&nbsp;				{
+<b class="fc">&nbsp;				mT__22(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 4 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:28: T__23
+&nbsp;				{
+<b class="fc">&nbsp;				mT__23(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 5 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:34: T__24
+&nbsp;				{
+<b class="fc">&nbsp;				mT__24(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 6 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:40: T__25
+&nbsp;				{
+<b class="fc">&nbsp;				mT__25(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 7 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:46: T__26
+&nbsp;				{
+<b class="fc">&nbsp;				mT__26(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 8 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:52: T__27
+&nbsp;				{
+<b class="fc">&nbsp;				mT__27(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 9 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:58: T__28
+&nbsp;				{
+<b class="fc">&nbsp;				mT__28(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 10 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:64: T__29
+&nbsp;				{
+<b class="fc">&nbsp;				mT__29(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 11 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:70: T__30
+&nbsp;				{
+<b class="fc">&nbsp;				mT__30(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 12 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:76: T__31
+&nbsp;				{
+<b class="fc">&nbsp;				mT__31(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 13 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:82: T__32
+&nbsp;				{
+<b class="fc">&nbsp;				mT__32(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 14 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:88: T__33
+&nbsp;				{
+<b class="fc">&nbsp;				mT__33(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 15 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:94: T__34
+&nbsp;				{
+<b class="fc">&nbsp;				mT__34(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 16 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:100: T__35
+&nbsp;				{
+<b class="fc">&nbsp;				mT__35(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 17 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:106: T__36
+&nbsp;				{
+<b class="fc">&nbsp;				mT__36(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 18 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:112: T__37
+&nbsp;				{
+<b class="fc">&nbsp;				mT__37(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 19 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:118: T__38
+&nbsp;				{
+<b class="fc">&nbsp;				mT__38(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 20 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:124: T__39
+&nbsp;				{
+<b class="fc">&nbsp;				mT__39(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 21 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:130: T__40
+&nbsp;				{
+<b class="fc">&nbsp;				mT__40(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 22 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:136: T__41
+&nbsp;				{
+<b class="fc">&nbsp;				mT__41(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 23 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:142: T__42
+&nbsp;				{
+<b class="fc">&nbsp;				mT__42(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 24 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:148: WS
+&nbsp;				{
+<b class="fc">&nbsp;				mWS(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 25 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:151: STRING
+&nbsp;				{
+<b class="fc">&nbsp;				mSTRING(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 26 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:158: CHAR
+&nbsp;				{
+<b class="nc">&nbsp;				mCHAR(); </b>
+&nbsp;
+&nbsp;				}
+<b class="nc">&nbsp;				break;</b>
+&nbsp;			case 27 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:163: INT
+&nbsp;				{
+<b class="fc">&nbsp;				mINT(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 28 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:167: DATE
+&nbsp;				{
+<b class="fc">&nbsp;				mDATE(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 29 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:172: STATUS
+&nbsp;				{
+<b class="fc">&nbsp;				mSTATUS(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 30 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:179: OPEN_SQB
+&nbsp;				{
+<b class="fc">&nbsp;				mOPEN_SQB(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 31 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:188: CLOSE_SQB
+&nbsp;				{
+<b class="fc">&nbsp;				mCLOSE_SQB(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 32 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:198: OPEN_CUB
+&nbsp;				{
+<b class="fc">&nbsp;				mOPEN_CUB(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 33 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:207: CLOSE_CUB
+&nbsp;				{
+<b class="fc">&nbsp;				mCLOSE_CUB(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 34 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:217: DOTCOMMA
+&nbsp;				{
+<b class="fc">&nbsp;				mDOTCOMMA(); </b>
+&nbsp;
+&nbsp;				}
+<b class="fc">&nbsp;				break;</b>
+&nbsp;			case 35 :
+&nbsp;				// C:\\Users\\gchir\\OneDrive\\Desktop\\uni\\linguaggi compilatori\\esercizi\\GRAD\\src\\compiler\\GRAD.g:1:226: ERROR_TOKEN
+&nbsp;				{
+<b class="nc">&nbsp;				mERROR_TOKEN(); </b>
+&nbsp;
+&nbsp;				}
+&nbsp;				break;
+&nbsp;
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;	protected DFA7 dfa7 = new DFA7(this);</b>
+&nbsp;	static final String DFA7_eotS =
+&nbsp;		&quot;\1\uffff\13\26\1\uffff\2\26\1\55\1\26\35\uffff\1\55\15\uffff\1\77\1\101&quot;+
+&nbsp;		&quot;\4\uffff&quot;;
+&nbsp;	static final String DFA7_eofS =
+&nbsp;		&quot;\102\uffff&quot;;
+&nbsp;	static final String DFA7_minS =
+&nbsp;		&quot;\1\0\1\104\1\111\1\106\1\101\1\115\1\111\1\101\1\105\1\116\1\105\1\111&quot;+
+&nbsp;		&quot;\1\uffff\2\0\1\55\1\101\13\uffff\1\111\2\uffff\1\101\5\uffff\1\101\2\uffff&quot;+
+&nbsp;		&quot;\1\101\5\uffff\1\55\10\uffff\1\115\3\uffff\1\122\2\123\4\uffff&quot;;
+&nbsp;	static final String DFA7_maxS =
+&nbsp;		&quot;\1\uffff\1\104\1\111\1\117\1\105\1\130\1\111\2\125\1\116\1\105\1\111\1&quot;+
+&nbsp;		&quot;\uffff\2\uffff\1\71\1\101\13\uffff\1\124\2\uffff\1\101\5\uffff\1\125\2&quot;+
+&nbsp;		&quot;\uffff\1\101\5\uffff\1\71\10\uffff\1\115\3\uffff\1\122\2\123\4\uffff&quot;;
+&nbsp;	static final String DFA7_acceptS =
+&nbsp;		&quot;\14\uffff\1\30\4\uffff\1\36\1\37\1\40\1\41\1\42\1\43\1\1\1\2\1\3\1\4\1&quot;+
+&nbsp;		&quot;\5\1\uffff\1\10\1\11\1\uffff\1\14\1\15\1\16\1\35\1\17\1\uffff\1\23\1\24&quot;+
+&nbsp;		&quot;\1\uffff\1\27\1\30\1\31\1\32\1\33\1\uffff\1\34\1\36\1\37\1\40\1\41\1\42&quot;+
+&nbsp;		&quot;\1\6\1\7\1\uffff\1\20\1\21\1\22\3\uffff\1\13\1\12\1\26\1\25&quot;;
+&nbsp;	static final String DFA7_specialS =
+&nbsp;		&quot;\1\1\14\uffff\1\2\1\0\63\uffff}&gt;&quot;;
+<b class="fc">&nbsp;	static final String[] DFA7_transitionS = {</b>
+&nbsp;			&quot;\11\26\2\14\2\26\1\14\22\26\1\14\1\26\1\15\4\26\1\16\10\26\12\17\1\26&quot;+
+&nbsp;			&quot;\1\25\5\26\1\1\1\2\1\3\1\4\1\5\7\26\1\6\1\7\1\26\1\20\2\26\1\10\1\26&quot;+
+&nbsp;			&quot;\1\11\3\26\1\12\1\13\1\21\1\26\1\22\35\26\1\23\1\26\1\24\uff82\26&quot;,
+&nbsp;			&quot;\1\27&quot;,
+&nbsp;			&quot;\1\30&quot;,
+&nbsp;			&quot;\1\31\2\uffff\1\32\5\uffff\1\33&quot;,
+&nbsp;			&quot;\1\34\3\uffff\1\35&quot;,
+&nbsp;			&quot;\1\36\12\uffff\1\37&quot;,
+&nbsp;			&quot;\1\40&quot;,
+&nbsp;			&quot;\1\41\15\uffff\1\43\5\uffff\1\42&quot;,
+&nbsp;			&quot;\1\44\16\uffff\1\45\1\46&quot;,
+&nbsp;			&quot;\1\47&quot;,
+&nbsp;			&quot;\1\50&quot;,
+&nbsp;			&quot;\1\51&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\0\53&quot;,
+&nbsp;			&quot;\47\54\1\uffff\uffd8\54&quot;,
+&nbsp;			&quot;\1\57\2\uffff\12\56&quot;,
+&nbsp;			&quot;\1\43&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\65\12\uffff\1\66&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\67&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\70\20\uffff\1\71\2\uffff\1\72&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\73&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\57\2\uffff\12\56&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\74&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;\1\75&quot;,
+&nbsp;			&quot;\1\76&quot;,
+&nbsp;			&quot;\1\100&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;,
+&nbsp;			&quot;&quot;
+&nbsp;	};
+&nbsp;
+<b class="fc">&nbsp;	static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);</b>
+<b class="fc">&nbsp;	static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);</b>
+<b class="fc">&nbsp;	static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);</b>
+<b class="fc">&nbsp;	static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);</b>
+<b class="fc">&nbsp;	static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);</b>
+<b class="fc">&nbsp;	static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);</b>
+&nbsp;	static final short[][] DFA7_transition;
+&nbsp;
+&nbsp;	static {
+<b class="fc">&nbsp;		int numStates = DFA7_transitionS.length;</b>
+<b class="fc">&nbsp;		DFA7_transition = new short[numStates][];</b>
+<b class="fc">&nbsp;		for (int i=0; i&lt;numStates; i++) {</b>
+<b class="fc">&nbsp;			DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;	protected class DFA7 extends DFA {
+&nbsp;
+<b class="fc">&nbsp;		public DFA7(BaseRecognizer recognizer) {</b>
+<b class="fc">&nbsp;			this.recognizer = recognizer;</b>
+<b class="fc">&nbsp;			this.decisionNumber = 7;</b>
+<b class="fc">&nbsp;			this.eot = DFA7_eot;</b>
+<b class="fc">&nbsp;			this.eof = DFA7_eof;</b>
+<b class="fc">&nbsp;			this.min = DFA7_min;</b>
+<b class="fc">&nbsp;			this.max = DFA7_max;</b>
+<b class="fc">&nbsp;			this.accept = DFA7_accept;</b>
+<b class="fc">&nbsp;			this.special = DFA7_special;</b>
+<b class="fc">&nbsp;			this.transition = DFA7_transition;</b>
+&nbsp;		}
+&nbsp;		@Override
+&nbsp;		public String getDescription() {
+<b class="nc">&nbsp;			return &quot;1:1: Tokens : ( T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | WS | STRING | CHAR | INT | DATE | STATUS | OPEN_SQB | CLOSE_SQB | OPEN_CUB | CLOSE_CUB | DOTCOMMA | ERROR_TOKEN );&quot;;</b>
+&nbsp;		}
+&nbsp;		@Override
+&nbsp;		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+<b class="fc">&nbsp;			IntStream input = _input;</b>
+<b class="fc">&nbsp;			int _s = s;</b>
+<b class="fc">&nbsp;			switch ( s ) {</b>
+&nbsp;					case 0 : 
+<b class="nc">&nbsp;						int LA7_14 = input.LA(1);</b>
+<b class="nc">&nbsp;						s = -1;</b>
+<b class="nc">&nbsp;						if ( ((LA7_14 &gt;= &#39;\u0000&#39; &amp;&amp; LA7_14 &lt;= &#39;&amp;&#39;)||(LA7_14 &gt;= &#39;(&#39; &amp;&amp; LA7_14 &lt;= &#39;\uFFFF&#39;)) ) {s = 44;}</b>
+<b class="nc">&nbsp;						else s = 22;</b>
+<b class="nc">&nbsp;						if ( s&gt;=0 ) return s;</b>
+&nbsp;						break;
+&nbsp;
+&nbsp;					case 1 : 
+<b class="fc">&nbsp;						int LA7_0 = input.LA(1);</b>
+<b class="fc">&nbsp;						s = -1;</b>
+<b class="fc">&nbsp;						if ( (LA7_0==&#39;A&#39;) ) {s = 1;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;B&#39;) ) {s = 2;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;C&#39;) ) {s = 3;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;D&#39;) ) {s = 4;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;E&#39;) ) {s = 5;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;M&#39;) ) {s = 6;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;N&#39;) ) {s = 7;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;S&#39;) ) {s = 8;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;U&#39;) ) {s = 9;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;Y&#39;) ) {s = 10;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;Z&#39;) ) {s = 11;}</b>
+<b class="fc">&nbsp;						else if ( ((LA7_0 &gt;= &#39;\t&#39; &amp;&amp; LA7_0 &lt;= &#39;\n&#39;)||LA7_0==&#39;\r&#39;||LA7_0==&#39; &#39;) ) {s = 12;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;\&quot;&#39;) ) {s = 13;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;\&#39;&#39;) ) {s = 14;}</b>
+<b class="fc">&nbsp;						else if ( ((LA7_0 &gt;= &#39;0&#39; &amp;&amp; LA7_0 &lt;= &#39;9&#39;)) ) {s = 15;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;P&#39;) ) {s = 16;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;[&#39;) ) {s = 17;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;]&#39;) ) {s = 18;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;{&#39;) ) {s = 19;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;}&#39;) ) {s = 20;}</b>
+<b class="fc">&nbsp;						else if ( (LA7_0==&#39;;&#39;) ) {s = 21;}</b>
+<b class="nc">&nbsp;						else if ( ((LA7_0 &gt;= &#39;\u0000&#39; &amp;&amp; LA7_0 &lt;= &#39;\b&#39;)||(LA7_0 &gt;= &#39;\u000B&#39; &amp;&amp; LA7_0 &lt;= &#39;\f&#39;)||(LA7_0 &gt;= &#39;\u000E&#39; &amp;&amp; LA7_0 &lt;= &#39;\u001F&#39;)||LA7_0==&#39;!&#39;||(LA7_0 &gt;= &#39;#&#39; &amp;&amp; LA7_0 &lt;= &#39;&amp;&#39;)||(LA7_0 &gt;= &#39;(&#39; &amp;&amp; LA7_0 &lt;= &#39;/&#39;)||LA7_0==&#39;:&#39;||(LA7_0 &gt;= &#39;&lt;&#39; &amp;&amp; LA7_0 &lt;= &#39;@&#39;)||(LA7_0 &gt;= &#39;F&#39; &amp;&amp; LA7_0 &lt;= &#39;L&#39;)||LA7_0==&#39;O&#39;||(LA7_0 &gt;= &#39;Q&#39; &amp;&amp; LA7_0 &lt;= &#39;R&#39;)||LA7_0==&#39;T&#39;||(LA7_0 &gt;= &#39;V&#39; &amp;&amp; LA7_0 &lt;= &#39;X&#39;)||LA7_0==&#39;\\&#39;||(LA7_0 &gt;= &#39;^&#39; &amp;&amp; LA7_0 &lt;= &#39;z&#39;)||LA7_0==&#39;|&#39;||(LA7_0 &gt;= &#39;~&#39; &amp;&amp; LA7_0 &lt;= &#39;\uFFFF&#39;)) ) {s = 22;}</b>
+<b class="fc">&nbsp;						if ( s&gt;=0 ) return s;</b>
+&nbsp;						break;
+&nbsp;
+&nbsp;					case 2 : 
+<b class="fc">&nbsp;						int LA7_13 = input.LA(1);</b>
+<b class="fc">&nbsp;						s = -1;</b>
+<b class="fc">&nbsp;						if ( ((LA7_13 &gt;= &#39;\u0000&#39; &amp;&amp; LA7_13 &lt;= &#39;\uFFFF&#39;)) ) {s = 43;}</b>
+<b class="nc">&nbsp;						else s = 22;</b>
+<b class="fc">&nbsp;						if ( s&gt;=0 ) return s;</b>
+&nbsp;						break;
+&nbsp;			}
+<b class="nc">&nbsp;			NoViableAltException nvae =</b>
+<b class="nc">&nbsp;				new NoViableAltException(getDescription(), 7, _s, input);</b>
+<b class="nc">&nbsp;			error(nvae);</b>
+<b class="nc">&nbsp;			throw nvae;</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

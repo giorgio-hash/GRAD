@@ -1,0 +1,204 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Student</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model.compiler</a>
+</div>
+
+<h1>Coverage Summary for Class: Student (model.compiler)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Student</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    14,3%
+  </span>
+  <span class="absValue">
+    (1/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    53,8%
+  </span>
+  <span class="absValue">
+    (7/13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model.compiler;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;
+&nbsp;/**
+&nbsp; * Classe per i dati ausiliari dello studente.
+&nbsp; */
+&nbsp;public class Student {
+&nbsp;    /**
+&nbsp;     * nome studente
+&nbsp;     */
+&nbsp;    private String name;
+&nbsp;    /**
+&nbsp;     * cognome studente
+&nbsp;     */
+&nbsp;    private String surname;
+&nbsp;    /**
+&nbsp;     * matricola studente
+&nbsp;     */
+&nbsp;    private String serial;
+&nbsp;    /**
+&nbsp;     * data di nascita dello studente
+&nbsp;     */
+&nbsp;    private LocalDate birthdate;
+&nbsp;    /**
+&nbsp;     * email studente
+&nbsp;     */
+&nbsp;    private String email;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Dati università dello studente (vedi &lt;i&gt;{link University}&lt;/i&gt;);
+&nbsp;     */
+&nbsp;    private University u;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore
+&nbsp;     * @param name nome studente
+&nbsp;     * @param surname cognome studente
+&nbsp;     * @param serial numero di matricola dello studente
+&nbsp;     * @param birthdate data di nascita dello studente
+&nbsp;     * @param email email dello studente
+&nbsp;     * @param u oggetto &lt;i&gt;{@link University}&lt;/i&gt; per dati università
+&nbsp;     */
+<b class="fc">&nbsp;    public Student(String name, String surname, String serial, LocalDate birthdate, String email, University u) {</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.surname = surname;</b>
+<b class="fc">&nbsp;        this.serial = serial;</b>
+<b class="fc">&nbsp;        this.birthdate = birthdate;</b>
+<b class="fc">&nbsp;        this.email = email;</b>
+<b class="fc">&nbsp;        this.u = u;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return nome studente
+&nbsp;     */
+&nbsp;    public String getName() {
+<b class="nc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return cognome studente
+&nbsp;     */
+&nbsp;    public String getSurname() {
+<b class="nc">&nbsp;        return surname;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return matricola studente
+&nbsp;     */
+&nbsp;    public String getSerial() {
+<b class="nc">&nbsp;        return serial;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return anno di nascita dello studente
+&nbsp;     */
+&nbsp;    public LocalDate getBirthdate() {
+<b class="nc">&nbsp;        return birthdate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return email dello studente
+&nbsp;     */
+&nbsp;    public String getEmail() {
+<b class="nc">&nbsp;        return email;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return oggetto &lt;i&gt;{@link University}&lt;/i&gt; con dati universitò studente
+&nbsp;     */
+&nbsp;    public University getUniversity() {
+<b class="nc">&nbsp;        return u;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Year</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model.compiler</a>
+</div>
+
+<h1>Coverage Summary for Class: Year (model.compiler)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Year</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (4/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    54,5%
+  </span>
+  <span class="absValue">
+    (6/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model.compiler;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;/**
+&nbsp; * insieme di esami (oggetti {@link Exam}) entro un certo anno.
+&nbsp; */
+&nbsp;public class Year {
+&nbsp;    /**
+&nbsp;     * ID numerico dell&#39;anno
+&nbsp;     */
+&nbsp;    private int id;
+&nbsp;    /**
+&nbsp;     * &lt;i&gt;{@link Map}&lt;/i&gt; per estrarre &lt;i&gt;{@link Exam}&lt;/i&gt; secondo il nome
+&nbsp;     */
+&nbsp;    private Map&lt;String, Exam&gt; exams;
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore con identificativo di tipo &lt;i&gt;int&lt;/i&gt; in input.
+&nbsp;     * @param id identificativo &lt;i&gt;int&lt;/i&gt;
+&nbsp;     */
+<b class="fc">&nbsp;    public Year(int id) {</b>
+<b class="fc">&nbsp;        this.id = id;</b>
+&nbsp;        //this.numExams = 0; // Numero di esami impostato inizialmente a zero
+<b class="fc">&nbsp;        this.exams = new HashMap&lt;String, Exam&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return identificativo &lt;i&gt;int&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public int getId() {
+<b class="nc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return numero &lt;i&gt;int&lt;/i&gt; di esami contenuti nell&#39;anno
+&nbsp;     */
+&nbsp;    public int getNumExams() {
+<b class="fc">&nbsp;        return exams.keySet().size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiunge un esame alla lista esami dell&#39;anno
+&nbsp;     * @param exam elemento &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public void addExam(Exam exam) {
+<b class="fc">&nbsp;        exams.put(exam.getName(), exam);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Restisuisce la mappa nomeEsame-&gt;esame per l&#39;anno
+&nbsp;     * @return &lt;i&gt;Map&lt;/i&gt; con chiavi &lt;i&gt;String&lt;/i&gt; e valori &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public Map&lt;String, Exam&gt; getExams() {
+<b class="fc">&nbsp;        return exams;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public String toString() {
+<b class="nc">&nbsp;		String s = &quot;Year [id=&quot; + id + &quot;, exams=\n&quot;;</b>
+<b class="nc">&nbsp;		for(Exam e : exams.values())</b>
+<b class="nc">&nbsp;			s +=&quot;\t&quot;+e+&quot;;\n&quot;;</b>
+<b class="nc">&nbsp;		return s + &quot;]&quot;;</b>
+&nbsp;	}
+&nbsp;    
+&nbsp;    
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

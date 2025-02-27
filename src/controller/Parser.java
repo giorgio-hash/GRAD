@@ -34,7 +34,7 @@ public class Parser {
     /**
      * istanza del pattern singleton
      */
-    private static Parser instance = null;
+    private static Parser instance;
 
     /**
      * Metodo statico che restituisce l'oggetto statico <i>Parser</i> (pattern singleton).
@@ -57,7 +57,7 @@ public class Parser {
 
 
     /**
-     * Esegue la lettura di un file GRAD al percorso specificato, che di default è: "<tt>.\resources\career.GRAD</tt>".
+     * Esegue la lettura di un file GRAD al percorso specificato, che di default è: "<tt>.\resources\career_witherrs.GRAD</tt>".
      * <br> Questo metodo può catturare errori, warning ed eccezioni impreviste (vedi <tt>hasOtherExceptions</tt>).
      * <ol>
      *     <li>Inizializza il lexer;</li>
@@ -161,5 +161,13 @@ public class Parser {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * modifica il percorso al file grad
+     * @param path percorso file
+     */
+    public void setFileIn(String path){
+        this.fileIn = path;
     }
 }

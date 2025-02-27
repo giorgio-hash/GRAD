@@ -74,6 +74,7 @@ public class Degree {
             this.dailyStudyHours = 4; //default
             this.exams = new HashMap<String, Exam>();
             this.s = null;
+            this.name = "";
     }
 
     /**
@@ -162,7 +163,7 @@ public class Degree {
      * Controlla se <i>Degree</i> contenga al suo interno effettivamente degli esami
      * @return <tt>true</tt> se condizione verificata, <tt>false</tt> altrimenti
      */
-    public boolean hasAnyExam(){return exams.isEmpty();}
+    public boolean hasAnyExam(){return !exams.isEmpty();}
 
     /**
      *

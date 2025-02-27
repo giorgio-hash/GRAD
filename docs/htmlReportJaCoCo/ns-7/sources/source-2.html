@@ -1,0 +1,507 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GanttFrame</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">view</a>
+</div>
+
+<h1>Coverage Summary for Class: GanttFrame (view)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GanttFrame</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/137)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GanttFrame$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/139)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package view;
+&nbsp;
+&nbsp;import controller.DependencyManager;
+&nbsp;import controller.TileManager;
+&nbsp;import model.compiler.Exam;
+&nbsp;import model.tiles.*;
+&nbsp;import view.utils.TaskRenderer;
+&nbsp;import controller.Degree;
+&nbsp;import org.jfree.chart.ChartFactory;
+&nbsp;import org.jfree.chart.ChartPanel;
+&nbsp;import org.jfree.chart.JFreeChart;
+&nbsp;import org.jfree.chart.plot.CategoryPlot;
+&nbsp;import org.jfree.data.category.IntervalCategoryDataset;
+&nbsp;import org.jfree.data.gantt.Task;
+&nbsp;import org.jfree.data.gantt.TaskSeries;
+&nbsp;import org.jfree.data.gantt.TaskSeriesCollection;
+&nbsp;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.*;
+&nbsp;import java.awt.event.WindowAdapter;
+&nbsp;import java.awt.event.WindowEvent;
+&nbsp;import java.text.ParseException;
+&nbsp;import java.text.SimpleDateFormat;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.util.*;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Specializzazione di {@link JFrame}, si appoggia su &lt;i&gt;{@link JFreeChart}&lt;/i&gt; e &lt;i&gt;{@link TileManager}&lt;/i&gt; per la realizzazione di un grafico Gantt.
+&nbsp; * Per la realizzazione del Gantt, &lt;i&gt;JFreeChart&lt;/i&gt; mette a disposizione delle astrazioni di alto livello:&lt;br&gt;
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link Task}&lt;/i&gt;: permette la creazione di un elemento grafico caratterizzato da nome, data d&#39;inizio, data di fine e (opzionalmente) percentuale di completamento;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link TaskSeries}&lt;/i&gt;: una collezione di Task;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link TaskSeriesCollection}&lt;/i&gt;: una collezione di &lt;i&gt;TaskSeries&lt;/i&gt;.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * L&#39;ordinamento con cui le &lt;i&gt;Task&lt;/i&gt; sono caricate in &lt;i&gt;TaskSeries&lt;/i&gt; e con cui quest&#39;ultime sono caricate in &lt;i&gt;TaskSeriesCollection&lt;/i&gt; determina l&#39;ordine di renderizzazione grafica (sul piano di Gantt, vengono caricate dall&#39;alto verso il basso).&lt;br&gt;
+&nbsp; * Le specializzazioni di &lt;i&gt;{@link GanttTile}&lt;/i&gt; quali &lt;i&gt;YearTile&lt;/i&gt;, &lt;i&gt;MilestoneTile&lt;/i&gt;, &lt;i&gt;ExamTile&lt;/i&gt;, vengono utilizzati per creare delle task &quot;specializzate&quot;, ottenendo delle Task che si associano in maniera biunivoca ad un oggetto &lt;i&gt;Year&lt;/i&gt;, &lt;i&gt;Milestone&lt;/i&gt;, &lt;i&gt;Exam&lt;/i&gt;.
+&nbsp; * Sempre basandosi su specializzazione, l&#39;attributo &lt;tt&gt;colormap&lt;/tt&gt; viene sfruttato per mappare le task ed associarvi un colore. Il rendering corretto dei colori è delegato a &lt;i&gt;{@link TaskRenderer}.&lt;/i&gt;&lt;br&gt;
+&nbsp; * In particolare:
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;Le task che rappresentano un &lt;i&gt;Exam&lt;/i&gt; sono caratterizzate da colore verde(esame passato) o rosso(esame non passato);&lt;/li&gt;
+&nbsp; *     &lt;li&gt;Le task che rappresentano un &lt;i&gt;Year&lt;/i&gt; sono caratterizzate da colore nero e barra di completamento, di base rossa e con riempimento verde man mano che si completa;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;Le task che rappresentano una &lt;i&gt;Milestone&lt;/i&gt; sono caratterizzate da colore blu e barra di completamento, di base rossa e con riempimento verde man mano che si completa.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * Sono state definite inoltre altre task di aggregazione più particolari, quali:
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;La task rappresentante la carriera, caratterizzata da colore grigio e barra di completamento, di base rossa e con riempimento verde man mano che si completa;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;La task rappresentante l&#39;insieme dei vincoli strict o soft, caratterizzata da colore blu e barra di completamento, di base rossa e con riempimento verde man mano che si completa.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; */
+<b class="nc">&nbsp;public class GanttFrame extends JFrame {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * gestore dei &lt;i&gt;{@link GanttTile}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private TileManager tm;
+&nbsp;    /**
+&nbsp;     * collezione di &lt;i&gt;{@link TaskSeries}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private TaskSeriesCollection taskseriescollection;
+&nbsp;    /**
+&nbsp;     * mappa indiceTask-&gt;&lt;i&gt;{@link Color}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private Map&lt;Integer, Color&gt; colormap;
+&nbsp;    /**
+&nbsp;     * generatore incrementale per indiceTask nel &lt;tt&gt;colormap&lt;/tt&gt;
+&nbsp;     */
+&nbsp;    private int colorIndex;
+&nbsp;
+&nbsp;    //varaibili d&#39;appoggio
+&nbsp;    /**
+&nbsp;     * Variabile d&#39;appoggio per contare il numero globale di esami passati per una certa vista
+&nbsp;     */
+&nbsp;    private double totPassed;
+&nbsp;    /**
+&nbsp;     * Variabile d&#39;appoggio per contare il numero globale di esami per una certa vista
+&nbsp;     */
+&nbsp;    private double totExams;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Variabile d&#39;appoggio per evitare di ricostruire il {@link ChartPanel} qualora la finestra grafica fosse già stata generata. A tal scopo, si salva un riferimento.
+&nbsp;     */
+&nbsp;    private ChartPanel saved_chartpanel;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore con titolo per la JFrame
+&nbsp;     * @param title titolo &lt;i&gt;String&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public GanttFrame(String title) {
+<b class="nc">&nbsp;        super(title);</b>
+&nbsp;
+<b class="nc">&nbsp;        clean();</b>
+<b class="nc">&nbsp;        tm = new TileManager();</b>
+<b class="nc">&nbsp;        saved_chartpanel = null;</b>
+&nbsp;
+<b class="nc">&nbsp;        this.addWindowListener(new WindowAdapter() {</b>
+&nbsp;            @Override
+&nbsp;            public void windowClosing(WindowEvent we) {
+<b class="nc">&nbsp;                saved_chartpanel = null;</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Genera il grafico per la visualizzazione della TaskSeriesCollection selezionata.
+&nbsp;     */
+&nbsp;    public void display(){
+<b class="nc">&nbsp;        IntervalCategoryDataset intervalcategorydataset = taskseriescollection;</b>
+<b class="nc">&nbsp;        JFreeChart jfreechart = ChartFactory.createGanttChart(Degree.getDegree().getName(), &quot;&quot;, &quot;&quot;,</b>
+&nbsp;                intervalcategorydataset, false, true, false);
+<b class="nc">&nbsp;        final CategoryPlot plot = (CategoryPlot) jfreechart.getPlot();</b>
+<b class="nc">&nbsp;        TaskRenderer renderer = new TaskRenderer(colormap); //Renderer personalizzato</b>
+<b class="nc">&nbsp;        renderer.setMaximumBarWidth(0.05); //massima dimensione delle task</b>
+<b class="nc">&nbsp;        plot.setRenderer(renderer);</b>
+&nbsp;
+<b class="nc">&nbsp;        ChartPanel chartpanel = new ChartPanel(jfreechart);</b>
+<b class="nc">&nbsp;        if(saved_chartpanel==null){ //se c&#39;è già un chartPanel, non serve rigenerarlo</b>
+<b class="nc">&nbsp;            chartpanel.setPreferredSize(new Dimension(500, 270));</b>
+&nbsp;        }else{
+<b class="nc">&nbsp;            chartpanel.setPreferredSize(saved_chartpanel.getSize());</b>
+&nbsp;        }
+<b class="nc">&nbsp;        saved_chartpanel = chartpanel;</b>
+<b class="nc">&nbsp;        setContentPane(chartpanel);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Imposta lo stato del GanttFrame ai valori iniziali.
+&nbsp;     */
+&nbsp;    public void clean(){
+<b class="nc">&nbsp;        taskseriescollection = new TaskSeriesCollection();</b>
+<b class="nc">&nbsp;        colormap = new HashMap&lt;Integer, Color&gt;();</b>
+<b class="nc">&nbsp;        colorIndex = 0;</b>
+<b class="nc">&nbsp;        totPassed = 0;</b>
+<b class="nc">&nbsp;        totExams = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Crea una &lt;i&gt;{@link TaskSeries}&lt;/i&gt; per rappresentare graficamente l&#39;intera carriera (istanza di &lt;i&gt;{@link Degree}&lt;/i&gt;) e la aggiunge al &lt;i&gt;{@link TaskSeriesCollection}&lt;/i&gt;.
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    public void createDegreeTaskCollection() throws ParseException {
+<b class="nc">&nbsp;        TaskSeries ts = new TaskSeries(&quot;Degree&quot;);</b>
+<b class="nc">&nbsp;        Task t = newTask(Degree.getDegree().getName(), tm.getStart(),tm.getEnd());</b>
+<b class="nc">&nbsp;        ts.add(t);</b>
+<b class="nc">&nbsp;        addProccesColor(colorIndex++, Color.darkGray);</b>
+<b class="nc">&nbsp;        taskseriescollection.add(ts);</b>
+<b class="nc">&nbsp;        for(int i=1; i&lt;=tm.getYearTiles().size(); i++){</b>
+<b class="nc">&nbsp;            createYearTaskCollection(i);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        t.setPercentComplete(totPassed/totExams);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Crea una &lt;i&gt;{@link TaskSeries}&lt;/i&gt; per rappresentare graficamente un anno e la aggiunge al &lt;i&gt;{@link TaskSeriesCollection}&lt;/i&gt;.
+&nbsp;     * @param year identificativo &lt;i&gt;int&lt;/i&gt; per estrarre l&#39;oggetto &lt;i&gt;Year&lt;/i&gt; in &lt;i&gt;{@link Degree}&lt;/i&gt;
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    public void createYearTaskCollection(int year) throws ParseException {
+<b class="nc">&nbsp;        taskseriescollection.add(createYearTaskSeries(tm.getYearTiles().get(year-1)));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Crea una &lt;i&gt;{@link TaskSeries}&lt;/i&gt; per rappresentare le dipendenze di un esame e la aggiunge al &lt;i&gt;{@link TaskSeriesCollection}&lt;/i&gt;.
+&nbsp;     * @param exam identificativo &lt;i&gt;String&lt;/i&gt; dell&#39;esame
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    public void createDependencyTaskCollection(String exam) throws ParseException {
+<b class="nc">&nbsp;        taskseriescollection.add(createDependencyTaskSeries(exam));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Crea una &lt;i&gt;{@link TaskSeries}&lt;/i&gt; per rappresentare graficamente un anno, comprendendo task anno, task esami e task Milestone al suo interno.
+&nbsp;     * @param yt oggetto &lt;i&gt;{@link YearTile}&lt;/i&gt;
+&nbsp;     * @return serie di task &lt;i&gt;{@link TaskSeries}&lt;/i&gt;
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    private TaskSeries createYearTaskSeries(YearTile yt) throws ParseException {
+&nbsp;
+<b class="nc">&nbsp;        TaskSeries ts = new TaskSeries(&quot;Year &quot; + yt.getYear().getId());</b>
+<b class="nc">&nbsp;        SortedSet&lt;GanttTile&gt; ea = new TreeSet&lt;GanttTile&gt;(new DeadlineComparator());</b>
+<b class="nc">&nbsp;        ea.addAll(yt.getExamTiles());</b>
+<b class="nc">&nbsp;        for(MilestoneTile ms : yt.getMilestoneTiles().values()){</b>
+<b class="nc">&nbsp;            ea.removeIf(e -&gt; ( e instanceof ExamTile &amp;&amp; ((ExamTile) e).getExam().getMilestone() != null &amp;&amp; ((ExamTile) e).getExam().getMilestone().equals(ms.getMilestone().getName())));</b>
+<b class="nc">&nbsp;            ea.add(ms);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        Task yeartask = newTask(&quot;------Year &quot; + yt.getYear().getId()+&quot;------&quot;, yt.getStart(), yt.getEnd());</b>
+<b class="nc">&nbsp;        ts.add(yeartask);</b>
+<b class="nc">&nbsp;        addProccesColor(colorIndex++, Color.black);</b>
+&nbsp;
+<b class="nc">&nbsp;        double passed = 0;</b>
+<b class="nc">&nbsp;        int tot = 0;</b>
+&nbsp;        ExamTile e;
+&nbsp;        MilestoneTile mt;
+&nbsp;        Task t;
+<b class="nc">&nbsp;        for(GanttTile gt : ea){</b>
+<b class="nc">&nbsp;            t = null;</b>
+<b class="nc">&nbsp;            if(gt instanceof ExamTile){</b>
+<b class="nc">&nbsp;                e = (ExamTile) gt;</b>
+<b class="nc">&nbsp;                t = newTask(e.getExam().getName(), e.getStart(), e.getEnd());</b>
+<b class="nc">&nbsp;                passed += registerPassedExam(e);</b>
+<b class="nc">&nbsp;                ts.add(t);</b>
+&nbsp;            }else{
+<b class="nc">&nbsp;                mt = (MilestoneTile) gt;</b>
+<b class="nc">&nbsp;                t = createMilestoneTask(mt);</b>
+<b class="nc">&nbsp;                passed += t.getPercentComplete();</b>
+<b class="nc">&nbsp;                ts.add(t);</b>
+<b class="nc">&nbsp;                for(ExamTile et : mt.getExamTiles())</b>
+<b class="nc">&nbsp;                    ts.add(newTask(et.getExam().getName(), et.getStart(), et.getEnd()));</b>
+&nbsp;            }
+<b class="nc">&nbsp;            tot++;</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        totExams += tot;</b>
+<b class="nc">&nbsp;        totPassed += passed;</b>
+<b class="nc">&nbsp;        yeartask.setPercentComplete( 0.0D + (passed/tot));</b>
+&nbsp;
+<b class="nc">&nbsp;        return ts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Crea una &lt;i&gt;{@link TaskSeries}&lt;/i&gt; per rappresentare le dipendenze di un esame, comprendendo l&#39;esame stesso, milestone per dipendenze soft e/o strict ed esami annessi (di quest&#39;ultimi, vengono effettivamente rappresentati solo quelli che hanno il corrispettivo ogetto &lt;i&gt;{@link Exam}&lt;/i&gt; istanziato in &lt;i&gt;{@link Degree}&lt;/i&gt;).
+&nbsp;     * @param exam nome &lt;i&gt;String&lt;/i&gt; dell&#39;esame con dipendenze
+&nbsp;     * @return serie di task &lt;i&gt;{@link TaskSeries}&lt;/i&gt;
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    private TaskSeries createDependencyTaskSeries(String exam) throws ParseException {
+&nbsp;
+<b class="nc">&nbsp;        SortedSet&lt;ExamTile&gt; strictDepsTiles = new TreeSet&lt;ExamTile&gt;(new DeadlineComparator());</b>
+<b class="nc">&nbsp;        SortedSet&lt;ExamTile&gt; softDepsTiles = new TreeSet&lt;ExamTile&gt;(new DeadlineComparator());</b>
+&nbsp;
+<b class="nc">&nbsp;        List&lt;Exam&gt; strictDeps = DependencyManager.getInstance().loadStrictDependencies(Degree.getDegree().getExam(exam));</b>
+<b class="nc">&nbsp;        List&lt;Exam&gt; softDeps = DependencyManager.getInstance().loadSoftDependencies(Degree.getDegree().getExam(exam));</b>
+&nbsp;
+<b class="nc">&nbsp;        boolean strictDepsLoaded = DependencyManager.getInstance().hasStrictDependencyLoaded(Degree.getDegree().getExam(exam));</b>
+<b class="nc">&nbsp;        boolean softdepsLoaded = DependencyManager.getInstance().hasSoftDependencyLoaded(Degree.getDegree().getExam(exam));</b>
+&nbsp;
+<b class="nc">&nbsp;        ExamTile dependency = null;</b>
+&nbsp;
+<b class="nc">&nbsp;        TaskSeries ts = new TaskSeries(&quot;Propedeutica&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        Task t = null;</b>
+&nbsp;        double passed, tot;
+&nbsp;
+<b class="nc">&nbsp;        for(int i=0 ; i &lt; tm.getYearTiles().size(); i++)</b>
+<b class="nc">&nbsp;            for(ExamTile et : tm.getYearTiles().get(i).getExamTiles()){</b>
+<b class="nc">&nbsp;                if(strictDepsLoaded)</b>
+<b class="nc">&nbsp;                    if(strictDeps.contains(et.getExam()))</b>
+<b class="nc">&nbsp;                        strictDepsTiles.add(et);</b>
+<b class="nc">&nbsp;                if(softdepsLoaded)</b>
+<b class="nc">&nbsp;                    if(softDeps.contains(et.getExam()))</b>
+<b class="nc">&nbsp;                        softDepsTiles.add(et);</b>
+&nbsp;
+<b class="nc">&nbsp;                if(et.getExam().getName().equals(exam)) {</b>
+<b class="nc">&nbsp;                    dependency = et;</b>
+<b class="nc">&nbsp;                    break;</b>
+&nbsp;                }
+<b class="nc">&nbsp;            }</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        if(strictDepsLoaded){</b>
+<b class="nc">&nbsp;            passed = 0;</b>
+<b class="nc">&nbsp;            tot=0;</b>
+<b class="nc">&nbsp;            Task strictMilestone = newTask(&quot;---Esami propedeutici---&quot;,strictDepsTiles.first().getStart(), strictDepsTiles.last().getEnd());</b>
+<b class="nc">&nbsp;            addProccesColor(colorIndex++, Color.BLUE.brighter());</b>
+<b class="nc">&nbsp;            ts.add(strictMilestone);</b>
+<b class="nc">&nbsp;            for(ExamTile e : strictDepsTiles)</b>
+&nbsp;            {
+<b class="nc">&nbsp;                t = newTask(e.getExam().getName(), e.getStart(), e.getEnd());</b>
+<b class="nc">&nbsp;                passed += registerPassedExam(e);</b>
+<b class="nc">&nbsp;                tot++;</b>
+<b class="nc">&nbsp;                ts.add(t);</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            strictMilestone.setPercentComplete(passed/tot);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if(softdepsLoaded){</b>
+<b class="nc">&nbsp;            passed = 0;</b>
+<b class="nc">&nbsp;            tot=0;</b>
+<b class="nc">&nbsp;            Task softMilestone = newTask(&quot;---Esami consigliati---&quot;,softDepsTiles.first().getStart(), softDepsTiles.last().getEnd());</b>
+<b class="nc">&nbsp;            addProccesColor(colorIndex++, Color.BLUE.brighter());</b>
+<b class="nc">&nbsp;            ts.add(softMilestone);</b>
+<b class="nc">&nbsp;            for(ExamTile e : softDepsTiles)</b>
+&nbsp;            {
+<b class="nc">&nbsp;                t = newTask(e.getExam().getName(), e.getStart(), e.getEnd());</b>
+<b class="nc">&nbsp;                passed += registerPassedExam(e);</b>
+<b class="nc">&nbsp;                tot++;</b>
+<b class="nc">&nbsp;                ts.add(t);</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;            softMilestone.setPercentComplete(passed/tot);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        t = newTask(dependency.getExam().getName(), dependency.getStart(), dependency.getEnd());</b>
+<b class="nc">&nbsp;        registerPassedExam(dependency);</b>
+<b class="nc">&nbsp;        ts.add(t);</b>
+&nbsp;
+<b class="nc">&nbsp;        return ts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se l&#39;oggetto &lt;i&gt;Exam&lt;/i&gt; rappresentato da &lt;i&gt;ExamTile&lt;/i&gt; è passato (PASSED) e restituisce un valore pari alla percentuale di completamento dell&#39;esame.
+&nbsp;     * &lt;br&gt;Inoltre, sempre in base al superamento dell&#39;esame, aggiorna &lt;tt&gt;examcolor&lt;/tt&gt; con indice e colore per la rappresentazione.
+&nbsp;     * @param et oggetto &lt;i&gt;ExamTile&lt;/i&gt;
+&nbsp;     * @return valore &lt;i&gt;double&lt;/i&gt; pari a &lt;tt&gt;1&lt;/tt&gt; se superato, altrimenti &lt;tt&gt;0&lt;/tt&gt;
+&nbsp;     */
+&nbsp;    private double registerPassedExam(ExamTile et){
+&nbsp;
+<b class="nc">&nbsp;        if(et.getExam().isPassed()){</b>
+<b class="nc">&nbsp;            addProccesColor(colorIndex++, Color.green.darker());</b>
+<b class="nc">&nbsp;            return 1.0D;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        addProccesColor(colorIndex++, Color.red.darker());</b>
+<b class="nc">&nbsp;        return 0.0D;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Crea una &lt;i&gt;{@link Task}&lt;/i&gt; da associare alla Milestone, aggiorna &lt;tt&gt;colormap&lt;/tt&gt; con indice-&gt;colore relativo alla task e imposta la percentuale di completamento in base al numero di esami associati alla Milestone che sono stati superati.
+&nbsp;     * @param ms oggetto &lt;i&gt;MilestoneTile&lt;/i&gt;
+&nbsp;     * @return elemento &lt;i&gt;Task&lt;/i&gt;
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    private Task createMilestoneTask(MilestoneTile ms) throws ParseException {
+&nbsp;
+<b class="nc">&nbsp;        double passed = 0.0D;</b>
+<b class="nc">&nbsp;        double tot = 0.0D;</b>
+<b class="nc">&nbsp;        Task mt = newTask(&quot;milestone &quot;+ms.getMilestone().getName(), ms.getStart(), ms.getEnd());</b>
+<b class="nc">&nbsp;        addProccesColor(colorIndex++, Color.BLUE.brighter());</b>
+&nbsp;
+<b class="nc">&nbsp;        for(ExamTile e : ms.getExamTiles()){</b>
+<b class="nc">&nbsp;            passed += registerPassedExam(e);</b>
+<b class="nc">&nbsp;            tot++;</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        mt.setPercentComplete(passed/tot);</b>
+<b class="nc">&nbsp;        return mt;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Permette la creazione di una &lt;i&gt;{@link Task}&lt;/i&gt;.
+&nbsp;     * @param name nome &lt;i&gt;String&lt;/i&gt; della task
+&nbsp;     * @param start data di inizio della task, formato &lt;i&gt;{@link Date}&lt;/i&gt;
+&nbsp;     * @param end data di fine della task, formato &lt;i&gt;{@link Date}&lt;/i&gt;
+&nbsp;     * @return oggetto &lt;i&gt;Task&lt;/i&gt;
+&nbsp;     * @throws ParseException generata dal metodo &lt;tt&gt;newDate(LocalDate ld)&lt;/tt&gt; se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    private Task newTask(String name, LocalDate start, LocalDate end) throws ParseException {
+<b class="nc">&nbsp;        return new Task(name, newDate(start), newDate(end));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Effettua il casting di una data da &lt;i&gt;{@link LocalDate}&lt;/i&gt; a &lt;i&gt;{@link Date}&lt;/i&gt;.
+&nbsp;     * @param ld data in formato &lt;i&gt;LocalDate&lt;/i&gt;
+&nbsp;     * @return data in formato &lt;i&gt;Date&lt;/i&gt;
+&nbsp;     * @throws ParseException generata dal metodo se ci sono problemi col casting della data (può servire a segnalare malfunzionamenti del codice)
+&nbsp;     */
+&nbsp;    private Date newDate(LocalDate ld) throws ParseException {
+<b class="nc">&nbsp;        String date_string = ld.getDayOfMonth() + &quot;-&quot; + ld.getMonthValue() + &quot;-&quot; + ld.getYear();</b>
+<b class="nc">&nbsp;        SimpleDateFormat formatter = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</b>
+<b class="nc">&nbsp;        Date date = formatter.parse(date_string);</b>
+<b class="nc">&nbsp;        return date;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna &lt;tt&gt;colormap&lt;/tt&gt; con indice della task e colore associato
+&nbsp;     * @param column &lt;i&gt;int&lt;/i&gt; per l&#39;indice della Task
+&nbsp;     * @param color oggetto &lt;i&gt;{@link Color}&lt;/i&gt; associato
+&nbsp;     */
+&nbsp;    private void addProccesColor(Integer column, Color color) {
+<b class="nc">&nbsp;        colormap.put(column, color);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

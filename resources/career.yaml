@@ -1,33 +1,14 @@
 dependencies:
-  - dependency: "Psicobiologia"
-    description: "Fondamentale per comprendere le basi biologiche del comportamento."
+  - dependency: "fisica"
+    description: "per studiare fisica occorre sapere matematica e geometria. Può servire anche un pò di logica"
     strict_dependencies:
-      - exam: "Introduzione alla Psicologia"
-  - dependency: "Neuroscienze Cognitive"
-    description: "Approfondisce le connessioni tra mente e cervello, utile dopo Psicobiologia."
-    strict_dependencies:
-      - exam: "Psicobiologia"
+      - exam: "matematica"
+      - exam: "geometria"
     soft_dependencies:
-      - exam: "Metodologia della Ricerca Psicologica"
-  - dependency: "Psicologia Clinica"
-    description: "Per comprendere meglio la psicopatologia e le tecniche di intervento."
+      - exam: "logica"
+  - dependency: "logistica"
+    description: "per studiare logistica è necessario avere dei fondamenti di organizzazione aziendale, mentre può essere utile economia"
     strict_dependencies:
-      - exam: "Psicopatologia"
+      - exam: "organizzazione aziendale"
     soft_dependencies:
-      - exam: "Psicologia Sociale"
-  - dependency: "Teorie e Tecniche del Colloquio Psicologico"
-    description: "Importante per sviluppare competenze pratiche nel colloquio clinico."
-    strict_dependencies:
-      - exam: "Psicologia Clinica"
-    soft_dependencies:
-      - exam: "Psicopatologia"
-      - exam: "Psicologia dello Sviluppo"
-  - dependency: "Statistica per la Psicologia"
-    description: "Essenziale per la ricerca in psicologia e l'analisi dei dati."
-    strict_dependencies:
-      - exam: "Metodologia della Ricerca Psicologica"
-  - dependency: "Psicologia dello Sviluppo"
-    description: "Approfondisce lo sviluppo psicologico dall'infanzia all'età adulta."
-    soft_dependencies:
-      - exam: "Introduzione alla Psicologia"
-      - exam: "Psicologia Sociale"
+      - exam: "economia"

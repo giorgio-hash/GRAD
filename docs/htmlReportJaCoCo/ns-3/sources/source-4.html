@@ -1,0 +1,162 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TileManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">controller</a>
+</div>
+
+<h1>Coverage Summary for Class: TileManager (controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TileManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (9/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package controller;
+&nbsp;
+&nbsp;import model.tiles.GanttTile;
+&nbsp;import model.tiles.YearTile;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;/**
+&nbsp; * Classe per gestire creazione, organizzazione ed ordinamento sia gerarchico che sequenziale degli elementi &lt;i&gt;Tile&lt;/i&gt;, definiti per astrarre l&#39;aggregazione e disposizione delle componenti grafiche nel Gantt.
+&nbsp; * &lt;br&gt;Questa classe stessa è un &lt;i&gt;GanttTile&lt;/i&gt; e costituisce la radice di una gerarchia di aggregazioni, così definita:&lt;br&gt;
+&nbsp; *  &lt;i&gt;TileManager&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;YearTile&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;i&gt;ExamTile&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;MilestoneTile&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;ExamTile&lt;/i&gt;&lt;br&gt;
+&nbsp; */
+&nbsp;public class TileManager extends GanttTile {
+&nbsp;    /**
+&nbsp;     * Lista ordinata di oggetti &lt;i&gt;{@link YearTile}&lt;/i&gt;, rispettando l&#39;ordine dei corrispondenti &lt;i&gt;Year&lt;/i&gt; in &lt;i&gt;{@link Degree}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private ArrayList&lt;YearTile&gt; tiles;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore del &lt;i&gt;TileManager&lt;/i&gt;. Innesca la creazione della gerarchia dei &lt;i&gt;Tile&lt;/i&gt;.
+&nbsp;     */
+<b class="fc">&nbsp;    public TileManager(){</b>
+<b class="fc">&nbsp;        tiles = new ArrayList&lt;YearTile&gt;();</b>
+<b class="fc">&nbsp;        for(int i=0; i&lt; Degree.getDegree().getYears().size(); i++)</b>
+&nbsp;        {
+<b class="fc">&nbsp;            tiles.add(new YearTile(i+1));</b>
+<b class="fc">&nbsp;            if(i == 0)</b>
+&nbsp;            {
+<b class="fc">&nbsp;                super.setStart(tiles.get(i).getStart());</b>
+<b class="fc">&nbsp;                super.setEnd(tiles.get(i).getEnd());</b>
+&nbsp;            }
+&nbsp;            else
+&nbsp;            {
+<b class="fc">&nbsp;                if(super.getStart().isAfter(tiles.get(i).getStart()))</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    super.setStart(tiles.get(i).getStart());</b>
+&nbsp;                }
+&nbsp;
+<b class="fc">&nbsp;                if(super.getEnd().isBefore(tiles.get(i).getEnd()))</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    super.setEnd(tiles.get(i).getEnd());</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Restituisce la lista degli &lt;i&gt;YearTile&lt;/i&gt;.
+&nbsp;     * @return &lt;i&gt;ArrayList&lt;/i&gt; di elementi &lt;i&gt;YearTile&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public ArrayList&lt;YearTile&gt; getYearTiles(){
+<b class="nc">&nbsp;        return tiles;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

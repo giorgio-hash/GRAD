@@ -1,0 +1,225 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Exam</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model.compiler</a>
+</div>
+
+<h1>Coverage Summary for Class: Exam (model.compiler)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Exam</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (8/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86,7%
+  </span>
+  <span class="absValue">
+    (13/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model.compiler;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;
+&nbsp;/**
+&nbsp; * Mappa un oggetto EXAM definito nel file con estensione &quot;.GRAD&quot;.
+&nbsp; */
+&nbsp;public class Exam {
+&nbsp;    /**
+&nbsp;     *  Nome dell&#39;esame
+&nbsp;     */
+&nbsp;    private String name;
+&nbsp;    /**
+&nbsp;     * Numero di crediti associati all&#39;esame
+&nbsp;     */
+&nbsp;    private int cfu;
+&nbsp;    /**
+&nbsp;     * Data dell&#39;appello
+&nbsp;     */
+&nbsp;    private LocalDate appello;
+&nbsp;    /**
+&nbsp;     * Stato dell&#39;esame: &lt;tt&gt;PASSED&lt;/tt&gt; / &lt;tt&gt;NOT_PASSED&lt;/tt&gt;
+&nbsp;     */
+&nbsp;    private Status status;
+&nbsp;    /**
+&nbsp;     * milestone di riferimento. default: &lt;tt&gt;null&lt;/tt&gt;
+&nbsp;     */
+&nbsp;    private String milestone;
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore oggetto EXAM.
+&nbsp;     * @param name nome (unico) esame, formato &lt;i&gt;String&lt;/i&gt;
+&nbsp;     * @param cfu crediti CFU, formato &lt;i&gt;int&lt;/i&gt;
+&nbsp;     * @param appello data dell&#39;appello, formato &lt;i&gt;{@link LocalDate}&lt;/i&gt;
+&nbsp;     */
+<b class="fc">&nbsp;    public Exam(String name, int cfu, LocalDate appello) {</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.cfu = cfu;</b>
+<b class="fc">&nbsp;        this.appello = appello;</b>
+<b class="fc">&nbsp;        this.status = Status.NOT_PASSED; // Stato di default</b>
+<b class="fc">&nbsp;        this.milestone = null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Restituisce nome esame
+&nbsp;     * @return oggetto &lt;i&gt;String&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return numero &lt;i&gt;int&lt;/i&gt; di CFU
+&nbsp;     */
+&nbsp;    public int getCfu() {
+<b class="fc">&nbsp;        return cfu;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return data dell&#39;appello, formato &lt;i&gt;{@link LocalDate}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public LocalDate getAppello() {
+<b class="fc">&nbsp;        return appello;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return stato esame (passato/non passato) in formato {@link Status}
+&nbsp;     */
+&nbsp;    public String getStatus() {
+<b class="nc">&nbsp;        return status.toString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * imposta stato esame (vedi {@link Status}):
+&nbsp;     * &lt;ul&gt;
+&nbsp;     *     &lt;li&gt;PASSED se in input &quot;PASSED&quot;&lt;/li&gt;
+&nbsp;     *     &lt;li&gt;NOT_PASSED per qualsiasi altro valore&lt;/li&gt;
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * @param status parametro &lt;i&gt;String&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public void setStatus(String status) {
+<b class="fc">&nbsp;        this.status = Status.valueOf(status);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se stato esame è PASSED (vedi {@link Status})
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean isPassed() {
+<b class="fc">&nbsp;    	return this.status == Status.PASSED;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * vedi {@link Milestone}.
+&nbsp;     * @return il nome &lt;i&gt;String&lt;/i&gt; della Milestone di cui l&#39;esame fa parte, &lt;tt&gt;null&lt;/tt&gt; se non definita
+&nbsp;     */
+&nbsp;    public String getMilestone() {
+<b class="fc">&nbsp;        return milestone;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * vedi {@link Milestone}.
+&nbsp;     * Imposta il nome della Milestone a cui l&#39;esame si associa.
+&nbsp;     * @param milestone nome Milestone &lt;i&gt;String&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public void setMilestone(String milestone) {
+<b class="fc">&nbsp;        this.milestone = milestone;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public String toString() {
+&nbsp;
+<b class="nc">&nbsp;		return &quot;\t Exam [name=&quot; + name + &quot;, cfu=&quot; + cfu + &quot;, appello=&quot; + appello + &quot;, status=&quot; + status + &quot;, milestone=&quot;</b>
+&nbsp;				+ milestone + &quot;]&quot;;
+&nbsp;	}
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

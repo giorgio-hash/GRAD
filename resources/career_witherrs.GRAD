@@ -27,7 +27,7 @@ YEARS: [
     }
     YEAR {
         EXAMS: [
-            EXAM "fisica" CFU 6 DATE 20-01-2024 STATUS PASSED;
+            EXAM "fisica" CFU  DATE 20-01-2024 STATUS PASSED;
             EXAM "logistica" CFU 6 DATE20-01-2024;
         ]
     }

@@ -1,0 +1,224 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Dependency</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model.yaml</a>
+</div>
+
+<h1>Coverage Summary for Class: Dependency (model.yaml)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Dependency</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (8/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    44,4%
+  </span>
+  <span class="absValue">
+    (8/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model.yaml;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Oggetto collezionato nel &lt;i&gt;DependencyMapper&lt;/i&gt;. Definisce le dipendenze verso un certo esame, denotato come &lt;tt&gt;dependency&lt;/tt&gt;:
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;dipendenze soft&lt;/i&gt;: lista di &lt;i&gt;ExamDependency&lt;/i&gt; che definiscono gli esami suggeriti prima di affrontare la &lt;tt&gt;dependency&lt;/tt&gt;;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;dipendenze strict&lt;/i&gt;: lista di &lt;i&gt;ExamDependency&lt;/i&gt; che definiscono gli obblighi formativi propedeutici per la &lt;tt&gt;dependency&lt;/tt&gt;;&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * Sebbene il termine &lt;tt&gt;dependency&lt;/tt&gt; può essere ambiguo, la definizione di &lt;tt&gt;dependency&lt;/tt&gt; vorrebbe indicare un esame che ha delle precedenze da assolvere, dai quali quindi dipende.
+&nbsp; * &lt;br&gt;La struttura può essere estratta da file YAML e segue la gerarchia di attributi. Le dipendenze sono definite tramite la classe {@link ExamDependency} opportunamente codificati: &lt;br&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;- &lt;tt&gt;dependency&lt;/tt&gt;: &quot;valore stringa&quot;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;tt&gt;description&lt;/tt&gt;: &quot;valore stringa&quot; (opzionale)&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;tt&gt;soft_dependencies&lt;/tt&gt;: (opzionale)&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;i&gt;{@link ExamDependency}&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472; &lt;tt&gt; ... &lt;/tt&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;tt&gt;strict_dependencies&lt;/tt&gt;: (opzionale)&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;i&gt;{@link ExamDependency}&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472; &lt;tt&gt; ... &lt;/tt&gt;&lt;br&gt;
+&nbsp; */
+<b class="fc">&nbsp;public class Dependency {</b>
+&nbsp;	/**
+&nbsp;	 * Nome esame per cui son state definite delle dipendenze
+&nbsp;	 */
+&nbsp;	private String dependency;
+&nbsp;	/**
+&nbsp;	 * Descrizione aggiuntiva per dettagliare i motivi dei vincoli di dipendenza
+&nbsp;	 */
+&nbsp;	private String description;
+&nbsp;	/**
+&nbsp;	 * lista delle dipendenze &lt;tt&gt;soft&lt;/tt&gt; per &lt;tt&gt;dependency&lt;/tt&gt; (vedi &lt;i&gt;{@link ExamDependency}&lt;/i&gt;)
+&nbsp;	 */
+&nbsp;	private List&lt;ExamDependency&gt; soft_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
+&nbsp;	/**
+&nbsp;	 * lista delle dipendenze &lt;tt&gt;strict&lt;/tt&gt; per &lt;tt&gt;dependency&lt;/tt&gt; (vedi &lt;i&gt;{@link ExamDependency}&lt;/i&gt;)
+&nbsp;	 */
+&nbsp;	private List&lt;ExamDependency&gt; strict_dependencies;//è stato utilizzato lo snake_case per compatibilità con keywords in yaml
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Ritorna il nome dell&#39;esame con dipendenze.
+&nbsp;	 * @return nome dell&#39;esame &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public String getDependency() {
+<b class="fc">&nbsp;		return dependency;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Serve a SnakeYAML
+&nbsp;	 * @param dependency
+&nbsp;	 */
+<b class="fc">&nbsp;	public void setDependency(String dependency){this.dependency=dependency;}</b>
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Ritorna una descrizione della &lt;i&gt;Dependency&lt;/i&gt; (ad es. il motivo per cui è stata formalizzata la dipendenza tra &lt;tt&gt;dependency&lt;/tt&gt; e le dipendenze &lt;i&gt;strict&lt;/i&gt;/&lt;i&gt;soft&lt;/i&gt;)
+&nbsp;	 * @return descrizione &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public String getDescription() {
+<b class="nc">&nbsp;		return description;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Serve a SnakeYAML
+&nbsp;	 * @param description
+&nbsp;	 */
+&nbsp;	public void setDescription(String description){
+<b class="fc">&nbsp;		this.description=description;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Restituisce la lista di dipendenze &lt;tt&gt;soft&lt;/tt&gt;, definite come &lt;i&gt;ExamDependency&lt;/i&gt;
+&nbsp;	 * @return &lt;i&gt;List&lt;/i&gt; di elementi &lt;i&gt;ExamDependency&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public List&lt;ExamDependency&gt; getSoft_dependencies() {
+<b class="fc">&nbsp;		return soft_dependencies;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * serve a SnakeYAML
+&nbsp;	 * @param soft_dependencies
+&nbsp;	 */
+&nbsp;	public void setSoft_dependencies(List&lt;ExamDependency&gt; soft_dependencies) {
+<b class="fc">&nbsp;		this.soft_dependencies = soft_dependencies;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Restituisce la lista di dipendenze &lt;tt&gt;strict&lt;/tt&gt;, definite come &lt;i&gt;ExamDependency&lt;/i&gt;
+&nbsp;	 * @return &lt;i&gt;List&lt;/i&gt; di elementi &lt;i&gt;ExamDependency&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public List&lt;ExamDependency&gt; getStrict_dependencies() {
+<b class="fc">&nbsp;		return strict_dependencies;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * serve a SnakeYAML
+&nbsp;	 * @param strict_dependencies
+&nbsp;	 */
+&nbsp;	public void setStrict_dependencies(List&lt;ExamDependency&gt; strict_dependencies) {
+<b class="fc">&nbsp;		this.strict_dependencies = strict_dependencies;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public String toString() {
+<b class="nc">&nbsp;		String s = &quot;Dependency [dependency=&quot; + dependency + &quot;, soft_dependencies=\n&quot;;</b>
+<b class="nc">&nbsp;		if(soft_dependencies != null)</b>
+<b class="nc">&nbsp;		for(ExamDependency e : soft_dependencies)</b>
+<b class="nc">&nbsp;			s += &quot;\t&quot;+e+&quot;;\n&quot;;</b>
+<b class="nc">&nbsp;		s += &quot;, strict_dependencies=\n&quot;;</b>
+<b class="nc">&nbsp;		if(strict_dependencies != null)</b>
+<b class="nc">&nbsp;		for(ExamDependency e : strict_dependencies)</b>
+<b class="nc">&nbsp;			s += &quot;\t&quot;+e+&quot;;\n&quot;;</b>
+<b class="nc">&nbsp;		return  s + &quot;]&quot;;</b>
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.0" sequence="0" timestamp="1740681492606" analysisTimestamp="1740681488789" release="">
+  <Project projectName="GRAD[GRAD]">
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\app\Launcher.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\app\Launcher$1.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view/utils\Mode.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view/utils\Pair.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view/utils\TaskRenderer.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view/tableModel\DegreeTableModel.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GRADgui.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GRADgui$1.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GRADgui$2.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GRADgui$3.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GRADgui$4.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GRADgui$5.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GanttFrame.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\view\GanttFrame$1.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/yaml\Dependency.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/yaml\ExamDependency.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/yaml\DependencyMapper.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/tiles\ExamTile.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/tiles\YearTile.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/tiles\GanttTile.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/tiles\MilestoneTile.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/tiles\ExamAggregator.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/tiles\DeadlineComparator.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\Exam.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\Year.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\Status.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\Address.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\Student.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\Milestone.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\model/compiler\University.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\compiler\SemanticHandler.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\controller\Degree.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\controller\Parser.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\controller\TileManager.class</Jar>
+    <Jar>C:\Users\gchir\OneDrive\Desktop\uni\linguaggi compilatori\esercizi\GRAD\target\classes\controller\DependencyManager.class</Jar>
+    <AuxClasspathEntry>C:/Users/gchir/OneDrive/Desktop/uni/linguaggi compilatori/esercizi/GRAD/target/classes</AuxClasspathEntry>
+    <SrcDir>C:/Users/gchir/OneDrive/Desktop/uni/linguaggi compilatori/esercizi/GRAD/src</SrcDir>
+    <SrcDir>C:/Users/gchir/OneDrive/Desktop/uni/linguaggi compilatori/esercizi/GRAD/target/generated-sources/annotations</SrcDir>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="1" rank="15" abbrev="DLS" category="STYLE" instanceHash="7941af480082bc761d8f664a93d10eab" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to s in compiler.SemanticHandler.checkDateRange(LocalDate, Token)</LongMessage>
+    <Class classname="compiler.SemanticHandler" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+        <Message>In SemanticHandler.java</Message>
+      </SourceLine>
+      <Message>In class compiler.SemanticHandler</Message>
+    </Class>
+    <Method classname="compiler.SemanticHandler" name="checkDateRange" signature="(Ljava/time/LocalDate;Lorg/antlr/runtime/Token;)V" isStatic="false" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" start="438" end="449" startBytecode="0" endBytecode="31" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java"/>
+      <Message>In method compiler.SemanticHandler.checkDateRange(LocalDate, Token)</Message>
+    </Method>
+    <LocalVariable name="s" register="1" pc="71" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named s</Message>
+    </LocalVariable>
+    <SourceLine classname="compiler.SemanticHandler" primary="true" start="447" end="447" startBytecode="70" endBytecode="70" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+      <Message>At SemanticHandler.java:[line 447]</Message>
+    </SourceLine>
+    <SourceLine classname="compiler.SemanticHandler" primary="true" start="447" end="447" startBytecode="70" endBytecode="70" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+      <Message>At SemanticHandler.java:[line 447]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.IS_PARAMETER" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="s"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="bb0f5b0178b8333a88002b9767f0993a" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>compiler.SemanticHandler.getErrors() may expose internal representation by returning SemanticHandler.errors</LongMessage>
+    <Class classname="compiler.SemanticHandler" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+        <Message>In SemanticHandler.java</Message>
+      </SourceLine>
+      <Message>In class compiler.SemanticHandler</Message>
+    </Class>
+    <Method classname="compiler.SemanticHandler" name="getErrors" signature="()Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" start="315" end="315" startBytecode="0" endBytecode="46" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java"/>
+      <Message>In method compiler.SemanticHandler.getErrors()</Message>
+    </Method>
+    <Field classname="compiler.SemanticHandler" name="errors" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+        <Message>In SemanticHandler.java</Message>
+      </SourceLine>
+      <Message>Field compiler.SemanticHandler.errors</Message>
+    </Field>
+    <SourceLine classname="compiler.SemanticHandler" primary="true" start="315" end="315" startBytecode="4" endBytecode="4" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+      <Message>At SemanticHandler.java:[line 315]</Message>
+    </SourceLine>
+    <SourceLine classname="compiler.SemanticHandler" primary="true" start="315" end="315" startBytecode="4" endBytecode="4" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+      <Message>At SemanticHandler.java:[line 315]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f07b1ba3dfddd8923dbb7769a771008e" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>compiler.SemanticHandler.getWarnings() may expose internal representation by returning SemanticHandler.warnings</LongMessage>
+    <Class classname="compiler.SemanticHandler" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+        <Message>In SemanticHandler.java</Message>
+      </SourceLine>
+      <Message>In class compiler.SemanticHandler</Message>
+    </Class>
+    <Method classname="compiler.SemanticHandler" name="getWarnings" signature="()Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" start="323" end="323" startBytecode="0" endBytecode="46" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java"/>
+      <Message>In method compiler.SemanticHandler.getWarnings()</Message>
+    </Method>
+    <Field classname="compiler.SemanticHandler" name="warnings" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="compiler.SemanticHandler" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+        <Message>In SemanticHandler.java</Message>
+      </SourceLine>
+      <Message>Field compiler.SemanticHandler.warnings</Message>
+    </Field>
+    <SourceLine classname="compiler.SemanticHandler" primary="true" start="323" end="323" startBytecode="4" endBytecode="4" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+      <Message>At SemanticHandler.java:[line 323]</Message>
+    </SourceLine>
+    <SourceLine classname="compiler.SemanticHandler" primary="true" start="323" end="323" startBytecode="4" endBytecode="4" sourcefile="SemanticHandler.java" sourcepath="compiler/SemanticHandler.java" relSourcepath="src\compiler\SemanticHandler.java">
+      <Message>At SemanticHandler.java:[line 323]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="81ea3dc5f2a0d2cab5293f022ff470b1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>controller.Degree.getExams() may expose internal representation by returning Degree.exams</LongMessage>
+    <Class classname="controller.Degree" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>In class controller.Degree</Message>
+    </Class>
+    <Method classname="controller.Degree" name="getExams" signature="()Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" start="141" end="141" startBytecode="0" endBytecode="46" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java"/>
+      <Message>In method controller.Degree.getExams()</Message>
+    </Method>
+    <Field classname="controller.Degree" name="exams" signature="Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>Field controller.Degree.exams</Message>
+    </Field>
+    <SourceLine classname="controller.Degree" primary="true" start="141" end="141" startBytecode="4" endBytecode="4" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 141]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Degree" primary="true" start="141" end="141" startBytecode="4" endBytecode="4" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 141]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="3aa27be33f8e10a45f049bf78466176d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>controller.Degree.getMilestones() may expose internal representation by returning Degree.milestones</LongMessage>
+    <Class classname="controller.Degree" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>In class controller.Degree</Message>
+    </Class>
+    <Method classname="controller.Degree" name="getMilestones" signature="()Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" start="125" end="125" startBytecode="0" endBytecode="46" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java"/>
+      <Message>In method controller.Degree.getMilestones()</Message>
+    </Method>
+    <Field classname="controller.Degree" name="milestones" signature="Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>Field controller.Degree.milestones</Message>
+    </Field>
+    <SourceLine classname="controller.Degree" primary="true" start="125" end="125" startBytecode="4" endBytecode="4" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 125]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Degree" primary="true" start="125" end="125" startBytecode="4" endBytecode="4" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 125]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="ec5feb67747568eb8e585011feb622fd" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>controller.Degree.getYears() may expose internal representation by returning Degree.years</LongMessage>
+    <Class classname="controller.Degree" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>In class controller.Degree</Message>
+    </Class>
+    <Method classname="controller.Degree" name="getYears" signature="()Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" start="109" end="109" startBytecode="0" endBytecode="46" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java"/>
+      <Message>In method controller.Degree.getYears()</Message>
+    </Method>
+    <Field classname="controller.Degree" name="years" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>Field controller.Degree.years</Message>
+    </Field>
+    <SourceLine classname="controller.Degree" primary="true" start="109" end="109" startBytecode="4" endBytecode="4" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 109]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Degree" primary="true" start="109" end="109" startBytecode="4" endBytecode="4" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 109]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="c057aff8939c147314d11f5160fdad80" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static controller.Degree.getDegree() may expose internal representation by returning Degree.d</LongMessage>
+    <Class classname="controller.Degree" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>In class controller.Degree</Message>
+    </Class>
+    <Method classname="controller.Degree" name="getDegree" signature="()Lcontroller/Degree;" isStatic="true" primary="true">
+      <SourceLine classname="controller.Degree" start="54" end="56" startBytecode="0" endBytecode="60" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java"/>
+      <Message>In method controller.Degree.getDegree()</Message>
+    </Method>
+    <Field classname="controller.Degree" name="d" signature="Lcontroller/Degree;" isStatic="true" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>Field controller.Degree.d</Message>
+    </Field>
+    <SourceLine classname="controller.Degree" primary="true" start="56" end="56" startBytecode="19" endBytecode="19" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 56]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Degree" primary="true" start="56" end="56" startBytecode="19" endBytecode="19" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" instanceHash="f85ca716e2c57f2e0adc6e01d6f4e202" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates strings using + in a loop</ShortMessage>
+    <LongMessage>controller.Degree.toString() concatenates strings using + in a loop</LongMessage>
+    <Class classname="controller.Degree" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>In class controller.Degree</Message>
+    </Class>
+    <Method classname="controller.Degree" name="toString" signature="()Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="controller.Degree" start="211" end="217" startBytecode="0" endBytecode="243" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java"/>
+      <Message>In method controller.Degree.toString()</Message>
+    </Method>
+    <SourceLine classname="controller.Degree" primary="true" start="213" end="213" startBytecode="48" endBytecode="48" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+      <Message>At Degree.java:[line 213]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="426a70cdb5fb8d3bea7037e885478066" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Instance-getter method of class using singleton design pattern is not synchronized.</ShortMessage>
+    <LongMessage>Instance-getter method of class using singleton design pattern (controller.Degree) is not synchronized.</LongMessage>
+    <Class classname="controller.Degree" primary="true">
+      <SourceLine classname="controller.Degree" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java">
+        <Message>In Degree.java</Message>
+      </SourceLine>
+      <Message>In class controller.Degree</Message>
+    </Class>
+    <Method classname="controller.Degree" name="getDegree" signature="()Lcontroller/Degree;" isStatic="true" primary="true">
+      <SourceLine classname="controller.Degree" start="54" end="56" startBytecode="0" endBytecode="60" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java"/>
+      <Message>In method controller.Degree.getDegree()</Message>
+    </Method>
+    <SourceLine classname="controller.Degree" start="54" end="56" startBytecode="0" endBytecode="60" sourcefile="Degree.java" sourcepath="controller/Degree.java" relSourcepath="src\controller\Degree.java" synthetic="true">
+      <Message>At Degree.java:[lines 54-56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="75234ccc37dce4068a1af36a6e5a565b" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Instance-getter method of class using singleton design pattern is not synchronized.</ShortMessage>
+    <LongMessage>Instance-getter method of class using singleton design pattern (controller.DependencyManager) is not synchronized.</LongMessage>
+    <Class classname="controller.DependencyManager" primary="true">
+      <SourceLine classname="controller.DependencyManager" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java">
+        <Message>In DependencyManager.java</Message>
+      </SourceLine>
+      <Message>In class controller.DependencyManager</Message>
+    </Class>
+    <Method classname="controller.DependencyManager" name="getInstance" signature="()Lcontroller/DependencyManager;" isStatic="true" primary="true">
+      <SourceLine classname="controller.DependencyManager" start="59" end="62" startBytecode="0" endBytecode="60" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java"/>
+      <Message>In method controller.DependencyManager.getInstance()</Message>
+    </Method>
+    <SourceLine classname="controller.DependencyManager" start="59" end="62" startBytecode="0" endBytecode="60" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java" synthetic="true">
+      <Message>At DependencyManager.java:[lines 59-62]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" rank="15" abbrev="ST" category="STYLE" instanceHash="cd257bf0105f2e71e712056640cc58b0" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Write to static field from instance method</ShortMessage>
+    <LongMessage>Write to static field controller.DependencyManager.data from instance method controller.DependencyManager.loadYAML()</LongMessage>
+    <Class classname="controller.DependencyManager" primary="true">
+      <SourceLine classname="controller.DependencyManager" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java">
+        <Message>In DependencyManager.java</Message>
+      </SourceLine>
+      <Message>In class controller.DependencyManager</Message>
+    </Class>
+    <Method classname="controller.DependencyManager" name="loadYAML" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="controller.DependencyManager" start="75" end="85" startBytecode="0" endBytecode="198" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java"/>
+      <Message>In method controller.DependencyManager.loadYAML()</Message>
+    </Method>
+    <Field classname="controller.DependencyManager" name="data" signature="Lmodel/yaml/DependencyMapper;" isStatic="true" primary="true">
+      <SourceLine classname="controller.DependencyManager" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java">
+        <Message>In DependencyManager.java</Message>
+      </SourceLine>
+      <Message>Field controller.DependencyManager.data</Message>
+    </Field>
+    <SourceLine classname="controller.DependencyManager" primary="true" start="79" end="79" startBytecode="32" endBytecode="32" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java">
+      <Message>At DependencyManager.java:[line 79]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.DependencyManager" primary="true" start="79" end="79" startBytecode="32" endBytecode="32" sourcefile="DependencyManager.java" sourcepath="controller/DependencyManager.java" relSourcepath="src\controller\DependencyManager.java">
+      <Message>At DependencyManager.java:[line 79]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="64cd591288ae22912a9303989c566f00" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in controller.Parser.dumpToFile(List, String): new java.io.FileWriter(File)</LongMessage>
+    <Class classname="controller.Parser" primary="true">
+      <SourceLine classname="controller.Parser" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+        <Message>In Parser.java</Message>
+      </SourceLine>
+      <Message>In class controller.Parser</Message>
+    </Class>
+    <Method classname="controller.Parser" name="dumpToFile" signature="(Ljava/util/List;Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="controller.Parser" start="152" end="164" startBytecode="0" endBytecode="329" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java"/>
+      <Message>In method controller.Parser.dumpToFile(List, String)</Message>
+    </Method>
+    <Method classname="java.io.FileWriter" name="&lt;init&gt;" signature="(Ljava/io/File;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileWriter" start="96" end="97" startBytecode="0" endBytecode="68" sourcefile="FileWriter.java" sourcepath="java/io/FileWriter.java"/>
+      <Message>Called method new java.io.FileWriter(File)</Message>
+    </Method>
+    <SourceLine classname="controller.Parser" primary="true" start="153" end="153" startBytecode="18" endBytecode="18" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+      <Message>At Parser.java:[line 153]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Parser" primary="true" start="153" end="153" startBytecode="18" endBytecode="18" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+      <Message>At Parser.java:[line 153]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" instanceHash="15b5649e9e22604d52038f1aaafba5c5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in controller.Parser.parse(): new java.io.FileReader(String)</LongMessage>
+    <Class classname="controller.Parser" primary="true">
+      <SourceLine classname="controller.Parser" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+        <Message>In Parser.java</Message>
+      </SourceLine>
+      <Message>In class controller.Parser</Message>
+    </Class>
+    <Method classname="controller.Parser" name="parse" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="controller.Parser" start="71" end="103" startBytecode="0" endBytecode="295" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java"/>
+      <Message>In method controller.Parser.parse()</Message>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader" start="60" end="61" startBytecode="0" endBytecode="68" sourcefile="FileReader.java" sourcepath="java/io/FileReader.java"/>
+      <Message>Called method new java.io.FileReader(String)</Message>
+    </Method>
+    <SourceLine classname="controller.Parser" primary="true" start="75" end="75" startBytecode="21" endBytecode="21" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+      <Message>At Parser.java:[line 75]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Parser" primary="true" start="75" end="75" startBytecode="21" endBytecode="21" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+      <Message>At Parser.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="MS_EXPOSE_REP" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE" instanceHash="a7822f2c45e30b1d066e6c6df94c73f5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="493">
+    <ShortMessage>Public static method may expose internal representation by returning a mutable object or array</ShortMessage>
+    <LongMessage>Public static controller.Parser.getInstance() may expose internal representation by returning Parser.instance</LongMessage>
+    <Class classname="controller.Parser" primary="true">
+      <SourceLine classname="controller.Parser" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+        <Message>In Parser.java</Message>
+      </SourceLine>
+      <Message>In class controller.Parser</Message>
+    </Class>
+    <Method classname="controller.Parser" name="getInstance" signature="()Lcontroller/Parser;" isStatic="true" primary="true">
+      <SourceLine classname="controller.Parser" start="44" end="47" startBytecode="0" endBytecode="60" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java"/>
+      <Message>In method controller.Parser.getInstance()</Message>
+    </Method>
+    <Field classname="controller.Parser" name="instance" signature="Lcontroller/Parser;" isStatic="true" primary="true">
+      <SourceLine classname="controller.Parser" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+        <Message>In Parser.java</Message>
+      </SourceLine>
+      <Message>Field controller.Parser.instance</Message>
+    </Field>
+    <SourceLine classname="controller.Parser" primary="true" start="47" end="47" startBytecode="19" endBytecode="19" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+      <Message>At Parser.java:[line 47]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.Parser" primary="true" start="47" end="47" startBytecode="19" endBytecode="19" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+      <Message>At Parser.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" priority="2" rank="7" abbrev="SING" category="CORRECTNESS" instanceHash="aadf05fe2f80189ece597d6c371caf03" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Instance-getter method of class using singleton design pattern is not synchronized.</ShortMessage>
+    <LongMessage>Instance-getter method of class using singleton design pattern (controller.Parser) is not synchronized.</LongMessage>
+    <Class classname="controller.Parser" primary="true">
+      <SourceLine classname="controller.Parser" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java">
+        <Message>In Parser.java</Message>
+      </SourceLine>
+      <Message>In class controller.Parser</Message>
+    </Class>
+    <Method classname="controller.Parser" name="getInstance" signature="()Lcontroller/Parser;" isStatic="true" primary="true">
+      <SourceLine classname="controller.Parser" start="44" end="47" startBytecode="0" endBytecode="60" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java"/>
+      <Message>In method controller.Parser.getInstance()</Message>
+    </Method>
+    <SourceLine classname="controller.Parser" start="44" end="47" startBytecode="0" endBytecode="60" sourcefile="Parser.java" sourcepath="controller/Parser.java" relSourcepath="src\controller\Parser.java" synthetic="true">
+      <Message>At Parser.java:[lines 44-47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="90eeb5e0d0163b7848908f1445df2393" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>controller.TileManager.getYearTiles() may expose internal representation by returning TileManager.tiles</LongMessage>
+    <Class classname="controller.TileManager" primary="true">
+      <SourceLine classname="controller.TileManager" sourcefile="TileManager.java" sourcepath="controller/TileManager.java" relSourcepath="src\controller\TileManager.java">
+        <Message>In TileManager.java</Message>
+      </SourceLine>
+      <Message>In class controller.TileManager</Message>
+    </Class>
+    <Method classname="controller.TileManager" name="getYearTiles" signature="()Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="controller.TileManager" start="56" end="56" startBytecode="0" endBytecode="46" sourcefile="TileManager.java" sourcepath="controller/TileManager.java" relSourcepath="src\controller\TileManager.java"/>
+      <Message>In method controller.TileManager.getYearTiles()</Message>
+    </Method>
+    <Field classname="controller.TileManager" name="tiles" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="controller.TileManager" sourcefile="TileManager.java" sourcepath="controller/TileManager.java" relSourcepath="src\controller\TileManager.java">
+        <Message>In TileManager.java</Message>
+      </SourceLine>
+      <Message>Field controller.TileManager.tiles</Message>
+    </Field>
+    <SourceLine classname="controller.TileManager" primary="true" start="56" end="56" startBytecode="4" endBytecode="4" sourcefile="TileManager.java" sourcepath="controller/TileManager.java" relSourcepath="src\controller\TileManager.java">
+      <Message>At TileManager.java:[line 56]</Message>
+    </SourceLine>
+    <SourceLine classname="controller.TileManager" primary="true" start="56" end="56" startBytecode="4" endBytecode="4" sourcefile="TileManager.java" sourcepath="controller/TileManager.java" relSourcepath="src\controller\TileManager.java">
+      <Message>At TileManager.java:[line 56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="6bd15275623f6116e79f74ffc70bd061" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.compiler.Milestone.getExams() may expose internal representation by returning Milestone.exams</LongMessage>
+    <Class classname="model.compiler.Milestone" primary="true">
+      <SourceLine classname="model.compiler.Milestone" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java">
+        <Message>In Milestone.java</Message>
+      </SourceLine>
+      <Message>In class model.compiler.Milestone</Message>
+    </Class>
+    <Method classname="model.compiler.Milestone" name="getExams" signature="()Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="model.compiler.Milestone" start="49" end="49" startBytecode="0" endBytecode="46" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java"/>
+      <Message>In method model.compiler.Milestone.getExams()</Message>
+    </Method>
+    <Field classname="model.compiler.Milestone" name="exams" signature="Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="model.compiler.Milestone" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java">
+        <Message>In Milestone.java</Message>
+      </SourceLine>
+      <Message>Field model.compiler.Milestone.exams</Message>
+    </Field>
+    <SourceLine classname="model.compiler.Milestone" primary="true" start="49" end="49" startBytecode="4" endBytecode="4" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java">
+      <Message>At Milestone.java:[line 49]</Message>
+    </SourceLine>
+    <SourceLine classname="model.compiler.Milestone" primary="true" start="49" end="49" startBytecode="4" endBytecode="4" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java">
+      <Message>At Milestone.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" instanceHash="5271552bb8cd3276be871c8ee1cb73fc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates strings using + in a loop</ShortMessage>
+    <LongMessage>model.compiler.Milestone.toString() concatenates strings using + in a loop</LongMessage>
+    <Class classname="model.compiler.Milestone" primary="true">
+      <SourceLine classname="model.compiler.Milestone" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java">
+        <Message>In Milestone.java</Message>
+      </SourceLine>
+      <Message>In class model.compiler.Milestone</Message>
+    </Class>
+    <Method classname="model.compiler.Milestone" name="toString" signature="()Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="model.compiler.Milestone" start="68" end="71" startBytecode="0" endBytecode="158" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java"/>
+      <Message>In method model.compiler.Milestone.toString()</Message>
+    </Method>
+    <SourceLine classname="model.compiler.Milestone" primary="true" start="70" end="70" startBytecode="49" endBytecode="49" sourcefile="Milestone.java" sourcepath="model/compiler/Milestone.java" relSourcepath="src\model\compiler\Milestone.java">
+      <Message>At Milestone.java:[line 70]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="ec7875490d345269cbedc3410fca37c9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.compiler.Year.getExams() may expose internal representation by returning Year.exams</LongMessage>
+    <Class classname="model.compiler.Year" primary="true">
+      <SourceLine classname="model.compiler.Year" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java">
+        <Message>In Year.java</Message>
+      </SourceLine>
+      <Message>In class model.compiler.Year</Message>
+    </Class>
+    <Method classname="model.compiler.Year" name="getExams" signature="()Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="model.compiler.Year" start="59" end="59" startBytecode="0" endBytecode="46" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java"/>
+      <Message>In method model.compiler.Year.getExams()</Message>
+    </Method>
+    <Field classname="model.compiler.Year" name="exams" signature="Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="model.compiler.Year" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java">
+        <Message>In Year.java</Message>
+      </SourceLine>
+      <Message>Field model.compiler.Year.exams</Message>
+    </Field>
+    <SourceLine classname="model.compiler.Year" primary="true" start="59" end="59" startBytecode="4" endBytecode="4" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java">
+      <Message>At Year.java:[line 59]</Message>
+    </SourceLine>
+    <SourceLine classname="model.compiler.Year" primary="true" start="59" end="59" startBytecode="4" endBytecode="4" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java">
+      <Message>At Year.java:[line 59]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" instanceHash="40f9bc9f08d1994585f0cb658536f0d8" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates strings using + in a loop</ShortMessage>
+    <LongMessage>model.compiler.Year.toString() concatenates strings using + in a loop</LongMessage>
+    <Class classname="model.compiler.Year" primary="true">
+      <SourceLine classname="model.compiler.Year" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java">
+        <Message>In Year.java</Message>
+      </SourceLine>
+      <Message>In class model.compiler.Year</Message>
+    </Class>
+    <Method classname="model.compiler.Year" name="toString" signature="()Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="model.compiler.Year" start="65" end="68" startBytecode="0" endBytecode="158" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java"/>
+      <Message>In method model.compiler.Year.toString()</Message>
+    </Method>
+    <SourceLine classname="model.compiler.Year" primary="true" start="67" end="67" startBytecode="49" endBytecode="49" sourcefile="Year.java" sourcepath="model/compiler/Year.java" relSourcepath="src\model\compiler\Year.java">
+      <Message>At Year.java:[line 67]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE" instanceHash="36a49d1f0e59255aa4864895776a5d9e" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Comparator doesn&apos;t implement Serializable</ShortMessage>
+    <LongMessage>model.tiles.DeadlineComparator implements Comparator but not Serializable</LongMessage>
+    <Class classname="model.tiles.DeadlineComparator" primary="true">
+      <SourceLine classname="model.tiles.DeadlineComparator" start="10" end="34" sourcefile="DeadlineComparator.java" sourcepath="model/tiles/DeadlineComparator.java" relSourcepath="src\model\tiles\DeadlineComparator.java">
+        <Message>At DeadlineComparator.java:[lines 10-34]</Message>
+      </SourceLine>
+      <Message>In class model.tiles.DeadlineComparator</Message>
+    </Class>
+    <SourceLine classname="model.tiles.DeadlineComparator" start="10" end="34" sourcefile="DeadlineComparator.java" sourcepath="model/tiles/DeadlineComparator.java" relSourcepath="src\model\tiles\DeadlineComparator.java" synthetic="true">
+      <Message>At DeadlineComparator.java:[lines 10-34]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="43bb757984115921fd90da8fd264ee1d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.tiles.ExamAggregator.getExams() may expose internal representation by returning ExamAggregator.exams</LongMessage>
+    <Class classname="model.tiles.ExamAggregator" primary="true">
+      <SourceLine classname="model.tiles.ExamAggregator" sourcefile="ExamAggregator.java" sourcepath="model/tiles/ExamAggregator.java" relSourcepath="src\model\tiles\ExamAggregator.java">
+        <Message>In ExamAggregator.java</Message>
+      </SourceLine>
+      <Message>In class model.tiles.ExamAggregator</Message>
+    </Class>
+    <Method classname="model.tiles.ExamAggregator" name="getExams" signature="()Ljava/util/SortedSet;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.ExamAggregator" start="49" end="49" startBytecode="0" endBytecode="46" sourcefile="ExamAggregator.java" sourcepath="model/tiles/ExamAggregator.java" relSourcepath="src\model\tiles\ExamAggregator.java"/>
+      <Message>In method model.tiles.ExamAggregator.getExams()</Message>
+    </Method>
+    <Field classname="model.tiles.ExamAggregator" name="exams" signature="Ljava/util/SortedSet;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.ExamAggregator" sourcefile="ExamAggregator.java" sourcepath="model/tiles/ExamAggregator.java" relSourcepath="src\model\tiles\ExamAggregator.java">
+        <Message>In ExamAggregator.java</Message>
+      </SourceLine>
+      <Message>Field model.tiles.ExamAggregator.exams</Message>
+    </Field>
+    <SourceLine classname="model.tiles.ExamAggregator" primary="true" start="49" end="49" startBytecode="4" endBytecode="4" sourcefile="ExamAggregator.java" sourcepath="model/tiles/ExamAggregator.java" relSourcepath="src\model\tiles\ExamAggregator.java">
+      <Message>At ExamAggregator.java:[line 49]</Message>
+    </SourceLine>
+    <SourceLine classname="model.tiles.ExamAggregator" primary="true" start="49" end="49" startBytecode="4" endBytecode="4" sourcefile="ExamAggregator.java" sourcepath="model/tiles/ExamAggregator.java" relSourcepath="src\model\tiles\ExamAggregator.java">
+      <Message>At ExamAggregator.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f95d1b03267b96b38ee2d1a84596b8e5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.tiles.ExamTile.getExam() may expose internal representation by returning ExamTile.exam</LongMessage>
+    <Class classname="model.tiles.ExamTile" primary="true">
+      <SourceLine classname="model.tiles.ExamTile" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+        <Message>In ExamTile.java</Message>
+      </SourceLine>
+      <Message>In class model.tiles.ExamTile</Message>
+    </Class>
+    <Method classname="model.tiles.ExamTile" name="getExam" signature="()Lmodel/compiler/Exam;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.ExamTile" start="41" end="41" startBytecode="0" endBytecode="46" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java"/>
+      <Message>In method model.tiles.ExamTile.getExam()</Message>
+    </Method>
+    <Field classname="model.tiles.ExamTile" name="exam" signature="Lmodel/compiler/Exam;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.ExamTile" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+        <Message>In ExamTile.java</Message>
+      </SourceLine>
+      <Message>Field model.tiles.ExamTile.exam</Message>
+    </Field>
+    <SourceLine classname="model.tiles.ExamTile" primary="true" start="41" end="41" startBytecode="4" endBytecode="4" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+      <Message>At ExamTile.java:[line 41]</Message>
+    </SourceLine>
+    <SourceLine classname="model.tiles.ExamTile" primary="true" start="41" end="41" startBytecode="4" endBytecode="4" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+      <Message>At ExamTile.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="66cf14d9985dc5c19745c937375b0ead" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new model.tiles.ExamTile(Exam) may expose internal representation by storing an externally mutable object into ExamTile.exam</LongMessage>
+    <Class classname="model.tiles.ExamTile" primary="true">
+      <SourceLine classname="model.tiles.ExamTile" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+        <Message>In ExamTile.java</Message>
+      </SourceLine>
+      <Message>In class model.tiles.ExamTile</Message>
+    </Class>
+    <Method classname="model.tiles.ExamTile" name="&lt;init&gt;" signature="(Lmodel/compiler/Exam;)V" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.ExamTile" start="31" end="34" startBytecode="0" endBytecode="103" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java"/>
+      <Message>In method new model.tiles.ExamTile(Exam)</Message>
+    </Method>
+    <Field classname="model.tiles.ExamTile" name="exam" signature="Lmodel/compiler/Exam;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.ExamTile" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+        <Message>In ExamTile.java</Message>
+      </SourceLine>
+      <Message>Field model.tiles.ExamTile.exam</Message>
+    </Field>
+    <LocalVariable name="exam" register="1" pc="32" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named exam</Message>
+    </LocalVariable>
+    <SourceLine classname="model.tiles.ExamTile" primary="true" start="33" end="33" startBytecode="32" endBytecode="32" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+      <Message>At ExamTile.java:[line 33]</Message>
+    </SourceLine>
+    <SourceLine classname="model.tiles.ExamTile" primary="true" start="33" end="33" startBytecode="32" endBytecode="32" sourcefile="ExamTile.java" sourcepath="model/tiles/ExamTile.java" relSourcepath="src\model\tiles\ExamTile.java">
+      <Message>At ExamTile.java:[line 33]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4e3c27f30cda22e9f12c686a9e45dd87" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.tiles.MilestoneTile.getMilestone() may expose internal representation by returning MilestoneTile.ms</LongMessage>
+    <Class classname="model.tiles.MilestoneTile" primary="true">
+      <SourceLine classname="model.tiles.MilestoneTile" sourcefile="MilestoneTile.java" sourcepath="model/tiles/MilestoneTile.java" relSourcepath="src\model\tiles\MilestoneTile.java">
+        <Message>In MilestoneTile.java</Message>
+      </SourceLine>
+      <Message>In class model.tiles.MilestoneTile</Message>
+    </Class>
+    <Method classname="model.tiles.MilestoneTile" name="getMilestone" signature="()Lmodel/compiler/Milestone;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.MilestoneTile" start="62" end="62" startBytecode="0" endBytecode="46" sourcefile="MilestoneTile.java" sourcepath="model/tiles/MilestoneTile.java" relSourcepath="src\model\tiles\MilestoneTile.java"/>
+      <Message>In method model.tiles.MilestoneTile.getMilestone()</Message>
+    </Method>
+    <Field classname="model.tiles.MilestoneTile" name="ms" signature="Lmodel/compiler/Milestone;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.MilestoneTile" sourcefile="MilestoneTile.java" sourcepath="model/tiles/MilestoneTile.java" relSourcepath="src\model\tiles\MilestoneTile.java">
+        <Message>In MilestoneTile.java</Message>
+      </SourceLine>
+      <Message>Field model.tiles.MilestoneTile.ms</Message>
+    </Field>
+    <SourceLine classname="model.tiles.MilestoneTile" primary="true" start="62" end="62" startBytecode="4" endBytecode="4" sourcefile="MilestoneTile.java" sourcepath="model/tiles/MilestoneTile.java" relSourcepath="src\model\tiles\MilestoneTile.java">
+      <Message>At MilestoneTile.java:[line 62]</Message>
+    </SourceLine>
+    <SourceLine classname="model.tiles.MilestoneTile" primary="true" start="62" end="62" startBytecode="4" endBytecode="4" sourcefile="MilestoneTile.java" sourcepath="model/tiles/MilestoneTile.java" relSourcepath="src\model\tiles\MilestoneTile.java">
+      <Message>At MilestoneTile.java:[line 62]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="3757d9bb716115b1b163f2d80c894a04" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.tiles.YearTile.getMilestoneTiles() may expose internal representation by returning YearTile.milestones</LongMessage>
+    <Class classname="model.tiles.YearTile" primary="true">
+      <SourceLine classname="model.tiles.YearTile" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+        <Message>In YearTile.java</Message>
+      </SourceLine>
+      <Message>In class model.tiles.YearTile</Message>
+    </Class>
+    <Method classname="model.tiles.YearTile" name="getMilestoneTiles" signature="()Ljava/util/HashMap;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.YearTile" start="76" end="76" startBytecode="0" endBytecode="46" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java"/>
+      <Message>In method model.tiles.YearTile.getMilestoneTiles()</Message>
+    </Method>
+    <Field classname="model.tiles.YearTile" name="milestones" signature="Ljava/util/HashMap;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.YearTile" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+        <Message>In YearTile.java</Message>
+      </SourceLine>
+      <Message>Field model.tiles.YearTile.milestones</Message>
+    </Field>
+    <SourceLine classname="model.tiles.YearTile" primary="true" start="76" end="76" startBytecode="4" endBytecode="4" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+      <Message>At YearTile.java:[line 76]</Message>
+    </SourceLine>
+    <SourceLine classname="model.tiles.YearTile" primary="true" start="76" end="76" startBytecode="4" endBytecode="4" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+      <Message>At YearTile.java:[line 76]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="2d8bef31db35e7a4bdacdb30ffa8685b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.tiles.YearTile.getYear() may expose internal representation by returning YearTile.year</LongMessage>
+    <Class classname="model.tiles.YearTile" primary="true">
+      <SourceLine classname="model.tiles.YearTile" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+        <Message>In YearTile.java</Message>
+      </SourceLine>
+      <Message>In class model.tiles.YearTile</Message>
+    </Class>
+    <Method classname="model.tiles.YearTile" name="getYear" signature="()Lmodel/compiler/Year;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.YearTile" start="84" end="84" startBytecode="0" endBytecode="46" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java"/>
+      <Message>In method model.tiles.YearTile.getYear()</Message>
+    </Method>
+    <Field classname="model.tiles.YearTile" name="year" signature="Lmodel/compiler/Year;" isStatic="false" primary="true">
+      <SourceLine classname="model.tiles.YearTile" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+        <Message>In YearTile.java</Message>
+      </SourceLine>
+      <Message>Field model.tiles.YearTile.year</Message>
+    </Field>
+    <SourceLine classname="model.tiles.YearTile" primary="true" start="84" end="84" startBytecode="4" endBytecode="4" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+      <Message>At YearTile.java:[line 84]</Message>
+    </SourceLine>
+    <SourceLine classname="model.tiles.YearTile" primary="true" start="84" end="84" startBytecode="4" endBytecode="4" sourcefile="YearTile.java" sourcepath="model/tiles/YearTile.java" relSourcepath="src\model\tiles\YearTile.java">
+      <Message>At YearTile.java:[line 84]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4d3480760a86759f99d8a5acfee0e233" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.yaml.Dependency.getSoft_dependencies() may expose internal representation by returning Dependency.soft_dependencies</LongMessage>
+    <Class classname="model.yaml.Dependency" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.Dependency</Message>
+    </Class>
+    <Method classname="model.yaml.Dependency" name="getSoft_dependencies" signature="()Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" start="76" end="76" startBytecode="0" endBytecode="46" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java"/>
+      <Message>In method model.yaml.Dependency.getSoft_dependencies()</Message>
+    </Method>
+    <Field classname="model.yaml.Dependency" name="soft_dependencies" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>Field model.yaml.Dependency.soft_dependencies</Message>
+    </Field>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="76" end="76" startBytecode="4" endBytecode="4" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 76]</Message>
+    </SourceLine>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="76" end="76" startBytecode="4" endBytecode="4" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 76]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="3a489bbd979b2165b9bb494d9dc56403" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.yaml.Dependency.getStrict_dependencies() may expose internal representation by returning Dependency.strict_dependencies</LongMessage>
+    <Class classname="model.yaml.Dependency" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.Dependency</Message>
+    </Class>
+    <Method classname="model.yaml.Dependency" name="getStrict_dependencies" signature="()Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" start="94" end="94" startBytecode="0" endBytecode="46" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java"/>
+      <Message>In method model.yaml.Dependency.getStrict_dependencies()</Message>
+    </Method>
+    <Field classname="model.yaml.Dependency" name="strict_dependencies" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>Field model.yaml.Dependency.strict_dependencies</Message>
+    </Field>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="94" end="94" startBytecode="4" endBytecode="4" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 94]</Message>
+    </SourceLine>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="94" end="94" startBytecode="4" endBytecode="4" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 94]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="31b880efac975ca32d69c6dbd959517d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>model.yaml.Dependency.setSoft_dependencies(List) may expose internal representation by storing an externally mutable object into Dependency.soft_dependencies</LongMessage>
+    <Class classname="model.yaml.Dependency" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.Dependency</Message>
+    </Class>
+    <Method classname="model.yaml.Dependency" name="setSoft_dependencies" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" start="85" end="86" startBytecode="0" endBytecode="79" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java"/>
+      <Message>In method model.yaml.Dependency.setSoft_dependencies(List)</Message>
+    </Method>
+    <Field classname="model.yaml.Dependency" name="soft_dependencies" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>Field model.yaml.Dependency.soft_dependencies</Message>
+    </Field>
+    <LocalVariable name="soft_dependencies" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named soft_dependencies</Message>
+    </LocalVariable>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="85" end="85" startBytecode="2" endBytecode="2" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 85]</Message>
+    </SourceLine>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="85" end="85" startBytecode="2" endBytecode="2" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 85]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="e17d5c263dacc02ea838314937619e3b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>model.yaml.Dependency.setStrict_dependencies(List) may expose internal representation by storing an externally mutable object into Dependency.strict_dependencies</LongMessage>
+    <Class classname="model.yaml.Dependency" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.Dependency</Message>
+    </Class>
+    <Method classname="model.yaml.Dependency" name="setStrict_dependencies" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" start="103" end="104" startBytecode="0" endBytecode="79" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java"/>
+      <Message>In method model.yaml.Dependency.setStrict_dependencies(List)</Message>
+    </Method>
+    <Field classname="model.yaml.Dependency" name="strict_dependencies" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>Field model.yaml.Dependency.strict_dependencies</Message>
+    </Field>
+    <LocalVariable name="strict_dependencies" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named strict_dependencies</Message>
+    </LocalVariable>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="103" end="103" startBytecode="2" endBytecode="2" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 103]</Message>
+    </SourceLine>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="103" end="103" startBytecode="2" endBytecode="2" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 103]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" instanceHash="c633e3703524edb045ecaf171bd73fe4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates strings using + in a loop</ShortMessage>
+    <LongMessage>model.yaml.Dependency.toString() concatenates strings using + in a loop</LongMessage>
+    <Class classname="model.yaml.Dependency" primary="true">
+      <SourceLine classname="model.yaml.Dependency" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+        <Message>In Dependency.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.Dependency</Message>
+    </Class>
+    <Method classname="model.yaml.Dependency" name="toString" signature="()Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.Dependency" start="110" end="118" startBytecode="0" endBytecode="256" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java"/>
+      <Message>In method model.yaml.Dependency.toString()</Message>
+    </Method>
+    <SourceLine classname="model.yaml.Dependency" primary="true" start="113" end="113" startBytecode="51" endBytecode="51" sourcefile="Dependency.java" sourcepath="model/yaml/Dependency.java" relSourcepath="src\model\yaml\Dependency.java">
+      <Message>At Dependency.java:[line 113]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f02bc98bb358339c677d7d164e9412d1" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.yaml.DependencyMapper.getDependencies() may expose internal representation by returning DependencyMapper.dependencies</LongMessage>
+    <Class classname="model.yaml.DependencyMapper" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+        <Message>In DependencyMapper.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.DependencyMapper</Message>
+    </Class>
+    <Method classname="model.yaml.DependencyMapper" name="getDependencies" signature="()Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" start="107" end="107" startBytecode="0" endBytecode="46" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java"/>
+      <Message>In method model.yaml.DependencyMapper.getDependencies()</Message>
+    </Method>
+    <Field classname="model.yaml.DependencyMapper" name="dependencies" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+        <Message>In DependencyMapper.java</Message>
+      </SourceLine>
+      <Message>Field model.yaml.DependencyMapper.dependencies</Message>
+    </Field>
+    <SourceLine classname="model.yaml.DependencyMapper" primary="true" start="107" end="107" startBytecode="4" endBytecode="4" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+      <Message>At DependencyMapper.java:[line 107]</Message>
+    </SourceLine>
+    <SourceLine classname="model.yaml.DependencyMapper" primary="true" start="107" end="107" startBytecode="4" endBytecode="4" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+      <Message>At DependencyMapper.java:[line 107]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="19d48af8b2d717e363f34444a2eda9b5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>model.yaml.DependencyMapper.setDependencies(List) may expose internal representation by storing an externally mutable object into DependencyMapper.dependencies</LongMessage>
+    <Class classname="model.yaml.DependencyMapper" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+        <Message>In DependencyMapper.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.DependencyMapper</Message>
+    </Class>
+    <Method classname="model.yaml.DependencyMapper" name="setDependencies" signature="(Ljava/util/List;)V" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" start="115" end="116" startBytecode="0" endBytecode="79" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java"/>
+      <Message>In method model.yaml.DependencyMapper.setDependencies(List)</Message>
+    </Method>
+    <Field classname="model.yaml.DependencyMapper" name="dependencies" signature="Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+        <Message>In DependencyMapper.java</Message>
+      </SourceLine>
+      <Message>Field model.yaml.DependencyMapper.dependencies</Message>
+    </Field>
+    <LocalVariable name="dependencies" register="1" pc="2" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named dependencies</Message>
+    </LocalVariable>
+    <SourceLine classname="model.yaml.DependencyMapper" primary="true" start="115" end="115" startBytecode="2" endBytecode="2" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+      <Message>At DependencyMapper.java:[line 115]</Message>
+    </SourceLine>
+    <SourceLine classname="model.yaml.DependencyMapper" primary="true" start="115" end="115" startBytecode="2" endBytecode="2" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+      <Message>At DependencyMapper.java:[line 115]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" instanceHash="c2f95964b7bd6f38ca404467009647de" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates strings using + in a loop</ShortMessage>
+    <LongMessage>model.yaml.DependencyMapper.toString() concatenates strings using + in a loop</LongMessage>
+    <Class classname="model.yaml.DependencyMapper" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+        <Message>In DependencyMapper.java</Message>
+      </SourceLine>
+      <Message>In class model.yaml.DependencyMapper</Message>
+    </Class>
+    <Method classname="model.yaml.DependencyMapper" name="toString" signature="()Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="model.yaml.DependencyMapper" start="122" end="127" startBytecode="0" endBytecode="150" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java"/>
+      <Message>In method model.yaml.DependencyMapper.toString()</Message>
+    </Method>
+    <SourceLine classname="model.yaml.DependencyMapper" primary="true" start="124" end="124" startBytecode="37" endBytecode="37" sourcefile="DependencyMapper.java" sourcepath="model/yaml/DependencyMapper.java" relSourcepath="src\model\yaml\DependencyMapper.java">
+      <Message>At DependencyMapper.java:[line 124]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SBSC_USE_STRINGBUFFER_CONCATENATION" priority="2" rank="18" abbrev="SBSC" category="PERFORMANCE" instanceHash="23b934d146fd6ee7723331fe48f69161" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method concatenates strings using + in a loop</ShortMessage>
+    <LongMessage>view.GRADgui.displayErrorsAndWarnings() concatenates strings using + in a loop</LongMessage>
+    <Class classname="view.GRADgui" primary="true">
+      <SourceLine classname="view.GRADgui" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java">
+        <Message>In GRADgui.java</Message>
+      </SourceLine>
+      <Message>In class view.GRADgui</Message>
+    </Class>
+    <Method classname="view.GRADgui" name="displayErrorsAndWarnings" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="view.GRADgui" start="200" end="235" startBytecode="0" endBytecode="321" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java"/>
+      <Message>In method view.GRADgui.displayErrorsAndWarnings()</Message>
+    </Method>
+    <SourceLine classname="view.GRADgui" primary="true" start="211" end="211" startBytecode="63" endBytecode="63" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java">
+      <Message>At GRADgui.java:[line 211]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" rank="19" abbrev="SF" category="STYLE" instanceHash="ccbc5ac9118d1197a3cbe35178257916" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Switch statement found where default case is missing</ShortMessage>
+    <LongMessage>Switch statement found in view.GRADgui$2.actionPerformed(ActionEvent) where default case is missing</LongMessage>
+    <Class classname="view.GRADgui$2" primary="true">
+      <SourceLine classname="view.GRADgui$2" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java">
+        <Message>In GRADgui.java</Message>
+      </SourceLine>
+      <Message>In class view.GRADgui$2</Message>
+    </Class>
+    <Method classname="view.GRADgui$2" name="actionPerformed" signature="(Ljava/awt/event/ActionEvent;)V" isStatic="false" primary="true">
+      <SourceLine classname="view.GRADgui$2" start="107" end="121" startBytecode="0" endBytecode="297" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java"/>
+      <Message>In method view.GRADgui$2.actionPerformed(ActionEvent)</Message>
+    </Method>
+    <SourceLine classname="view.GRADgui$2" primary="true" start="108" end="118" startBytecode="100" endBytecode="171" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java">
+      <Message>At GRADgui.java:[lines 108-118]</Message>
+    </SourceLine>
+    <SourceLine classname="view.GRADgui$2" primary="true" start="108" end="118" startBytecode="100" endBytecode="171" sourcefile="GRADgui.java" sourcepath="view/GRADgui.java" relSourcepath="src\view\GRADgui.java">
+      <Message>At GRADgui.java:[lines 108-118]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="ae03d07f1bea32e5b3dfce529b141fc5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new view.utils.TaskRenderer(Map) may expose internal representation by storing an externally mutable object into TaskRenderer.colormap</LongMessage>
+    <Class classname="view.utils.TaskRenderer" primary="true">
+      <SourceLine classname="view.utils.TaskRenderer" sourcefile="TaskRenderer.java" sourcepath="view/utils/TaskRenderer.java" relSourcepath="src\view\utils\TaskRenderer.java">
+        <Message>In TaskRenderer.java</Message>
+      </SourceLine>
+      <Message>In class view.utils.TaskRenderer</Message>
+    </Class>
+    <Method classname="view.utils.TaskRenderer" name="&lt;init&gt;" signature="(Ljava/util/Map;)V" isStatic="false" primary="true">
+      <SourceLine classname="view.utils.TaskRenderer" start="24" end="26" startBytecode="0" endBytecode="87" sourcefile="TaskRenderer.java" sourcepath="view/utils/TaskRenderer.java" relSourcepath="src\view\utils\TaskRenderer.java"/>
+      <Message>In method new view.utils.TaskRenderer(Map)</Message>
+    </Method>
+    <Field classname="view.utils.TaskRenderer" name="colormap" signature="Ljava/util/Map;" isStatic="false" primary="true">
+      <SourceLine classname="view.utils.TaskRenderer" sourcefile="TaskRenderer.java" sourcepath="view/utils/TaskRenderer.java" relSourcepath="src\view\utils\TaskRenderer.java">
+        <Message>In TaskRenderer.java</Message>
+      </SourceLine>
+      <Message>Field view.utils.TaskRenderer.colormap</Message>
+    </Field>
+    <LocalVariable name="colormap" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named colormap</Message>
+    </LocalVariable>
+    <SourceLine classname="view.utils.TaskRenderer" primary="true" start="25" end="25" startBytecode="6" endBytecode="6" sourcefile="TaskRenderer.java" sourcepath="view/utils/TaskRenderer.java" relSourcepath="src\view\utils\TaskRenderer.java">
+      <Message>At TaskRenderer.java:[line 25]</Message>
+    </SourceLine>
+    <SourceLine classname="view.utils.TaskRenderer" primary="true" start="25" end="25" startBytecode="6" endBytecode="6" sourcefile="TaskRenderer.java" sourcepath="view/utils/TaskRenderer.java" relSourcepath="src\view\utils\TaskRenderer.java">
+      <Message>At TaskRenderer.java:[line 25]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" abbrev="SING" category="CORRECTNESS">
+    <ShortDescription>Instance-getter method of class using singleton design pattern is not synchronized.</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+        Instance-getter method of class using singleton design pattern is not synchronized. When this method is invoked by two or more threads simultaneously, 
+        multiple instantiation of a singleton class becomes possible.<br><br>
+        
+        <a href="https://wiki.sei.cmu.edu/confluence/display/java/MSC07-J.+Prevent+multiple+instantiations+of+singleton+objects">SEI CERT MSC07-J</a> rule
+        </p>
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables. Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" abbrev="ST" category="STYLE">
+    <ShortDescription>Write to static field from instance method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SBSC_USE_STRINGBUFFER_CONCATENATION" abbrev="SBSC" category="PERFORMANCE">
+    <ShortDescription>Method concatenates strings using + in a loop</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method seems to be building a String using concatenation in a loop.
+In each iteration, the String is converted to a StringBuffer/StringBuilder,
+   appended to, and converted back to a String.
+   This can lead to a cost quadratic in the number of iterations,
+   as the growing string is recopied in each iteration. </p>
+
+<p>Better performance can be obtained by using
+a StringBuffer (or StringBuilder in Java 5) explicitly.</p>
+
+<p> For example:</p>
+<pre><code>// This is bad
+String s = "";
+for (int i = 0; i &lt; field.length; ++i) {
+    s = s + field[i];
+}
+
+// This is better
+StringBuffer buf = new StringBuffer();
+for (int i = 0; i &lt; field.length; ++i) {
+    buf.append(field[i]);
+}
+String s = buf.toString();
+</code></pre>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="MS_EXPOSE_REP" abbrev="MS" category="MALICIOUS_CODE">
+    <ShortDescription>Public static method may expose internal representation by returning a mutable object or array</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A public static method returns a reference to a mutable object or
+   an array that is part of the static state of the class.
+   Any code that calls this method can freely modify
+   the underlying array.
+   One fix is to return a copy of the array.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" abbrev="Se" category="BAD_PRACTICE">
+    <ShortDescription>Comparator doesn&apos;t implement Serializable</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class implements the <code>Comparator</code> interface. You
+should consider whether or not it should also implement the <code>Serializable</code>
+interface. If a comparator is used to construct an ordered collection
+such as a <code>TreeMap</code>, then the <code>TreeMap</code>
+will be serializable only if the comparator is also serializable.
+As most comparators have little or no state, making them serializable
+is generally easy and good defensive programming.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SF_SWITCH_NO_DEFAULT" abbrev="SF" category="STYLE">
+    <ShortDescription>Switch statement found where default case is missing</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This method contains a switch statement where default case is missing.
+  Usually you need to provide a default case.</p>
+  <p>Because the analysis only looks at the generated bytecode, this warning can be incorrect triggered if
+the default case is at the end of the switch statement and the switch statement doesn't contain break statements for other
+cases.
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="ST">
+    <Description>Misuse of static fields</Description>
+  </BugCode>
+  <BugCode abbrev="Se">
+    <Description>Incorrect definition of Serializable class</Description>
+  </BugCode>
+  <BugCode abbrev="SF">
+    <Description>Switch case falls through</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="MS" cweid="493">
+    <Description>Mutable static field</Description>
+  </BugCode>
+  <BugCode abbrev="SBSC">
+    <Description>String concatenation in loop using + operator</Description>
+  </BugCode>
+  <BugCode abbrev="SING">
+    <Description>Singleton problems</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 27 Feb 2025 19:26:04 +0100" total_classes="35" referenced_classes="396" total_bugs="38" total_size="1302" num_packages="9" java_version="17.0.12" vm_version="17.0.12+1-b1087.25" cpu_seconds="23.56" clock_seconds="62.30" peak_mbytes="2586.31" alloc_mbytes="2048.00" gc_seconds="0.05" priority_2="34" priority_1="4">
+    <FileStats path="app/Launcher.java" bugCount="0" size="13"/>
+    <FileStats path="compiler/SemanticHandler.java" bugCount="3" size="193" bugHash="8174429c5dffd0376413426aa775b873"/>
+    <FileStats path="controller/Degree.java" bugCount="6" size="70" bugHash="9995e696ba78d6d853566d642851ed42"/>
+    <FileStats path="controller/DependencyManager.java" bugCount="2" size="102" bugHash="b72c47d66a090a4f61e08d2c0aa94b36"/>
+    <FileStats path="controller/Parser.java" bugCount="4" size="59" bugHash="bf918f8a07ef1c51872e2dc6171d8a7e"/>
+    <FileStats path="controller/TileManager.java" bugCount="1" size="17" bugHash="cc737e0f94b878c1093fb82a21ee5e9a"/>
+    <FileStats path="model/compiler/Address.java" bugCount="0" size="24"/>
+    <FileStats path="model/compiler/Exam.java" bugCount="0" size="34"/>
+    <FileStats path="model/compiler/Milestone.java" bugCount="2" size="24" bugHash="25e2214f8fd186a7e9a83a57c7243f68"/>
+    <FileStats path="model/compiler/Status.java" bugCount="0" size="11"/>
+    <FileStats path="model/compiler/Student.java" bugCount="0" size="28"/>
+    <FileStats path="model/compiler/University.java" bugCount="0" size="12"/>
+    <FileStats path="model/compiler/Year.java" bugCount="2" size="22" bugHash="61cefbaf8de0460b96c37abcb03b6bfd"/>
+    <FileStats path="model/tiles/DeadlineComparator.java" bugCount="1" size="22" bugHash="d26f000961f5eaf5c965a95ca94a8e41"/>
+    <FileStats path="model/tiles/ExamAggregator.java" bugCount="1" size="16" bugHash="cfd9c4f551bf169a15727232d6a12011"/>
+    <FileStats path="model/tiles/ExamTile.java" bugCount="2" size="9" bugHash="478360bdd37315d568740c5c3ddb2b30"/>
+    <FileStats path="model/tiles/GanttTile.java" bugCount="0" size="25"/>
+    <FileStats path="model/tiles/MilestoneTile.java" bugCount="1" size="21" bugHash="0415d40666d47e2c51e5b0a4f86471a1"/>
+    <FileStats path="model/tiles/YearTile.java" bugCount="2" size="30" bugHash="18214c2a3bfddb1b0f707807346e161c"/>
+    <FileStats path="model/yaml/Dependency.java" bugCount="5" size="36" bugHash="7e75bd278e20cc4a104a03fa0f9821ea"/>
+    <FileStats path="model/yaml/DependencyMapper.java" bugCount="3" size="40" bugHash="bbbf9956e2ee834a47f376fa4aeb4478"/>
+    <FileStats path="model/yaml/ExamDependency.java" bugCount="0" size="11"/>
+    <FileStats path="view/GRADgui.java" bugCount="2" size="208" bugHash="ff1c1e1e482ddf9353572ebfdf4e9696"/>
+    <FileStats path="view/GanttFrame.java" bugCount="0" size="174"/>
+    <FileStats path="view/tableModel/DegreeTableModel.java" bugCount="0" size="66"/>
+    <FileStats path="view/utils/Mode.java" bugCount="0" size="12"/>
+    <FileStats path="view/utils/Pair.java" bugCount="0" size="12"/>
+    <FileStats path="view/utils/TaskRenderer.java" bugCount="1" size="11" bugHash="34da108d9b19e8c7302550981d2448ba"/>
+    <PackageStats package="app" total_bugs="0" total_types="2" total_size="13">
+      <ClassStats class="app.Launcher" sourceFile="Launcher.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="app.Launcher$1" sourceFile="Launcher.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="compiler" total_bugs="3" total_types="1" total_size="193" priority_2="2" priority_1="1">
+      <ClassStats class="compiler.SemanticHandler" sourceFile="SemanticHandler.java" interface="false" size="193" bugs="3" priority_2="2" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="controller" total_bugs="13" total_types="4" total_size="248" priority_2="10" priority_1="3">
+      <ClassStats class="controller.Degree" sourceFile="Degree.java" interface="false" size="70" bugs="6" priority_2="6"/>
+      <ClassStats class="controller.DependencyManager" sourceFile="DependencyManager.java" interface="false" size="102" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="controller.Parser" sourceFile="Parser.java" interface="false" size="59" bugs="4" priority_2="2" priority_1="2"/>
+      <ClassStats class="controller.TileManager" sourceFile="TileManager.java" interface="false" size="17" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="model.compiler" total_bugs="4" total_types="7" total_size="155" priority_2="4">
+      <ClassStats class="model.compiler.Address" sourceFile="Address.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="model.compiler.Exam" sourceFile="Exam.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="model.compiler.Milestone" sourceFile="Milestone.java" interface="false" size="24" bugs="2" priority_2="2"/>
+      <ClassStats class="model.compiler.Status" sourceFile="Status.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="model.compiler.Student" sourceFile="Student.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="model.compiler.University" sourceFile="University.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="model.compiler.Year" sourceFile="Year.java" interface="false" size="22" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="model.tiles" total_bugs="7" total_types="6" total_size="123" priority_2="7">
+      <ClassStats class="model.tiles.DeadlineComparator" sourceFile="DeadlineComparator.java" interface="false" size="22" bugs="1" priority_2="1"/>
+      <ClassStats class="model.tiles.ExamAggregator" sourceFile="ExamAggregator.java" interface="false" size="16" bugs="1" priority_2="1"/>
+      <ClassStats class="model.tiles.ExamTile" sourceFile="ExamTile.java" interface="false" size="9" bugs="2" priority_2="2"/>
+      <ClassStats class="model.tiles.GanttTile" sourceFile="GanttTile.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="model.tiles.MilestoneTile" sourceFile="MilestoneTile.java" interface="false" size="21" bugs="1" priority_2="1"/>
+      <ClassStats class="model.tiles.YearTile" sourceFile="YearTile.java" interface="false" size="30" bugs="2" priority_2="2"/>
+    </PackageStats>
+    <PackageStats package="model.yaml" total_bugs="8" total_types="3" total_size="87" priority_2="8">
+      <ClassStats class="model.yaml.Dependency" sourceFile="Dependency.java" interface="false" size="36" bugs="5" priority_2="5"/>
+      <ClassStats class="model.yaml.DependencyMapper" sourceFile="DependencyMapper.java" interface="false" size="40" bugs="3" priority_2="3"/>
+      <ClassStats class="model.yaml.ExamDependency" sourceFile="ExamDependency.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="view" total_bugs="2" total_types="8" total_size="382" priority_2="2">
+      <ClassStats class="view.GRADgui" sourceFile="GRADgui.java" interface="false" size="121" bugs="1" priority_2="1"/>
+      <ClassStats class="view.GRADgui$1" sourceFile="GRADgui.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="view.GRADgui$2" sourceFile="GRADgui.java" interface="false" size="15" bugs="1" priority_2="1"/>
+      <ClassStats class="view.GRADgui$3" sourceFile="GRADgui.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="view.GRADgui$4" sourceFile="GRADgui.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="view.GRADgui$5" sourceFile="GRADgui.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="view.GanttFrame" sourceFile="GanttFrame.java" interface="false" size="167" bugs="0"/>
+      <ClassStats class="view.GanttFrame$1" sourceFile="GanttFrame.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="view.tableModel" total_bugs="0" total_types="1" total_size="66">
+      <ClassStats class="view.tableModel.DegreeTableModel" sourceFile="DegreeTableModel.java" interface="false" size="66" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="view.utils" total_bugs="1" total_types="3" total_size="35" priority_2="1">
+      <ClassStats class="view.utils.Mode" sourceFile="Mode.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="view.utils.Pair" sourceFile="Pair.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="view.utils.TaskRenderer" sourceFile="TaskRenderer.java" interface="false" size="11" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.FindBugs2" totalMilliseconds="505" invocations="2" avgMicrosecondsPerInvocation="252960" maxMicrosecondsPerInvocation="287114" standardDeviationMicrosecondsPerInvocation="34150"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="408" invocations="1944" avgMicrosecondsPerInvocation="210" maxMicrosecondsPerInvocation="8865" standardDeviationMicrosecondsPerInvocation="528"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="379" invocations="396" avgMicrosecondsPerInvocation="959" maxMicrosecondsPerInvocation="174429" standardDeviationMicrosecondsPerInvocation="8777"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="275" invocations="1948" avgMicrosecondsPerInvocation="141" maxMicrosecondsPerInvocation="1428" standardDeviationMicrosecondsPerInvocation="113"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="228" invocations="396" avgMicrosecondsPerInvocation="576" maxMicrosecondsPerInvocation="9002" standardDeviationMicrosecondsPerInvocation="1097"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="127" invocations="1046" avgMicrosecondsPerInvocation="121" maxMicrosecondsPerInvocation="3151" standardDeviationMicrosecondsPerInvocation="204"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="105" invocations="396" avgMicrosecondsPerInvocation="267" maxMicrosecondsPerInvocation="19418" standardDeviationMicrosecondsPerInvocation="1054"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="100" invocations="531" avgMicrosecondsPerInvocation="188" maxMicrosecondsPerInvocation="21319" standardDeviationMicrosecondsPerInvocation="950"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="70" invocations="249" avgMicrosecondsPerInvocation="284" maxMicrosecondsPerInvocation="6829" standardDeviationMicrosecondsPerInvocation="643"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="68" invocations="250" avgMicrosecondsPerInvocation="274" maxMicrosecondsPerInvocation="8112" standardDeviationMicrosecondsPerInvocation="689"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="66" invocations="257" avgMicrosecondsPerInvocation="258" maxMicrosecondsPerInvocation="8972" standardDeviationMicrosecondsPerInvocation="688"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="61" invocations="396" avgMicrosecondsPerInvocation="156" maxMicrosecondsPerInvocation="2145" standardDeviationMicrosecondsPerInvocation="305"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="55" invocations="396" avgMicrosecondsPerInvocation="139" maxMicrosecondsPerInvocation="8159" standardDeviationMicrosecondsPerInvocation="474"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="54" invocations="248" avgMicrosecondsPerInvocation="219" maxMicrosecondsPerInvocation="3980" standardDeviationMicrosecondsPerInvocation="492"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="52" invocations="249" avgMicrosecondsPerInvocation="211" maxMicrosecondsPerInvocation="3881" standardDeviationMicrosecondsPerInvocation="445"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="51" invocations="249" avgMicrosecondsPerInvocation="207" maxMicrosecondsPerInvocation="8305" standardDeviationMicrosecondsPerInvocation="565"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="46" invocations="396" avgMicrosecondsPerInvocation="117" maxMicrosecondsPerInvocation="2696" standardDeviationMicrosecondsPerInvocation="256"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="43" invocations="164" avgMicrosecondsPerInvocation="265" maxMicrosecondsPerInvocation="2668" standardDeviationMicrosecondsPerInvocation="407"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="42" invocations="396" avgMicrosecondsPerInvocation="106" maxMicrosecondsPerInvocation="1436" standardDeviationMicrosecondsPerInvocation="159"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="41" invocations="1859" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="1387" standardDeviationMicrosecondsPerInvocation="54"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="39" invocations="396" avgMicrosecondsPerInvocation="100" maxMicrosecondsPerInvocation="6033" standardDeviationMicrosecondsPerInvocation="589"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="39" invocations="396" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="5779" standardDeviationMicrosecondsPerInvocation="310"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

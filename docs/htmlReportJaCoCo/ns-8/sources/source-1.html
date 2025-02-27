@@ -1,0 +1,276 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > DegreeTableModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">view.tableModel</a>
+</div>
+
+<h1>Coverage Summary for Class: DegreeTableModel (view.tableModel)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DegreeTableModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/44)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package view.tableModel;
+&nbsp;
+&nbsp;
+&nbsp;import javax.swing.table.AbstractTableModel;
+&nbsp;
+&nbsp;import controller.DependencyManager;
+&nbsp;import view.utils.Pair;
+&nbsp;import controller.Degree;
+&nbsp;import model.compiler.Exam;
+&nbsp;import model.compiler.Year;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.time.format.DateTimeFormatter;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Modello per la &lt;i&gt;JTable&lt;/i&gt; presente in &lt;i&gt;GRADgui&lt;/i&gt;. E&#39; una specializzazione di &lt;i&gt;{@link AbstractTableModel}&lt;/i&gt;.
+&nbsp; * &lt;br&gt;Per l&#39;organizzazione delle informazioni da caricare e visualizzare, la classe si appoggia su &lt;i&gt;{@link Pair}&lt;/i&gt;, usata per istanziare delle tuple &quot;&lt;tt&gt;(anno;esame)&lt;/tt&gt;&quot; dove &quot;anno&quot; è rappresentato da &lt;i&gt;int&lt;/i&gt; e &quot;esame&quot; da &lt;i&gt;Exam&lt;/i&gt;.
+&nbsp; * &lt;br&gt;La classe sfrutta due liste come buffer:
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;toDisplay&lt;/tt&gt;: contiene gli oggetti &lt;i&gt;Pair&lt;/i&gt; per la visualizzazione;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;examList&lt;/tt&gt;: buffer sommario di tutti gli oggetti &lt;i&gt;Pair&lt;/i&gt; estratti;&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * In linea teorica, il buffer &lt;tt&gt;examList&lt;/tt&gt; viene caricato dopo la corretta lettura di un file GRAD.
+&nbsp; * In base alle interazioni utente su &lt;i&gt;GRADgui&lt;/i&gt;, &lt;i&gt;DegreeTableModel&lt;/i&gt; svuota &lt;tt&gt;toDisplay&lt;/tt&gt; e lo carica con le informazioni da visualizzare, prendendole da &lt;tt&gt;examList&lt;/tt&gt;.
+&nbsp; */
+&nbsp;public class DegreeTableModel extends AbstractTableModel
+&nbsp;{
+&nbsp;    /**
+&nbsp;     * Elementi &lt;i&gt;{@link Pair}&lt;/i&gt; (coppie anno-esame) da visualizzare
+&nbsp;     */
+&nbsp;    private List&lt;Pair&lt;Integer,Exam&gt;&gt; toDisplay;
+&nbsp;    /**
+&nbsp;     * Buffer che memorizza tutti gli elementi &lt;i&gt;{@link Pair}&lt;/i&gt; (coppie anno-esame)
+&nbsp;     */
+&nbsp;    private List&lt;Pair&lt;Integer,Exam&gt;&gt; examList;
+&nbsp;    /**
+&nbsp;     * Riferimento all&#39;istanza singleton di &lt;i&gt;{@link Degree}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private Degree degree;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Array ordinato dei nomi delle colonne
+&nbsp;     */
+<b class="nc">&nbsp;    private final String[] columnNames = new String[] {</b>
+&nbsp;            &quot;Year&quot;,&quot;Exam&quot;,&quot;CFU&quot;,&quot;Date&quot;,&quot;Passed&quot;,&quot;Milestone&quot;
+&nbsp;    };
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Array ordinato tipi delle colonne
+&nbsp;     */
+<b class="nc">&nbsp;    private final Class[] columnClass = new Class[] {</b>
+&nbsp;            String.class, String.class, String.class, LocalDate.class , Boolean.class, String.class
+&nbsp;    };
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore
+&nbsp;     */
+&nbsp;    public DegreeTableModel()
+<b class="nc">&nbsp;    {</b>
+<b class="nc">&nbsp;        this.degree = Degree.getDegree();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il buffer principale &lt;tt&gt;examList&lt;/tt&gt;, estraendo informazioni da ogni &lt;i&gt;Exam&lt;/i&gt; in &lt;i&gt;Degree&lt;/i&gt;.
+&nbsp;     */
+&nbsp;    public void refresh(){
+<b class="nc">&nbsp;        this.examList = new ArrayList&lt;Pair&lt;Integer, Exam&gt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;        for(Year y : degree.getYears()){</b>
+<b class="nc">&nbsp;            for(Exam e: y.getExams().values()){</b>
+<b class="nc">&nbsp;                this.examList.add(new Pair&lt;Integer, Exam&gt;(y.getId(), e));</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il buffer di visualizzazione &lt;tt&gt;toDisplay&lt;/tt&gt; filtrando le informazioni di &lt;tt&gt;examList&lt;/tt&gt; per anno.
+&nbsp;     * @param year  identificativo per l&#39;anno
+&nbsp;     */
+&nbsp;    public void displayByYear(int year){
+<b class="nc">&nbsp;        this.toDisplay = new ArrayList&lt;Pair&lt;Integer, Exam&gt;&gt;();</b>
+<b class="nc">&nbsp;        for(Pair&lt;Integer, Exam&gt; p: examList){</b>
+<b class="nc">&nbsp;            if(p.getLeft() == year){</b>
+<b class="nc">&nbsp;                this.toDisplay.add(p);</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il buffer di visualizzazione &lt;tt&gt;toDisplay&lt;/tt&gt; filtrando le informazioni di &lt;tt&gt;examList&lt;/tt&gt;
+&nbsp;     * secondo le dipendenze di un certo esame.
+&nbsp;     * @param examName nome esame, formato &lt;i&gt;String&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public void displayDependencies(String examName){
+<b class="nc">&nbsp;        this.toDisplay = new ArrayList&lt;Pair&lt;Integer, Exam&gt;&gt;();</b>
+<b class="nc">&nbsp;        ArrayList&lt;Exam&gt; dependencies = new ArrayList&lt;Exam&gt;();</b>
+<b class="nc">&nbsp;        dependencies.addAll(DependencyManager.getInstance().loadSoftDependencies(Degree.getDegree().getExam(examName)));</b>
+<b class="nc">&nbsp;        dependencies.addAll(DependencyManager.getInstance().loadStrictDependencies(Degree.getDegree().getExam(examName)));</b>
+<b class="nc">&nbsp;        for(Pair&lt;Integer, Exam&gt; p: examList){</b>
+<b class="nc">&nbsp;            if(dependencies.contains(p.getRight())){</b>
+<b class="nc">&nbsp;                this.toDisplay.add(p);</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il buffer di visualizzazione &lt;tt&gt;toDisplay&lt;/tt&gt;, prendendo le informazioni di &lt;tt&gt;examList&lt;/tt&gt; senza filtri.
+&nbsp;     */
+&nbsp;    public void displayCareer(){
+<b class="nc">&nbsp;        this.toDisplay = this.examList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String getColumnName(int column)
+&nbsp;    {
+<b class="nc">&nbsp;        return columnNames[column];</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;?&gt; getColumnClass(int columnIndex)
+&nbsp;    {
+<b class="nc">&nbsp;        return columnClass[columnIndex];</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getColumnCount()
+&nbsp;    {
+<b class="nc">&nbsp;        return columnNames.length;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int getRowCount()
+&nbsp;    {
+<b class="nc">&nbsp;        if(toDisplay == null)</b>
+<b class="nc">&nbsp;            return 0;</b>
+<b class="nc">&nbsp;        return toDisplay.size();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Object getValueAt(int rowIndex, int columnIndex)
+&nbsp;    {
+<b class="nc">&nbsp;        if(0 == columnIndex) {</b>
+<b class="nc">&nbsp;            return toDisplay.get(rowIndex).getLeft();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if(1 == columnIndex) {</b>
+<b class="nc">&nbsp;            return toDisplay.get(rowIndex).getRight().getName();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if(2 == columnIndex) {</b>
+<b class="nc">&nbsp;            return toDisplay.get(rowIndex).getRight().getCfu();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if(3 == columnIndex) {</b>
+<b class="nc">&nbsp;            return toDisplay.get(rowIndex).getRight().getAppello().format(DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if(4 == columnIndex) {</b>
+<b class="nc">&nbsp;            return toDisplay.get(rowIndex).getRight().isPassed();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        else if(5 == columnIndex) {</b>
+<b class="nc">&nbsp;            return toDisplay.get(rowIndex).getRight().getMilestone();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean isCellEditable(int rowIndex, int columnIndex)
+&nbsp;    {
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>
