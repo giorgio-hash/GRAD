@@ -1,0 +1,379 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > DependencyManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">controller</a>
+</div>
+
+<h1>Coverage Summary for Class: DependencyManager (controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DependencyManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    84,8%
+  </span>
+  <span class="absValue">
+    (67/79)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package controller;
+&nbsp;
+&nbsp;import model.compiler.Exam;
+&nbsp;import model.yaml.Dependency;
+&nbsp;import model.yaml.DependencyMapper;
+&nbsp;import model.yaml.ExamDependency;
+&nbsp;import org.yaml.snakeyaml.Yaml;
+&nbsp;
+&nbsp;import java.io.FileInputStream;
+&nbsp;import java.io.FileNotFoundException;
+&nbsp;import java.io.InputStream;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Classe per la gestione delle dipendenze tra esami. Usa il pattern &lt;i&gt;singleton&lt;/i&gt;.&lt;br&gt;
+&nbsp; * Le dipendenze sono gestite tramite il DependencyMapper e gli oggetti su cui si appoggia:
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link DependencyMapper}&lt;/i&gt;: contiene la lista delle strutture di dipendenza;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link Dependency}&lt;/i&gt;: una struttura che definisce le dipendenze verso un certo esame;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link ExamDependency}&lt;/i&gt;: elemento che definisce una dipendenza &lt;i&gt;soft&lt;/i&gt; o &lt;i&gt;strict&lt;/i&gt; nella &lt;i&gt;Dependency&lt;/i&gt;.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:&lt;br&gt;&lt;br&gt;
+&nbsp; *  &lt;i&gt;DependencyMapper&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;Dependency&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;ExamDependency&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &lt;br&gt;La mappa è estraibile da file YAML. Per tale scopo, la classe mette a disposizione un metodo, &lt;tt&gt;loadYAML()&lt;/tt&gt;, per la lettura di un file YAML col supporto di &lt;a href=&quot;https://github.com/snakeyaml/snakeyaml&quot;&gt;snakeyaml&lt;/a&gt;.
+&nbsp; */
+&nbsp;public class DependencyManager {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * path per il file YAML dove verranno lette le dipendenze.
+&nbsp;     */
+&nbsp;    private String path;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * oggetto che mappa le &lt;i&gt;{@link Dependency}&lt;/i&gt; (vedi {@link DependencyMapper}).
+&nbsp;     */
+&nbsp;    private static DependencyMapper data;
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * istanza per pattern singleton
+&nbsp;     */
+<b class="fc">&nbsp;    private static DependencyManager instance=null;</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore privato (pattern Singleton)
+&nbsp;     */
+<b class="fc">&nbsp;    private DependencyManager(){</b>
+<b class="fc">&nbsp;        this.path=&quot;.\\resources\\career.yaml&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Metodo statico che restituisce l&#39;oggetto statico &lt;i&gt;DependencyManager&lt;/i&gt; (pattern singleton).
+&nbsp;     * @return oggetto &lt;i&gt;DependencyManager&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public static DependencyManager getInstance(){
+<b class="fc">&nbsp;        if(instance == null)</b>
+<b class="fc">&nbsp;            instance = new DependencyManager();</b>
+&nbsp;
+<b class="fc">&nbsp;        return instance;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Metodo per la lettura di un file YAML (tramite &lt;a href=&quot;https://github.com/snakeyaml/snakeyaml&quot;&gt;snakeyaml&lt;/a&gt;) conforme alla struttura del modello su cui &lt;i&gt;DependencyManager&lt;/i&gt; si appoggia (vedi &lt;i&gt;{@link DependencyMapper}&lt;/i&gt;).
+&nbsp;     * &lt;ul&gt;
+&nbsp;     *     &lt;li&gt;Se il file viene trovato e letto, si crea il &lt;i&gt;DependencyMapper&lt;/i&gt;;&lt;/li&gt;
+&nbsp;     *     &lt;li&gt;Altrimenti, &lt;i&gt;DependencyMapper&lt;/i&gt; è &lt;tt&gt;null&lt;/tt&gt;.&lt;/li&gt;
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * &lt;br&gt;Di default, il path per il file da leggere è &quot;&lt;tt&gt;.\resources\career.yaml&lt;/tt&gt;&quot;.
+&nbsp;     *
+&nbsp;     */
+&nbsp;    public void loadYAML(){
+<b class="fc">&nbsp;        InputStream inputStream = null;</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            inputStream = new FileInputStream(path);</b>
+<b class="fc">&nbsp;            Yaml yaml = new Yaml();</b>
+<b class="fc">&nbsp;            data = yaml.loadAs(inputStream, DependencyMapper.class);</b>
+<b class="fc">&nbsp;            data.mapDependencies();</b>
+<b class="nc">&nbsp;        } catch (FileNotFoundException e) {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;File non trovato o non compilabile.&quot;);</b>
+<b class="nc">&nbsp;            data=null;</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica che il &lt;i&gt;DependencyMapper&lt;/i&gt; sia stato creato.
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasDependencyMapper(){
+<b class="fc">&nbsp;        return data != null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Restituisce l&#39;oggetto &lt;i&gt;Dependency&lt;/i&gt; con cui vengono definite le dipendenze di un certo &lt;i&gt;Exam&lt;/i&gt;.
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return oggetto &lt;i&gt;Dependency&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public Dependency getDependency(Exam e){
+<b class="fc">&nbsp;        return data.getDependency(e.getName());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se esiste un oggetto &lt;i&gt;Dependency&lt;/i&gt; con cui vengono definite le dipendenze di un certo &lt;i&gt;Exam&lt;/i&gt;.
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasDependency(Exam e){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        return data.hasDependency(e.getName());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se il dependencyMapper contiene elementi &lt;i&gt;Dependency&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasDependencies(){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        return data.hasDependencies();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Generalizzazione di &lt;tt&gt;hasDependencyLoaded&lt;/tt&gt;.
+&nbsp;     * &lt;br&gt;Scorre tutte le &lt;i&gt;Dependency&lt;/i&gt; e verifica se, per almeno una realizzazione:
+&nbsp;     * &lt;ol&gt;
+&nbsp;     *     &lt;li&gt;L&#39;esame descritto in &lt;i&gt;Dependency&lt;/i&gt; sia definito come oggetto &lt;i&gt;Exam&lt;/i&gt; in &lt;i&gt;Degree&lt;/i&gt;;&lt;/li&gt;
+&nbsp;     *     &lt;li&gt;Una &lt;i&gt;ExamDependency&lt;/i&gt; (&lt;tt&gt;strict&lt;/tt&gt; o &lt;tt&gt;soft&lt;/tt&gt;) abbia un corrispettivo oggetto &lt;i&gt;Exam&lt;/i&gt; definito in &lt;i&gt;Degree&lt;/i&gt;.&lt;/li&gt;
+&nbsp;     * &lt;/ol&gt;
+&nbsp;     *
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasAnyDependencyLoaded(){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        for(Dependency d : data.getDependencies()){</b>
+<b class="fc">&nbsp;            if(Degree.getDegree().hasExam(d.getDependency()) &amp;&amp; hasDependencyLoaded(Degree.getDegree().getExam(d.getDependency()))){</b>
+<b class="fc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * verifica se:
+&nbsp;     * &lt;ol&gt;
+&nbsp;     *     &lt;li&gt;L&#39;oggetto &lt;i&gt;Exam&lt;/i&gt; abbia un corrispettivo &lt;i&gt;Dependency&lt;/i&gt; in &lt;i&gt;DependencyMapper&lt;/i&gt;;&lt;/li&gt;
+&nbsp;     *     &lt;li&gt;In tale &lt;i&gt;Dependency&lt;/i&gt;, almeno un &lt;i&gt;ExamDependency&lt;/i&gt; (&lt;tt&gt;strict&lt;/tt&gt; o &lt;tt&gt;soft&lt;/tt&gt;) abbia corrispettivo &lt;i&gt;Exam&lt;/i&gt; definito in &lt;i&gt;Degree&lt;/i&gt;.&lt;/li&gt;
+&nbsp;     * &lt;/ol&gt;
+&nbsp;     * &lt;br&gt;In altre parole: se esistono, verifica che almeno una delle dipendenze (propedeutiche o consigliate) dell&#39;esame sia effettivamente definita come esame nel GRAD.
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasDependencyLoaded(Exam e){
+<b class="fc">&nbsp;        return hasDependency(e)</b>
+<b class="fc">&nbsp;                &amp;&amp; (hasStrictDependencyLoaded(e)</b>
+<b class="fc">&nbsp;                || hasSoftDependencyLoaded(e));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * verifica se l&#39;oggetto &lt;i&gt;Exam&lt;/i&gt; ha delle dipendenze &lt;tt&gt;soft&lt;/tt&gt;
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasSoftDependencies(Exam e){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        return data.hasSoftDependencies(e.getName());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se l&#39;oggetto &lt;i&gt;Exam&lt;/i&gt; ha delle dipendenze &lt;tt&gt;soft&lt;/tt&gt; con corrispettivo oggetto &lt;i&gt;Exam&lt;/i&gt; definito in &lt;i&gt;Degree&lt;/i&gt;
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasSoftDependencyLoaded(Exam e){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        if(!data.hasSoftDependencies(e.getName()))</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        for(ExamDependency d : data.getDependency(e.getName()).getSoft_dependencies()){</b>
+<b class="fc">&nbsp;            if(Degree.getDegree().hasExam(d.getExam())) {</b>
+<b class="fc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se l&#39;oggetto &lt;i&gt;Exam&lt;/i&gt; ha delle dipendenze &lt;tt&gt;strict&lt;/tt&gt;
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasStrictDependencies(Exam e){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        return data.hasStrictDependencies(e.getName());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Verifica se l&#39;oggetto &lt;i&gt;Exam&lt;/i&gt; ha delle dipendenze &lt;tt&gt;strict&lt;/tt&gt; con corrispettivo oggetto &lt;i&gt;Exam&lt;/i&gt; definito in &lt;i&gt;Degree&lt;/i&gt;
+&nbsp;     * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    public boolean hasStrictDependencyLoaded(Exam e){
+<b class="fc">&nbsp;        if(data == null)</b>
+<b class="nc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        if(!data.hasStrictDependencies(e.getName()))</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;
+<b class="fc">&nbsp;        for(ExamDependency d : data.getDependency(e.getName()).getStrict_dependencies()){</b>
+<b class="fc">&nbsp;            if(Degree.getDegree().hasExam(d.getExam())) {</b>
+<b class="fc">&nbsp;                return true;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Restituisce la lista di oggetti &lt;i&gt;Exam&lt;/i&gt;, definiti in &lt;i&gt;Degree&lt;/i&gt;, che hanno una corrispondenza nelle &lt;i&gt;Dependency&lt;/i&gt;.
+&nbsp;     * @return &lt;i&gt;List&lt;/i&gt; di oggetti &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public List&lt;Exam&gt; getExamsWithDependencies(){
+<b class="fc">&nbsp;        List&lt;Exam&gt; list = new ArrayList&lt;Exam&gt;();</b>
+<b class="fc">&nbsp;        for(Dependency d : data.getDependencies()){</b>
+<b class="fc">&nbsp;            if(Degree.getDegree().hasExam(d.getDependency()) &amp;&amp; hasDependencyLoaded(Degree.getDegree().getExam(d.getDependency()))){</b>
+<b class="fc">&nbsp;                list.add(Degree.getDegree().getExam(d.getDependency()));</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return list;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Dato un oggetto &lt;i&gt;Exam&lt;/i&gt; in input, restituisce le relative dipendenze &lt;tt&gt;soft&lt;/tt&gt; che abbiano un oggetto &lt;i&gt;Exam&lt;/i&gt; definito in &lt;i&gt;Degree&lt;/i&gt;.
+&nbsp;     * @return &lt;i&gt;List&lt;/i&gt; di oggetti &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public List&lt;Exam&gt; loadSoftDependencies(Exam e){
+<b class="fc">&nbsp;        List&lt;Exam&gt; list = new ArrayList&lt;Exam&gt;();</b>
+<b class="fc">&nbsp;        if(!hasSoftDependencyLoaded(e))</b>
+<b class="fc">&nbsp;            return list;</b>
+<b class="fc">&nbsp;        for(ExamDependency d : data.getDependency(e.getName()).getSoft_dependencies()){</b>
+<b class="fc">&nbsp;            if(Degree.getDegree().hasExam(d.getExam())) {</b>
+<b class="fc">&nbsp;                list.add(Degree.getDegree().getExam(d.getExam()));</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return list;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Dato un oggetto &lt;i&gt;Exam&lt;/i&gt; in input, restituisce le relative dipendenze &lt;tt&gt;strict&lt;/tt&gt; che abbiano un oggetto &lt;i&gt;Exam&lt;/i&gt; definito in &lt;i&gt;Degree&lt;/i&gt;.
+&nbsp;     * @return &lt;i&gt;List&lt;/i&gt; di oggetti &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public List&lt;Exam&gt; loadStrictDependencies(Exam e){
+<b class="fc">&nbsp;        List&lt;Exam&gt; list = new ArrayList&lt;Exam&gt;();</b>
+<b class="fc">&nbsp;        if(!hasStrictDependencyLoaded(e))</b>
+<b class="fc">&nbsp;            return list;</b>
+<b class="fc">&nbsp;        for(ExamDependency d : data.getDependency(e.getName()).getStrict_dependencies()){</b>
+<b class="fc">&nbsp;            if(Degree.getDegree().hasExam(d.getExam())) {</b>
+<b class="fc">&nbsp;                list.add(Degree.getDegree().getExam(d.getExam()));</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return list;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

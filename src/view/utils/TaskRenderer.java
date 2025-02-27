@@ -14,7 +14,7 @@ public class TaskRenderer extends GanttRenderer {
     /**
      * Mappa rigaTask-><i>{@link Color}</i>
      */
-    private static Map<Integer, Color> colormap;
+    private Map<Integer, Color> colormap;
 
     /**
      * Costruttore con mappa dei colori per le task.

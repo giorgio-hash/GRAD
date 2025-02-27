@@ -105,14 +105,18 @@ public class GRADgui  extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = (String) typeBox.getSelectedItem();
-                if(s.equals("YEAR")){
-                    loadYearsGroupBox();
-                    showGroupBox(true);
-                } else if (s.equals("CAREER")) {
-                    showGroupBox(false);
-                } else if (s.equals("DEPENDENCY_OF")){
-                    loadDependenciesGroupBox();
-                    showGroupBox(true);
+                switch (s) {
+                    case "YEAR":
+                        loadYearsGroupBox();
+                        showGroupBox(true);
+                        break;
+                    case "CAREER":
+                        showGroupBox(false);
+                        break;
+                    case "DEPENDENCY_OF":
+                        loadDependenciesGroupBox();
+                        showGroupBox(true);
+                        break;
                 }
             }
         });

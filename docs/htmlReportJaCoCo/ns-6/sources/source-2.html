@@ -1,0 +1,235 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > DependencyMapper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model.yaml</a>
+</div>
+
+<h1>Coverage Summary for Class: DependencyMapper (model.yaml)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">DependencyMapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90%
+  </span>
+  <span class="absValue">
+    (9/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72%
+  </span>
+  <span class="absValue">
+    (18/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model.yaml;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;/**
+&nbsp; * Mappa della struttura delle dipendenze.
+&nbsp; * &lt;br&gt;
+&nbsp; * Le dipendenze sono gestite tramite il DependencyMapper e gli oggetti su cui si appoggia:&lt;br&gt;
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link DependencyMapper}&lt;/i&gt;: contiene la lista delle strutture di dipendenza;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link Dependency}&lt;/i&gt;: una struttura che definisce le dipendenze verso un certo esame;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;i&gt;{@link ExamDependency}&lt;/i&gt;: elemento che definisce una dipendenza &lt;i&gt;soft&lt;/i&gt; o &lt;i&gt;strict&lt;/i&gt; nella &lt;i&gt;Dependency&lt;/i&gt;.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * La struttura in cui questi vengono mappati segue questa gerarchia di contenimento:&lt;br&gt;&lt;br&gt;
+&nbsp; *  &lt;i&gt;DependencyMapper&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;Dependency&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;ExamDependency&lt;/i&gt;&lt;br&gt;
+&nbsp; * &lt;br&gt;La struttura può essere estratta da file YAML con la parola chiave &lt;tt&gt;dependencies&lt;/tt&gt; seguita da una lista di oggetti &lt;i&gt;Dependency&lt;/i&gt; opportunamente codificati:&lt;br&gt;&lt;br&gt;
+&nbsp; * &lt;tt&gt;dependencies:&lt;/tt&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;i&gt;Dependency&lt;/i&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;#9500;&amp;#9472;&lt;tt&gt;...&lt;/tt&gt;&lt;br&gt;
+&nbsp; *  &amp;nbsp;&amp;nbsp;&amp;#9492;&amp;#9472;&lt;i&gt;Dependency&lt;/i&gt;&lt;br&gt;
+&nbsp; */
+<b class="fc">&nbsp;public class DependencyMapper {</b>
+&nbsp;	/**
+&nbsp;	 * lista degli oggetti &lt;i&gt;{@link Dependency}&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	private List&lt;Dependency&gt; dependencies;
+&nbsp;	/**
+&nbsp;	 * &lt;i&gt;{@link Map}&lt;/i&gt; per estrarre le &lt;i&gt;{@link Dependency}&lt;/i&gt; usando il nome dell&#39;esame per cui son state definite delle dipendenze
+&nbsp;	 */
+&nbsp;	private Map&lt;String,Dependency&gt; dependenciesMap;
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Crea una &lt;i&gt;HashMap&lt;/i&gt; per organizzare le dipendenze in una struttura ottimizzata chiave-&gt;valore.
+&nbsp;	 */
+&nbsp;	public void mapDependencies(){
+<b class="fc">&nbsp;		dependenciesMap = new HashMap&lt;String,Dependency&gt;();</b>
+<b class="fc">&nbsp;		for(Dependency d : dependencies){</b>
+<b class="fc">&nbsp;			dependenciesMap.put(d.getDependency(),d);</b>
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Dato il nome di un esame come chiave, restituisce la &lt;i&gt;Dependency&lt;/i&gt; corrispondente.
+&nbsp;	 * @param exam nome &lt;i&gt;String&lt;/i&gt; dell&#39;esame
+&nbsp;	 * @return oggetto &lt;i&gt;Dependency&lt;/i&gt; corrispondente
+&nbsp;	 */
+&nbsp;	public Dependency getDependency(String exam){
+<b class="fc">&nbsp;        return dependenciesMap.getOrDefault(exam, null);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica che la &lt;i&gt;DependencyMap&lt;/i&gt; non sia vuota.
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean hasDependencies(){
+<b class="fc">&nbsp;		return !dependencies.isEmpty();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica se la &lt;i&gt;DependencyMap&lt;/i&gt; contiene un oggetto &lt;i&gt;Dependency&lt;/i&gt; per l&#39;esame con nome in input.
+&nbsp;	 * @param exam nome esame &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean hasDependency(String exam){
+<b class="fc">&nbsp;		return dependenciesMap.containsKey(exam);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Dato un nome esame in input, verifica se la &lt;i&gt;Dependency&lt;/i&gt; contiene delle &lt;i&gt;ExamDependency&lt;/i&gt; di tipo &lt;i&gt;strict&lt;/i&gt;.
+&nbsp;	 * @param exam nome esame &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean hasStrictDependencies(String exam){
+<b class="fc">&nbsp;		if(!hasDependencies() || !hasDependency(exam))</b>
+<b class="fc">&nbsp;			return false;</b>
+&nbsp;
+<b class="fc">&nbsp;		if(dependenciesMap.get(exam).getStrict_dependencies() == null)</b>
+<b class="nc">&nbsp;			return false;</b>
+<b class="fc">&nbsp;		return !dependenciesMap.get(exam).getStrict_dependencies().isEmpty();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Dato un nome esame in input, verifica se la &lt;i&gt;Dependency&lt;/i&gt; contiene delle &lt;i&gt;ExamDependency&lt;/i&gt; di tipo &lt;i&gt;soft&lt;/i&gt;.
+&nbsp;	 * @param exam nome esame &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean hasSoftDependencies(String exam){
+<b class="fc">&nbsp;		if(!hasDependencies() || !hasDependency(exam))</b>
+<b class="fc">&nbsp;			return false;</b>
+&nbsp;
+<b class="fc">&nbsp;		if(dependenciesMap.get(exam).getSoft_dependencies() == null)</b>
+<b class="nc">&nbsp;			return false;</b>
+<b class="fc">&nbsp;		return !dependenciesMap.get(exam).getSoft_dependencies().isEmpty();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Ritorna una lista di tutti gli oggetti &lt;i&gt;Dependency&lt;/i&gt; definiti in &lt;i&gt;DependencyMapper&lt;/i&gt;.
+&nbsp;	 * @return &lt;i&gt;List&lt;/i&gt; di oggetti &lt;i&gt;Dependency&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public List&lt;Dependency&gt; getDependencies() {
+<b class="fc">&nbsp;		return dependencies;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Serve a SnakeYAML
+&nbsp;	 * @param dependencies
+&nbsp;	 */
+&nbsp;	public void setDependencies(List&lt;Dependency&gt; dependencies) {
+<b class="fc">&nbsp;		this.dependencies = dependencies;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	@Override
+&nbsp;	public String toString() {
+&nbsp;		
+<b class="nc">&nbsp;		String s = &quot;DependencyMapper [dependencies=\n&quot;;</b>
+<b class="nc">&nbsp;		for (Dependency dependency : dependencies) {</b>
+<b class="nc">&nbsp;			s += &quot;\t&quot;+dependency+&quot;,\n&quot;;</b>
+<b class="nc">&nbsp;		}</b>
+&nbsp;		
+<b class="nc">&nbsp;		return  s + &quot;]&quot;;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

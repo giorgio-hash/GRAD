@@ -1,0 +1,623 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SemanticHandler</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">compiler</a>
+</div>
+
+<h1>Coverage Summary for Class: SemanticHandler (compiler)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SemanticHandler</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96,3%
+  </span>
+  <span class="absValue">
+    (26/27)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    73%
+  </span>
+  <span class="absValue">
+    (100/137)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package compiler;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.time.format.DateTimeFormatter;
+&nbsp;
+&nbsp;import controller.Degree;
+&nbsp;import controller.DependencyManager;
+&nbsp;import model.yaml.ExamDependency;
+&nbsp;import org.antlr.runtime.RecognitionException;
+&nbsp;import org.antlr.runtime.Token;
+&nbsp;import model.compiler.*;
+&nbsp;
+&nbsp;import java.time.format.DateTimeParseException;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;/**
+&nbsp; * Analizzatore semantico per compilazione linguaggio GRAD.
+&nbsp; * &lt;br&gt;Dato un file GRAD, ricostruisce la struttura dati in &lt;i&gt;{@link Degree}&lt;/i&gt; assicurandone integrità
+&nbsp; * e sfrutta il &lt;i&gt;{@link DependencyManager}&lt;/i&gt; per verificare che gli esami siano impostati in maniera coerente coi propri vincoli (ad es. un esame con vincoli &lt;tt&gt;strict&lt;/tt&gt; non superati non può essere superato).
+&nbsp; * &lt;br&gt;Sono Supportati i seguenti token di errore:
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;INVALID_DATE_FORMAT_ERROR (10)&lt;/tt&gt; per errore formattazione data (dev&#39;essere in forma dd-mm-aaaa);&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;EMPTY_YEAR_ERROR (11)&lt;/tt&gt; se un anno risulta senza esami inseriti;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;EMPTY_DEGREE_ERROR (12)&lt;/tt&gt; se l&#39;intera struttura DEGREE non risulta avere esami;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;EXAM_ALREADY_EXISTS_ERROR (13)&lt;/tt&gt; se trova un esame duplicato.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; * Sono supportati i seguenti token di warning (quando individuati, SemanticHandler può agire per correggere il valore compilato):
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;INVALID_DATE_RANGE_WARNING (100)&lt;/tt&gt; se la data d&#39;appello è oltre 10 anni prima o dopo la data corrente;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;INVALID_STUDYHOURS_RANGE_WARNING (101)&lt;/tt&gt; se le ore di studio sono meno di 1 o più di 24;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;PASSED_AFTER_TODAY_WARNING (102)&lt;/tt&gt; se un esame risulta passato in una data successiva rispetto alla data corrente;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;STRICT_DEPENDENCY_NOT_PASSED_WARNING (103)&lt;/tt&gt; se un esame risulta passato dopo la data corrente;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;NO_STUDENT_INFO_WARNING (104)&lt;/tt&gt; se la compilazione ha avuto succcesso ma mancano i dati dello studente;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;&lt;tt&gt;DUPLICATED_MILESTONE_WARNING (105)&lt;/tt&gt; se un esame viene associato ad una Milestone che era già stata istanziata in un anno precedente.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; */
+&nbsp;public class SemanticHandler {
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Riferimento all&#39;istanza singleton di &lt;i&gt;{@link Degree}&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	private Degree d;
+&nbsp;	/**
+&nbsp;	 * Riferimento all&#39;istanza singleton di &lt;i&gt;{@link DependencyManager}&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	private DependencyManager dep;
+&nbsp;	/**
+&nbsp;	 * Variabile per generare in maniera incrementale gli identificativi per gli oggetti &lt;i&gt;{@link Year}&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	private int idYear;
+&nbsp;
+&nbsp;	// ****** codici per i messaggi d&#39;errore
+&nbsp;	/**
+&nbsp;	 * per errore formattazione data (dev&#39;essere in forma dd-mm-aaaa)
+&nbsp;	 */
+&nbsp;	public static final int INVALID_DATE_FORMAT_ERROR 	= 10;
+&nbsp;	/**
+&nbsp;	 * se un anno risulta senza esami inseriti
+&nbsp;	 */
+&nbsp;	public static final int EMPTY_YEAR_ERROR = 11;
+&nbsp;	/**
+&nbsp;	 * se l&#39;intera struttura DEGREE non risulta avere esami
+&nbsp;	 */
+&nbsp;	public static final int EMPTY_DEGREE_ERROR = 12;
+&nbsp;	/**
+&nbsp;	 * se trova un esame duplicato
+&nbsp;	 */
+&nbsp;	public static final int EXAM_ALREADY_EXISTS_ERROR = 13;
+&nbsp;	/**
+&nbsp;	 * se la data d&#39;appello è oltre 10 anni prima o dopo la data corrente
+&nbsp;	 */
+&nbsp;	public static final int INVALID_DATE_RANGE_WARNING 	= 100;
+&nbsp;	/**
+&nbsp;	 * se le ore di studio sono meno di 1 o più di 24
+&nbsp;	 */
+&nbsp;	public static final int INVALID_STUDYHOURS_RANGE_WARNING = 101;
+&nbsp;	/**
+&nbsp;	 * se un esame risulta passato in una data successiva rispetto alla data corrente
+&nbsp;	 */
+&nbsp;	public static final int PASSED_AFTER_TODAY_WARNING = 102;
+&nbsp;	/**
+&nbsp;	 * se un esame risulta passato dopo la data corrente
+&nbsp;	 */
+&nbsp;	public static final int STRICT_DEPENDENCY_NOT_PASSED_WARNING = 103;
+&nbsp;	/**
+&nbsp;	 * se la compilazione ha avuto succcesso ma mancano i dati dello studente
+&nbsp;	 */
+&nbsp;	public static final int NO_STUDENT_INFO_WARING = 104;
+&nbsp;	/**
+&nbsp;	 * se viene ricreata una milestone in un anno diverso rispetto alla prima
+&nbsp;	 */
+&nbsp;	public static final int DUPLICATED_MILESTONE_WARNING = 105;
+&nbsp;
+&nbsp;	private ArrayList&lt;String&gt; errors;
+&nbsp;	private ArrayList&lt;String&gt; warnings;
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Costruttore del SemanticHandler. Inizializza lo stato ai valori iniziali.
+&nbsp;	 */
+<b class="fc">&nbsp;	protected SemanticHandler() {</b>
+<b class="fc">&nbsp;		d = Degree.getDegree();</b>
+<b class="fc">&nbsp;		d.reset();</b>
+<b class="fc">&nbsp;		idYear=1;</b>
+<b class="fc">&nbsp;		errors = new ArrayList&lt;String&gt;();</b>
+<b class="fc">&nbsp;		warnings = new ArrayList&lt;String&gt;();</b>
+<b class="fc">&nbsp;		DependencyManager.getInstance().loadYAML();</b>
+<b class="fc">&nbsp;		dep = DependencyManager.getInstance();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Creazione della struttura &lt;i&gt;{@link Degree}&lt;/i&gt;
+&nbsp;	 * @param name {@link Token} contenente il nome della struttura &lt;i&gt;Degree&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public void createDegree(Token name) {
+&nbsp;		
+<b class="fc">&nbsp;		String n = name.getText().replace(&quot;\&quot;&quot;,&quot;&quot;);</b>
+<b class="fc">&nbsp;		d.setName(n);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Imposta il numero di ore di studio giornaliero.
+&nbsp;	 * @param hours  {@link Token} contenente ore di studio
+&nbsp;	 */
+&nbsp;	public void setDailyStudyHours(Token hours) {
+<b class="fc">&nbsp;		d.setDailyStudyHours(checkDailyStudyHours(hours));</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Crea un anno usando un ID incrementale generato internamente da SemanticHandler.
+&nbsp;	 * @return oggetto &lt;i&gt;{@link Year}&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public Year createYear() {
+<b class="fc">&nbsp;		return new Year(idYear++);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Aggiunge l&#39;oggetto &lt;i&gt;{@link Year}&lt;/i&gt; a &lt;i&gt;{@link Degree}&lt;/i&gt;
+&nbsp;	 * @param y  oggetto &lt;i&gt;Year&lt;/i&gt;
+&nbsp;	 */
+<b class="fc">&nbsp;	public void addYear(Year y) {d.addYear(y);}</b>
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Crea un nuovo oggetto &lt;i&gt;{@link Exam}&lt;/i&gt; con le informazioni essenziali, verificando che:
+&nbsp;	 * &lt;ul&gt;
+&nbsp;	 *     &lt;li&gt;Non ci siano problemi con la data (tramite metodo &lt;tt&gt;checkDateDeclaration&lt;/tt&gt;);&lt;/li&gt;
+&nbsp;	 *     &lt;li&gt;L&#39;esame non sia già presente in &lt;i&gt;{@link Degree}&lt;/i&gt;.&lt;/li&gt;
+&nbsp;	 * &lt;/ul&gt;
+&nbsp;	 * Se uno dei due eventi si presenta, possono registrarsi errors (quali INVALID_DATE_FORMAT_ERROR, EXAM_ALREADY_EXISTS_ERROR) o warnings (INVALID_DATE_RANGE_WARNING).
+&nbsp;	 * @param name {@link Token} contenente il nome
+&nbsp;	 * @param cfu Token contenente i CFU
+&nbsp;	 * @param stringdate Token contenente la data
+&nbsp;	 * @return oggetto &lt;i&gt;Exam&lt;/i&gt; corrispondente
+&nbsp;	 */
+&nbsp;	public Exam createExam(Token name, Token cfu, Token stringdate) {
+&nbsp;		
+<b class="fc">&nbsp;		String n = name.getText().replace(&quot;\&quot;&quot;,&quot;&quot;);</b>
+<b class="fc">&nbsp;		int c = Integer.parseInt(cfu.getText());</b>
+<b class="fc">&nbsp;		LocalDate s = checkDateDeclaration(stringdate);</b>
+<b class="fc">&nbsp;		if(s != null &amp;&amp; !checkIfExamExists(name)) {</b>
+<b class="fc">&nbsp;			Exam x = new Exam(n, c, s);</b>
+<b class="fc">&nbsp;			Degree.getDegree().addExam(x);</b>
+<b class="fc">&nbsp;			return x;</b>
+&nbsp;		}else
+<b class="nc">&nbsp;			return null;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Imposta il valore di &lt;i&gt;{@link Status}&lt;/i&gt; in &lt;i&gt;{@link Exam}&lt;/i&gt; secondo il {@link Token} ricevuto.
+&nbsp;	 * &lt;br&gt;Verifica i seguenti vincoli:
+&nbsp;	 * &lt;ul&gt;
+&nbsp;	 *     &lt;li&gt;L&#39;esame dev&#39;essere passato entro il giorno corrente e non dopo;&lt;/li&gt;
+&nbsp;	 *     &lt;li&gt;L&#39;esame può essere passato solo se gli &lt;i&gt;Exam&lt;/i&gt; definiti come vincoli &lt;tt&gt;strict&lt;/tt&gt; nella &lt;i&gt;Dependency&lt;/i&gt; corrispondente in &lt;i&gt;{@link DependencyManager}&lt;/i&gt; siano anch&#39;essi passati. &lt;/li&gt;
+&nbsp;	 * &lt;/ul&gt;
+&nbsp;	 * Può quindi registrare i warning &lt;tt&gt;PASSED_AFTER_TODAY_WARNING&lt;/tt&gt;,&lt;tt&gt;STRICT_DEPENDENCY_NOT_PASSED_WARNING&lt;/tt&gt;.
+&nbsp;	 * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;	 * @param status Token contenente il valore per &lt;i&gt;Status&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public void setExamStatus(Exam e, Token status) {
+&nbsp;		
+&nbsp;
+<b class="fc">&nbsp;		String s = status.getText();</b>
+<b class="fc">&nbsp;		if(!s.equals(&quot;PASSED&quot;)){</b>
+<b class="nc">&nbsp;			e.setStatus(s);</b>
+&nbsp;			return;
+&nbsp;		}
+&nbsp;
+<b class="fc">&nbsp;		boolean correct = true;</b>
+&nbsp;		//se l&#39;esame è &quot;PASSED&quot;, qui si effettuano dei controlli per valutare se la data dell&#39;esame è dopo LocalDate.now()
+<b class="fc">&nbsp;		if(LocalDate.now().isBefore(e.getAppello()))</b>
+&nbsp;		{
+<b class="fc">&nbsp;			addWarning(PASSED_AFTER_TODAY_WARNING,status);</b>
+<b class="fc">&nbsp;			correct = false;</b>
+&nbsp;		}
+&nbsp;		//se l&#39;esame è passato, tutte le sue dipendenze strict devono essere &quot;PASSED&quot;, altrimenti setta a NOT_PASSED
+<b class="fc">&nbsp;		if(dep.hasDependency(e) &amp;&amp; !checkPastStrictDependencies(e)){</b>
+<b class="fc">&nbsp;			addWarning(STRICT_DEPENDENCY_NOT_PASSED_WARNING,status);</b>
+<b class="fc">&nbsp;			correct = false;</b>
+&nbsp;		}
+&nbsp;
+<b class="fc">&nbsp;		if(!correct)</b>
+<b class="fc">&nbsp;			e.setStatus(&quot;NOT_PASSED&quot;);</b>
+&nbsp;		else
+<b class="fc">&nbsp;			e.setStatus(s);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Assegna l&#39;oggetto &lt;i&gt;{@link Exam}&lt;/i&gt; ad una &lt;i&gt;{@link Milestone}&lt;/i&gt; specificata dal {@link Token} in input.
+&nbsp;	 * Se la &lt;i&gt;Milestone&lt;/i&gt; non esiste, ne viene creata una nuova usando il nome specificato dal Token e viene assegnata ad &lt;i&gt;Exam&lt;/i&gt;.
+&nbsp;	 * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;	 * @param milestone  Token contenente il nome della &lt;i&gt;Milestone&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public void assignExamToMilestone(Exam e, Token milestone) {
+&nbsp;		
+<b class="fc">&nbsp;		String mil = milestone.getText().replace(&quot;\&quot;&quot;,&quot;&quot;);</b>
+&nbsp;
+&nbsp;		
+<b class="fc">&nbsp;			if(d.getMilestones().keySet().contains(mil)) {</b>
+<b class="fc">&nbsp;				if (d.getMilestones().get(mil).getYear() == idYear) {</b>
+<b class="fc">&nbsp;					e.setMilestone(mil);</b>
+<b class="fc">&nbsp;					d.getMilestones().get(mil).addExam(e);</b>
+&nbsp;				} else {
+<b class="nc">&nbsp;					addWarning(DUPLICATED_MILESTONE_WARNING,milestone);</b>
+&nbsp;				}
+&nbsp;			}else{
+<b class="fc">&nbsp;				e.setMilestone(mil);</b>
+<b class="fc">&nbsp;				createMilestone(mil).addExam(e);</b>
+&nbsp;			}
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Crea una nuova &lt;i&gt;{@link Milestone}&lt;/i&gt;.
+&nbsp;	 * @param milestone nome della Milestone, formato &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 * @return oggetto &lt;i&gt;Milestone&lt;/i&gt; creato
+&nbsp;	 */
+&nbsp;	public Milestone createMilestone(String milestone) {
+<b class="fc">&nbsp;		Milestone m = new Milestone(milestone,idYear);</b>
+<b class="fc">&nbsp;		d.addMilestone(m);</b>
+<b class="fc">&nbsp;		return m;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Utilizzato nella &lt;i&gt;studentRule&lt;/i&gt; durante la compilazione, serve a creare un oggetto &lt;i&gt;{@link Student}&lt;/i&gt; in fase di analisi semantica.
+&nbsp;	 * @param name {@link Token} con nome studente
+&nbsp;	 * @param sur Token con cognome studente
+&nbsp;	 * @param serial Token con matricola studente
+&nbsp;	 * @param birthdate Token con anno di nascita
+&nbsp;	 * @param email Token con email
+&nbsp;	 * @param u oggetto &lt;i&gt;{@link University}&lt;/i&gt; con dati università studente
+&nbsp;	 */
+&nbsp;	public void createStudent(Token name,Token sur,Token serial,Token birthdate,Token email,University u){
+<b class="fc">&nbsp;		d.setStudent(new Student(name.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+<b class="fc">&nbsp;				sur.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+<b class="fc">&nbsp;				serial.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+<b class="fc">&nbsp;				checkLocalDate(birthdate),</b>
+<b class="fc">&nbsp;				email.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+&nbsp;				u)
+&nbsp;		);
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Utilizzato nella &lt;i&gt;universityRule&lt;/i&gt; durante la compilazione, serve a creare un oggetto &lt;i&gt;{@link University}&lt;/i&gt; in fase di analisi semantica.
+&nbsp;	 * @param uname {@link Token} con nome dell&#39;università
+&nbsp;	 * @param a oggetto &lt;i&gt;{@link Address}&lt;/i&gt; per specificare l&#39;indirizzo
+&nbsp;	 * @return oggetto &lt;i&gt;University&lt;/i&gt; corrispondente
+&nbsp;	 */
+&nbsp;	public University createUniversity(Token uname, Address a){
+<b class="fc">&nbsp;		return new University(uname.getText().replace(&quot;\&quot;&quot;,&quot;&quot;), a);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Utilizzato nella &lt;i&gt;addressRule&lt;/i&gt; durante la compilazione, serve a creare un oggetto &lt;i&gt;{@link Address}&lt;/i&gt; in fase di analisi semantica.
+&nbsp;	 * @param street {@link Token} con nome strada
+&nbsp;	 * @param number Token con numero &lt;i&gt;int&lt;/i&gt;
+&nbsp;	 * @param zip Token con codice postale &lt;i&gt;int&lt;/i&gt;
+&nbsp;	 * @param city Token con nome città
+&nbsp;	 * @param country Token con nome nazione
+&nbsp;	 * @return oggetto &lt;i&gt;Address&lt;/i&gt; corrispondente
+&nbsp;	 */
+&nbsp;	public Address createAddress(Token street, Token number, Token zip, Token city, Token country){
+<b class="fc">&nbsp;		return new Address(street.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+<b class="fc">&nbsp;				Integer.parseInt(number.getText()),</b>
+<b class="fc">&nbsp;				zip.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+<b class="fc">&nbsp;				city.getText().replace(&quot;\&quot;&quot;,&quot;&quot;),</b>
+<b class="fc">&nbsp;				country.getText().replace(&quot;\&quot;&quot;,&quot;&quot;)</b>
+&nbsp;		);
+&nbsp;	}
+&nbsp;
+&nbsp;	// *********************** gestione degli errori
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica se sono stati registrati errors.
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean hasErrors( ) {
+<b class="fc">&nbsp;		return !errors.isEmpty();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica se sono stati registrati warning.
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean hasWarning( ) {
+<b class="fc">&nbsp;		return !warnings.isEmpty();</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Restituisce ArrayList errors registrati.
+&nbsp;	 * @return &lt;i&gt;ArrayList&lt;/i&gt; di &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public ArrayList&lt;String&gt; getErrors( ) {
+<b class="fc">&nbsp;		return errors;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Restituisce ArrayList waring registrati.
+&nbsp;	 * @return &lt;i&gt;ArrayList&lt;/i&gt; di &lt;i&gt;String&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public ArrayList&lt;String&gt; getWarnings( ) {
+<b class="fc">&nbsp;		return warnings;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * dato il {@link Token} col nome dell&#39;esame, verifica se esiste un &lt;i&gt;{@link Exam}&lt;/i&gt; corrispondente in &lt;i&gt;{@link Degree}&lt;/i&gt;.
+&nbsp;	 * @param t Token col nome dell&#39;esame
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean checkIfExamExists(Token t){
+<b class="fc">&nbsp;		for(Year y : d.getYears())</b>
+<b class="fc">&nbsp;			if(y.getExams().containsKey(t.getText())){</b>
+<b class="nc">&nbsp;				addError(EXAM_ALREADY_EXISTS_ERROR,t);</b>
+<b class="nc">&nbsp;				return true;</b>
+&nbsp;			}
+<b class="fc">&nbsp;		return false;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica se l&#39;oggetto &lt;i&gt;{@link Exam}&lt;/i&gt; abbia delle dipendenze &lt;tt&gt;strict&lt;/tt&gt; nella rispettiva &lt;i&gt;Dependency&lt;/i&gt; in &lt;i&gt;{@link DependencyManager}&lt;/i&gt;.
+&nbsp;	 * Quindi, verifica se queste dipendenze abbiano un oggetto &lt;i&gt;Exam&lt;/i&gt; corrispondente in &lt;i&gt;{@link Degree}&lt;/i&gt; con attributo &lt;i&gt;{@link Status}&lt;/i&gt; &lt;tt&gt;PASSED&lt;/tt&gt;.
+&nbsp;	 * Se questi gli &lt;i&gt;Exam&lt;/i&gt; da cui &lt;tt&gt;e&lt;/tt&gt; dipende sono tutti PASSED, allora viene restituito &lt;tt&gt;true&lt;/tt&gt;.
+&nbsp;	 * @param e oggetto &lt;i&gt;Exam&lt;/i&gt;
+&nbsp;	 * @return &lt;tt&gt;true&lt;/tt&gt; se condizione verificata, &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public boolean checkPastStrictDependencies(Exam e){
+<b class="fc">&nbsp;		if(!Degree.getDegree().hasAnyExam() || !dep.hasStrictDependencies(e))</b>
+<b class="nc">&nbsp;			return true;</b>
+&nbsp;
+<b class="fc">&nbsp;		for(ExamDependency d : dep.getDependency(e).getStrict_dependencies()){</b>
+<b class="fc">&nbsp;			if(Degree.getDegree().hasExam(e.getName()) &amp;&amp; !Degree.getDegree().getExam(d.getExam()).isPassed()) {</b>
+<b class="fc">&nbsp;				return false;</b>
+&nbsp;			}
+<b class="fc">&nbsp;		}</b>
+&nbsp;
+<b class="nc">&nbsp;		return true;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica che l&#39;oggetto &lt;i&gt;{@link Year}&lt;/i&gt; contenga almeno un &lt;i&gt;{@link Exam}&lt;/i&gt;. Nel caso contrario, registra &lt;tt&gt;EMPTY_YEAR_ERROR&lt;/tt&gt;.
+&nbsp;	 * @param y oggetto &lt;i&gt;Year&lt;/i&gt;
+&nbsp;	 * @param yt {@link Token} corrispondente al &lt;i&gt;Year&lt;/i&gt;
+&nbsp;	 * @return oggetto &lt;i&gt;Year&lt;/i&gt; se passa il controllo, &lt;tt&gt;null&lt;/tt&gt; altrimenti
+&nbsp;	 */
+&nbsp;	public Year checkYear(Year y, Token yt){
+<b class="fc">&nbsp;		if(y.getNumExams() == 0)</b>
+&nbsp;		{
+<b class="nc">&nbsp;			addError(EMPTY_YEAR_ERROR,yt);</b>
+<b class="nc">&nbsp;			idYear--;</b>
+<b class="nc">&nbsp;			return null;</b>
+&nbsp;		}
+<b class="fc">&nbsp;		return y;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica che ogni oggetto &lt;i&gt;{@link Year}&lt;/i&gt; in &lt;i&gt;{@link Degree}&lt;/i&gt; contenga almeno un &lt;i&gt;{@link Exam}&lt;/i&gt;. Nel caso contrario, registra &lt;tt&gt;EMPTY_DEGREE_ERROR&lt;/tt&gt;.
+&nbsp;	 * @param deg {@link Token} col nome del &lt;i&gt;Degree&lt;/i&gt;
+&nbsp;	 */
+&nbsp;	public void checkDegree(Token deg){
+<b class="fc">&nbsp;		if(d.getYears().isEmpty())</b>
+<b class="nc">&nbsp;			addError(EMPTY_DEGREE_ERROR,deg);</b>
+<b class="fc">&nbsp;		if(!d.hasStudent())</b>
+<b class="nc">&nbsp;			addWarning(NO_STUDENT_INFO_WARING,deg);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Verifica che il numero di ore non sia minore di 1 o maggiore di 24. In caso contrario, registra &lt;tt&gt;INVALID_STUDYHOURS_RANGE_WARNING&lt;/tt&gt;.
+&nbsp;	 * @param studyhours {@link Token} contenente le ore di studio
+&nbsp;	 * @return valore scritto nel Token se tutto ok, oppure il valore di default descritto in &lt;i&gt;{@link Degree}&lt;/i&gt;, cioè 4
+&nbsp;	 */
+&nbsp;	public int checkDailyStudyHours(Token studyhours){
+<b class="fc">&nbsp;		int hhh = Integer.parseInt(studyhours.getText());</b>
+<b class="fc">&nbsp;		if(hhh &gt; 24 || hhh &lt; 1)</b>
+&nbsp;		{
+<b class="nc">&nbsp;			addWarning(INVALID_STUDYHOURS_RANGE_WARNING, studyhours);</b>
+<b class="nc">&nbsp;			return Degree.getDegree().getDailyStudyHours();</b>
+&nbsp;		}
+&nbsp;
+<b class="fc">&nbsp;		return hhh;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Controlla che la data nel {@link Token} sia conforme al formato &quot;dd-MM-yyyy&quot; e che sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra rispettivamente &lt;tt&gt;INVALID_DATE_FORMAT_ERROR&lt;/tt&gt; ed &lt;tt&gt;INVALID_DATE_RANGE_WARNING&lt;/tt&gt;.
+&nbsp;	 * @param stringdate Token contenente data
+&nbsp;	 * @return oggetto &lt;i&gt;{@link LocalDate}&lt;/i&gt; corrispondente, oppure &lt;tt&gt;null&lt;/tt&gt; in caso di INVALID_DATE_FORMAT_ERROR
+&nbsp;	 */
+&nbsp;	public LocalDate checkDateDeclaration( Token stringdate){
+&nbsp;
+<b class="fc">&nbsp;		LocalDate s = checkLocalDate(stringdate);</b>
+<b class="fc">&nbsp;		checkDateRange(s,stringdate);</b>
+&nbsp;
+<b class="fc">&nbsp;		return s;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Controlla che la data nel {@link Token} sia conforme al formato &quot;dd-MM-yyyy&quot;. Altrimenti, registra &lt;tt&gt;INVALID_DATE_RANGE_WARNING&lt;/tt&gt;.
+&nbsp;	 * @param stringdate Token contenente data
+&nbsp;	 * @return oggetto &lt;i&gt;{@link LocalDate}&lt;/i&gt; corrispondente, oppure &lt;tt&gt;null&lt;/tt&gt; in caso di INVALID_DATE_FORMAT_ERROR
+&nbsp;	 */
+&nbsp;	public LocalDate checkLocalDate(Token stringdate){
+<b class="fc">&nbsp;		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</b>
+<b class="fc">&nbsp;		LocalDate s = null;</b>
+&nbsp;		try{
+<b class="fc">&nbsp;			s = LocalDate.parse(stringdate.getText(), dtf);</b>
+<b class="nc">&nbsp;		}catch(DateTimeParseException e){</b>
+<b class="nc">&nbsp;			addError(INVALID_DATE_FORMAT_ERROR, stringdate);</b>
+<b class="fc">&nbsp;		}</b>
+<b class="fc">&nbsp;		return s;</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Controlla che la data nel {@link Token} sia nel range valido (+10/-10 anni rispetto alla data corrente). Altrimenti, registra &lt;tt&gt;INVALID_DATE_RANGE_WARNING&lt;/tt&gt;.
+&nbsp;	 * @param s versione &lt;i&gt;{@link LocalDate}&lt;/i&gt; della data contenuta in &lt;tt&gt;stringdate&lt;/tt&gt; (per controllo valore)
+&nbsp;	 * @param stringdate Token contenente data (per segnalare posizione dell&#39;errore nel file)
+&nbsp;	 */
+&nbsp;	public void checkDateRange(LocalDate s, Token stringdate){
+<b class="fc">&nbsp;		if(s == null)</b>
+&nbsp;			return;
+&nbsp;
+<b class="fc">&nbsp;		if(s.plusYears(10L).isBefore(LocalDate.now())){</b>
+<b class="nc">&nbsp;			addWarning(INVALID_DATE_RANGE_WARNING, stringdate);</b>
+<b class="nc">&nbsp;			s = LocalDate.now().minusYears(10L);</b>
+&nbsp;		}
+<b class="fc">&nbsp;		if(s.minusYears(10L).isAfter(LocalDate.now())){</b>
+<b class="fc">&nbsp;			addWarning(INVALID_DATE_RANGE_WARNING, stringdate);</b>
+<b class="fc">&nbsp;			s = LocalDate.now().plusYears(10L);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Gestisce l&#39;errore come lessicale o sintattico.
+&nbsp;	 * @param tokenNames
+&nbsp;	 * @param tk
+&nbsp;	 * @param e
+&nbsp;	 * @param hdr
+&nbsp;	 * @param msg
+&nbsp;	 */
+&nbsp;	public void handleError(String[] tokenNames, Token tk, RecognitionException e, String hdr, String msg) {
+&nbsp;
+<b class="fc">&nbsp;		String coors = &quot;[&quot; + tk.getLine() + &quot;, &quot; + (tk.getCharPositionInLine()+1) + &quot;]&quot;;</b>
+<b class="fc">&nbsp;		if (tk.getType() == GRADLexer.ERROR_TOKEN)</b>
+<b class="nc">&nbsp;			errors.add(&quot;Errore Lessicale in &quot; + coors + &quot;:\t&quot; + msg + &quot;\t&quot; + tk.getText());</b>
+&nbsp;		else
+<b class="fc">&nbsp;			errors.add(&quot;Errore Sintattico in &quot; + coors + &quot;:\t&quot; + msg +&quot;\t&quot; + tk.getText());</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	// gestore gli errori semantici
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Registra messaggio d&#39;errore.
+&nbsp;	 * @param errCode codice d&#39;errore &lt;i&gt;int&lt;/i&gt;
+&nbsp;	 * @param tk {@link Token} che ha causato l&#39;errore.
+&nbsp;	 */
+&nbsp;	void addError (int errCode, Token tk) {
+<b class="nc">&nbsp;		String str = tk.getText();</b>
+<b class="nc">&nbsp;		String coors = &quot;[&quot; + tk.getLine() + &quot;, &quot; + (tk.getCharPositionInLine()+1) + &quot;]&quot;;</b>
+<b class="nc">&nbsp;		String msg = &quot;Errore Semantico in &quot; + coors + &quot;: (&quot;+errCode+&quot;) \t&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;		if (errCode == INVALID_DATE_FORMAT_ERROR)</b>
+<b class="nc">&nbsp;			msg += &quot;Il formato della data &#39;&quot;+str+&quot;&#39; è errato (dev&#39;essere gg-mm-aaaa)&quot;;</b>
+<b class="nc">&nbsp;		else if(errCode == EMPTY_YEAR_ERROR)</b>
+<b class="nc">&nbsp;			msg += &quot;YEAR non presenta alcun esame valido in elenco&quot;;</b>
+<b class="nc">&nbsp;		else if (errCode == EMPTY_DEGREE_ERROR)</b>
+<b class="nc">&nbsp;			msg += &quot;DEGREE &#39;&quot;+str+&quot;&#39; non presenta alcun anno valido in elenco&quot;;</b>
+<b class="nc">&nbsp;		else if (errCode == EXAM_ALREADY_EXISTS_ERROR)</b>
+<b class="nc">&nbsp;			msg += &quot;EXAM &#39;&quot;+str+&quot;&#39; è stato già inserito precedentemente&quot;;</b>
+<b class="nc">&nbsp;		msg += &quot; (&quot;+errCode+&quot;)&quot;;</b>
+<b class="nc">&nbsp;		errors.add(msg);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;	/**
+&nbsp;	 * Registra messaggio di warning.
+&nbsp;	 * @param warnCode codice di warning &lt;i&gt;int&lt;/i&gt;
+&nbsp;	 * @param tk {@link Token} che ha causato il warning.
+&nbsp;	 */
+&nbsp;	void addWarning (int warnCode, Token tk) {
+<b class="fc">&nbsp;		String str = tk.getText();</b>
+<b class="fc">&nbsp;		String coors = &quot;[&quot; + tk.getLine() + &quot;, &quot; + (tk.getCharPositionInLine()+1) + &quot;]&quot;;</b>
+<b class="fc">&nbsp;		String msg = &quot;Warning in &quot; + coors + &quot;:\t&quot;;</b>
+&nbsp;
+<b class="fc">&nbsp;		if(warnCode == INVALID_STUDYHOURS_RANGE_WARNING)</b>
+<b class="nc">&nbsp;			msg += &quot;DAILY_HOURS dev&#39;essere compreso in [1, 24]. Impostato default: &quot;+Degree.getDegree().getDailyStudyHours();</b>
+<b class="fc">&nbsp;		else if (warnCode == INVALID_DATE_RANGE_WARNING)</b>
+<b class="fc">&nbsp;			msg += &quot;La data d&#39;appello &#39;&quot;+str+&quot;&#39; supera il range anni consentito [&quot;+LocalDate.now().minusYears(10L).getYear()+&quot;, &quot;+LocalDate.now().plusYears(10L).getYear()+&quot;]. Impostato limite più vicino&quot;;</b>
+<b class="fc">&nbsp;		else if (warnCode == PASSED_AFTER_TODAY_WARNING)</b>
+<b class="fc">&nbsp;			msg += &quot;STATUS è PASSED in un appello futuro. Impostato NOT_PASSED&quot;;</b>
+<b class="fc">&nbsp;		else if (warnCode == STRICT_DEPENDENCY_NOT_PASSED_WARNING)</b>
+<b class="fc">&nbsp;			msg += &quot;STATUS è PASSED ma gli esami propedeutici sono NOT_PASSED. Impostato NOT_PASSED&quot;;</b>
+<b class="nc">&nbsp;		else if (warnCode == NO_STUDENT_INFO_WARING)</b>
+<b class="nc">&nbsp;			msg += &quot;Non sono stati inseriti i dati dello studente (struttura STUDENT non individuata).&quot;;</b>
+<b class="nc">&nbsp;		else if (warnCode == DUPLICATED_MILESTONE_WARNING)</b>
+<b class="nc">&nbsp;			msg += &quot;La milestone &quot;+tk.getText()+&quot; è stata duplicata. Questo esame sarà senza Milestone&quot;;</b>
+<b class="fc">&nbsp;		msg += &quot; (&quot;+warnCode+&quot;)&quot;;</b>
+<b class="fc">&nbsp;		warnings.add (msg);</b>
+&nbsp;	}
+&nbsp;// ----------------------- fine gestione degli errori
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

@@ -11,7 +11,7 @@ public class ExamTile extends GanttTile{
     /**
      * oggetto <i>{@link Exam}</i> associato
      */
-    private Exam exam;
+    private final Exam exam;
 
     /**
      * Costruttore che computa data di inizio della task basandosi su:

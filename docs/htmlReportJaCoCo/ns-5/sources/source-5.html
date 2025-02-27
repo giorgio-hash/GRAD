@@ -1,0 +1,169 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > MilestoneTile</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">model.tiles</a>
+</div>
+
+<h1>Coverage Summary for Class: MilestoneTile (model.tiles)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MilestoneTile</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92,9%
+  </span>
+  <span class="absValue">
+    (13/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package model.tiles;
+&nbsp;
+&nbsp;import controller.Degree;
+&nbsp;import model.compiler.Milestone;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.SortedSet;
+&nbsp;
+&nbsp;/**
+&nbsp; * Specializzazione del &lt;i&gt;GanttTile&lt;/i&gt; su cui si appoggerà la costruzione della Task, nel Gantt, associata ad elemento &lt;i&gt;Milestone&lt;/i&gt;, di &lt;i&gt;Degree&lt;/i&gt;.
+&nbsp; */
+&nbsp;public class MilestoneTile extends GanttTile{
+&nbsp;    /**
+&nbsp;     * insieme di esami ordinato per data di appello
+&nbsp;     */
+&nbsp;    private ExamAggregator exams;
+&nbsp;    /**
+&nbsp;     * &lt;i&gt;{@link Milestone}&lt;/i&gt; associata
+&nbsp;     */
+&nbsp;    private Milestone ms;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore che estrae la Milestone di riferimento sfruttando &lt;i&gt;Degree&lt;/i&gt;
+&nbsp;     * @param milestone nome della Milestone di riferimento
+&nbsp;     */
+<b class="fc">&nbsp;    public MilestoneTile(String milestone){</b>
+&nbsp;
+<b class="fc">&nbsp;        ms = Degree.getDegree().getMilestones().get(milestone);</b>
+<b class="fc">&nbsp;        exams = new ExamAggregator(ms);</b>
+&nbsp;
+&nbsp;        //fine anno
+<b class="fc">&nbsp;        super.setEnd(exams.getExams().last().getEnd());</b>
+&nbsp;
+&nbsp;        //inizio anno
+<b class="fc">&nbsp;        Iterator&lt;ExamTile&gt; iterator = exams.getExams().iterator();</b>
+&nbsp;        LocalDate start;
+<b class="fc">&nbsp;        while(iterator.hasNext()){</b>
+<b class="fc">&nbsp;            if (super.getStart() == null) {</b>
+<b class="fc">&nbsp;                super.setStart(iterator.next().getStart());</b>
+<b class="fc">&nbsp;                continue;</b>
+&nbsp;            }
+<b class="fc">&nbsp;            start = iterator.next().getStart();</b>
+<b class="fc">&nbsp;            if(super.getStart().isAfter(start))</b>
+<b class="nc">&nbsp;                super.setStart(start);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return &lt;i&gt;{@link SortedSet}&lt;/i&gt; di elementi &lt;i&gt;{@link ExamTile}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    public SortedSet&lt;ExamTile&gt; getExamTiles() {
+<b class="fc">&nbsp;        return exams.getExams();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return oggetto &lt;i&gt;Milestone&lt;/i&gt; asssociato
+&nbsp;     */
+&nbsp;    public Milestone getMilestone(){
+<b class="fc">&nbsp;        return ms;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,533 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GRADgui</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">view</a>
+</div>
+
+<h1>Coverage Summary for Class: GRADgui (view)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GRADgui</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/58)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GRADgui$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GRADgui$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GRADgui$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GRADgui$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GRADgui$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/120)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package view;
+&nbsp;
+&nbsp;import controller.DependencyManager;
+&nbsp;import model.compiler.Address;
+&nbsp;import model.compiler.Exam;
+&nbsp;import model.compiler.Student;
+&nbsp;import model.compiler.University;
+&nbsp;import view.tableModel.DegreeTableModel;
+&nbsp;import view.utils.Mode;
+&nbsp;import controller.Degree;
+&nbsp;import controller.Parser;
+&nbsp;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;import java.time.format.DateTimeFormatter;
+&nbsp;
+&nbsp;/**
+&nbsp; * Estensione di &lt;i&gt;{@link JFrame}&lt;/i&gt; e realizzata principalmente con &lt;i&gt;Swing&lt;/i&gt; ed il supporto di &lt;a href=&quot;https://plugins.jetbrains.com/plugin/25304-swing-ui-designer&quot;&gt;IntelliJ Swing UI Designer&lt;/a&gt;, è la componente principale del livello &lt;i&gt;view&lt;/i&gt;. Costituisce l&#39;elemento grafico principale.
+&nbsp; * &lt;ul&gt;
+&nbsp; *     &lt;li&gt;Contiene una &lt;i&gt;{@link JTable}&lt;/i&gt; con &lt;i&gt;{@link DegreeTableModel}&lt;/i&gt; per visualizzare le informazioni degli esami;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;Configurazione di diversi &lt;i&gt;{@link ActionListener}&lt;/i&gt; ed &lt;i&gt;{@link ActionEvent}&lt;/i&gt; per rispondere all&#39;interazione utente;&lt;/li&gt;
+&nbsp; *     &lt;li&gt;Da questa interfaccia, l&#39;utente può caricare il file GRAD (popolando il modello gestito da {@link Degree}) e generare una &lt;i&gt;{@link GanttFrame}&lt;/i&gt;.&lt;/li&gt;
+&nbsp; * &lt;/ul&gt;
+&nbsp; */
+<b class="nc">&nbsp;public class GRADgui  extends JFrame{</b>
+&nbsp;
+&nbsp;    //elementi grafici generati da IntelliJ UI Swing Designer
+&nbsp;    private JTable dataTable;
+&nbsp;    private JComboBox groupBox;
+&nbsp;    private JComboBox typeBox;
+&nbsp;    private JButton invioButton;
+&nbsp;    private JButton caricaButton;
+&nbsp;    private JButton creaGanttButton;
+&nbsp;    private JPanel mainPanel;
+&nbsp;    private JPanel upperPanel;
+&nbsp;    private JPanel topPanel;
+&nbsp;    private JScrollPane lowerScrollPanel;
+&nbsp;    private JScrollBar verticalScrollBar;
+&nbsp;    private JScrollBar horizontalScrollBar;
+&nbsp;    private JLabel doubleDotsLabel;
+&nbsp;    private JLabel showLabel;
+&nbsp;    private JButton datiStudenteButton;
+&nbsp;
+&nbsp;    //elementi customizzati
+&nbsp;    /**
+&nbsp;     * Modello per la &lt;i&gt;{@link JTable}&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private DegreeTableModel degreemodel;
+&nbsp;    /**
+&nbsp;     * Riferimento alla {@link JFrame} responsabile del grafico Gantt
+&nbsp;     */
+&nbsp;    private GanttFrame gf;
+&nbsp;
+&nbsp;    //variabili d&#39;appoggio
+&nbsp;    /**
+&nbsp;     * Modalità di filtraggio dati (vedi &lt;i&gt;{@link Mode}&lt;/i&gt;)
+&nbsp;     */
+&nbsp;    private Mode mode;
+&nbsp;    /**
+&nbsp;     * anno selezionato nella &lt;tt&gt;groupBox&lt;/tt&gt; (per &lt;tt&gt;mode==Mode.YEAR&lt;/tt&gt;)
+&nbsp;     */
+&nbsp;    private int selectedYear;
+&nbsp;    /**
+&nbsp;     * esame selezionato nella &lt;tt&gt;groupBox&lt;/tt&gt; (per &lt;tt&gt;mode==Mode.DEPENDENCY_OF&lt;/tt&gt;)
+&nbsp;     */
+&nbsp;    private String selectedExam;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Costruttore di GRADgui.
+&nbsp;     */
+<b class="nc">&nbsp;    public GRADgui() {</b>
+<b class="nc">&nbsp;        setTitle(&quot;GRAD&quot;);</b>
+<b class="nc">&nbsp;        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        setContentPane(mainPanel);</b>
+<b class="nc">&nbsp;        pack();</b>
+<b class="nc">&nbsp;        setLocationRelativeTo(null);</b>
+<b class="nc">&nbsp;        caricaButton.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+&nbsp;
+<b class="nc">&nbsp;                Parser.getInstance().parse();</b>
+&nbsp;
+<b class="nc">&nbsp;                displayErrorsAndWarnings();</b>
+&nbsp;
+<b class="nc">&nbsp;                mode = Mode.CAREER;</b>
+&nbsp;
+<b class="nc">&nbsp;                if(Parser.getInstance().hasErrors() || Parser.getInstance().hasOtherExceptions()){</b>
+<b class="nc">&nbsp;                    showGroupBox(false);</b>
+<b class="nc">&nbsp;                    showTypeBox(false);</b>
+<b class="nc">&nbsp;                    gf = null;</b>
+&nbsp;                }else{
+<b class="nc">&nbsp;                    showTypeBox(true);</b>
+<b class="nc">&nbsp;                    showGroupBox(false);</b>
+<b class="nc">&nbsp;                    gf = new GanttFrame(&quot;GRAD - Gantt chart&quot;);</b>
+&nbsp;                }
+&nbsp;
+<b class="nc">&nbsp;                datiStudenteButton.setVisible(Degree.getDegree().hasStudent());</b>
+<b class="nc">&nbsp;                degreemodel.refresh();</b>
+<b class="nc">&nbsp;                displayCareer();</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        typeBox.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                String s = (String) typeBox.getSelectedItem();</b>
+<b class="nc">&nbsp;                switch (s) {</b>
+&nbsp;                    case &quot;YEAR&quot;:
+<b class="nc">&nbsp;                        loadYearsGroupBox();</b>
+<b class="nc">&nbsp;                        showGroupBox(true);</b>
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;                    case &quot;CAREER&quot;:
+<b class="nc">&nbsp;                        showGroupBox(false);</b>
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;                    case &quot;DEPENDENCY_OF&quot;:
+<b class="nc">&nbsp;                        loadDependenciesGroupBox();</b>
+<b class="nc">&nbsp;                        showGroupBox(true);</b>
+&nbsp;                        break;
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        invioButton.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                mode = Mode.valueOf((String) typeBox.getSelectedItem());</b>
+<b class="nc">&nbsp;                if(mode == Mode.CAREER){</b>
+<b class="nc">&nbsp;                    displayCareer();</b>
+<b class="nc">&nbsp;                } else if(mode == Mode.YEAR){</b>
+<b class="nc">&nbsp;                    selectedYear = (int) groupBox.getSelectedItem();</b>
+<b class="nc">&nbsp;                    displayYear(selectedYear);</b>
+<b class="nc">&nbsp;                } else if(mode == Mode.DEPENDENCY_OF){</b>
+<b class="nc">&nbsp;                    selectedExam = (String) groupBox.getSelectedItem();</b>
+<b class="nc">&nbsp;                    displayDependencies(selectedExam);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        creaGanttButton.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+&nbsp;
+&nbsp;                        try {
+&nbsp;
+<b class="nc">&nbsp;                            gf.clean();</b>
+<b class="nc">&nbsp;                            if (mode.equals(Mode.CAREER)) {</b>
+<b class="nc">&nbsp;                                gf.createDegreeTaskCollection();</b>
+<b class="nc">&nbsp;                            } else if (mode.equals(Mode.YEAR)) {</b>
+<b class="nc">&nbsp;                                gf.createYearTaskCollection(selectedYear);</b>
+<b class="nc">&nbsp;                            } else if (mode.equals(Mode.DEPENDENCY_OF)){</b>
+<b class="nc">&nbsp;                                gf.createDependencyTaskCollection(selectedExam);</b>
+&nbsp;                            }
+<b class="nc">&nbsp;                            gf.display();</b>
+<b class="nc">&nbsp;                            gf.pack();</b>
+<b class="nc">&nbsp;                            gf.setVisible(true);</b>
+&nbsp;
+<b class="nc">&nbsp;                        }catch(Exception ex){</b>
+<b class="nc">&nbsp;                            JOptionPane.showMessageDialog(null,</b>
+<b class="nc">&nbsp;                                    &quot;Qualcosa è andato storto durante la generazione del Gantt. Dettagli:\n\n&quot;+ex.getMessage(),</b>
+&nbsp;                                    &quot;Errore in generazione Gantt GRAD&quot;,
+&nbsp;                                    JOptionPane.ERROR_MESSAGE);
+<b class="nc">&nbsp;                            gf.clean();</b>
+<b class="nc">&nbsp;                        }</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        datiStudenteButton.addActionListener(new ActionListener() {</b>
+&nbsp;            @Override
+&nbsp;            public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;                if(Degree.getDegree().hasStudent())</b>
+&nbsp;                {
+<b class="nc">&nbsp;                    Student x = Degree.getDegree().getStudent();</b>
+<b class="nc">&nbsp;                    University u = x.getUniversity();</b>
+<b class="nc">&nbsp;                    Address a = u.getAddress();</b>
+<b class="nc">&nbsp;                    String s = &quot;&quot;+x.getName()+&quot; &quot;+x.getSurname() +&quot; (matr. &quot;+x.getSerial() +&quot;)&quot;</b>
+<b class="nc">&nbsp;                            +&quot;\nData di Nascita:&quot;+x.getBirthdate().format(DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;))</b>
+<b class="nc">&nbsp;                            +&quot;\nEmail:&quot;+x.getEmail()</b>
+<b class="nc">&nbsp;                            +&quot;\n\nStudente  presso &quot;+u.getName()</b>
+<b class="nc">&nbsp;                            +&quot;\n&quot; + a.getStreet() + &quot;, n° &quot;+a.getNumber() +&quot;, &quot;+a.getZip()</b>
+<b class="nc">&nbsp;                            +&quot;\n&quot; + a.getCity() + &quot; (&quot;+a.getCountry()+&quot;)&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;                    JOptionPane.showMessageDialog(null, s,&quot;Dati Studente&quot;,</b>
+&nbsp;                            JOptionPane.INFORMATION_MESSAGE);
+&nbsp;                }
+&nbsp;            }
+&nbsp;        });
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Se presenti, visualizza JDialog per segnalare
+&nbsp;     * &lt;ul&gt;
+&nbsp;     *     &lt;li&gt;Errori di compilazione.&lt;/li&gt;
+&nbsp;     *     &lt;li&gt;Warning di compilazione;&lt;/li&gt;
+&nbsp;     *     &lt;li&gt;eccezioni di diverso genere (ad es. file GRAD non trovato).&lt;/li&gt;
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     */
+&nbsp;    private void displayErrorsAndWarnings(){
+&nbsp;
+<b class="nc">&nbsp;        if(Parser.getInstance().hasOtherExceptions()){</b>
+<b class="nc">&nbsp;            JOptionPane.showMessageDialog(null,</b>
+&nbsp;                    &quot;Assicurati che il percorso al tuo file &#39;.GRAD&#39; sia corretto o consulta il manuale.\nSe l&#39;errore persiste, lascia una segnalazione agli sviluppatori.&quot;,
+&nbsp;                    &quot;Errore di configurazione&quot;,
+&nbsp;                    JOptionPane.ERROR_MESSAGE);
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        String s = &quot;&quot;;</b>
+<b class="nc">&nbsp;        if(Parser.getInstance().hasErrors())</b>
+&nbsp;        {
+<b class="nc">&nbsp;            for(String err : Parser.getInstance().getErrors())</b>
+<b class="nc">&nbsp;                s += &quot;\t- &quot; + err + &quot;\n&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;            JOptionPane.showMessageDialog(null,</b>
+&nbsp;                    s,
+&nbsp;                    &quot;Errore in compilazione GRAD&quot;,
+&nbsp;                    JOptionPane.ERROR_MESSAGE);
+&nbsp;        }
+<b class="nc">&nbsp;        s = &quot;&quot;;</b>
+<b class="nc">&nbsp;        if(Parser.getInstance().hasWarning())</b>
+&nbsp;        {
+<b class="nc">&nbsp;            for(String wa : Parser.getInstance().getWarnings())</b>
+<b class="nc">&nbsp;                s += &quot;\t- &quot; + wa + &quot;\n&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;            JOptionPane.showMessageDialog(null,</b>
+&nbsp;                    s,
+&nbsp;                    &quot;Warning in compilazione GRAD&quot;,
+&nbsp;                    JOptionPane.WARNING_MESSAGE);
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if(!DependencyManager.getInstance().hasDependencyMapper())</b>
+<b class="nc">&nbsp;            JOptionPane.showMessageDialog(null,</b>
+&nbsp;                    &quot;File &#39;career.YML&#39; non trovato o non corretto. Le dipendenze tra i corsi non sono state prese in considerazione.&quot;,
+&nbsp;                    &quot;Nessuna dipendenza corso&quot;,
+&nbsp;                    JOptionPane.WARNING_MESSAGE);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Carica la GroupBox con gli identificativi degli elementi &lt;i&gt;Year&lt;/i&gt; in &lt;i&gt;{@link Degree}&lt;/i&gt;.
+&nbsp;     */
+&nbsp;    private void loadYearsGroupBox(){
+<b class="nc">&nbsp;        groupBox.removeAllItems();</b>
+<b class="nc">&nbsp;        for(int i=1; i&lt;=Degree.getDegree().getYears().size(); i++)</b>
+<b class="nc">&nbsp;            groupBox.addItem(i);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il modello &lt;i&gt;{@link DegreeTableModel}&lt;/i&gt; con successiva notifica alla &lt;i&gt;JTable&lt;/i&gt; per visualizzare tutti gli esami di carriera nella &lt;i&gt;JTable&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private void displayCareer(){
+<b class="nc">&nbsp;        degreemodel.displayCareer();</b>
+<b class="nc">&nbsp;        dataTable.updateUI();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il modello &lt;i&gt;{@link DegreeTableModel}&lt;/i&gt; con successiva notifica alla &lt;i&gt;JTable&lt;/i&gt; per visualizzare gli esami di uno specifico anno nella &lt;i&gt;JTable&lt;/i&gt;
+&nbsp;     * @param year identificativo &lt;i&gt;int&lt;/i&gt; anno
+&nbsp;     */
+&nbsp;    private void displayYear(int year){
+<b class="nc">&nbsp;        degreemodel.displayByYear(year);</b>
+<b class="nc">&nbsp;        dataTable.updateUI();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Aggiorna il modello &lt;i&gt;{@link DegreeTableModel}&lt;/i&gt; con successiva notifica alla &lt;i&gt;JTable&lt;/i&gt; per visualizzare gli esami che sono dipendenza di uno specifico esame, nella &lt;i&gt;JTable&lt;/i&gt;
+&nbsp;     * @param exam identificativo &lt;i&gt;String&lt;/i&gt; per l&#39;esame con dipendenze
+&nbsp;     */
+&nbsp;    private void displayDependencies(String exam){
+<b class="nc">&nbsp;        degreemodel.displayDependencies(exam);</b>
+<b class="nc">&nbsp;        dataTable.updateUI();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Carica la &lt;tt&gt;groupBox&lt;/tt&gt; con gli identificativi degli elementi &lt;i&gt;Exam&lt;/i&gt; in &lt;i&gt;{@link Degree}&lt;/i&gt; che hanno dipendenze presenti come oggetti &lt;i&gt;Exam&lt;/i&gt; in &lt;i&gt;Degree&lt;/i&gt;
+&nbsp;     */
+&nbsp;    private void loadDependenciesGroupBox(){
+<b class="nc">&nbsp;        groupBox.removeAllItems();</b>
+<b class="nc">&nbsp;        for(Exam e : DependencyManager.getInstance().getExamsWithDependencies())</b>
+<b class="nc">&nbsp;            groupBox.addItem(e.getName());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Visualizza &lt;tt&gt;typeBox&lt;/tt&gt; e modifica label di fianco
+&nbsp;     * @param show  booleano, &lt;tt&gt;true&lt;/tt&gt; per mostrare e &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    private void showTypeBox(boolean show){
+<b class="nc">&nbsp;        if(show){</b>
+<b class="nc">&nbsp;            showLabel.setText(&quot;Seleziona&quot;);</b>
+&nbsp;            String[] types;
+<b class="nc">&nbsp;            if(DependencyManager.getInstance().hasDependencies() &amp;&amp; DependencyManager.getInstance().hasAnyDependencyLoaded()) {</b>
+<b class="nc">&nbsp;                types = new String[3];</b>
+<b class="nc">&nbsp;                types[0] = &quot;CAREER&quot;;</b>
+<b class="nc">&nbsp;                types[1] = &quot;YEAR&quot;;</b>
+<b class="nc">&nbsp;                types[2] = &quot;DEPENDENCY_OF&quot;;</b>
+&nbsp;            }else{
+<b class="nc">&nbsp;                types = new String[2];</b>
+<b class="nc">&nbsp;                types[0] = &quot;CAREER&quot;;</b>
+<b class="nc">&nbsp;                types[1] = &quot;YEAR&quot;;</b>
+&nbsp;            }
+<b class="nc">&nbsp;            typeBox.setModel(new DefaultComboBoxModel(types));</b>
+<b class="nc">&nbsp;        }else{</b>
+<b class="nc">&nbsp;            showLabel.setText(&quot;Benvenuto in GRAD! Per iniziare, carica un file \&quot;.GRAD\&quot;.&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        typeBox.setVisible(show);</b>
+<b class="nc">&nbsp;        creaGanttButton.setVisible(show);</b>
+<b class="nc">&nbsp;        invioButton.setVisible(show);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Visualizza &lt;tt&gt;groupBox&lt;/tt&gt;
+&nbsp;     * @param show  booleano, &lt;tt&gt;true&lt;/tt&gt; per mostrare e &lt;tt&gt;false&lt;/tt&gt; altrimenti
+&nbsp;     */
+&nbsp;    private void showGroupBox(boolean show){
+<b class="nc">&nbsp;        doubleDotsLabel.setVisible(show);</b>
+<b class="nc">&nbsp;        groupBox.setVisible(show);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Metodo predisposto da &lt;a href=&quot;https://plugins.jetbrains.com/plugin/25304-swing-ui-designer&quot;&gt;IntelliJ Swing UI Designer&lt;/a&gt; per creazione personalizzata di componenti UI
+&nbsp;     */
+&nbsp;    private void createUIComponents() {
+&nbsp;
+<b class="nc">&nbsp;        degreemodel = new DegreeTableModel();</b>
+<b class="nc">&nbsp;        dataTable = new JTable(degreemodel);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-02-27 19:27</div>
+</div>
+</body>
+</html>

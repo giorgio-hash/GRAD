@@ -15,38 +15,20 @@ STUDENT {
         }
     }
 }
-DEGREE: "Laurea triennale in Psicologia"
+DEGREE: "Laurea triennale"
 DAILY_HOURS: 5
 YEARS: [
     YEAR {
         EXAMS: [
-            EXAM "Introduzione alla Psicologia" CFU 6 DATE 15-01-2024 MILESTONE "BasePsy" STATUS PASSED;
-            EXAM "Metodologia della Ricerca Psicologica" CFU 9 DATE 10-06-2024 MILESTONE "BasePsy" STATUS PASSED;
-            EXAM "Psicologia dello Sviluppo" CFU 6 DATE 25-09-2024 MILESTONE "DevPsy";
-            EXAM "Psicobiologia" CFU 9 DATE 12-02-2025 MILESTONE "NeuroPsy";
-            EXAM "Psicologia Sociale" CFU 6 DATE 30-04-2025 MILESTONE "SocPsy";
-            EXAM "Statistica per la Psicologia" CFU 9 DATE 20-07-2024 MILESTONE "StatsPsy" STATUS PASSED;
-            EXAM "Neuroscienze Cognitive" CFU 6 DATE 15-03-2025;
+            EXAM "matematica" CFU 6 DATE 15-01-2024 MILESTONE "mategeome" STATUS PASSED;
+            EXAM "geometria" CFU 6 DATE 15-01-2044 MILESTONE "mategeome" STATUS PASSED;
+            EXAM "logica" CFU 6 DATE 15-01-2024;
         ]
     }
     YEAR {
         EXAMS: [
-            EXAM "Psicopatologia" CFU 6 DATE 08-12-2024 STATUS PASSED;
-            EXAM "Psicologia Clinica" CFU 9 DATE 18-01-2025 STATUS PASSED;
-            EXAM "Teorie e Tecniche del Colloquio Psicologico" CFU 9 DATE 05-06-2025; 
-            EXAM "Psicometria" CFU 6 DATE 15-05-2025 MILESTONE "StatsPsy";
-            EXAM "Psicologia del Lavoro e delle Organizzazioni" CFU 6 DATE 02-10-2025 MILESTONE "WorkPsy";
-            EXAM "Tecniche di Osservazione del Comportamento" CFU 6 DATE 12-07-2025;
-        ]
-    }
-    YEAR {
-        EXAMS: [
-            EXAM "Psicologia della Personalità" CFU 6 DATE 20-11-2025 MILESTONE "PersPsy";
-            EXAM "Psicologia dei Gruppi e delle Relazioni Interpersonali" CFU 6 DATE 08-02-2026 MILESTONE "SocPsy";
-            EXAM "Psicofisiologia" CFU 6 DATE 12-04-2026 MILESTONE "NeuroPsy";
-            EXAM "Psicologia della Salute" CFU 9 DATE 18-06-2026 MILESTONE "HealthPsy";
-            EXAM "Interventi Psicologici nelle Comunità" CFU 6 DATE 10-09-2026;
-            EXAM "Prova Finale" CFU 3 DATE 15-12-2026 ;
+            EXAM "fisica" CFU 6 DATE 20-01-2024 STATUS PASSED;
+            EXAM "logistica" CFU 6 DATE20-01-2024;
         ]
     }
 ]
