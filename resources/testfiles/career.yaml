@@ -1,0 +1,14 @@
+dependencies:
+  - dependency: "fisica"
+    description: "per studiare fisica occorre sapere matematica e geometria. Può servire anche un pò di logica"
+    strict_dependencies:
+      - exam: "matematica"
+      - exam: "geometria"
+    soft_dependencies:
+      - exam: "logica"
+  - dependency: "logistica"
+    description: "per studiare logistica è necessario avere dei fondamenti di organizzazione aziendale, mentre può essere utile economia"
+    strict_dependencies:
+      - exam: "organizzazione aziendale"
+    soft_dependencies:
+      - exam: "economia"
