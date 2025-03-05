@@ -1,9 +1,10 @@
-package model.tiles;
+package test.test.model.tiles;
 
 import controller.Degree;
 import model.compiler.Exam;
 import model.compiler.Milestone;
 import model.compiler.Year;
+import model.tiles.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

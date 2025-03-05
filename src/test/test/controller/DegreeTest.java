@@ -1,5 +1,6 @@
-package controller;
+package test.test.controller;
 
+import controller.Degree;
 import model.compiler.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

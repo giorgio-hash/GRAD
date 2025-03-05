@@ -1,5 +1,7 @@
-package controller;
+package test.test.controller;
 
+import controller.Degree;
+import controller.TileManager;
 import model.compiler.Exam;
 import model.compiler.Milestone;
 import model.compiler.Year;
