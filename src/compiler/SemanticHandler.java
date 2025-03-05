@@ -475,7 +475,7 @@ public class SemanticHandler {
 	void addError (int errCode, Token tk) {
 		String str = tk.getText();
 		String coors = "[" + tk.getLine() + ", " + (tk.getCharPositionInLine()+1) + "]";
-		String msg = "Errore Semantico in " + coors + ": ("+errCode+") \t";
+		String msg = "Errore Semantico in " + coors + ": \t";
 
 		if (errCode == INVALID_DATE_FORMAT_ERROR)
 			msg += "Il formato della data '"+str+"' è errato (dev'essere gg-mm-aaaa)";

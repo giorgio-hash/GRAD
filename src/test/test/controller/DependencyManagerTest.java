@@ -1,5 +1,6 @@
-package controller;
+package test.test.controller;
 
+import controller.Degree;
 import model.compiler.Exam;
 import model.compiler.Milestone;
 import model.compiler.Year;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import controller.DependencyManager;
 
 class DependencyManagerTest {
 

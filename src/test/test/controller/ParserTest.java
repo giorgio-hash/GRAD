@@ -1,5 +1,6 @@
-package controller;
+package test.test.controller;
 
+import controller.Parser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
