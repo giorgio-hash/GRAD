@@ -16,7 +16,13 @@ GRAD offre una dashboard sommaria che permette di ottenere una prospettiva sui d
 <img src="./docs/images/career_dashboard.png" alt="Descrizione immagine">
 </p>
 
-GRAD consente di creare rappresentazioni grafiche ispirate agli strumenti GANTT utilizzati nel project management, semplificando la visualizzazione temporale del proprio piano di studi. L'idea è di consentire agli studenti di comprendere rapidamente lo stato dei propri piani, individuando sovrapposizioni e stato di completamento delle collezioni di esami, aggregati secondo l'anno di appartenenza o vincoli di modularità.
+GRAD consente di creare rappresentazioni grafiche ispirate agli strumenti GANTT utilizzati nel project management, semplificando la visualizzazione temporale del proprio piano di studi. 
+
+Gli <b>esami</b> sono rappresentati secondo il loro peso in CFU, fornendo una prospettiva sul tempo di studio richiesto per raggiungere l'appello obiettivo. Tale tempistica viene calcolata in funzione delle ore di studio giornaliere che lo studente intende dedicare in media;
+
+In tal modo, lo studente sarà in grado di:
+- individuare sovrapposizioni tra esami;
+- comprendere lo stato di completamento delle collezioni di esami, aggregando per anno o altri vincoli.
 
 <p align="center">
 <img src="./docs/images/ganttchart.png" alt="Descrizione immagine">
@@ -32,7 +38,7 @@ Esempio di visualizzazione aggregata per anno "Year 1":
 <img src="./docs/images/ganttchart_year.png" alt="Descrizione immagine">
 </p>
 
-GRAD consente di aggiornare lo stato degli esami, riportando il proprio progresso riempiendo la barra di completamento delle aggregazioni di riferimento.
+GRAD consente di aggiornare lo stato degli esami, riportando il proprio progresso attraverso la barra di completamento dell'aggregazione specifica.
 <p align="center">
 <img src="./docs/images/ganttchart_update.png" alt="Descrizione immagine">
 </p>
