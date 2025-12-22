@@ -38,7 +38,7 @@ Esempio di visualizzazione aggregata per anno "Year 1":
 <img src="./docs/images/ganttchart_year.png" alt="Descrizione immagine">
 </p>
 
-GRAD consente di aggiornare lo stato degli esami, riportando il proprio progresso attraverso la barra di completamento dell'aggregazione specifica.
+GRAD consente di aggiornare lo stato degli esami, riportando il proprio progresso sulla barra di completamento dell'aggregazione specifica.
 <p align="center">
 <img src="./docs/images/ganttchart_update.png" alt="Descrizione immagine">
 </p>
