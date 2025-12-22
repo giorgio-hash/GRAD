@@ -22,7 +22,7 @@ GRAD consente di creare rappresentazioni grafiche ispirate agli strumenti GANTT 
 <img src="./docs/images/ganttchart.png" alt="Descrizione immagine">
 </p>
 
-Esempio di visualizzazione aggregata per modulo "PsyBase":
+Esempio di visualizzazione aggregata per modulo "PsyBase", dove "psicologia generale" è inoltre parte degli esami propedeutici:
 <p align="center">
 <img src="./docs/images/ganttchart_PsyBase.png" alt="Descrizione immagine" height="300">
 </p>
@@ -30,4 +30,9 @@ Esempio di visualizzazione aggregata per modulo "PsyBase":
 Esempio di visualizzazione aggregata per anno "Year 1":
 <p align="center">
 <img src="./docs/images/ganttchart_year.png" alt="Descrizione immagine">
+</p>
+
+GRAD consente di aggiornare lo stato degli esami, riportando il proprio progresso riempiendo la barra di completamento delle aggregazioni di riferimento.
+<p align="center">
+<img src="./docs/images/ganttchart_update.png" alt="Descrizione immagine">
 </p>
